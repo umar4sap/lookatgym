@@ -1,0 +1,23 @@
+sidemenu {
+  background-color: #404160;
+  width: 84px;
+  position: absolute;
+  z-index: 999;
+  bottom: 0;
+  top: 46px;
+  left: 0; }
+  sidemenu md-list-item {
+    margin-top: 15px;
+    margin-bottom: 15px; }
+    sidemenu md-list-item a.md-button {
+      min-width: 84px; }
+      sidemenu md-list-item a.md-button i {
+        font-size: 33px; }
+      sidemenu md-list-item a.md-button span {
+        margin: 0px;
+        color: #dddddd;
+        font-size: 11px; }
+    sidemenu md-list-item .md-list-item-inner:before {
+      min-height: 0px; }
+    sidemenu md-list-item:before {
+      min-height: 0px; }

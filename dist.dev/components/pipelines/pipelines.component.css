@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto:300,400,500,700,900");
+.md-headline {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 20px; }
+
+.bottom-actions span {
+  width: 32px;
+  text-align: center;
+  border-left: 1px;
+  border-right: 1px;
+  border-color: #dedede;
+  border-style: solid;
+  border-top: 0;
+  border-bottom: 0;
+  color: #676767;
+  font-size: 22px;
+  height: 23px; }
+  .bottom-actions span:last-child {
+    border-left: 0px; }
+  .bottom-actions span:first-child {
+    border-left: 1px;
+    border-color: #dedede;
+    border-style: solid; }
+  .bottom-actions span:hover {
+    color: #3cbbca;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out; }
+
+.pipelineImage {
+  width: 76px;
+  height: 76px;
+  margin-right: 15px; }
+
+.record-strip.pipelines md-card {
+  height: 250px;
+  width: 400px; }
+  .record-strip.pipelines md-card md-card-title {
+    padding: 4px; }
+    .record-strip.pipelines md-card md-card-title md-card-title-text .md-subhead {
+      padding: 0px; }
+  .record-strip.pipelines md-card md-card-title-media .md-subheader .md-subheader-inner {
+    padding: 8px 4px 4px 4px; }
+  .record-strip.pipelines md-card md-card-actions {
+    margin: 0;
+    padding: 0 4px;
+    border-left: 0px;
+    border-right: 1px solid;
+    border-top: 1px;
+    border-bottom: 0px;
+    border-style: solid;
+    border-color: #d9d5db;
+    background-color: rgba(64, 65, 96, 0.06);
+    height: 100%;
+    box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.6); }
+    .record-strip.pipelines md-card md-card-actions .pipslineStatus.progress {
+      background-color: #ffe400;
+      width: 12px;
+      height: 12px;
+      border-radius: 100%;
+      margin: auto 7px;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.15), 1px 1px 1px rgba(255, 255, 255, 0.28); }
+    .record-strip.pipelines md-card md-card-actions .pipslineStatus.success {
+      background-color: #00DB00;
+      width: 12px;
+      height: 12px;
+      border-radius: 100%;
+      margin: auto 7px;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.15), 1px 1px 1px rgba(255, 255, 255, 0.28); }
+    .record-strip.pipelines md-card md-card-actions .md-button {
+      min-width: 36px;
+      padding: 0px;
+      margin: 0px;
+      line-height: inherit;
+      min-height: 26px; }
+      .record-strip.pipelines md-card md-card-actions .md-button i {
+        font-size: 18px; }
+  .record-strip.pipelines md-card.progress {
+    border-left: 0px solid;
+    border-color: #ffe400 !important;
+    border-right: 0px;
+    border-bottom: 0px;
+    border-top: 0px solid;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px; }
+  .record-strip.pipelines md-card.success {
+    border-left: 6px solid;
+    border-color: #00b4ff; }
+  .record-strip.pipelines md-card.error {
+    border-left: 6px solid;
+    border-color: red; }
+  .record-strip.pipelines md-card.untouched {
+    border-left: 6px solid;
+    border-color: #adadad; }
+  .record-strip.pipelines md-card.completed {
+    border-left: 6px solid;
+    border-color: #00c300; }

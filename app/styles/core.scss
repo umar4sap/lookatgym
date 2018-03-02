@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto:300,400,500,700,900');
+$theme-color:#404160;
+$theme-contrast-color:#81cdd6;
+$lite-color:#f8f8f8;
+$dark-color:#444444;
+$lite-contrast-color:#e7e7e7;
+$white:#ffffff;
+$success-record:#00b4ff;
+$error-record:red;
+$progress-record:rgb(255,
+228,
+0);
+$untouched-record:#adadad;
+$completed-record:#00c300;
+$highlight-record:#404160;
+$transparent:rgba(0,
+0,
+0,
+0);
+$pinkish:#ff2cb3;
+$greenish:#56c344;
+.md-headline {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.bottom-actions {
+    span {
+        width: 32px;
+        text-align: center;
+        border-left: 1px;
+        border-right: 1px;
+        border-color: rgb(222, 222, 222);
+        border-style: solid;
+        border-top: 0;
+        border-bottom: 0;
+        color: rgb(103, 103, 103);
+        font-size: 22px;
+        height: 23px;
+        &:last-child {
+            border-left: 0px;
+        }
+        &:first-child {
+            border-left: 1px;
+            border-color: rgb(222, 222, 222);
+            border-style: solid;
+        }
+        &:hover {
+            color: #3cbbca;
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+        }
+    }
+}

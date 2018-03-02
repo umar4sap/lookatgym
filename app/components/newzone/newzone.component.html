@@ -1,0 +1,395 @@
+<div class="screen-second-section">
+    <div class="container-fluid">
+        <header class="well screen-header-second">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="header-heading">
+                        <h4 class="header-name">Create Zone</h4>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="header-buttons pull-right">
+                        <button type="button" class="btn btn-link">Save As Draft</button>
+                        <button type="button" class="btn btn-primary">Live</button>
+                        <a href="#">
+                            <span class="glyphicon glyphicon-remove-circle close-icon"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <!-- login steps -->
+    <div class="container-fluid">
+        <div class="wizard-prosses">
+            <div class="container">
+                <div class="stepwizard">
+                    <div class="stepwizard-row setup-panel">
+                        <div class="stepwizard-step col-xs-3">
+                            <a href="#step-1" type="button" class="btn btn-default btn-circle" disabled="disabled">1</a>
+                            <p>
+                                <small>Basic Details</small>
+                            </p>
+                        </div>
+                        <div class="stepwizard-step col-xs-3">
+                            <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                            <p>
+                                <small>Videos/Images</small>
+                            </p>
+                        </div>
+                        <div class="stepwizard-step col-xs-3">
+                            <a href="#step-3" type="button" class="btn btn-success btn-circle">3</a>
+                            <p>
+                                <small>Setting</small>
+                            </p>
+                        </div>
+                        <div class="stepwizard-step col-xs-3">
+                            <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
+                            <p>
+                                <small>Payments</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- login steps -->
+    <div class="space-dive"></div>
+
+    <!-- form area -->
+
+    <div id="zone-setting" class="form-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <!--col-md-6 -->
+                    <form action="#">
+                        <div class="form-group">
+                            <label for="text">Morning Timinig</label>
+                            <input type="text" class="form-control" id="zone-time" placeholder="Type Your Timing" name="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Zone Expiration</label>
+                            <input type="text" class="form-control" id="pwd" placeholder="Expiration....." name="expiration">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Free Trial Limit Per Month</label>
+                            <input type="text" class="form-control" id="pwd" placeholder="Cuncurency Limit....." name="cuncurency">
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Deactivate Member Message</label>
+                            <textarea class="form-control" rows="5" id="failure-comment">Drop Message..</textarea>
+                        </div>
+                    </form>
+                </div>
+                <!-- end col-md-6 -->
+                <div class="col-md-6">
+                    <form action="#">
+                        <div class="form-group">
+                            <label for="text">Evening Time</label>
+                            <input type="text" class="form-control" id="zone-cost" placeholder="......." name="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Zone Duration</label>
+                            <input type="text" class="form-control" id="pwd" placeholder="......" name="duration">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Free Trial Limit Per Day</label>
+                            <input type="text" class="form-control" id="pwd" placeholder="Limit....." name="cuncurency">
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Activate Member Message</label>
+                            <textarea class="form-control" rows="5" id="limit-comment">Drop Message..</textarea>
+                        </div>
+                    </form>
+                </div>
+                <!-- end col-md-6 -->
+                <div class="row">
+                    <div class="message-plain">
+                        <div class="col-md-12">
+                            <form action="#">
+                                <div class="form-group">
+                                    <label for="comment">Plan Expire Message</label>
+                                    <textarea class="form-control" rows="5" id="plain-comment">Drop Message..</textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end 1st row -->
+
+        </div>
+    </div>
+
+    <!-- End Form -->
+
+
+    <div id="zone-basics" class="form-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <!--col-md-6 -->
+                    <form action="#">
+                        <div class="form-group">
+                            <label for="text">Zone Name</label>
+                            <input type="text" class="form-control" id="zone-time" placeholder="Type Your Timing" name="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Zone Owner</label>
+                            <input type="text" class="form-control" id="pwd" placeholder="Expiration....." name="expiration">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Zone Since</label>
+                            <input type="text" class="form-control" id="pwd" placeholder="Cuncurency Limit....." name="cuncurency">
+                        </div>
+                        <div class="form-group">
+                                <label for="comment">Country</label>
+                                <select class="form-control" id="sel1">
+                                        <option>India</option>
+                                        <option>Us</option>
+                                        <option>Uk</option>
+                                        <option>UAE</option>
+                                        <option>Canada</option>
+                                        <option>Africa</option>
+                                </select>
+                            </div>
+                        <div class="form-group">
+                                <label for="comment">City</label>
+                                <select class="form-control" id="sel1">
+                                        <option>Mumbai</option>
+                                        <option>Banglor</option>
+                                        <option>Hyderabad</option>
+                                </select>
+                            </div>
+                        <div class="form-group">
+                            <label for="comment">Zone Address</label>
+                            <textarea class="form-control" rows="5" id="failure-comment">Address..</textarea>
+                        </div>
+                    </form>
+                </div>
+                <!-- end col-md-6 -->
+                <div class="col-md-6">
+                    <form action="#">
+                        <div class="form-group">
+                            <label for="sel1">Trainers</label>
+                            <select class="form-control" id="sel1">
+                                <option>Lala</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Zone Current Plans</label>
+                            <select class="form-control" id="sel1">
+                                    <option>Cardio-500$</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Discount Offers</label>
+                            <select class="form-control" id="sel1">
+                                    <option>Cardio-20%</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Available For</label>
+                            <select class="form-control" id="sel1">
+                                    <option>For Unisex</option>
+                                    <option>For Male</option>
+                                    <option>For Woman</option>
+                            </select>
+                        </div>
+                    </form>
+                   <div class="form-group">
+                       <label class="map-label">Pick Your Location</label>
+                       <div id="map" class="zone-map"></div>
+                   </div>
+                </div>
+                <!-- end col-md-6 -->
+                <div class="row">
+                    <div class="message-plain">
+                        <div class="col-md-12">
+                            <form action="#">
+                                <div class="form-group">
+                                    <label for="comment">About Zone</label>
+                                    <textarea class="form-control" rows="5" id="plain-comment">About Zone.</textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end 1st row -->
+
+        </div>
+    </div>
+    <div class="zone-upload">
+        <div class="container">
+            <div class="row">
+                <div class="upload-heading">
+                    <h4 class="head-text">Zone Icons
+                        <small>
+                            <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                                been the industry's standard dummy text ever since the 1500s, when </p>
+                        </small>
+                    </h4>
+                </div>
+                <div class="upload-media">
+                    <div class="media-section">
+                        <a href="#">
+                            <center class="media-content">
+                                <span type="file" class="glyphicon glyphicon-plus"></span>
+                                <p class="text-center">Upload image</p>
+                            </center>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -->
+    <!-- Zone cover Images -->
+    <div class="images-upload">
+        <div class="container">
+            <div class="row">
+                <div class="images-upload-head">
+                    <h4 class="head-text"> Add Zone Cover Images
+                        <small>
+                            <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                                been the industry's standard dummy text ever since the 1500s, when </p>
+                        </small>
+                    </h4>
+                </div>
+            </div>
+            <div class="upload-contain">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="upload-content-image">
+                            <center class="upload-img-cnt">
+                                <a href="#">
+                                    <div class="upload-img-cover">
+                                        <input type="file" class="form-control img-upload-setup" name="img-upload-setup" id="img-upload-setup">
+                                    </div>
+                                </a>
+                            </center>
+                            <div class="cover-content">
+                                <div class="img-cnt-about">
+                                    <h4 class="text-center" style="color:#000;margin-top: 0px;margin-bottom: 0px;">Umars Empire</h4>
+                                    <p class="text-center" class="img-about-p">Test</p>
+                                </div>
+                                <div class="start-rating">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- about cover images -->
+                    <div class="col-md-8">
+                        <div class="content-about-cover-images">
+                            <p class="text-default text-left">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                <br> Iipsum has been the industry's standard dummy text ever since the 1500s, when
+                                <br> unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                <br>
+                            </p>
+                            <br>
+                            <h2 class="text-left text-default">
+                                Important Guidnes
+                            </h2>
+                            <p class="text-default text-left">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                <br> Iipsum has been the industry's standard dummy text ever since the 1500s, when
+                                <br> unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                <br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+                    <!-- end about cover images -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End zone images-->
+
+    <!-- Zone Images-->
+
+    <div class="zones-images-upload">
+        <div class="zone-upload">
+            <div class="container">
+                <div class="row">
+                    <div class="upload-heading">
+                        <h4 class="head-text">Zone Images
+                            <small>
+                                <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                    has been the industry's standard dummy text ever since the 1500s, when </p>
+                            </small>
+                        </h4>
+                    </div>
+                    <div class="upload-media">
+                        <div class="media-section">
+                            <a href="#">
+                                <center class="media-content">
+                                    <span type="file" class="glyphicon glyphicon-plus"></span>
+                                    <p class="text-center">Upload image</p>
+                                </center>
+                            </a>
+                            <div class="form-group zone-img-title">
+                                <input type="text" class="form-control" id="title-name" placeholder="Title name...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- end zone images -->
+    <!-- zone videos -->
+    <div class="zone-videos">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="videos-links">
+                        <form action="#">
+                            <div class="form-group">
+
+                                <label for="text">Add Zone Videos</label>
+                                <input type="url" class="form-control" id="zone-time" placeholder="https://www.youtube.com/watch?v=ETJj330AN48"name="text">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end zone videos -->
+</div>
+
+
+
+    <!-- End Container -->
+</div>
+<!-- js links -->
+<script>
+        function myMap() {
+          var mapCanvas = document.getElementById("map");
+          var mapOptions = {
+            center: new google.maps.LatLng(51.5, -0.2), zoom: 10
+          };
+          var map = new google.maps.Map(mapCanvas, mapOptions);
+        }
+        </script>

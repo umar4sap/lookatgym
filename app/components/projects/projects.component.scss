@@ -1,0 +1,100 @@
+@import '../../styles/core';
+.record-strip.projectCards {
+    min-width: 209px;
+    float: left;
+    md-card {
+        height: 180px;
+        md-card-title {
+            padding: 4px;
+            md-card-title-text {
+                .md-subhead {
+                    padding: 0px;
+                }
+            }
+        }
+        md-card-title-media {
+            .md-subheader {
+                .md-subheader-inner {
+                    padding: 8px 4px 4px 4px;
+                }
+            }
+        }
+        md-card-actions {
+            margin: 0;
+            padding: 0 4px;
+            border-left: 0px;
+            border-right: 0px;
+            border-top: 1px;
+            border-bottom: 0px;
+            border-style: solid;
+            border-color: $highlight-record;
+            background-color: rgba(64, 65, 96, 0.06);
+            width: 100%;
+            .md-button {
+                min-width: 30px;
+                padding: 0px;
+                margin: 0px;
+                line-height: initial;
+                min-height: 24px;
+            }
+            i {
+                font-size: 19px;
+                color: grey;
+                margin-top: 3px;
+            }
+        }
+        div.org-content {
+            height: 153px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            width: 100%;
+            md-list {
+                width: 100%;
+                height: 118px;
+                overflow-x: hidden;
+                overflow-y: auto;
+                .md-button {
+                    min-width: auto;
+                    i {
+                        font-size: 20px;
+                        color: #09ade0;
+                    }
+                }
+            }
+            md-card-header {
+                width: 100%;
+                height: 35px;
+                .md-title {
+                    font-size: 16px;
+                }
+            }
+        }
+        &.progress {
+            border-left: 0px;
+            border-color: #ffe400;
+            border-right: 0px;
+            border-bottom: 0px;
+            border-top: 1px;
+            border-style: solid;
+            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 0px;
+            background-color: white;
+        }
+        &.success {
+            border-left: 6px solid;
+            border-color: $success-record;
+        }
+        &.error {
+            border-left: 6px solid;
+            border-color: $error-record;
+        }
+        &.untouched {
+            border-left: 6px solid;
+            border-color: $untouched-record;
+        }
+        &.completed {
+            border-left: 6px solid;
+            border-color: $completed-record;
+        }
+    }
+}

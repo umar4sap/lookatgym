@@ -1,0 +1,77 @@
+<md-dialog aria-label="Schedule" flex="60">
+    <form ng-cloak name="scheduleData" class="scheduleData" ng-submit="editScheduleData(scheduleDate, scheduleTime, timeZoneModel, repeats, endDate, repeatOn)">
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div layout="row">
+                    <md-input-container flex-gt-xs>
+                        <label>Schedule Date</label>
+                        <md-datepicker ng-model="scheduleDate" name="dateField" md-min-date="minDate"></md-datepicker>
+                        <div ng-messages="scheduleData.dateField.$error">
+                            <div ng-message="valid">The entered value is not a date!</div>
+                            <div ng-message="required">This date is required!</div>
+                            <div ng-message="mindate">Date is too early!</div>
+                            <div ng-message="maxdate">Date is too late!</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container flex-gt-xs>
+                        <label>Schedule Time</label>
+                        <md-select ng-model="scheduleTime">
+                            <md-option ng-repeat="item in timeList" ng-value="item">{{item}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container flex-gt-xs>
+                        <label>Select a Timezone</label>
+                        <md-select ng-model="timeZoneModel">
+                            <md-option ng-repeat="zone in timeZones" ng-value="zone.utc">({{zone.abbr}}) - {{zone.utc}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <md-divider></md-divider>
+                <div flex="90" style="margin:0 auto;" layout-padding>
+                    <div flex-gt-sm="50">
+                        <md-checkbox ng-model="repeat" aria-label="Repeat">
+                            Do you want to Repeat?
+                        </md-checkbox>
+                    </div>
+                    <div layout="column" ng-show="repeat">
+                        <md-input-container flex-md-sm>
+                            <label>Repeats</label>
+                            <md-select ng-model="repeats">
+                                <md-option ng-repeat="repeat in repeatsList" ng-value="repeat.value">{{repeat.option}}</md-option>
+                            </md-select>
+                        </md-input-container>
+                        <div layout="row" flex-gt-xs ng-show="repeats === 'weekly'" layout-margin>
+                            <label>Repeat On</label>
+                            <span flex></span>
+                            <md-checkbox ng-repeat="week in weekList" name="{{week.value}}" ng-model="week.checked" ng-change="selectedWeeks()">
+                                <label for="{{week.value}}">{{week.option}}</label>
+                                <md-tooltip md-direction="top">{{week.value}}</md-tooltip>
+                            </md-checkbox>
+
+                            <!-- <md-radio-group ng-model="repeatOn" layout="row">
+                                <md-radio-button ng-repeat="week in weekList" value="{{week.value}}" class="md-primary">{{week.option}}</md-radio-button>
+                            </md-radio-group> -->
+
+                        </div>
+                        <md-input-container flex-gt-xs>
+                            <label>End Date</label>
+                            <md-datepicker ng-model="endDate" name="enddateField" md-min-date="minEndDate"></md-datepicker>
+                            <div ng-messages="scheduleData.endDate.$error">
+                                <div ng-message="valid">The entered value is not a date!</div>
+                                <div ng-message="required">This date is required!</div>
+                                <div ng-message="mindate">Date is too early!</div>
+                                <div ng-message="maxdate">Date is too late!</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button class="pull-right" md-ripple-size="auto" aria-label="button-label" ng-click="cancel()">Cancel</md-button>
+            <md-button type="submit">Update</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

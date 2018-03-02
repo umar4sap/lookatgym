@@ -1,0 +1,55 @@
+<md-dialog aria-label="Add Shell Scripts" flex="85">
+
+    <form name="scriptDialog" novalidate>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Add Shell Script</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="material-icons">close</i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-dialog-content layout="row">
+                    <div flex="65">
+                        <md-select placeholder="Pick from the list" ng-model="rule" md-on-open="loadRules()" style="min-width: 200px;" ng-change="selectedDefaultRule()">
+                            <md-option ng-value="rule.value" ng-repeat="rule in rules">{{rule.name}}</md-option>
+                        </md-select>
+                        <!--<textarea rows="15" cols="40" ng-model="caseCode" class="md-block"></textarea>-->
+                        <div ui-ace="{onLoad: aceLoaded, onChange: aceChanged, mode:'sh|bash|^.bashrc'}" style="height: 400px;" ng-model="scriptDialog.caseCode" id="scriptEditor"></div>
+
+                    </div>
+                    <div flex="35" layout="column" layout-padding>
+                        <md-input-container>
+                            <label>Enter Test Case name</label>
+                            <input md-maxlength="35" name="caseName" ng-model="scriptDialog.caseName" ng-required="true">
+                            <div ng-messages="scriptDialog.caseName.$error">
+                                <div ng-message="required">This is required!</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container>
+                            <label>Enter Test Case description</label>
+                            <input md-maxlength="50" name="caseDescription" ng-model="scriptDialog.caseDescription" required>
+                            <div ng-messages="scriptDialog.caseDescription.$error">
+                                <div ng-message="required">This is required!</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </md-dialog-content>
+            </div>
+        </md-dialog-content>
+        <div class="alert alert-danger" role="alert" ng-if="invalidRule">Oh snap! Change a few things up and try submitting again.</div>
+        <div class="alert alert-success" role="alert" ng-if="validated">This test case has validated successfully..</div>
+        <md-dialog-actions layout="row">
+            <md-button class="md-raised md-warn" type="submit" ng-click="scriptDialog.$valid && newTestCaseValidate(testData)" ng-if="!validated" layout="row">
+                Validate
+                <md-progress-circular md-mode="indeterminate" md-diameter="20px" ng-if="validationInProgress"></md-progress-circular>
+            </md-button>
+            <md-button class="md-raised md-primary" ng-click="scriptDialog.$valid && newTestCaseDetails(testData)" ng-if="validated">
+                Create
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

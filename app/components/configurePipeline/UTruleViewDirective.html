@@ -1,0 +1,33 @@
+<div layout="column" ng-show="utruleViewDirectiveShow">
+    <div layout="column">
+        <div layout="row" layout-align="space-between center">
+            <h3>{{caseName}}</h3>
+            <md-button ng-click="showDialog($event)" ng-if="!ruleEditLoading"><i class="fa fa-edit"></i></md-button>
+            <div layout="row" layout-sm="column" layout-align="space-around" ng-if="ruleEditLoading">
+                <md-progress-circular md-mode="indeterminate" md-diameter="20px"></md-progress-circular>
+            </div>
+        </div>
+        <p>{{caseDescription}}</p>
+    </div>
+    <div>
+        <div id="utruleViewDirective" style="height: 120px;"></div>
+    </div>
+    <div layout="column" layout-padding>
+        <div layout="row">
+            <div flex>
+                <p class="">Publish Settings: {{publishSettings}}</p>
+            </div>
+            <div flex>
+                <p class="">Case Type: {{caseType}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="visibility: hidden">
+        <div layout="row" class="md-dialog-container" id="utRuleEditCalled" ng-if="utEditDialog">
+            <md-dialog layout-padding flex="85">
+                <utrule-edit-directive options="uteditoptions"></utrule-edit-directive>
+            </md-dialog>
+        </div>
+    </div>
+</div>

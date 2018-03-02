@@ -1,0 +1,57 @@
+* {
+  margin: 0px;
+  padding: 0px; }
+
+.user-page-body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  background-image: url("../../images/user-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%; }
+
+.user-page-body .row > .about-text {
+  margin-top: 150px; }
+
+.user-page-body .row > .about-text > .about-p {
+  color: #fff;
+  font-family: italic; }
+
+.user-page-body .row > .about-text > .about-heading {
+  color: #fff;
+  font-family: monospace;
+  font-size: 27px; }
+
+.user-page-body .row > .started-button {
+  margin-right: 170px;
+  margin-top: 45px; }
+
+.user-page-body .row > .started-button > .get-btn {
+  color: #fff;
+  background-color: #2dbbf6;
+  padding: 10px;
+  width: 200px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+
+.row > .app-links {
+  margin-top: 50px; }
+
+/*large size*/
+/* tab */
+@media screen and (max-width: 750px) and (min-width: 500px) {
+  .user-page-body .row > .about-text {
+    margin-top: 150px;
+    margin-left: 38px; } }
+
+/*Mobile*/
+@media screen and (max-width: 480px) and (min-width: 280px) {
+  .user-page-body .row > .about-text {
+    margin-top: 80px;
+    margin-left: 25px; }
+  .user-page-body > .container > .row > .logo {
+    position: relative;
+    top: 0px;
+    left: 153px; } }

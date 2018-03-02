@@ -1,0 +1,116 @@
+toolbar {
+    height: 46px;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    right: 0;
+    i {
+        color: #e7e7e7;
+    }
+}
+
+toolbar .md-toolbar-tools .md-button {
+    min-width: 25px;
+    margin: 0px 5px;
+    line-height: 10px;
+    padding: 0;
+}
+
+toolbar .md-toolbar-tools .md-button img {
+    margin: 0px;
+}
+
+md-toolbar,
+.md-toolbar-tools {
+    min-height: 36px;
+    height: 46px;
+    background-color: #404160;
+}
+
+md-toolbar img {
+    margin: 0 10px;
+}
+
+md-toolbar .user-img {
+    width: 35px;
+    height: 31px;
+    border-radius: 90px;
+}
+
+md-toolbar .user-name:hover {
+    background: transparent !important;
+}
+
+md-toolbar input {
+    font-size: 13px;
+    border: 0px;
+    padding: 5px;
+    min-width: 458px;
+    background-color: transparent;
+    border-bottom: 1px solid #9ba4a9;
+}
+
+.md-toolbar-tools {
+    padding: 0 6px;
+}
+
+.md-button.dropdown {
+    overflow: visible;
+    /*reset*/
+}
+
+.dropdown+.dropdown-menu {
+    max-width: 0;
+    position: absolute;
+    right: 40px;
+    top: 100%;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    overflow: hidden;
+    background-color: #fff;
+    list-style: none;
+    transition: min-width 0.2s ease-in-out, left 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.dropdown .dropdown-menu .md-button {
+    min-width: 100%;
+    border-radius: 0;
+    margin: 0;
+    padding: 0px 16px;
+    text-align: left;
+    line-height: 9px;
+}
+
+.dropdown .dropdown-menu .md-button span {
+    color: black;
+    font-size: 13px;
+    text-transform: initial;
+}
+
+.dropdown.active+.dropdown-menu {
+    right: 0px;
+    opacity: 1;
+    z-index: 99999;
+    position: absolute;
+    top: 36px;
+    overflow: visible;
+    width: 220px;
+    min-width: 150px;
+    max-width: 300px;
+    display: block;
+    left: initial;
+}
+
+.dropdown.active+.dropdown-menu li {
+    display: block;
+    border-top: 1px solid #eee;
+}
+
+.dropdown.active+.dropdown-menu li .md-button {
+    color: black;
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-size: 13px;
+}

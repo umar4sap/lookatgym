@@ -1,0 +1,83 @@
+@import '../../styles/core';
+edit-pipeline {
+    height: 100%;
+    md-card {
+        background-color: #f8f8f8;
+    }
+    div {
+        &.removed-state {
+            animation: removed-state-animation .6s cubic-bezier(.55, -0.04, .91, .94) forwards;
+        }
+        .state {
+            height: 100%;
+            padding: 10px;
+            .md-button {
+                min-width: initial;
+                text-transform: lowercase;
+                line-height: initial;
+                min-height: initial;
+                margin: 0px;
+                color: #a2a0a0;
+                i {
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: #a2a0a0;
+                    &:hover {
+                        color: #3cbbca;
+                    }
+                }
+                &:hover {
+                    color: #3cbbca;
+                }
+            }
+            .pipeline-item {
+                width: 64px;
+                height: 64px;
+                border-radius: 100%;
+                border: 1px solid #eee;
+                background-color: rgba(255, 255, 255, 0.75);
+                position: relative;
+                &:after {
+                    content: "";
+                    width: 42px;
+                    height: 42px;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    background-color: $lite-contrast-color;
+                    border-radius: 100%;
+                }
+                span.fa {
+                    z-index: 999;
+                }
+            }
+            &.gate {
+                .pipeline-item {
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 0;
+                    border: 1px solid #eee;
+                    background-color: $lite-contrast-color;
+                }
+            }
+        }
+    }
+}
+
+.stageDialog {
+    overflow-x: hidden;
+}
+
+@keyframes removed-state-animation {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0);
+    }
+}

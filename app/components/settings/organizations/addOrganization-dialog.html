@@ -1,0 +1,57 @@
+<md-dialog aria-label="Add New Organization" style="min-width:380px;">
+    <form  name="orgData" ng-cloak  style="overflow:hidden;">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Add New Organization</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="material-icons" aria-label="close"></i>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+
+                    <md-input-container class="md-block">
+                        <label>Organization Name</label>
+                        <input md-maxlength="30" required md-no-asterisk name="description" ng-model="orgData.orgName">
+
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>Organization Description</label>
+                        <textarea required md-asterisk name="description" rows="1" columns="50" ng-model="orgData.orgDescription"></textarea>
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label>Plan Type</label>
+                        <md-select ng-model="orgData.plan">
+                            <md-option value="silver">Silver</md-option>
+                            <md-option value="gold">Gold</md-option>
+                            <md-option value="platinum">Platinum</md-option>
+                        </md-select>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>Organization Location</label>
+                        <input md-maxlength="30" required md-no-asterisk name="description" ng-model="orgData.location">
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>Organization Billing Email</label>
+                        <input md-maxlength="30" required md-no-asterisk name="description" ng-model="orgData.billingEmail">
+                    </md-input-container>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-click="cancel()">
+                Close
+            </md-button>
+            <md-button ng-click="createOrg(orgData)">
+                Create
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

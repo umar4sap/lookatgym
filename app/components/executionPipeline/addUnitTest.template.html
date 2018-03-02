@@ -1,0 +1,55 @@
+<md-dialog aria-label="Unit Test" ng-controller="configurePipelineController" flex="70">
+
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Add Test Case</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-dialog-content>
+                    <div layout="row">
+                        <div flex="50">
+                            <textarea rows="15" cols="40" ng-model="caseCode" class="md-block"></textarea>
+                        </div>
+                        <div flex="50" layout="column">
+                            <md-input-container>
+                                <label>Enter Test Case name</label>
+                                <input md-maxlength="12" name="caseName" ng-model="caseName">
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Enter Test Case description</label>
+                                <input md-maxlength="35" name="caseDescription" ng-model="caseDescription">
+                            </md-input-container>
+                            <h4 class="">Publish Settings</h4>
+                            <md-radio-group ng-model="publishSettings" layout="row">
+                                <md-radio-button value="Public" class="md-primary">Public</md-radio-button>
+                                <md-radio-button value="Private (to me)"> Private (to me) </md-radio-button>
+                                <md-radio-button value="Private (to org)">Private (to org)</md-radio-button>
+                            </md-radio-group>
+                            <h4 class="">Case Type</h4>
+                            <md-radio-group ng-model="caseType" layout="row">
+                                <md-radio-button value="error" class="md-primary">Error</md-radio-button>
+                                <md-radio-button value="warning (to me)"> Warning </md-radio-button>
+                            </md-radio-group>
+                        </div>
+                    </div>
+                </md-dialog-content>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button class="md-raised md-warn" ng-click="newTestCaseValidate(caseCode)" ng-if="!validated">
+                Validate
+            </md-button>
+            <md-button class="md-raised md-primary" ng-click="newTestCaseDetails(caseCode, caseName, caseDescription, publishSettings, caseType)" ng-if="validated">
+                Create
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

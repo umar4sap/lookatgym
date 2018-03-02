@@ -1,0 +1,36 @@
+<md-dialog aria-label="Add New Team" style="min-width:680px;">
+    <form name="userData" ng-cloak style="overflow:hidden;">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Add New Team</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="material-icons" aria-label="close"></i>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-content>
+            <md-list flex>
+                <md-subheader class="md-no-sticky">Teams</md-subheader>
+                <md-list-item class="md-3-line" ng-repeat="(org, orgObj) in orgs" ng-click="null" ng-if="org===selectedOrg">
+                    <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+                    <div class="md-list-item-text" layout="column">
+                        <h3>{{ orgObj.teams }}</h3>
+                        <h4>{{ item.what }}</h4>
+                        <p>{{ item.notes }}</p>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </md-content>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-click="cancel()">
+                Close
+            </md-button>
+            <md-button ng-click="createUser(userData, $event)">
+                Create
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

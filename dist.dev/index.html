@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="zoneapp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="zoneapp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="zoneapp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="zoneapp" class="no-js">
+<!--<![endif]-->
+
+<head>
+    <title>Look at zone</title>
+    <base href="/">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="https://cdn.auth0.com/js/auth0/9.2.2/auth0.min.js"></script>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-material.css">
+    <link rel="stylesheet" href="bower_components/v-accordion.css">
+    <!-- endinject -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="styles/core.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/table.css">
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="components/badges/badges.component.css">
+    <link rel="stylesheet" href="components/configurePipeline/configurePipeline.component.css">
+    <link rel="stylesheet" href="components/configurePipeline/ruleEditDirective.css">
+    <link rel="stylesheet" href="components/dashboard/dashboard.component.css">
+    <link rel="stylesheet" href="components/definedPipelines/definedPipelines.component.css">
+    <link rel="stylesheet" href="components/editPipeline/editPipeline.component.css">
+    <link rel="stylesheet" href="components/editProject/editProject.component.css">
+    <link rel="stylesheet" href="components/executionPipeline/executionPipeline.component.css">
+    <link rel="stylesheet" href="components/layout/layout.css">
+    <link rel="stylesheet" href="components/login/login.component.css">
+    <link rel="stylesheet" href="components/newProject/newProject.component.css">
+    <link rel="stylesheet" href="components/newzone/newZone.component.css">
+    <link rel="stylesheet" href="components/pipelines/pipelines.component.css">
+    <link rel="stylesheet" href="components/pipelinesDashboard/pipelinesDashboard.component.css">
+    <link rel="stylesheet" href="components/pipelinesExecutions/pipelinesDashboard.component.css">
+    <link rel="stylesheet" href="components/projects/projects.component.css">
+    <link rel="stylesheet" href="components/settings/settings.component.css">
+    <link rel="stylesheet" href="components/trainers/trainers.component.css">
+    <link rel="stylesheet" href="components/viewPipeline/viewPipeline.component.css">
+    <link rel="stylesheet" href="components/zone-plans/zone-plans.component.css">
+    <link rel="stylesheet" href="directives/bars-chart/bars-chart.directive.css">
+    <link rel="stylesheet" href="directives/editPipeline/editPipeline.css">
+    <link rel="stylesheet" href="directives/loader.directive/create-pipeline.css">
+    <link rel="stylesheet" href="directives/sideNav/sidenav.css">
+    <link rel="stylesheet" href="directives/splashPage/splashPage.css">
+    <link rel="stylesheet" href="components/layout/toolbar/toolbar.css">
+    <link rel="stylesheet" href="components/layout/sidemenu/sidemenu.css">
+    <link rel="stylesheet" href="components/settings/appearance/appearance.component.css">
+    <link rel="stylesheet" href="components/settings/azure/azure.component.css">
+    <link rel="stylesheet" href="components/settings/manageorg/manageorg.component.css">
+    <link rel="stylesheet" href="components/settings/github/github.component.css">
+    <link rel="stylesheet" href="components/settings/notifications/notifications.component.css">
+    <link rel="stylesheet" href="components/settings/organizations/organizations.component.css">
+    <!-- endinject -->
+</head>
+
+<body ng-app="app" >
+  
+<ui-view></ui-view>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js"></script>
+    <!-- bower:js -->
+    <script src="bower_components/moment.js"></script>
+    <script src="bower_components/ace.js"></script>
+    <script src="bower_components/jquery.js"></script>
+    <script src="bower_components/angular.js"></script>
+    <script src="bower_components/ObjectPath.js"></script>
+    <script src="bower_components/tv4.js"></script>
+    <script src="bower_components/schema-form.js"></script>
+    <script src="bower_components/angular-animate.js"></script>
+    <script src="bower_components/angular-aria.js"></script>
+    <script src="bower_components/angular-auth0.js"></script>
+    <script src="bower_components/angular-base64-upload.js"></script>
+    <script src="bower_components/angular-fullscreen.js"></script>
+    <script src="bower_components/angular-jwt.js"></script>
+    <script src="bower_components/angular-material.js"></script>
+    <script src="bower_components/angular-messages.js"></script>
+    <script src="bower_components/angular-moment.js"></script>
+    <script src="bower_components/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize.js"></script>
+    <script src="bower_components/angular-ui-router.js"></script>
+    <script src="bower_components/auth0.js"></script>
+    <script src="bower_components/bootstrap-decorator.js"></script>
+    <script src="bower_components/fastclick.js"></script>
+    <script src="bower_components/foundation.js"></script>
+    <script src="bower_components/jquery.cookie.js"></script>
+    <script src="bower_components/jquery.placeholder.js"></script>
+    <script src="bower_components/moment-timezone-with-data-2012-2022.js"></script>
+    <script src="bower_components/ui-ace.js"></script>
+    <script src="bower_components/v-accordion.js"></script>
+    <!-- endinject -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.8.0.min.js"></script>
+    
+    <script src="https://cdn.pubnub.com/sdk/pubnub-angular/pubnub-angular-4.0.2.min.js"></script>
+    <!-- inject:js -->
+    <script src="app.js"></script>
+    <script src="components/settings/organizations/organizations.component.js"></script>
+    <script src="components/settings/notifications/notifications.component.js"></script>
+    <script src="components/settings/github/github.component.js"></script>
+    <script src="components/settings/manageorg/manageorg.component.js"></script>
+    <script src="components/settings/azure/azure.component.js"></script>
+    <script src="components/settings/appearance/appearance.component.js"></script>
+    <script src="components/layout/sidemenu/sidemenu.dir.js"></script>
+    <script src="components/layout/toolbar/toolbar.dir.js"></script>
+    <script src="directives/splashPage/splashPage.directive.js"></script>
+    <script src="directives/sideNav/sidenav.directive.js"></script>
+    <script src="directives/loader.directive/spinner.directive.js"></script>
+    <script src="directives/editPipeline/editPipeline.directive.js"></script>
+    <script src="directives/bars-chart/bars-chart.directive.js"></script>
+    <script src="components/zone-plans/zone-plans.component.js"></script>
+    <script src="components/viewPipeline/viewPipeline.component.js"></script>
+    <script src="components/trainers/trainers.component.js"></script>
+    <script src="components/settings/settings.component.js"></script>
+    <script src="components/projects/projects.component.js"></script>
+    <script src="components/pipelinesExecutions/pipelinesExecutions.component.js"></script>
+    <script src="components/pipelinesDashboard/pipelinesDashboard.component.js"></script>
+    <script src="components/pipelines/pipelines.component.js"></script>
+    <script src="components/newzone/newzone.component.js"></script>
+    <script src="components/newProject/newProject.component.js"></script>
+    <script src="components/login/login.controller.js"></script>
+    <script src="components/layout/layout.js"></script>
+    <script src="components/home/home.controller.js"></script>
+    <script src="components/executionPipeline/executionPipeline.component.js"></script>
+    <script src="components/editProject/editProject.component.js"></script>
+    <script src="components/editPipeline/editPipeline.component.js"></script>
+    <script src="components/definedPipelines/definedPipelines.component.js"></script>
+    <script src="components/dashboard/dashboard.component.js"></script>
+    <script src="components/configurePipeline/ruleViewDirective.js"></script>
+    <script src="components/configurePipeline/configurePipeline.component.js"></script>
+    <script src="components/configurePipeline/UTruleEditDirective.js"></script>
+    <script src="components/configurePipeline/SCAruleEditDirective.js"></script>
+    <script src="components/callback/callback.controller.js"></script>
+    <script src="components/badges/badges.component.js"></script>
+    <script src="components/auth/userManage.js"></script>
+    <script src="components/auth/auth.service.js"></script>
+    <script src="services/pubnubService.js"></script>
+    <script src="ng-google-chart.js"></script>
+    <script src="auth0-variables.js"></script>
+    <script src="app.run.js"></script>
+    <!-- endinject -->
+    <script data-skip-moving="true">
+            (function(w,d,u){
+                    var s=d.createElement('script');s.async=1;s.src=u+'?'+(Date.now()/60000|0);
+                    var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+            })(window,document,'https://cdn.bitrix24.com/b6252493/crm/site_button/loader_2_yd7ehj.js');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<md-dialog aria-label="Pipeline State stageDialog" flex="70">
+    <form ng-cloak>
+        <md-dialog-content layout="row" ng-if="!stateDialogData">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+        </md-dialog-content>
+        <md-dialog-content layout="row" ng-if="stateDialogData">
+            <div class="md-dialog-content" layout="column" flex="50">
+                <p>Select what do you want to add ?</p>
+                <md-radio-group ng-model="stateDialog.choice">
+
+                    <md-radio-button value="stage" class="md-primary" required="required">Stage</md-radio-button>
+
+                    <md-radio-button value="gate" class="md-primary" required="required" ng-disabled="true">Gate </md-radio-button>
+
+                </md-radio-group>
+
+                <md-input-container ng-show="choice == 'stage'">
+                    <label>Select Stage Type</label>
+                    <md-select ng-model="stateDialog.stateType">
+                        <md-option value="verify">Verify</md-option>
+                        <md-option value="build">Build</md-option>
+                        <md-option value="environmentTest" ng-disabled="true">Environment - Test</md-option>
+                        <md-option value="environmentProd" ng-disabled="true">Environment - Production</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container ng-show="choice == 'gate'">
+                    <label>Select Gate Type</label>
+                    <md-select ng-model="stateDialog.stateType">
+                        <md-option value="verify">Review</md-option>
+                        <md-option value="timeinterval">Time Interval</md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Enter {{choice}} Name</label>
+                    <input md-maxlength="18" name="pipelineitemfullname" ng-model="stateDialog.pipelineitemfullname">
+                </md-input-container>
+
+            </div>
+            <div layout="column" flex="50">
+                <md-input-container>
+                    <label>Enter {{choice}} Description</label>
+                    <textarea rows="" cols="" name="stageDescription" ng-model="stateDialog.stageDescription"></textarea>
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-if="!spinner" ng-click="cancel()">
+                Cancel
+            </md-button>
+            <md-button ng-if="!spinner" ng-click="updateState(stateDialog)">
+                Update
+            </md-button>
+            <ci-spinner ng-if="spinner"></ci-spinner>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

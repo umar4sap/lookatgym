@@ -1,0 +1,94 @@
+@import '../../styles/core';
+.pipelineImage {
+    width: 76px;
+    height: 76px;
+    margin-right: 15px;
+}
+
+.record-strip.pipelines {
+    md-card {
+        height: 250px;
+        width: 400px;
+        md-card-title {
+            padding: 4px;
+            md-card-title-text {
+                .md-subhead {
+                    padding: 0px;
+                }
+            }
+        }
+        md-card-title-media {
+            .md-subheader {
+                .md-subheader-inner {
+                    padding: 8px 4px 4px 4px;
+                }
+            }
+        }
+        md-card-actions {
+            margin: 0;
+            padding: 0 4px;
+            border-left: 0px;
+            border-right: 1px solid;
+            border-top: 1px;
+            border-bottom: 0px;
+            border-style: solid;
+            border-color: #d9d5db;
+            background-color: rgba(64, 65, 96, 0.06);
+            height: 100%;
+            box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.6);
+            .pipslineStatus.progress {
+                background-color: #ffe400;
+                width: 12px;
+                height: 12px;
+                border-radius: 100%;
+                margin: auto 7px;
+                border: 1px solid rgba(0, 0, 0, 0.25);
+                box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.15), 1px 1px 1px rgba(255, 255, 255, 0.28);
+            }
+            .pipslineStatus.success {
+                background-color: #00DB00;
+                width: 12px;
+                height: 12px;
+                border-radius: 100%;
+                margin: auto 7px;
+                border: 1px solid rgba(0, 0, 0, 0.25);
+                box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.15), 1px 1px 1px rgba(255, 255, 255, 0.28);
+            }
+            .md-button {
+                min-width: 36px;
+                padding: 0px;
+                margin: 0px;
+                line-height: inherit;
+                min-height: 26px;
+                i {
+                    font-size: 18px;
+                }
+            }
+        }
+        &.progress {
+            border-left: 0px solid;
+            border-color: $progress-record !important;
+            border-right: 0px;
+            border-bottom: 0px;
+            border-top: 0px solid;
+            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 0px;
+        }
+        &.success {
+            border-left: 6px solid;
+            border-color: $success-record;
+        }
+        &.error {
+            border-left: 6px solid;
+            border-color: $error-record;
+        }
+        &.untouched {
+            border-left: 6px solid;
+            border-color: $untouched-record;
+        }
+        &.completed {
+            border-left: 6px solid;
+            border-color: $completed-record;
+        }
+    }
+}

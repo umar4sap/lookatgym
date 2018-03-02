@@ -1,0 +1,65 @@
+<div>
+    <div ng-controller="ToolbarController">
+        <toolbar></toolbar>
+    </div>
+    <div id="content-wrapper" layout="row">
+        <sidemenu id="sidebar-wrapper" layout="column"></sidemenu>
+          <md-content class="main-container outletContainer" ng-controller="manageorgController" layout="row" layout-align="start start " layout-padding layout-sm="row" layout-xs="column" flex-gt-xs="90">
+            <div flex-xs="100" flex-sm="50" flex-gt-xs="20">
+                <md-list>
+                    <md-list-item ng-repeat="setting in settings">
+                        <md-button ng-click="go(setting.link)" layout="row">
+                            <i class="material-icons">{{setting.icon}}</i>
+                            <p> {{ setting.name }} </p>
+                        </md-button>
+                    </md-list-item>
+                </md-list>
+            </div>
+            <md-content flex-xs="100" flex-sm="50" flex-gt-xs="80" layout="row" layout-md="row" layout-sm="column" layout-xs="column" >
+                <div flex-xs flex-md flex-sm flex-gt-md="50" class="github-accounts">
+                    <md-subheader>{{currentOrgName}} Users</md-subheader>
+                   
+                    <md-card layout="row" layout-align="space-between start" class="highlight" ng-repeat="user in userList">
+                        <md-card-header>
+                           
+                            <md-card-header-text>
+                                <span class="md-title">{{user.user_name}}</span>
+                                
+                            </md-card-header-text>
+                        </md-card-header>
+
+                        <md-card-actions layout="column" layout-align="space-between end">
+                            <md-button><i class="material-icons">delete_forever</i></md-button>
+                        </md-card-actions>
+                    </md-card>
+                </div>
+                <div flex-xs flex-md flex-sm flex-gt-md="50" class="new-github-accounts">
+                    <md-subheader>Add New user</md-subheader>
+                    <form name="projectForm" layout-padding layout-margin>
+
+                        <md-input-container class="md-block">
+                            <label>Github UserName</label>
+                            <input md-maxlength="30" required md-no-asterisk name="description" ng-model="userName">
+                        </md-input-container>
+                        <md-input-container>
+                        <label>Role</label>
+                        <md-select ng-model="role">
+                            <md-option value="user">User</md-option>
+                            <md-option value="admin">Admin</md-option>
+                            
+                            
+                        </md-select>
+                    </md-input-container>
+              
+
+                      
+
+                        <div layout="row" layout-align="end center">
+                            <md-button class="md-raised md-primary" ng-click="addUser(userName,role)">Invite User</md-button>
+                        </div>
+                    </form>
+                </div>
+            </md-content>
+        </md-content>
+    </div>
+</div>

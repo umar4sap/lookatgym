@@ -1,0 +1,30 @@
+<div id="page-wrapper">
+    <div ng-controller="ToolbarController">
+        <toolbar></toolbar>
+    </div>
+    <div id="content-wrapper" layout="row">
+        <sidemenu id="sidebar-wrapper" layout="column"></sidemenu>
+        <md-content class="main-container outletContainer" layout="row" layout-xs="column" layout-align="start start " layout-padding>
+            <div flex-xs flex-gt-xs="100" layout="column">
+                <md-card>
+                    <md-toolbar class="md-theme-light ">
+                        <h2 class="md-toolbar-tools" style="background-color:#3cbbca;">
+                            <span>Published Pipelines</span>
+                        </h2>
+                    </md-toolbar>
+                    <md-card-actions layout="row" layout-align="end">
+                        <md-button class="cc-button" ng-click="vm.go('/newPipeline')" aria-label="Add Project">
+                            Create New Pipeline
+                        </md-button>
+                        <!-- <md-button class="md-raised md-primary" ng-click="vm.go('/definedPipelines')" aria-label="Predefined Pipelines">
+                                    Pipelines
+                                </md-button> -->
+                        <md-button class="cc-button" ng-click="vm.go('/pipelines')">View All Pipelines</md-button>
+
+                    </md-card-actions>
+
+                </md-card>
+            </div>
+        </md-content>
+    </div>
+</div>

@@ -1,0 +1,86 @@
+<div>
+    <div ng-controller="ToolbarController">
+        <toolbar></toolbar>
+    </div>
+    <div id="content-wrapper" layout="row">
+        <sidemenu id="sidebar-wrapper" layout="column"></sidemenu>
+        <md-content class="main-container outletContainer" ng-controller="GithubController" layout="row" layout-align="start start " layout-padding layout-sm="row" layout-xs="column" flex-gt-xs="90">
+            <div flex-xs="100" flex-sm="50" flex-gt-xs="20">
+                <md-list>
+                    <md-list-item ng-repeat="setting in vm.settings">
+                        <md-button ng-click="vm.go(setting.link)" layout="row">
+                            <i class="material-icons">{{setting.icon}}</i>
+                            <p> {{ setting.name }} </p>
+                        </md-button>
+                    </md-list-item>
+                </md-list>
+
+            </div>
+            <md-content flex-xs="100" flex-sm="50" flex-gt-xs="80" layout="row" layout-md="row" layout-sm="column" layout-xs="column">
+                <div flex-xs flex-md flex-sm flex-gt-md="50" class="github-accounts">
+                    <md-subheader>Your Github Accounts</md-subheader>
+                    <md-card layout="row" layout-align="space-between start" class="highlight">
+                        <md-card-header>
+                            <md-card-avatar>
+                                <img class="md-user-avatar" src="../../images/git-profile-pic.png">
+                            </md-card-avatar>
+                            <md-card-header-text>
+                                <span class="md-title">title</span>
+                                <span class="md-subhead">sub-title</span>
+                            </md-card-header-text>
+                        </md-card-header>
+
+                        <md-card-actions layout="column" layout-align="space-between end">
+                            <md-button><i class="material-icons">favorite_border</i></md-button>
+                            <md-button><i class="material-icons">delete_forever</i></md-button>
+                        </md-card-actions>
+                    </md-card>
+                    <md-card layout="row" layout-align="space-between start" class="highlight">
+                        <md-card-header>
+                            <md-card-avatar>
+                                <img class="md-user-avatar" src="../../images/git-profile-pic.png">
+                            </md-card-avatar>
+                            <md-card-header-text>
+                                <span class="md-title">title</span>
+                                <span class="md-subhead">sub-title</span>
+                            </md-card-header-text>
+                        </md-card-header>
+
+                        <md-card-actions layout="column" layout-align="space-between end">
+                            <md-button><i class="material-icons">favorite_border</i></md-button>
+                            <md-button><i class="material-icons">delete_forever</i></md-button>
+                        </md-card-actions>
+                    </md-card>
+                </div>
+                <div flex-xs flex-md flex-sm flex-gt-md="50" class="new-github-accounts">
+                    <md-subheader>Add a Github Account</md-subheader>
+                    <form name="projectForm" layout-padding layout-margin>
+
+                        <md-input-container class="md-block">
+                            <label>Account Name</label>
+                            <input md-maxlength="30" required md-no-asterisk name="description" ng-model="project.accountname">
+                        </md-input-container>
+
+                        <md-input-container class="md-block">
+                            <label>Key</label>
+                            <input md-maxlength="30" required md-no-asterisk name="description" ng-model="project.key">
+                        </md-input-container>
+
+                        <md-input-container class="md-block">
+                            <label>Github Username</label>
+                            <input md-maxlength="30" required md-no-asterisk name="description" ng-model="project.githubusername">
+                        </md-input-container>
+
+                        <md-input-container class="md-block">
+                            <label>Github Password</label>
+                            <input md-maxlength="30" required md-no-asterisk name="description" ng-model="project.githubpassword">
+                        </md-input-container>
+                        <div layout="row" layout-align="end center">
+                            <md-button class="md-raised md-primary">Add Account</md-button>
+                        </div>
+                    </form>
+                </div>
+            </md-content>
+        </md-content>
+    </div>
+</div>

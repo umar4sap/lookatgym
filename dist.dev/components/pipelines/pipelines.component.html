@@ -1,0 +1,81 @@
+<div id="page-wrapper" ng-controller="PipelinesController">
+    <div ng-controller="ToolbarController">
+        <toolbar></toolbar>
+    </div>
+    <div id="content-wrapper" layout="row">
+        <sidemenu id="sidebar-wrapper" layout="column"></sidemenu>
+        <md-content class="main-container outletContainer" layout="row" layout-align="start star" layout-padding>
+            <div flex-xs flex-gt-xs="100" layout="column">
+                <div layout="row" layout-align="space-between center">
+                    <div>
+                        <span class="md-headline">Pipelines</span>
+                        <span class="md-subhead">These are all your pipelines created.</span>
+                    </div>
+                    <div>
+                        <md-button class="cc-button" ng-click="go('/newPipeline')" aria-label="Add Project">
+                            Create New Pipeline
+                        </md-button>
+                    </div>
+                </div>
+                <md-input-container class="md-block">
+                    <label>Search</label>
+                    <input md-maxlength="50" md-no-asterisk name="description" ng-model="project.pipelineName">
+
+                </md-input-container>
+
+                <ci-spinner ng-if="vm.spinner"></ci-spinner>
+                <div class="record-strip pipelines">
+                    <span class="md-subhead">Your Pipelines Created</span>
+                    <div>
+                        <md-card ng-repeat="item in ciPipelines | orderBy:pipelineSettings.pipelineCreatedTime:false | filter:project:pipelineName"
+                            ng-if="item.pipelinePublished !== 'draft'" layout="column" layout-align="spacce-between start" class="progress pull-left">
+                            <div style="background-color:white;">
+                                <md-card-title>
+                                    <md-card-title-text layout-padding>
+                                        <div layout="row">
+                                            <div layout="row">
+                                                <img ng-src="data:image/jpg;base64,{{item.pipelineSettings.pipelineImage.base64}}" alt="" class="pipelineImage">
+                                            </div>
+                                            <div layout="column">
+                                                <span class="md-headline" ng-click="go('/viewPipeline/'+item.pipelineID)">{{item.pipelineName}}</span>
+                                                <span class="md-subhead">{{item.pipelineDescription}}</span>
+                                            </div>
+                                        </div>
+                                    </md-card-title-text>
+
+                                </md-card-title>
+                            </div>
+                            <div style="background-color:white;">
+                                <md-card-title-media>
+                                    <div layout="row">
+                                        <md-list>
+                                            <md-list-item>Config: {{item.pipelineSettings.pipelinePermissions.pipelineConfigVisibility}}</md-list-item>
+                                            <md-list-item>Execution: {{item.pipelineSettings.pipelinePermissions.pipielineExecutionVisibility}}
+                                            </md-list-item>
+                                            <md-list-item>Status: {{item.pipelinePublished}} </md-list-item>
+                                        </md-list>
+                                        <md-list>
+                                            <md-list-item>Concurrent: {{item.pipelineConcurrentBuildThrottle}} </md-list-item>
+                                            <md-list-item>ID: {{item.pipelineID}}</md-list-item>
+                                        </md-list>
+                                    </div>
+                                </md-card-title-media>
+                            </div>
+                            <div flex style="background-color:white;">
+                            </div>
+                            <div>
+                                <md-card-actions layout="row" layout-align="space-between center">
+                                    <span class="pipslineStatus" ng-class="{ progress: item.pipelinePublished == 'configured', success: item.pipelinePublished == 'published'}"></span>
+                                    <div>
+                                        <md-button ng-click="go('/editPipeline/'+item.pipelineID)"><i class="material-icons">mode_edit</i></md-button>
+                                        <md-button ng-click="delPipe(item.pipelineID)"><i class="fa fa-trash-o"></i></md-button>
+                                    </div>
+                                </md-card-actions>
+                            </div>
+                        </md-card>
+                    </div>
+                </div>
+            </div>
+        </md-content>
+    </div>
+</div>

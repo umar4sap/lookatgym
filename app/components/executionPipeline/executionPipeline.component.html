@@ -1,0 +1,253 @@
+<div id="page-wrapper">
+    <div ng-controller="ToolbarController">
+        <toolbar></toolbar>
+    </div>
+    <div id="content-wrapper" layout="row">
+        <sidemenu id="sidebar-wrapper" layout="column"></sidemenu>
+        <md-content class="main-container" layout-padding>
+            <md-content class="fixedSection">
+                <div layout="column" layout-padding>
+                    <div layout="column">
+                        <span class="md-headline">{{pipelineData.pipelineName}} Build Status</span>
+                    </div>
+                    <div class="record-strip" flex="100" layout="column">
+                        <md-card layout="row" flex="100" layout-xs="column" class="highlight">
+                            <ci-spinner ng-if="vm.spinner"></ci-spinner>
+                            <div ng-if="!vm.spinner" layout="row" flex="100">
+                                <ul layout="row">
+                                    <li ng-repeat="state in vm.states">
+                                        <!--{{state.stageID}}-->
+                                        <a href ng-click="vm.setTab(state.stageType,state)">
+                                            <!--<div layout="column" layout-align="center center" style="height: 100%;" class="state" ng-class="{stage:state.stageType=='verify', gate:state.transitionType=='gate'}">-->
+                                            <div layout="column" layout-align="center center" style="height: 100%;" class="state stage">
+                                                <div class="pipeline-item" layout="row" layout-align="center center" style="{{state.statusColor}}">
+                                                    <span class="fa"></span>                                                  
+                                                    <div class="loader" ng-show="state.status === 'running'"></div>
+                                                </div>
+                                                <span class="md-caption" layout="row" layout-align="center center">{{state.stageName}}</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </md-card>
+                    </div>
+                </div>
+            </md-content>
+
+            <div class="mrgn-execution" ng-repeat="state in vm.states" ng-show="vm.isSet(state.stageID)">
+                <input type="hidden" name="" value="{{state.stageID}}" id="catStageID">
+                <md-card layout="row" layout-xs="column" class="summary">
+                    <md-card-title-media flex-xs flex-gt-xs="70">
+                        <md-subheader class="md-no-sticky">{{pipelineData.pipelineName}} Summary</md-subheader>
+                        <div layout="row">
+                            <md-list class="md-no-sticky">
+                                <md-list-item>Stage Name :</md-list-item>
+                                <md-list-item>Commit Id :</md-list-item>
+                            </md-list>
+                            <md-list flex-gt-xs="20">
+                                <md-list-item>{{vm.stageName}}</md-list-item>
+                                <md-list-item>{{vm.commitId}}</md-list-item>
+                            </md-list>
+                            <md-list>
+                                <md-list-item>Github Username :</md-list-item>
+                                <md-list-item>Build Id :</md-list-item>
+                            </md-list>
+                            <md-list flex-gt-xs="20">
+                                <md-list-item>{{vm.githubAccountName}}</md-list-item>
+                                <md-list-item>{{vm.buildId}}</md-list-item>
+                            </md-list>
+                            <md-list>
+                                <md-list-item>Pull Request :</md-list-item>
+                                <md-list-item>Elapsed Time :</md-list-item>
+                            </md-list>
+                            <md-list flex-gt-xs="20">
+                                <md-list-item>#134</md-list-item>
+                                <md-list-item>2 min.</md-list-item>
+                            </md-list>
+                        </div>
+                    </md-card-title-media>
+                    <md-card-title-media flex-xs flex-gt-xs="30">
+                        <md-subheader class="md-no-sticky">Description</md-subheader>
+                        <div layout="row">
+                            <md-list>
+                                {{vm.pipelineDesc}}
+                            </md-list>
+                        </div>
+                    </md-card-title-media>
+                </md-card>
+                <div layout="column" class="terminalWrapper">
+                    <md-content flex layout-padding>
+                        <!-- Verify -->
+                        <div class="terminal" id="{{ pane.id }}" ng-show="pubnubCategoryLogs">
+                            <div ng-repeat="data in pane.content">
+                                <p>
+                                    <span class="sub-head">{{data}}</span>
+                                    <!-- <span ng-class="{failed: data.logType == 'failed', success: data.logType == 'success'}">&nbsp;&nbsp;&nbsp;&nbsp;{{data.message}}</span> -->
+                                </p>
+                            </div>
+
+                            <h4  ng-show="state.status">{{state.stageName}} of type {{state.stageType}} is in progress.. </h4>
+                            <div ng-repeat="testpane in categoryPanes track by $index" ng-class="{errorBorder: testpane.errorType == 'error', warningBorder: testpane.errorType == 'warning'}"
+                                class="ruleLogs">
+                                <p>Scenario: </p>
+                                <!-- <p>Rule Id: &nbsp; {{pane.featureId}} </p> -->
+                                <p ng-repeat="ruleValidation in testpane.content track by $index">
+                                    <span ng-if="ruleValidation.stepStatus == 'passed'">
+                                        <i class="material-icons" ng-class="{failed: ruleValidation.stepStatus == 'failed', success: ruleValidation.stepStatus == 'passed'}">done</i>
+                                    </span>
+                                    <span ng-if="ruleValidation.stepStatus == 'failed'">
+                                        <i class="material-icons" ng-class="{failed: ruleValidation.stepStatus == 'failed', success: ruleValidation.stepStatus == 'passed'}">clear</i>
+                                    </span>
+                                    <span ng-if="ruleValidation.stepStatus == 'skipped'">
+                                        <i class="material-icons" ng-class="{failed: ruleValidation.stepStatus == 'failed', success: ruleValidation.stepStatus == 'passed', warning: ruleValidation.stepStatus == 'skipped', undefined: ruleValidation.stepStatus == 'undefined'}">priority_high</i>
+                                    </span>
+                                    <span ng-if="ruleValidation.stepStatus == 'undefined'">
+                                        <i class="material-icons" ng-class="{failed: ruleValidation.stepStatus == 'failed', success: ruleValidation.stepStatus == 'passed', warning: ruleValidation.stepStatus == 'skipped', undefined: ruleValidation.stepStatus == 'undefined'}">priority_high</i>
+                                    </span>
+                                    <span ng-class="{failed: ruleValidation.stepStatus == 'failed', success: ruleValidation.stepStatus == 'passed', warning: ruleValidation.stepStatus == 'skipped', undefined: ruleValidation.stepStatus == 'undefined'}">{{ruleValidation.stepName}}</span>
+                                    <!-- <span><b>{{ruleValidation.stepStatus}}</b> </span> -->
+                                </p>
+                            </div>
+
+                        </div>
+                        <!-- Build -->
+                        <div class="terminal" id="{{ Bpane.id }}" ng-show="pubnubbuildoutputsLogs">
+                            <h4  ng-show="state.status">{{state.stageName}} of type {{state.stageType}} is in progress.. </h4>
+                            <div ng-repeat="data in Bpane.content track by $index">
+                                <p>
+                                    <span class="sub-head">{{data}}</span>
+                                    <!-- <span ng-class="{failed: data.logType == 'failed', success: data.logType == 'success'}">&nbsp;&nbsp;&nbsp;&nbsp;{{data.message}}</span> -->
+                                </p>
+                            </div>
+                            <div ng-show="noBuildLogs" class="outputParams">
+                                <h4>Output Params</h4>
+                                <div ng-repeat="output in buildoutputs">
+                                    <div ng-repeat="(key, value) in output">
+                                        <p layout="row">
+                                            <span class="paramKey">{{key}}</span>
+                                            <span class="paramval">{{value}}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Accordion code-->
+                        <!-- <div layout="row">
+                            <div flex="100">
+                                <v-accordion id="accordionA" class="vAccordion--default" control="accordionA" onexpand="expandCallback(index, id)" oncollapse="collapseCallback(index, id)">
+                                    <v-pane id="{{ vm.pane.id }}">
+                                        <v-pane-header id="{{ pane.id }}-header" aria-controls="{{ vm.pane.id }}-content">
+                                            <h5>{{ vm.stateTitle }}</h5>
+                                        </v-pane-header>
+                                        <v-pane-content id="{{ vm.pane.id }}-content" aria-labelledby="{{ vm.pane.id }}-header" class="console-color">
+
+                                            <v-accordion ng-show="pubnubCategorylogs" id="accordionA" class="vAccordion--default" control="accordionA" onexpand="expandCallback(index, id)"
+                                                oncollapse="collapseCallback(index, id)">
+                                                <v-pane id="{{ pane.id }}" ng-repeat="pane in vm.categoryPanes">
+                                                    <v-pane-header id="{{ pane.id }}-header" aria-controls="{{ pane.id }}-content">
+                                                        <md-card layout="row" layout-xs="column">
+                                                            <md-card-title-media flex-xs flex-gt-xs="100" style="{{vm.logColor(pane.errorType)}}">
+                                                                <div layout="row">
+                                                                    <md-list flex-gt-xs="2">
+                                                                        <md-list-item>
+                                                                            <i class="fa fa-check" aria-hidden="true" ng-if="pane.errorType=='warning'" style="color:#ffbf00">
+                                                                            </i>
+                                                                            <i class="fa fa-exclamation" aria-hidden="true" ng-if="pane.errorType=='failed'" style="color:red">
+                                                                            </i>
+                                                                        </md-list-item>
+                                                                    </md-list>
+                                                                    <md-list flex-gt-xs="20">
+                                                                        <md-list-item>{{pane.featureId}}</md-list-item>
+                                                                    </md-list>
+                                                                    <md-list flex-gt-xs="40">
+                                                                        <md-list-item>{{pane.header}}</md-list-item>
+                                                                    </md-list>
+                                                                    <md-list flex-gt-xs="20">
+                                                                        <md-list-item>10 passed</md-list-item>
+                                                                        <md-list-item>b02858b</md-list-item>
+                                                                    </md-list>
+                                                                    <md-list flex-gt-xs="2">
+                                                                        <md-list-item>
+                                                                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                                        </md-list-item>
+                                                                        <md-list-item>
+                                                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                                        </md-list-item>
+                                                                    </md-list>
+                                                                    <md-list flex-gt-xs="20">
+                                                                        <md-list-item>2 min 7 sec</md-list-item>
+                                                                        <md-list-item>a day ago</md-list-item>
+                                                                    </md-list>
+                                                                </div>
+                                                            </md-card-title-media>
+                                                        </md-card>
+                                                    </v-pane-header>
+                                                    <v-pane-content id="{{ pane.id }}-content" aria-labelledby="{{ pane.id }}-header">
+                                                        <div style "clear:both;" ng-repeat="data in pane.content track by $index">
+                                                            <p>- {{ data.stepName }}</p>
+                                                            <p>- {{ data.status }}</p>
+                                                        </div>
+                                                    </v-pane-content>
+                                                </v-pane>
+                                            </v-accordion>
+                                            <v-accordion ng-show="pubnubbuildoutputslogs && buildoutputs" id="accordionA" class="vAccordion--default" control="accordionA"
+                                                onexpand="expandCallback(index, id)" oncollapse="collapseCallback(index, id)">
+                                                <v-pane id="{{ pane.id }}">
+                                                    <v-pane-header id="{{ pane.id }}-header" aria-controls="{{ pane.id }}-content">
+                                                        <md-card layout="row" layout-xs="column">
+                                                            <md-card-title-media flex-xs flex-gt-xs="100" style='border-left: 8px solid green;'>
+                                                                <div layout="row">
+                                                                    <md-list flex-gt-xs="2">
+                                                                        <md-list-item>
+                                                                            <i class="fa fa-check" aria-hidden="true" ng-if="" style="color:green">
+                                                                        </i>
+
+                                                                        </md-list-item>
+                                                                    </md-list>
+                                                                    <md-list flex-gt-xs="20">
+                                                                        <md-list-item>Result Output params</md-list-item>
+                                                                    </md-list>
+                                                                    <md-list flex-gt-xs="40">
+                                                                        <md-list-item>Outputs</md-list-item>
+                                                                    </md-list>
+                                                                    <md-list flex-gt-xs="20">
+                                                                        <md-list-item>3 outputs</md-list-item>
+
+                                                                    </md-list>
+                                                                    <md-list flex-gt-xs="2">
+                                                                        <md-list-item>
+                                                                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                                        </md-list-item>
+                                                                        <md-list-item>
+                                                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                                        </md-list-item>
+                                                                    </md-list>
+                                                                    <md-list flex-gt-xs="20">
+                                                                        <md-list-item>2 min 7 sec</md-list-item>
+                                                                        <md-list-item>a day ago</md-list-item>
+                                                                    </md-list>
+                                                                </div>
+                                                            </md-card-title-media>
+                                                        </md-card>
+                                                    </v-pane-header>
+                                                    <v-pane-content id="" aria-labelledby="">
+                                                        <div style "clear:both;" ng-repeat="data in buildoutputs track by $index">
+                                                            <p>- {{ data }}</p>
+
+                                                        </div>
+                                                    </v-pane-content>
+                                                </v-pane>
+                                            </v-accordion>
+                                        </v-pane-content>
+                                    </v-pane>
+                                </v-accordion>
+
+                            </div>
+                        </div> -->
+                    </md-content>
+                </div>
+            </div>
+        </md-content>
+    </div>
+</div>

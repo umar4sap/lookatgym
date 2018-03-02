@@ -1,0 +1,32 @@
+sidemenu {
+    background-color: #404160;
+    width: 84px;
+    position: absolute;
+    z-index: 999;
+    bottom: 0;
+    top: 46px;
+    left: 0;
+    md-list-item {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        a.md-button {
+            min-width: 84px;
+            i {
+                font-size: 33px;
+            }
+            span {
+                margin: 0px;
+                color: #dddddd;
+                font-size: 11px;
+            }
+        }
+        .md-list-item-inner {
+            &:before {
+                min-height: 0px;
+            }
+        }
+        &:before {
+            min-height: 0px;
+        }
+    }
+}

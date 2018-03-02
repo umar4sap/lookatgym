@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto:300,400,500,700,900");
+.md-headline {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 20px; }
+
+.bottom-actions span {
+  width: 32px;
+  text-align: center;
+  border-left: 1px;
+  border-right: 1px;
+  border-color: #dedede;
+  border-style: solid;
+  border-top: 0;
+  border-bottom: 0;
+  color: #676767;
+  font-size: 22px;
+  height: 23px; }
+  .bottom-actions span:last-child {
+    border-left: 0px; }
+  .bottom-actions span:first-child {
+    border-left: 1px;
+    border-color: #dedede;
+    border-style: solid; }
+  .bottom-actions span:hover {
+    color: #3cbbca;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out; }
+
+.details ul {
+  margin: 0px;
+  padding: 0px; }
+  .details ul li {
+    list-style: none; }
+    .details ul li:last-child .pipeline-item:before {
+      display: none; }
+
+.details .state {
+  padding: 15px; }
+  .details .state .pipeline-item {
+    width: 64px;
+    height: 64px;
+    border-radius: 100%;
+    border: 1px solid #eee;
+    background-color: rgba(255, 255, 255, 0.75);
+    position: relative;
+    z-index: 3; }
+    .details .state .pipeline-item:after {
+      content: "";
+      width: 42px;
+      height: 42px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      background-color: #e7e7e7;
+      border-radius: 100%;
+      z-index: 2; }
+    .details .state .pipeline-item:before {
+      content: "";
+      width: 42px;
+      height: 5px;
+      position: absolute;
+      top: 0px;
+      background-color: white;
+      right: -42px;
+      bottom: 0px;
+      margin: auto;
+      z-index: 1;
+      border-style: solid;
+      border-top-width: 1px;
+      border-color: #eee;
+      border-bottom-width: 1px;
+      border-left-width: 0;
+      border-right-width: 0; }
+    .details .state .pipeline-item span.fa {
+      z-index: 999;
+      font-size: 22px;
+      color: #3cbbca; }
+
+.executionRunning {
+  background-color: rgba(251, 255, 0, 0.26);
+  border-left: 3px solid #FFE600; }
+
+.executionFailed {
+  background-color: rgba(224, 10, 42, 0.15);
+  border-left: 3px solid #e00a2a; }
+
+.executionSuccess {
+  background-color: rgba(37, 149, 233, 0.15);
+  border-left: 3px solid #2595e9; }
+
+.md-card-image {
+  width: 150px;
+  height: 150px; }
+
+.md-headline {
+  color: #404160; }

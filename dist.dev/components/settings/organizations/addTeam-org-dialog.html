@@ -1,0 +1,38 @@
+<md-dialog aria-label="Add New Team" style="min-width:380px;">
+    <form  name="teamData" ng-cloak  style="overflow:hidden;">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Add New Team</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="material-icons" aria-label="close"></i>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+
+                    <md-input-container class="md-block">
+                        <label>Team Name</label>
+                        <input md-maxlength="30" required md-asterisk ng-model="teamData.teamName">
+
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>Team Description</label>
+                        <textarea required md-asterisk rows="1" columns="50" ng-model="teamData.teamDescription"></textarea>
+                    </md-input-container>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-click="cancel()">
+                Close
+            </md-button>
+            <md-button ng-click="createTeam(teamData, $event)">
+                Create
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

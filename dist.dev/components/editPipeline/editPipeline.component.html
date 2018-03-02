@@ -1,0 +1,169 @@
+<div id="page-wrapper">
+    <div ng-controller="ToolbarController">
+        <toolbar></toolbar>
+    </div>
+    <div id="content-wrapper" layout="row">
+        <sidemenu id="sidebar-wrapper" layout="column"></sidemenu>
+
+        <!--<md-content class="main-container" ng-controller="editPipelineController" ng-if="!loadStates">
+            <ci-spinner></ci-spinner>
+        </md-content>-->
+        <md-content class="main-container" ng-controller="editPipelineController">
+            <md-content class="pipeline-ready" layout="column" layout-padding ng-show="!pipelineReady" layout-align="center center">
+                <!-- <h2 class="md-display-4">Hold em !</h2> -->
+                <p class="md-display-2" ng-if="!pipelineConfigure">We are getting your pipeline ready.</p>
+                <p class="md-display-2" ng-if="getStagesLoader">Pipeline is creating Stages. <i class="material-icons" ng-if="getStagesLoaderDone">done</i></p>
+                <p class="md-display-2" ng-if="getCatsLoader">Pipeline is creating Categories.<i class="material-icons" ng-if="getStagesLoaderDone">done</i></p>
+                <p class="md-display-2" ng-if="updatingPipeline">Updating Pipeline.<i class="material-icons" ng-if="updatingPipelineDone">done</i></p>
+                <span class=""><ci-spinner></ci-spinner></span>
+            </md-content>
+            <md-content layout="column" layout-padding ng-show="pipelineReady" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0px; overflow: hidden;">
+
+                <form flex="100" layout="column" ng-submit="submitForm('/configurePipeline', editPipeDate,triggereBy,triggeredByOptionValue)"
+                    layout-align="start stretch" name="userForm" novalidate style="overflow-y: auto; margin-bottom: 60px;">
+                    <div layout="column">
+                        <span class="md-headline">Edit Pipeline</span>
+                        <span class="md-subhead">Edit your Pipeline.</span>
+                    </div>
+                    <div layout="row">
+                        <div layout="row" layout-align="center center">
+                            <input type="file" ng-model="editPipeDate.pipelineSettings.pipelineImage" id="file-upload" name="file" base-sixty-four-input
+                                onload="onLoad" maxsize="500" accept="image/*" class="pipelineImgUploadBtn">
+                            <label for="file-upload" class="custom-file-upload">
+                                <i class="fa fa-cloud-upload" ng-if="!editPipeDate.file.base64"></i>
+                                <img ng-src="data:image/jpg;base64,{{editPipeDate.pipelineSettings.pipelineImage.base64}}" alt="" ng-if="!editPipeDate.file.base64">
+                                <img ng-src="data:image/jpg;base64,{{editPipeDate.file.base64}}" alt="" ng-if="editPipeDate.file.base64">
+                            </label>
+                        </div>
+                        <md-input-container flex="45" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+                            <label>Name the Pipeline</label>
+                            <input ng-model="editPipeDate.pipelineName" name="pipelineName" required>
+                        </md-input-container>
+                        <span flex></span>
+                        <md-input-container flex="45">
+                            <label>Select Project</label>
+                            <md-select ng-model="editPipeDate.projectID" required>
+                                <md-option ng-repeat="project in projectsList" ng-value="project.projectID">
+                                    {{project.projectName}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+
+                    </div>
+                    <edit-pipeline layout="row" class="no-padding" ng-if="statesLoaded"></edit-pipeline>
+                    <md-input-container class="md-block">
+                        <label>Pipeline Description</label>
+                        <textarea ng-model="editPipeDate.pipelineDescription" required class="pipelineDescription" md-minlength="50" md-maxlength="500"
+                            rows="1" md-select-on-focus></textarea>
+                    </md-input-container>
+                    <span class="md-headline">Create Pipeline</span>
+                    <div layout="row">
+                        <div layout="column" flex="25">
+                            <span class="md-subhead">Share Pipeline configuration</span>
+                            <div layout-padding></div>
+                            <md-radio-group ng-model="editPipeDate.pipelineSettings.pipelinePermissions.pipelineConfigVisibility" required>
+
+                                <md-radio-button value="Public" class="md-primary">Public</md-radio-button>
+                                <md-radio-button value="Private (to me)"> Private (to me)</md-radio-button>
+                                <md-radio-button value="Private (to org)">Private (to org)</md-radio-button>
+
+                            </md-radio-group>
+                        </div>
+                        <div layout="column" flex="25">
+                            <span class="md-subhead">Pipeline Execution Visibility</span>
+                            <div layout-padding></div>
+                            <md-radio-group ng-model="editPipeDate.pipelineSettings.pipelinePermissions.pipielineExecutionVisibility" required>
+
+                                <md-radio-button value="Public" class="md-primary">Public</md-radio-button>
+                                <md-radio-button value="Private (to me)"> Private (to me)</md-radio-button>
+                                <md-radio-button value="Private (to org)">Private (to org)</md-radio-button>
+
+                            </md-radio-group>
+                        </div>
+                        <div layout="column" flex="25">
+                            <span class="md-subhead">Triggered by</span>
+                            <div layout-padding></div>
+                            <md-input-container>
+                                <label>Select Trigger</label>
+                                <md-select ng-model="editPipeDate.pipelineSettings.triggeredBy.option" flex="60" required ng-change="triggerChange($event)">
+                                    <md-option ng-value="trigger.value" ng-repeat="trigger in triggers">{{trigger.name}}</md-option>
+                                </md-select>
+                            </md-input-container>
+                            <div layout-padding></div>
+                            <md-radio-group ng-model="editPipeDate.pipelineSettings.triggeredBy.value" ng-show="editPipeDate.pipelineSettings.triggeredBy.option == 'pullRequest'">
+                                <md-radio-button value="active" class="md-primary">Active</md-radio-button>
+                                <md-radio-button value="inactive">Inactive</md-radio-button>
+                                <span ng-if="!triggeredByOptionValue" style="color:red;">Please select one option</span>
+                            </md-radio-group>
+                            <md-input-container ng-if="editPipeDate.pipelineSettings.triggeredBy.option == 'schedule'" ng-model="triggeredByOptionValue">
+                                <md-list flex="80" ng-if="selectedSchedule">
+                                    <md-list-item layout="row" layout-align="start end">
+                                        <span flex="25"><b>Start Date</b></span>
+                                        <span flex></span>
+                                        <span>{{selectedSchedule.startDate}}</span>
+                                    </md-list-item>
+                                    <md-divider></md-divider>
+                                    <md-list-item layout="row" layout-align="start end">
+                                        <span flex="25"><b>Start Time</b></span>
+                                        <span flex></span>
+                                        <span>{{selectedSchedule.time}}</span>
+                                    </md-list-item>
+                                    <md-divider>
+                                    </md-divider>
+                                    <md-list-item layout="row" layout-align="start end">
+                                        <span flex="25"><b>Repeats</b></span>
+                                        <span flex></span>
+                                        <span>{{selectedSchedule.repeats}}</span>
+                                    </md-list-item>
+                                    <md-divider>
+                                    </md-divider>
+                                    <md-list-item layout="row" layout-align="start end">
+                                        <span flex="25"><b>Repeat By</b></span>
+                                        <span flex></span>
+                                        <md-truncate>
+                                            <ul class="repeatDays">
+                                                <li ng-repeat="repeatOn in selectedSchedule.repeatOn">{{repeatOn}}</li>
+                                            </ul>
+                                            <md-tooltip md-direction="top">
+                                                <ul class="repeatDays">
+                                                    <li ng-repeat="repeatOn in selectedSchedule.repeatOn">{{repeatOn}}</li>
+                                                </ul>
+                                            </md-tooltip>
+                                        </md-truncate>
+                                    </md-list-item>
+                                    <md-divider>
+                                    </md-divider>
+                                    <md-list-item layout="row" layout-align="start end">
+                                        <span flex="25"><b>End Date</b></span>
+                                        <span flex></span>
+                                        <span>{{selectedSchedule.endDate}}</span>
+                                    </md-list-item>
+                                </md-list>
+                                <span ng-click="triggerChange($event)" style="position: absolute;top: -24px;right: 0px;">
+                                    <i class="material-icons" style="font-size: 16px;color: #404160;border: 2px solid #3cbbca;padding: 3px;border-radius: 100%;">mode_edit</i>
+                                </span>
+                            </md-input-container>
+                        </div>
+                        <div layout="column" flex="25">
+                            <span class="md-subhead">Throttle concurrent builds</span>
+                            <div layout-padding></div>
+                            <md-input-container flex="45">
+                                <label>Enter number of concurrent builds</label>
+                                <input ng-model="editPipeDate.pipelineSettings.pipelineConcurrentBuildThrottle" required name="throttleConcurrentBuilds"
+                                    type="number">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <md-bottom-sheet class="md-grid" layout="column">
+                        <div ng-cloak>
+                            <md-button ng-if="!spinner" type="submit" class="cc-button pull-right" md-ripple-size="auto" aria-label="button-label">
+                                Configure
+                            </md-button>
+                            <ci-spinner ng-if="spinner"></ci-spinner>
+                        </div>
+                    </md-bottom-sheet>
+                </form>
+            </md-content>
+        </md-content>
+    </div>
+</div>

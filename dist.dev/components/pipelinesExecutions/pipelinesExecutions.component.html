@@ -1,0 +1,39 @@
+<div id="page-wrapper">
+    <div ng-controller="ToolbarController">
+        <toolbar></toolbar>
+    </div>
+    <div id="content-wrapper" layout="row">
+        <sidemenu id="sidebar-wrapper" layout="column"></sidemenu>
+        <md-content class="main-container outletContainer" layout="row" layout-xs="column" layout-align="start start" layout-padding>
+            <div flex-xs flex-gt-xs="100" layout="column">
+                <md-card>
+                    <md-card-title>
+                        <md-card-title-text layout="row" layout-align="space-between center">
+                            <span class="md-headline">Pipeline Builds</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-title-media layout-padding>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Build Id</th>
+                                    <th>Pipeline Id</th>
+                                    <th>Project Name</th>
+                                    <th>Build Status</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="item in vm.buildsData">
+                                <tr>
+                                    <td ng-click="vm.executions('/executionPipeline/'+item.executionId)">{{item.executionId}}</td>
+                                    <td>{{item.pipelineId}}</td>
+                                    <td>project Name</td>
+                                    <td>Pipeline Status</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </md-card-title-media>
+                </md-card>
+            </div>
+        </md-content>
+    </div>
+</div>

@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto:300,400,500,700,900");
+.md-headline {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 20px; }
+
+.bottom-actions span {
+  width: 32px;
+  text-align: center;
+  border-left: 1px;
+  border-right: 1px;
+  border-color: #dedede;
+  border-style: solid;
+  border-top: 0;
+  border-bottom: 0;
+  color: #676767;
+  font-size: 22px;
+  height: 23px; }
+  .bottom-actions span:last-child {
+    border-left: 0px; }
+  .bottom-actions span:first-child {
+    border-left: 1px;
+    border-color: #dedede;
+    border-style: solid; }
+  .bottom-actions span:hover {
+    color: #3cbbca;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out; }
+
+.pipeline-ready {
+  height: 100%;
+  background-color: #ececec;
+  color: #404160; }
+
+md-checkbox .md-label label {
+  margin: 0px; }
+
+.pipelineStates ul {
+  margin: 0px;
+  padding: 0px; }
+  .pipelineStates ul li {
+    list-style: none; }
+    .pipelineStates ul li:last-child .pipeline-item:before {
+      display: none; }
+
+.pipelineStates .record-strip {
+  height: 100%; }
+  .pipelineStates .record-strip md-card {
+    overflow-x: auto; }
+  .pipelineStates .record-strip .state {
+    height: 100%;
+    padding: 10px; }
+    .pipelineStates .record-strip .state .md-button {
+      min-width: initial;
+      text-transform: lowercase;
+      line-height: initial;
+      min-height: initial;
+      margin: 0px; }
+    .pipelineStates .record-strip .state.stage .pipeline-item {
+      width: 64px;
+      height: 64px;
+      border-radius: 100%;
+      border: 1px solid #eee;
+      background-color: rgba(255, 255, 255, 0.75);
+      position: relative;
+      z-index: 3; }
+      .pipelineStates .record-strip .state.stage .pipeline-item:after {
+        content: "";
+        width: 42px;
+        height: 42px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-color: #e7e7e7;
+        border-radius: 100%;
+        z-index: 2; }
+      .pipelineStates .record-strip .state.stage .pipeline-item:before {
+        content: "";
+        width: 42px;
+        height: 5px;
+        position: absolute;
+        top: 0px;
+        background-color: white;
+        right: -42px;
+        bottom: 0px;
+        margin: auto;
+        z-index: 1;
+        border-style: solid;
+        border-top-width: 1px;
+        border-color: #eee;
+        border-bottom-width: 1px;
+        border-left-width: 0;
+        border-right-width: 0; }
+      .pipelineStates .record-strip .state.stage .pipeline-item span.fa {
+        z-index: 999;
+        font-size: 22px;
+        color: #3cbbca; }
+    .pipelineStates .record-strip .state.stage .active {
+      background-color: #404160; }
+    .pipelineStates .record-strip .state.gate .pipeline-item {
+      width: 32px;
+      height: 39px;
+      border-radius: 0;
+      border: 1px solid #eee;
+      background-color: rgba(255, 255, 255, 0.75);
+      position: relative;
+      z-index: 3; }
+      .pipelineStates .record-strip .state.gate .pipeline-item:before {
+        content: "";
+        width: 24px;
+        height: 30px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-color: #e7e7e7;
+        z-index: 2; }
+      .pipelineStates .record-strip .state.gate .pipeline-item:after {
+        content: "";
+        width: 30px;
+        height: 5px;
+        position: absolute;
+        top: 0px;
+        background-color: white;
+        right: -30px;
+        bottom: 0px;
+        margin: auto;
+        z-index: -1;
+        border-style: solid;
+        border-top-width: 1px;
+        border-color: #eee;
+        border-bottom-width: 1px;
+        border-left-width: 0;
+        border-right-width: 0; }
+    .pipelineStates .record-strip .state.gate .active {
+      background-color: #404160; }

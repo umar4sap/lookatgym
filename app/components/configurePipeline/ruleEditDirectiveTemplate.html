@@ -1,0 +1,54 @@
+<div layout="column">
+    <md-dialog-content layout="row">
+        <div flex="65">
+            <md-select placeholder="Pick from the list" ng-model="rule" md-on-open="loadRules()" style="min-width: 200px;" ng-change="selectedDefaultRule()">
+                <md-option ng-value="rule.value" ng-repeat="rule in rules">{{rule.name}}</md-option>
+            </md-select>
+            <div id="ruleEditDirectiveEditor" ui-ace="{onLoad: aceLoaded, onChange: aceChanged}" style="height: 400px;" ng-model="fsEditData.caseCode"></div>
+        </div>
+        <div flex="35" layout="column" layout-padding>
+            <md-input-container>
+                <label>Enter Test Case name</label>
+                <input md-maxlength="12" name="caseName" ng-model="fsEditData.caseName">
+            </md-input-container>
+            <md-input-container>
+                <label>Enter Test Case description</label>
+                <input md-maxlength="35" name="caseDescription" ng-model="fsEditData.caseDescription">
+            </md-input-container>
+            <h4 class="">Publish Settings</h4>
+            <md-radio-group ng-model="fsEditData.publishSettings" layout="row">
+                <md-radio-button value="Public" class="md-primary">Public</md-radio-button>
+                <md-radio-button value="Private (to me)"> Private (to me) </md-radio-button>
+                <md-radio-button value="Private (to org)">Private (to org)</md-radio-button>
+            </md-radio-group>
+            <h4 class="">Case Type</h4>
+            <md-radio-group ng-model="fsEditData.caseType" layout="row">
+                <md-radio-button value="error" class="md-primary">Error</md-radio-button>
+                <md-radio-button value="warning (to me)"> Warning </md-radio-button>
+            </md-radio-group>
+            <h4 class="md-title">Add Tags.</h4>
+            <md-chips ng-model="fsEditData.selectedTags" md-autocomplete-snap md-require-match="true">
+                <md-autocomplete md-search-text="searchText" md-items="item in queryTags(searchText)" md-autoselect="true" md-select-on-match="true" md-no-cache="true" md-require-match="true" placeholder="+ Tag">
+                    <span md-highlight-text="searchText">{{item}}</span>
+                </md-autocomplete>
+                <md-chip-template>
+                    <span>{{$chip}}</span>
+                </md-chip-template>
+            </md-chips>
+        </div>
+    </md-dialog-content>
+    <div class="alert alert-danger" role="alert" ng-if="invalidRule">Oh snap! Change a few things up and try submitting again.</div>
+    <div class="alert alert-success" role="alert" ng-if="validated"> This test case has validated successfully..</div>
+    <md-dialog-actions layout="row">
+        <md-button class="md-raised md-success" ng-click="closeDialog()">
+            Close
+        </md-button>
+        <md-button class="md-raised md-warn" ng-click="updatedTestCaseValidate(fsEditData)" ng-if="!validated" layout="row">
+            Validate
+            <md-progress-circular md-mode="indeterminate" md-diameter="20px" ng-if="validationInProgress"></md-progress-circular>
+        </md-button>
+        <md-button class="md-raised md-primary" ng-click="updatedTestCaseDetails($event, caseName, caseDescription, publishSettings, caseType)" ng-if="validated">
+            Create
+        </md-button>
+    </md-dialog-actions>
+</div>

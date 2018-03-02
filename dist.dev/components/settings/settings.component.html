@@ -1,0 +1,65 @@
+<div>
+    <div ng-controller="ToolbarController">
+        <toolbar></toolbar>
+    </div>
+    <div id="content-wrapper" layout="row">
+        <sidemenu id="sidebar-wrapper" layout="column"></sidemenu>
+        <md-content class="main-container outletContainer" ng-controller="SettingsController" layout="row" layout-xs="column" layout-align="start start " layout-padding flex-gt-xs="90">
+            <div flex-xs flex-md flex-gt-xs="20">
+                <md-list>
+                    <md-list-item ng-repeat="setting in vm.settings">
+                        <md-button ng-click="vm.go(setting.link)" layout="row">
+                            <i class="material-icons">{{setting.icon}}</i>
+                            <p> {{ setting.name }} </p>
+                        </md-button>
+                    </md-list-item>
+                </md-list>
+
+            </div>
+            <div flex-xs flex-md flex-gt-xs="80">
+                <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">Profile Settings</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-title-media>
+                        <div layout="row" layout-sm="column" layout-xs="column" layout-padding>
+                            <div flex-xs flex-gt-xs="25">
+                                <img src="{{userProfileData.picture}}" alt="">
+                            </div>
+                            <div flex-xs flex-gt-xs="75">
+                                <md-list>
+                                    <md-list-item>
+                                        <span flex layout-padding class="align-right">Username:</span>
+                                        <span flex layout-padding>{{userProfileData.nickname}}</span>
+                                    </md-list-item>
+                                     <md-divider ng-if="!$last"></md-divider>
+                                    <md-list-item>
+                                        <span flex layout-padding class="align-right">Email:</span>
+                                        <span flex layout-padding>{{userProfileData.email}}</span>
+                                    </md-list-item>
+                                     <md-divider ng-if="!$last"></md-divider>
+                                    <md-list-item>
+                                        <span flex layout-padding class="align-right">Plan:</span>
+                                        <span flex layout-padding>{{userProfileData.app_metadata.owner.plan}}</span>
+                                    </md-list-item>
+                                     <md-divider ></md-divider>
+                                    <md-list-item>
+                                        <span flex layout-padding class="align-right">Role:</span>
+                                        <span flex layout-padding>{{userProfileData.app_metadata.owner.role}}</span>
+                                    </md-list-item>
+                                    <md-divider ></md-divider>
+                                </md-list>
+                            </div>
+                        </div>
+                    </md-card-title-media>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button class="md-raised md-primary" ng-click="switchAccounts($event)">Switch Account</md-button>
+                        <md-button class="md-raised md-primary">Upgrade Plan </md-button>
+                    </md-card-actions>
+                </md-card>
+            </div>
+        </md-content>
+    </div>
+</div>

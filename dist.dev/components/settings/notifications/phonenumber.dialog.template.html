@@ -1,0 +1,13 @@
+<md-dialog aria-label="List dialog" flex="50">
+    <md-dialog-content layout-padding>
+        <subheader>Add Phone Number</subheader>
+        <md-input-container class="md-block">
+            <label>Enter Phone Numbder</label>
+            <input md-maxlength="14" required md-no-asterisk name="phonenumber" ng-model="project.phonenumber">
+        </md-input-container>
+
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button ng-click="vm.cancel" class="md-raised md-primary">Add Phone</md-button>
+    </md-dialog-actions>
+</md-dialog>

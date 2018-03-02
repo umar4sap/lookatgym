@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto:300,400,500,700,900");
+.md-headline {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 20px; }
+
+.bottom-actions span {
+  width: 32px;
+  text-align: center;
+  border-left: 1px;
+  border-right: 1px;
+  border-color: #dedede;
+  border-style: solid;
+  border-top: 0;
+  border-bottom: 0;
+  color: #676767;
+  font-size: 22px;
+  height: 23px; }
+  .bottom-actions span:last-child {
+    border-left: 0px; }
+  .bottom-actions span:first-child {
+    border-left: 1px;
+    border-color: #dedede;
+    border-style: solid; }
+  .bottom-actions span:hover {
+    color: #3cbbca;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out; }
+
+.record-strip.projectCards {
+  min-width: 209px;
+  float: left; }
+  .record-strip.projectCards md-card {
+    height: 180px; }
+    .record-strip.projectCards md-card md-card-title {
+      padding: 4px; }
+      .record-strip.projectCards md-card md-card-title md-card-title-text .md-subhead {
+        padding: 0px; }
+    .record-strip.projectCards md-card md-card-title-media .md-subheader .md-subheader-inner {
+      padding: 8px 4px 4px 4px; }
+    .record-strip.projectCards md-card md-card-actions {
+      margin: 0;
+      padding: 0 4px;
+      border-left: 0px;
+      border-right: 0px;
+      border-top: 1px;
+      border-bottom: 0px;
+      border-style: solid;
+      border-color: #404160;
+      background-color: rgba(64, 65, 96, 0.06);
+      width: 100%; }
+      .record-strip.projectCards md-card md-card-actions .md-button {
+        min-width: 30px;
+        padding: 0px;
+        margin: 0px;
+        line-height: initial;
+        min-height: 24px; }
+      .record-strip.projectCards md-card md-card-actions i {
+        font-size: 19px;
+        color: grey;
+        margin-top: 3px; }
+    .record-strip.projectCards md-card div.org-content {
+      height: 153px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      width: 100%; }
+      .record-strip.projectCards md-card div.org-content md-list {
+        width: 100%;
+        height: 118px;
+        overflow-x: hidden;
+        overflow-y: auto; }
+        .record-strip.projectCards md-card div.org-content md-list .md-button {
+          min-width: auto; }
+          .record-strip.projectCards md-card div.org-content md-list .md-button i {
+            font-size: 20px;
+            color: #09ade0; }
+      .record-strip.projectCards md-card div.org-content md-card-header {
+        width: 100%;
+        height: 35px; }
+        .record-strip.projectCards md-card div.org-content md-card-header .md-title {
+          font-size: 16px; }
+    .record-strip.projectCards md-card.progress {
+      border-left: 0px;
+      border-color: #ffe400;
+      border-right: 0px;
+      border-bottom: 0px;
+      border-top: 1px;
+      border-style: solid;
+      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 0px;
+      background-color: white; }
+    .record-strip.projectCards md-card.success {
+      border-left: 6px solid;
+      border-color: #00b4ff; }
+    .record-strip.projectCards md-card.error {
+      border-left: 6px solid;
+      border-color: red; }
+    .record-strip.projectCards md-card.untouched {
+      border-left: 6px solid;
+      border-color: #adadad; }
+    .record-strip.projectCards md-card.completed {
+      border-left: 6px solid;
+      border-color: #00c300; }

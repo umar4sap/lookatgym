@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto:300,400,500,700,900");
+.md-headline {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 20px; }
+
+.bottom-actions span {
+  width: 32px;
+  text-align: center;
+  border-left: 1px;
+  border-right: 1px;
+  border-color: #dedede;
+  border-style: solid;
+  border-top: 0;
+  border-bottom: 0;
+  color: #676767;
+  font-size: 22px;
+  height: 23px; }
+  .bottom-actions span:last-child {
+    border-left: 0px; }
+  .bottom-actions span:first-child {
+    border-left: 1px;
+    border-color: #dedede;
+    border-style: solid; }
+  .bottom-actions span:hover {
+    color: #3cbbca;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out; }
+
+edit-pipeline {
+  height: 100%; }
+  edit-pipeline md-card {
+    background-color: #f8f8f8; }
+  edit-pipeline div.removed-state {
+    animation: removed-state-animation 0.6s cubic-bezier(0.55, -0.04, 0.91, 0.94) forwards; }
+  edit-pipeline div .state {
+    height: 100%;
+    padding: 10px; }
+    edit-pipeline div .state .md-button {
+      min-width: initial;
+      text-transform: lowercase;
+      line-height: initial;
+      min-height: initial;
+      margin: 0px;
+      color: #a2a0a0; }
+      edit-pipeline div .state .md-button i {
+        font-size: 16px;
+        font-weight: 500;
+        color: #a2a0a0; }
+        edit-pipeline div .state .md-button i:hover {
+          color: #3cbbca; }
+      edit-pipeline div .state .md-button:hover {
+        color: #3cbbca; }
+    edit-pipeline div .state .pipeline-item {
+      width: 64px;
+      height: 64px;
+      border-radius: 100%;
+      border: 1px solid #eee;
+      background-color: rgba(255, 255, 255, 0.75);
+      position: relative; }
+      edit-pipeline div .state .pipeline-item:after {
+        content: "";
+        width: 42px;
+        height: 42px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-color: #e7e7e7;
+        border-radius: 100%; }
+      edit-pipeline div .state .pipeline-item span.fa {
+        z-index: 999; }
+    edit-pipeline div .state.gate .pipeline-item {
+      width: 24px;
+      height: 24px;
+      border-radius: 0;
+      border: 1px solid #eee;
+      background-color: #e7e7e7; }
+
+.stageDialog {
+  overflow-x: hidden; }
+
+@keyframes removed-state-animation {
+  from {
+    opacity: 1;
+    transform: scale(1); }
+  to {
+    opacity: 0;
+    transform: scale(0); } }

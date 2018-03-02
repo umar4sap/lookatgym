@@ -1,0 +1,88 @@
+<div id="page-wrapper">
+    <div ng-controller="newProjectController">
+        <toolbar></toolbar>
+    </div>
+    <div id="content-wrapper" layout="row">
+        <sidemenu id="sidebar-wrapper" layout="column"></sidemenu>
+        <md-content class="main-container" layout="row" layout-xs="column" layout-align="start start " ng-controller="newProjectController as ctrl">
+            <md-content layout-padding flex-gt-xs="100">
+                <span class="md-headline">Add Project</span>
+                <form name="addProject" flex-gt-xs="40" flex-xs="100" layout="column" style="margin: 0 auto;">
+                    <div layout="column">
+                        <md-input-container>
+                            <label>Project Name</label>
+                            <input ng-model="addProject.projectName">
+                        </md-input-container>
+                        <md-input-container>
+                            <label>Github Account Name</label>
+                            <input ng-model="addProject.gitAccount" ng-change="changeGitAccount()">
+                            <div ng-messages="projectForm.description.$error">
+                                <div ng-message="required" ng-if="gitNotFound" md-auto-hide="false">User Not Found. Please enter correct github Id.</div>
+                            </div>
+                        </md-input-container>
+                        <div layout="row" layout-align="end center">
+                            <md-button ng-show="step1Layout" ng-click="step1(addProject)" class="cc-button" md-ripple-size="auto" md-no-ink="true">Next</md-button>
+                        </div>
+                    </div>
+                    <div ng-show="!step1Layout">
+                        <div layout="column" flex="100">
+                            <md-input-container ng-show="hasOrgs">
+                                <label>Organizations</label>
+                                <md-select ng-model="organizations" ng-change="orgSelected()">
+                                    <md-option><em>None</em></md-option>
+                                    <md-option ng-repeat="org in orgs" ng-value="org.login">
+                                        {{org.login}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                            <md-input-container layou="row">
+                                <label for="repoTypeF">Repo Type</label>
+                                <md-radio-group ng-model="repoType" layout="row" ng-change="repoTypeChange()" style="margin-left:120px;">
+                                    <md-radio-button value="false" class="md-primary">Public</md-radio-button>
+                                    <md-radio-button value="true"> Private </md-radio-button>
+                                </md-radio-group>
+                            </md-input-container>
+                            <md-autocomplete flex required ng-model="githubRepoName" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedrepo"
+                                md-search-text="ctrl.searchRepo" md-items="repo in ctrl.repoSearch(ctrl.searchRepo)" md-item-text="repo.display"
+                                md-selected-item-change="ctrl.selectedRepoChange(repo)" md-min-length="0" md-require-match md-floating-label="Select Repo">
+                                <md-item-template>
+                                    <span md-highlight-text="ctrl.searchRepo" md-highlight-flags="^i">{{repo.display}}</span>
+                                    <md-divider></md-divider>
+                                </md-item-template>
+                            </md-autocomplete>
+
+
+                            <md-autocomplete flex required ng-model="githubRepoBranch" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedBranch"
+                                md-search-text="ctrl.searchBranch" md-items="branch in ctrl.branchSearch(ctrl.searchBranch)"
+                                md-item-text="branch.display" md-selected-item-change="ctrl.selectedBranchChange(branch)" md-min-length="0"
+                                md-require-match md-floating-label="Select Branch">
+                                <md-item-template>
+                                    <span md-highlight-text="ctrl.searchBranch" md-highlight-flags="^i">{{branch.display}}</span>
+                                </md-item-template>
+                            </md-autocomplete>
+                            <div layout="column">
+                                <md-input-container flex="100">
+                                    <md-checkbox ng-model="ifSubfolder" aria-label="Sub Folder Selection">
+                                        Is your project is in a folder?
+                                    </md-checkbox>
+                                </md-input-container>
+
+                                <md-input-container flex="100" ng-show="ifSubfolder">
+                                    <label>Sub Folder</label>
+                                    <input ng-model="githubSubfolderName">
+                                </md-input-container>
+                            </div>
+                            <div layout="row" layout-align="end center">
+                                <md-button ng-if="!projectSubmit" ng-click="addProjectCancel()">
+                                    Cancel </md-button>
+                                <md-button ng-if="!projectSubmit" class="cc-button" md-ripple-size="auto" md-no-ink="true" aria-label="button-label" ng-click="addproject(addProject.projectName,organizations,repoType,ctrl.selectedrepo,ctrl.selectedBranch,githubSubfolderName)">
+                                    Create Project </md-button>
+                                <ci-spinner ng-if="projectSubmit"></ci-spinner>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </md-content>
+        </md-content>
+    </div>
+</div>

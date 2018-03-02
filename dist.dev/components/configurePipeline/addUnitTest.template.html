@@ -1,0 +1,77 @@
+<md-dialog aria-label="Unit Test" ng-controller="configurePipelineController" flex="85" id="ruleSection">
+
+    <form name="testCaseDialog" novalidate>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Add Test Case</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="material-icons">close</i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-dialog-content layout="row">
+                    <div flex="65">
+                        <md-select placeholder="Pick from the list" ng-model="rule" md-on-open="loadRules()" style="min-width: 200px;" ng-change="selectedDefaultRule()">
+                            <md-option ng-value="rule.value" ng-repeat="rule in rules">{{rule.name}}</md-option>
+                        </md-select>
+                        <!--<textarea rows="15" cols="40" ng-model="caseCode" class="md-block"></textarea>-->
+                        <div ui-ace="{onLoad: aceLoaded, onChange: aceChanged}" style="height: 400px;" ng-model="testData.caseCode"></div>
+
+                    </div>
+                    <div flex="35" layout="column" layout-padding>
+                        <md-input-container>
+                            <label>Enter Test Case name</label>
+                            <input md-maxlength="35" name="caseName" ng-model="testData.caseName" ng-required="true">
+                            <div ng-messages="testCaseDialog.caseName.$error">
+                                <div ng-message="required">This is required!</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container>
+                            <label>Enter Test Case description</label>
+                            <input md-maxlength="50" name="caseDescription" ng-model="testData.caseDescription" required>
+                            <div ng-messages="testCaseDialog.caseDescription.$error">
+                                <div ng-message="required">This is required!</div>
+                            </div>
+                        </md-input-container>
+                        <h4 class="">Publish Settings</h4>
+                        <md-radio-group ng-model="testData.publishSettings" layout="row" ng-required="true">
+                            <md-radio-button value="Public" class="md-primary">Public</md-radio-button>
+                            <md-radio-button value="Private (to me)"> Private (to me) </md-radio-button>
+                            <md-radio-button value="Private (to org)">Private (to org)</md-radio-button>
+                        </md-radio-group>
+                        <h4 class="">Case Type</h4>
+                        <md-radio-group ng-model="testData.caseType" layout="row" ng-required="true">
+                            <md-radio-button value="error" class="md-primary">Error</md-radio-button>
+                            <md-radio-button value="warning (to me)"> Warning </md-radio-button>
+
+                        </md-radio-group>
+                        <h4 class="md-title">Add Tags.</h4>
+                        <md-chips ng-model="testData.selectedTags" md-autocomplete-snap md-require-match="true">
+                            <md-autocomplete md-search-text="searchText" md-items="item in queryTags(searchText)" md-autoselect="true" md-select-on-match="true" md-no-cache="true" md-require-match="true" placeholder="+ Tag">
+                                <span md-highlight-text="searchText">{{item}}</span>
+                            </md-autocomplete>
+                            <md-chip-template>
+                                <span>{{$chip}}</span>
+                            </md-chip-template>
+                        </md-chips>
+                        {{testData.selectedTags}}
+                    </div>
+                </md-dialog-content>
+            </div>
+        </md-dialog-content>
+        <div class="alert alert-danger" role="alert" ng-if="invalidRule">Oh snap! Change a few things up and try submitting again.</div>
+        <div class="alert alert-success" role="alert" ng-if="validRule">This test case has validated successfully..</div>
+        <md-dialog-actions layout="row">
+            <md-button class="md-raised md-warn" type="submit" ng-click="testCaseDialog.$valid && newTestCaseValidate(testData)" ng-if="!validated" layout="row">
+                Validate 
+                <md-progress-circular md-mode="indeterminate" md-diameter="20px" ng-if="validationInProgress"></md-progress-circular>
+            </md-button>
+            <md-button class="md-raised md-primary" ng-click="testCaseDialog.$valid && newTestCaseDetails(testData)" ng-if="validated"  layout="row">
+                Create <md-progress-circular md-mode="indeterminate" md-diameter="20px" ng-if="ruleCreateLoader"></md-progress-circular>
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

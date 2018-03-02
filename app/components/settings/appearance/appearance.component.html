@@ -1,0 +1,24 @@
+<div>
+    <div ng-controller="ToolbarController">
+        <toolbar></toolbar>
+    </div>
+    <div id="content-wrapper" layout="row">
+        <sidemenu id="sidebar-wrapper" layout="column"></sidemenu>
+        <md-content class="main-container outletContainer" ng-controller="AppearanceController" layout="row" layout-xs="column" layout-align="start start " layout-padding flex-gt-xs="90">
+            <div flex-xs flex-md flex-gt-xs="20">
+                <md-list>
+                    <md-list-item ng-repeat="setting in vm.settings">
+                        <md-button ng-click="vm.go(setting.link)" layout="row">
+                            <i class="material-icons">{{setting.icon}}</i>
+                            <p> {{ setting.name }} </p>
+                        </md-button>
+                    </md-list-item>
+                </md-list>
+
+            </div>
+            <div flex-xs flex-md flex-gt-xs="80">
+                Coming Soon...,
+            </div>
+        </md-content>
+    </div>
+</div>

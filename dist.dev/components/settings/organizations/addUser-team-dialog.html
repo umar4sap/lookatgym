@@ -1,0 +1,44 @@
+<md-dialog aria-label="Add User" style="min-width:380px;">
+    <form name="userData" ng-cloak style="overflow:hidden;">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Add User</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="material-icons" aria-label="close"></i>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+
+                <md-input-container class="md-block">
+                    <label>Select User Role</label>
+                    <md-select ng-model="userData.info.role">
+                        <md-option ng-repeat="userRole in userRoles" value="{{userRole.role}}">{{userRole.role}}</md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>User Description</label>
+                    <textarea required md-asterisk rows="1" columns="50" ng-model="userData.info.teamDescription"></textarea>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>User Auth User Id</label>
+                    <input type="text" ng-model="authUserId">
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-click="cancel()">
+                Close
+            </md-button>
+            <md-button ng-click="createUser(userData, $event)">
+                Create
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

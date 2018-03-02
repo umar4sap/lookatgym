@@ -1,0 +1,54 @@
+<div id="page-wrapper">
+    <div ng-controller="ToolbarController">
+        <toolbar></toolbar>
+    </div>
+    <div id="content-wrapper" layout="row">
+        <sidemenu id="sidebar-wrapper" layout="column"></sidemenu>
+        <md-content class="main-container outletContainer" layout="row" layout-align="start star" layout-padding ng-controller="definedpipelinesController as ctrl">
+            <div flex-xs flex-gt-xs="100" layout="column">
+
+                <span class="md-headline">Pre defined Pipelines</span>
+                <span class="md-subhead">Use one of these preconfigured pipelines and customize them.</span>
+
+                <md-autocomplete ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)"
+                    md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Search Categories">
+                    <md-item-template>
+                        <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+                    </md-item-template>
+                    <md-not-found>
+                        No categories matching "{{ctrl.searchText}}" were found.
+                    </md-not-found>
+                </md-autocomplete>
+
+                <ci-spinner ng-if="vm.spinner"></ci-spinner>
+                <div class="record-strip">
+                    <span class="md-subhead">{{item.display}}</span>
+                    <md-card ng-repeat="item in ciPipelines" layout="row" layout-xs="column" class="progress">
+                        <md-card-title layout-padding flex-xs flex-gt-xs="60">
+                            <md-card-title-text>
+                                <span class="md-headline" ng-click="go('')">{{item.pipelineName}}</span>
+                                <span class="md-subhead">{{item.pipelineDescription}}</span>
+                            </md-card-title-text>
+
+                        </md-card-title>
+                        <md-card-title-media flex-xs flex-gt-xs="40">
+                            <md-subheader class="md-no-sticky">Status</md-subheader>
+                            <div layout="row">
+                                <md-list>
+                                    <md-list-item>{{item.pipelinePublished}} </md-list-item>
+                                    <md-list-item>Config <i class="material-icons"> remove_red_eye</i>{{item.pipelinePermissions.pipelineConfigVisibility}}</md-list-item>
+                                    <md-list-item>Execution <i class="material-icons"> remove_red_eye</i>{{item.pipelinePermissions.pipielineExecutionVisibility}} </md-list-item>
+                                </md-list>
+                                <md-list>
+                                    <md-list-item>Concurrent{{item.pipelineConcurrentBuildThrottle}} </md-list-item>
+                                    <md-list-item>ID{{item.pipelineID}}</md-list-item>
+                                    <md-list-item></md-list-item>
+                                </md-list>
+                            </div>
+                        </md-card-title-media>
+                    </md-card>
+                </div>
+            </div>
+        </md-content>
+    </div>
+</div>

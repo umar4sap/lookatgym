@@ -1,0 +1,48 @@
+@import '../../styles/core';
+.header-text {
+    text-align: center;
+    padding: 0 180px;
+    h1 {
+        color: #404160;
+        margin-top: 0px;
+        font-weight: 300;
+        text-shadow: 1px 1px 1px #fff;
+    }
+    h2 {
+        color: #56c344;
+        margin-top: 0;
+        text-shadow: 1px 1px 1px #fff;
+        margin-bottom: 35px;
+    }
+    h4 {
+        color: #404160;
+        margin-top: 10px;
+        font-weight: 400;
+        text-shadow: 1px 1px 1px #fff;
+        span {
+            color: rgb(255, 44, 179);
+        }
+    }
+}
+
+.first-actions {
+    div.flex {
+        padding: 45px;
+    }
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 100%;
+}
+
+.theme-contrast-color {
+    color: $theme-contrast-color;
+    margin-top: 0px;
+}
+
+.theme-button {
+    background-color: $theme-color;
+    color: #ffffff;
+}

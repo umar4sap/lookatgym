@@ -1,0 +1,18 @@
+<md-dialog aria-label="List dialog" flex="50">
+    <md-dialog-content layout-padding>
+        <subheader>Add Slack Account</subheader>
+        <md-input-container class="md-block">
+            <label>Client Id</label>
+            <input md-maxlength="14" required md-no-asterisk name="clientid" ng-model="project.clientid">
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <label>client Secret</label>
+            <input md-maxlength="14" required md-no-asterisk name="clientsecret" ng-model="project.clientsecret">
+        </md-input-container>
+
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button ng-click="vm.cancel" class="md-raised md-primary">Add</md-button>
+    </md-dialog-actions>
+</md-dialog>

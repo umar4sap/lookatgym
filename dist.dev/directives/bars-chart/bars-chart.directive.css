@@ -1,0 +1,11 @@
+.chart {
+  padding: 3px; }
+
+.chart div {
+  width: 0;
+  margin: 5px;
+  padding: 3px;
+  box-shadow: 2px 2px 2px #666;
+  background-color: black;
+  text-align: right;
+  color: white; }

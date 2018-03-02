@@ -1,0 +1,67 @@
+<div>
+    <div ng-controller="ToolbarController">
+        <toolbar></toolbar>
+    </div>
+    <div id="content-wrapper" layout="row">
+        <sidemenu id="sidebar-wrapper" layout="column"></sidemenu>
+        <md-content class="main-container outletContainer" ng-controller="organizationsController" layout="row" layout-align="start start "
+            layout-padding layout-sm="row" layout-xs="column" flex-gt-xs="90">
+            <div flex-xs="100" flex-sm="50" flex-gt-xs="20">
+                <md-list>
+                    <md-list-item ng-repeat="setting in vm.settings">
+                        <md-button ng-click="go(setting.link)" layout="row">
+                            <i class="material-icons">{{setting.icon}}</i>
+                            <p> {{ setting.name }} </p>
+                        </md-button>
+                    </md-list-item>
+                </md-list>
+
+            </div>
+            <md-content flex-xs="100" flex-sm="100" flex-gt-xs="100" layout="row" layout-md="row" layout-sm="column" layout-xs="column">
+                <div flex-xs flex-md flex-sm flex-gt-md="100" class="github-accounts">
+                    <div flex="100" layout="row" layout-padding>
+                        <h5>Your Organizations</h5>
+                        <span flex></span>
+                        <md-button ng-click="addOrg(orgData, $event)"> <i class="material-icons">add</i>Add
+                        </md-button>
+                    </div>
+                    <div class="record-strip projectCards" ng-repeat="(org, teams) in orgs">
+                        <md-card layout="column" layout-align="space-between start" class="orgs">
+                            <div layout="column" layout-align="start stretch" class="org-content">
+                                <md-card-header>
+                                    <md-card-header-text>
+                                        <span class="md-title">{{org}}</span>
+                                    </md-card-header-text>
+                                </md-card-header>
+                                <md-progress-linear md-mode="indeterminate" ng-if="projectsLoaded"></md-progress-linear>
+                                <md-list>
+                                    <md-list-item ng-repeat="team in teams.teams">
+                                        <div layout="row" flex="100">
+                                            <div>{{team.team}}</div>
+                                            <span flex></span>
+                                            <md-button>
+                                                <i class="material-icons" ng-click="addUser(team.team, org,$event)">person_add 
+                                                    <md-tooltip md-direction="left">Add User</md-tooltip>
+                                                </i>
+                                            </md-button>
+                                        </div>
+                                        <md-divider></md-divider>
+                                    </md-list-item>
+                                </md-list>
+                            </div>
+                            <md-card-actions layout="row" layout-align="end center">
+                                <md-button><i class="material-icons" ng-click="deleteOrg(org)">delete_forever<md-tooltip md-direction="left">Delete Org</md-tooltip></i></md-button>
+                                <md-button>
+                                    <i class="material-icons" ng-click="addTeam(org, $event)">group_add 
+                                    <md-tooltip md-direction="left">Add Team</md-tooltip>
+                                </i>
+                                </md-button>
+
+                            </md-card-actions>
+                        </md-card>
+                    </div>
+                </div>
+            </md-content>
+        </md-content>
+    </div>
+</div>

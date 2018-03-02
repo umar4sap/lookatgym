@@ -1,0 +1,113 @@
+<div id="page-wrapper">
+    <div ng-controller="ToolbarController">
+        <toolbar></toolbar>
+    </div>
+    <div id="content-wrapper" layout="row">
+        <sidemenu id="sidebar-wrapper" layout="column"></sidemenu>
+        <md-content class="main-container" layout-padding ng-controller="configurePipelineController as tab">
+            <md-content class="fixedSection">
+                <div layout="column" layout-padding>
+                    <div layout="column">
+                        <span class="md-headline">Configure Pipeline</span>
+                    </div>
+                    <div class="record-strip" flex="100" layout="column">
+                        <md-card layout="row" flex="100" layout-xs="column" class="highlight">
+                            <ci-spinner ng-if="spinner"></ci-spinner>
+                            <div ng-if="!spinner" ng-app="app" layout="row" flex="100">
+                                <ul layout="row">
+                                    <li ng-repeat="state in states | orderBy:'stageOrder'">
+                                        <!-- {{states}} -->
+                                        <a href ng-click="setTab(state.stageID, $event)">
+                                            <input type="hidden" name="" value="{{state.stageID}}" class="catStageID">
+                                            <div layout="column" layout-align="center center" style="height: 100%;" class="state stage">
+                                                <div class="pipeline-item" layout="row" layout-align="center center">
+                                                    <span class="fa" ng-class="getStateClass(state.stageType)"></span>
+                                                </div>
+                                                <span class="md-caption" layout="row" layout-align="center center" ng-model="stageName">{{state.stageName}}</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </md-card>
+                    </div>
+                </div>
+
+            </md-content>
+            <div layout="row" class="no-padding scrollSection" ng-if="spinnerCat">
+                <ci-spinner></ci-spinner>
+            </div>
+            <div layout="row" class="no-padding scrollSection" ng-if="!spinnerCat">
+                <div ng-repeat="state in states track by $index" ng-show="isSet(state.stageID)" flex="100">
+                    <input type="hidden" name="" value="{{state.stageID}}" class="catStageID">
+                    <v-accordion id="accordion" class="vAccordion--default" control="accordion" onexpand="expandCallback(index, id)" oncollapse="collapseCallback(index, id)">
+                        <v-pane ng-repeat="cat in cats | orderCats:state.stageCateogoriesID track by $index" end-repeat-directive="onEnd($event)">
+                            <v-pane-header id="{{ cat.categoryID }}" aria-controls="{{ cat.categoryID }}-content" ng-class="catUpdated ? 'catNotUpdated' : 'catUpdated'">
+                                <h5>{{ cat.categoryName }}</h5>
+                            </v-pane-header>
+
+                            <v-pane-content id="{{ cat.categoryID }}-content" aria-labelledby="{{ cat.categoryID }}-header">
+
+                                <div layout="row" class="form-wrapper" layout-padding>
+                                    <div layout="column" flex="50">
+                                        <div ng-repeat="model in cat.formModelCategory">
+                                            <div layout="row" ng-if="cat.categoryName=='Verify Settings'">
+                                                <label>Stage Type:&nbsp;</label>
+                                                <span> {{state.stageType}}</span>
+                                            </div>
+                                            <form sf-schema="cat.categorySchema" sf-form="cat.categoryForm" sf-model="model" ng-submit="onSubmit(cat, model, state.stageID)" name="myForm">
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div flex="50" class="{{cat.categoryName}}">
+                                        <input type="hidden" value="cat.categoryDescription" id="catDescType">
+                                        <div ng-if="cat.categoryDescription=='ruleEditDirective'" class="rule-type" id="ruleEditDirective">
+                                            <div layout="row" layout-sm="column" layout-align="space-around" ng-if="ruleLoading">
+                                                <md-progress-circular md-mode="indeterminate" md-diameter="20px"></md-progress-circular>
+                                            </div>
+                                            <rule-view-directive options="dirfsOptions"></rule-view-directive>
+                                        </div>
+                                        <div ng-if="cat.categoryDescription=='UTruleEditDirective'" class="rule-type" id="UTruleEditDirective">
+                                            <div layout="row" layout-sm="column" layout-align="space-around" ng-if="ruleLoading">
+                                                <md-progress-circular md-mode="indeterminate" md-diameter="20px"></md-progress-circular>
+                                            </div>
+
+                                            <utrule-view-directive options="dirUtOptions"></utrule-view-directive>
+                                        </div>
+                                        <div ng-if="cat.categoryDescription=='SCAruleEditDirective'" class="rule-type" id="SCAruleEditDirective">
+                                            <div layout="row" layout-sm="column" layout-align="space-around" ng-if="ruleLoading">
+                                                <md-progress-circular md-mode="indeterminate" md-diameter="20px"></md-progress-circular>
+                                            </div>
+                                            <scarule-view-directive options="dirScaOptions"></scarule-view-directive>
+                                        </div>
+                                        <div ng-if="cat.categoryName=='Verify Settings'">
+                                            <!--<div ng-if='cat.categoryDescription !=="UTruleEditDirective"'>-->
+                                            {{cat.categoryDescription}}
+                                        </div>
+                                        <div ng-if="cat.categoryName=='Pre Verify Tasks'">
+                                            <!--<div ng-if='cat.categoryDescription !=="UTruleEditDirective"'>-->
+                                            {{cat.categoryDescription}}
+                                        </div>
+                                        <div ng-if="cat.categoryName=='Post Verify Tasks'">
+                                            <!--<div ng-if='cat.categoryDescription !=="UTruleEditDirective"'>-->
+                                            {{cat.categoryDescription}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </v-pane-content>
+                        </v-pane>
+                    </v-accordion>
+                </div>
+            </div>
+
+        </md-content>
+        <md-bottom-sheet class="md-grid" layout="column">
+            <div ng-cloak>
+
+                <md-button ng-if="!publishLoader" class="cc-button pull-right" md-ripple-size="auto" md-no-ink="true" aria-label="button-label" flex="50" ng-click="publish( '/viewPipeline/'+pid)"> Publish Pipeline </md-button>
+                 <ci-spinner ng-if="publishLoader" class="cc-button pull-right"></ci-spinner>
+                <md-button ng-if="!publishLoader" class="pull-right" ng-click="go( '/editPipeline/'+pipelineID)"> Back </md-button>
+            </div>
+        </md-bottom-sheet>
+    </div>
+</div>

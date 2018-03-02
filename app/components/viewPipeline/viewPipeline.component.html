@@ -1,0 +1,121 @@
+<div id="page-wrapper">
+    <div ng-controller="ToolbarController">
+        <toolbar></toolbar>
+    </div>
+    <div id="content-wrapper" layout="row">
+        <sidemenu id="sidebar-wrapper" layout="column"></sidemenu>
+        <md-content class="main-container outletContainer" layout-padding layout="column">
+
+            <div ng-if="!vm.dataLoaded" layout="row" layout-align="center center">
+                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+            </div>
+            <div ng-if="vm.dataLoaded" class="details">
+                <md-card layout="row" layout-align="space-between start" flex="100" class="record-strip">
+                    <div flex="15">
+                        <img ng-src="data:image/jpg;base64,{{vm.pipelineData.pipelineSettings.pipelineImage.base64}}" alt="" class="pipelineImage md-card-image"
+                            layout-padding>
+                    </div>
+                    <div flex></div>
+                    <div layout="column" flex="90">
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline p-heading">Published Pipeline</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <p>
+                                {{vm.pipelineData.pipelineName}}
+                                <br> {{vm.pipelineData.pipelineDescription}}
+                            </p>
+                            <ul layout="row">
+                                <li ng-repeat="state in vm.states">
+                                    <div layout="column" layout-align="center center" style="height: 100%;" class="state stage">
+                                        <div class="pipeline-item" layout="row" layout-align="center center">
+                                            <span class="fa"></span>
+                                        </div>
+                                        <span class="md-caption" layout="row" layout-align="center center">{{state.stageType}}</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </md-card-content>
+                    </div>
+                    <div flex="2">
+                        <md-card-actions layout="column" layout-align="space-between center">
+                            <md-button class="md-icon-button" aria-label="Edit" ng-click="vm.go('/editPipeline/'+vm.pipelineId)">
+                                <i class="material-icons">mode_edit</i>
+                            </md-button>
+                            <md-button class="md-icon-button" aria-label="Execution">
+                                <i class="material-icons" ng-show="!executionTriggered" ng-click="executePipeline(vm.pipelineId)">play_circle_outline</i>
+                                <div class="loader" ng-show="executionTriggered"></div>
+                            </md-button>
+                            <md-button class="md-icon-button" aria-label="Delete" ng-click="delPipe(vm.pipelineData.pipelineID)">
+                                <i class="material-icons">delete_forever</i>
+                            </md-button>
+                        </md-card-actions>
+                    </div>
+                </md-card>
+            </div>
+            <ci-spinner ng-if="vm.loadingexecutions"></ci-spinner>
+            <div ng-if="vm.buildsData.length !==0 " class="builds ">
+                <md-card>
+                    <md-card-title layout="row" layout-align="space-between center">
+                        <md-card-title-text>
+                            <span class="md-headline ">Recent Builds</span>
+                        </md-card-title-text>
+                        <md-button class="md-icon-button" aria-label="Refresh" ng-click="vm.go('/viewPipeline/'+vm.pipelineId+'?reload=1')">
+                            <i class="material-icons">refresh</i>
+                        </md-button>
+                    </md-card-title>
+                    <md-card-content>
+                        <div style="height:280px; overflow-y:auto; ">
+                            <table class="table table-condensed ">
+                                <tr>
+                                    <th>Status</th>
+                                    <th>Build</th>
+                                    <th>Execution ID</th>
+                                    <th>Branch</th>
+                                    <th>Project Name</th>
+                                    <th>Duration</th>
+                                    <th>Completed</th>
+                                    <th></th>
+                                </tr>
+                                <tr ng-repeat="build in vm.buildsData track by $index " ng-click="go(
+                '/executionPipeline/'+build.commit) " ng-class="{ executionRunning: build.status=='RUNNING' , executionFailed: build.status=='FAILED'
+                , executionSuccess: build.status=='SUCCESS' } ">
+                                    <td>{{build.status}}</td>
+                                    <td>{{$index+1}}</td>
+                                    <td>
+                                        <u>{{build.commit}}</u>
+                                    </td>
+                                    <td>
+                                        <span>
+                                            <i class="fa fa-code-fork ">{{build.branch}}</i>
+                                        </span>
+                                    </td>
+                                    <td>{{build.projectName}}</td>
+                                    <td>{{build.duration}}</td>
+                                    <td>{{build.completed}}</td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </md-card-content>
+                </md-card>
+            </div>
+            <div ng-if="vm.buildsData.length !==0 " class="analytics ">
+                <md-card>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline ">Analytics</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <!-- <md-card-content ng-controller="chartController ">
+                        
+                            <div google-chart chart="myChart "></div>
+                        
+                    </md-card-content> -->
+                </md-card>
+            </div>
+        </md-content>
+    </div>
+</div>

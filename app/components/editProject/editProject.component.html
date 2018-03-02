@@ -1,0 +1,66 @@
+<div id="page-wrapper">
+    <div ng-controller="editProjectController">
+        <toolbar></toolbar>
+    </div>
+    <div id="content-wrapper" layout="row">
+        <sidemenu id="sidebar-wrapper" layout="column"></sidemenu>
+        <md-content class="main-container" layout="row" layout-xs="column" layout-align="start start " ng-controller="editProjectController">
+
+            <ci-spinner ng-if="!data"></ci-spinner>
+            <md-content layout-padding ng-if="data">
+                <span class="md-headline">Edit Project</span>
+                <form name="addProject" layout="column" flex="40">
+                    <md-input-container>
+                        <label>Project Name</label>
+                        <input ng-model="data.projectName">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Github Account Name</label>
+                        <input ng-model="data.githubAccountName">
+
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label>Github repo</label>
+
+                        <input ng-model="data.githubRepoName">
+                    </md-input-container>
+<!-- 
+                    <md-input-container>
+                        <label>Repo Type</label>
+                        <md-select ng-model="data.repoType">
+                            <md-option ng-repeat="type in repoTypes" ng-value="type.value">
+                                {{type.name}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container> -->
+
+                    <label for="repoTypeF">Repo Type</label>
+                    <md-radio-group ng-model="data.repoType" layout="row">
+
+                        <md-radio-button value="false" class="md-primary">Public</md-radio-button>
+                        <md-radio-button value="true"> Private </md-radio-button>
+
+                    </md-radio-group>
+
+                    <md-input-container>
+                        <label>Branch</label>
+                        <input ng-model="data.githubRepoBranch">
+
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Sub Folder</label>
+                        <input ng-model="data.githubSubfolderName">
+
+                    </md-input-container>
+
+                    <div layout="row" layout-align="end center">
+                        <md-button ng-if="!editProjectSubmit" class="cc-button" md-ripple-size="auto" md-no-ink="true" aria-label="button-label"
+                            flex="50" ng-click="updateProject(data)"> Update Project </md-button>
+                        <ci-spinner ng-if="editProjectSubmit"></ci-spinner>
+                    </div>
+                </form>
+            </md-content>
+        </md-content>
+    </div>
+</div>

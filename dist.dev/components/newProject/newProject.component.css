@@ -1,0 +1,13 @@
+.md-whiteframe-z1 {
+  box-shadow: none;
+  border-bottom: 1px solid #eee; }
+
+.md-autocomplete-suggestions-container {
+  margin-top: 1.4em;
+  width: auto; }
+
+img.md-avatar {
+  width: 64px;
+  height: 64px;
+  margin: 20px;
+  border-radius: 100%; }

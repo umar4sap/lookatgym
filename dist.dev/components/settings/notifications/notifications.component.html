@@ -1,0 +1,55 @@
+<div>
+    <div ng-controller="ToolbarController">
+        <toolbar></toolbar>
+    </div>
+    <div id="content-wrapper" layout="row">
+        <sidemenu id="sidebar-wrapper" layout="column"></sidemenu>
+        <md-content class="main-container outletContainer" ng-controller="NotificationsController" layout="row" layout-xs="column" layout-align="start start " layout-padding flex-gt-xs="90">
+            <div flex-xs flex-md flex-gt-xs="20">
+                <md-list>
+                    <md-list-item ng-repeat="setting in vm.settings">
+                        <md-button ng-click="vm.go(setting.link)" layout="row">
+                            <i class="material-icons">{{setting.icon}}</i>
+                            <p> {{ setting.name }} </p>
+                        </md-button>
+                    </md-list-item>
+                </md-list>
+
+            </div>
+            <div flex-xs flex-md flex-gt-xs="80">
+                <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">Notifications</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-title-media layout-padding>
+                        <div layout="column" layout-align="space-around start" layout-padding>
+                            <md-switch ng-model="data.email" class="md-primary" aria-label="Switch">
+                                Email
+                            </md-switch>
+                            <div layout="row" layout-align="start center">
+                                <md-switch ng-disabled="true" class="md-primary" md-no-ink aria-label="Disabled active switch" ng-model="data.phone">
+                                    Phone &nbsp; &nbsp;
+                                </md-switch>
+                                <a href="" ng-click="vm.addPhone($event)">configure</a>
+                            </div>
+                            <div layout="row" layout-align="start center">
+                                <md-switch ng-disabled="true" class="md-primary" md-no-ink aria-label="Disabled active switch" ng-model="data.slack">
+                                    Slack &nbsp; &nbsp;
+                                </md-switch>
+                                <a href="" ng-click="vm.addSlack($event)">configure</a>
+                            </div>
+
+
+                            <md-switch class="md-primary" md-no-ink aria-label="Switch No Ink" ng-model="data.hipchat">
+                                Hipchat
+                            </md-switch>
+                        </div>
+                    </md-card-title-media>
+
+                </md-card>
+            </div>
+        </md-content>
+    </div>
+</div>

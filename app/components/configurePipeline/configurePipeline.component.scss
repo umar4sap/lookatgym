@@ -1,0 +1,251 @@
+@import '../../styles/core';
+.fixedSection {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    ul {
+        margin: 0px;
+        padding: 0px;
+        li {
+            list-style: none;
+            &:last-child {
+                .pipeline-item {
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    .record-strip {
+        height: 100%;
+        .state {
+            height: 100%;
+            padding: 10px;
+            .md-button {
+                min-width: initial;
+                text-transform: lowercase;
+                line-height: initial;
+                min-height: initial;
+                margin: 0px;
+            }
+            &.stage {
+                .pipeline-item {
+                    width: 64px;
+                    height: 64px;
+                    border-radius: 100%;
+                    border: 1px solid #eee;
+                    background-color: rgba(255, 255, 255, 0.75);
+                    position: relative;
+                    z-index: 3;
+                    &:after {
+                        content: "";
+                        width: 42px;
+                        height: 42px;
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        margin: auto;
+                        background-color: $lite-contrast-color;
+                        border-radius: 100%;
+                        z-index: 2;
+                    }
+                    &:before {
+                        content: "";
+                        width: 42px;
+                        height: 5px;
+                        position: absolute;
+                        top: 0px;
+                        background-color: white;
+                        right: -42px;
+                        bottom: 0px;
+                        margin: auto;
+                        z-index: 1;
+                        border-style: solid;
+                        border-top-width: 1px;
+                        border-color: #eee;
+                        border-bottom-width: 1px;
+                        border-left-width: 0;
+                        border-right-width: 0;
+                    }
+                    span.fa {
+                        z-index: 999;
+                        font-size: 22px;
+                        color: #3cbbca;
+                    }
+                }
+                .active {
+                    background-color: $theme-color;
+                }
+            }
+            &.gate {
+                .pipeline-item {
+                    width: 32px;
+                    height: 39px;
+                    border-radius: 0;
+                    border: 1px solid #eee;
+                    background-color: rgba(255, 255, 255, 0.75);
+                    position: relative;
+                    z-index: 3;
+                    &:before {
+                        content: "";
+                        width: 24px;
+                        height: 30px;
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        margin: auto;
+                        background-color: #e7e7e7;
+                        z-index: 2;
+                    }
+                    &:after {
+                        content: "";
+                        width: 30px;
+                        height: 5px;
+                        position: absolute;
+                        top: 0px;
+                        background-color: white;
+                        right: -30px;
+                        bottom: 0px;
+                        margin: auto;
+                        z-index: -1;
+                        border-style: solid;
+                        border-top-width: 1px;
+                        border-color: #eee;
+                        border-bottom-width: 1px;
+                        border-left-width: 0;
+                        border-right-width: 0;
+                    }
+                }
+                .active {
+                    background-color: $theme-color;
+                }
+            }
+        }
+    }
+}
+
+.ace_editor {
+    border: 1px solid #ccc;
+}
+
+.ruleId {
+    display: none;
+}
+
+.addedRules {
+    padding: 20px;
+    .checkbox {
+        border-bottom: 1px solid #c9cbd0;
+        label {
+            min-height: 20px;
+            padding-left: 20px;
+            margin-bottom: 0px;
+            font-weight: 400;
+            cursor: pointer;
+            display: flex;
+            padding-bottom: 5px;
+            &:hover .rulesActionsBtn {
+                .btn {
+                    display: inline-block;
+                }
+            }
+            .rulesActionsBtn {
+                position: absolute;
+                right: 0;
+                .btn {
+                    padding: 0px 5px;
+                    margin: 0 3px;
+                    width: 25px;
+                    height: 24px;
+                    background-color: transparent;
+                    border: 0px;
+                    color: rgba(66, 66, 66, 0.67);
+                    display: none;
+                    .fa,
+                    .material-icons {
+                        text-align: center;
+                        font-size: 20px;
+                        line-height: 23px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.scrollSection {
+    position: absolute;
+    top: 154px;
+    bottom: 10px;
+    left: 0px;
+    right: 0px;
+    overflow-y: auto;
+    padding: 0;
+    .vAccordion--default {
+        v-pane {
+            v-pane-header {
+                margin-bottom: 0px;
+                padding: 5px 10px;
+                border-left: 8px solid #D8D8D8;
+                border-bottom: 1px solid #D8D8D8;
+                background-color: #e7e7e7;
+                z-index: 2;
+                &:before {
+                    right: 10px;
+                }
+                &:after {
+                    right: 10px;
+                }
+                h5 {
+                    margin: 0px;
+                }
+            }
+            v-pane-content {
+                background-color: white;
+                z-index: 1; // height: 230px;
+                overflow-y: auto;
+                .search {
+                    md-input-container {
+                        margin-top: 0px;
+                        position: relative;
+                        width: 100%;
+                        i {
+                            position: absolute;
+                            top: 0px;
+                            right: 0px;
+                            bottom: 0px;
+                        }
+                    }
+                }
+                md-list-item {
+                    .md-list-item-inner {
+                        min-height: auto;
+                        md-checkbox {
+                            margin: 10px;
+                        }
+                    }
+                }
+                .code {
+                    background-color: $dark-color;
+                    min-height: 100px;
+                    padding: 10px;
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+md-progress-circular.md-default-theme,
+md-progress-circular {
+    margin: 0 10px;
+    path {
+        stroke: #ffffff;
+    }
+}
