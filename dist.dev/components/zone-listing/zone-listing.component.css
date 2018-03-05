@@ -1,0 +1,80 @@
+* {
+  margin: 0px;
+  padding: 0px; }
+
+.ribbon {
+  background: whitesmoke;
+  height: 50px;
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+
+.footer-ribbon {
+  background: whitesmoke;
+  height: 30px;
+  width: 100%; }
+
+.ribbon-banner {
+  height: 250px;
+  width: 100%;
+  background: #2D8DF3; }
+
+.logo {
+  position: relative;
+  top: 10px;
+  left: 153px;
+  height: 70px;
+  width: 70px; }
+
+.logo2 {
+  position: relative;
+  top: 10px;
+  left: 120px;
+  height: 30px;
+  width: 50px; }
+
+.zone-banner-cover {
+  background-image: url("../../images/zone-banner-cover-img.JPG");
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: 100% 100%;
+  min-height: 250px;
+  margin-top: 8px; }
+
+.checked-star-card {
+  color: orange; }
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+
+.card-footer {
+  background: none;
+  border: none;
+  padding: 0px;
+  margin-left: 16px; }
+
+.banner-cards {
+  margin-top: 30px; }
+
+.card > .card-body > p {
+  color: #84999E;
+  font-size: 9px; }
+
+@media screen and (max-width: 758px) and (min-width: 375px) {
+  .banner-card-one {
+    margin-top: 10px; } }
+
+.banner-heading {
+  color: white;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  font-size: 40px;
+  font-weight: 800; }
+
+.banner-heading3 {
+  color: white;
+  position: relative;
+  top: 60px;
+  left: 60px;
+  font-size: 20px;
+  font-weight: 400; }

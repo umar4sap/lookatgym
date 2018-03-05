@@ -1,7 +1,7 @@
 (function() {
 
     'use strict';
-	var zoneapp = angular.module('zoneapp', ['angular-jwt', 'ngRoute', 'ngMaterial', 'ngSanitize', 'vAccordion', 'schemaForm', 'ui.ace', 'pubnub.angular.service', 'naif.base64', 'ngMessages','auth0.auth0','ui.router']);
+	var zoneapp = angular.module('zoneapp', ['angular-jwt', 'ngRoute', 'ngMaterial', 'ngSanitize', 'vAccordion', 'schemaForm', 'ui.ace', 'pubnub.angular.service', 'naif.base64', 'ngMessages','auth0.auth0','ui.router','googlechart']);
 	zoneapp.constant("moment", moment);
 	zoneapp.config(config);
 	
@@ -47,6 +47,12 @@
 				templateUrl: 'components/zone-plans/zone-plans.component.html',
 				controllerAs: 'vm',
 				
+			})
+			.state('zonelisting', {
+				url: '/zonelisting',
+				controller: 'zoneListingController',
+				templateUrl: 'components/zone-listing/zone-listing.component.html',
+				controllerAs: 'vm',
 			})
 			.state('badges', {
 				url: '/badges',

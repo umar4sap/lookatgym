@@ -32,24 +32,31 @@ angular.module('zoneapp')
       chart1.data = {
         "cols": [{
           id: "Pipeline Builds",
-          label: "Builds",
+          label: "Zone members",
           type: "string"
         }, {
           id: "Running-id",
-          label: "Success",
+          label: "Active",
+          type: "number"
+        }, {
+          id: "expiring-id",
+          label: "Expired",
           type: "number"
         }, {
           id: "Failed-id",
-          label: "Failed",
+          label: "Expiring",
           type: "number"
         }],
         "rows": [{
           c: [{
-              v: "Executed Builds"
+              v: "F1 Gym Members's plan Status"
             }, {
-              v: 24
+              v: 30
             }, {
               v: 5
+            }
+            , {
+              v: 2
             }
           ]
         }]
