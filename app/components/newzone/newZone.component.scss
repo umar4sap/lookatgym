@@ -150,10 +150,12 @@
 
 box-shadow: 0px 4px 7px #aaaaaa;
 
+
 }
 
 .form-section .col-md-6>form>.form-group>.form-control:focus {
     width:100%;
+    
 }
 
 
@@ -359,6 +361,7 @@ body{
     .upload-contain .upload-content-image>.upload-img-cnt>a>.upload-img-cover>input[type=file] {
         height: 150px;
         background-color:#d4e2e3;
+        
     }
     
     .cover-content{
@@ -399,6 +402,7 @@ body{
     .zone-img-title>input{
         padding:5px;
         padding-bottom: 20px;
+        
     }
     /*Url Youtube*/
     

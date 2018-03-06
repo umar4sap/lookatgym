@@ -1,4 +1,7 @@
 <div class="screen-second-section">
+        <div class="loading" ng-show="inprogress">
+                <img src="images/loading.svg" alt="loading">
+              </div>
     <div class="container-fluid">
         <header class="well screen-header-second">
             <div class="row">
@@ -10,7 +13,7 @@
                 <div class="col-md-3">
                     <div class="header-buttons pull-right">
                         <button type="button" class="btn btn-link">Save As Draft</button>
-                        <button type="button" class="btn btn-primary">Live</button>
+                        <button type="button" class="btn btn-primary" ng-click="vm.live(zonedata)">Live</button>
                         <a href="#">
                             <span class="glyphicon glyphicon-remove-circle close-icon"></span>
                         </a>
@@ -27,25 +30,26 @@
                 <div class="stepwizard">
                     <div class="stepwizard-row setup-panel">
                         <div class="stepwizard-step col-xs-3">
-                            <a href="#step-1" type="button" class="btn btn-default btn-circle" disabled="disabled">1</a>
+                            <a  type="button" class="btn btn-default btn-circle" ng-click="vm.section('zone_basics')">1</a>
                             <p>
                                 <small>Basic Details</small>
                             </p>
                         </div>
                         <div class="stepwizard-step col-xs-3">
-                            <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                                <a type="button" class="btn btn-success btn-circle" ng-click="vm.section('zone_setting')">3</a>
+                                <p>
+                                    <small>Setting</small>
+                                </p>
+                            </div>
+                        <div class="stepwizard-step col-xs-3">
+                            <a type="button" class="btn btn-default btn-circle" ng-click="vm.section('zone_upload')">2</a>
                             <p>
                                 <small>Videos/Images</small>
                             </p>
                         </div>
+                       
                         <div class="stepwizard-step col-xs-3">
-                            <a href="#step-3" type="button" class="btn btn-success btn-circle">3</a>
-                            <p>
-                                <small>Setting</small>
-                            </p>
-                        </div>
-                        <div class="stepwizard-step col-xs-3">
-                            <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
+                            <a type="button" class="btn btn-default btn-circle" ng-click="vm.section('zone_basics')">4</a>
                             <p>
                                 <small>Payments</small>
                             </p>
@@ -60,7 +64,7 @@
 
     <!-- form area -->
 
-    <div id="zone-setting" class="form-section">
+    <div id="zone-setting" class="form-section" ng-show="zone_setting">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -68,19 +72,19 @@
                     <form action="#">
                         <div class="form-group">
                             <label for="text">Morning Timinig</label>
-                            <input type="text" class="form-control" id="zone-time" placeholder="Type Your Timing" name="text">
+                            <input type="text" class="form-control"  required id="zone-time" placeholder="Type Your Timing" name="text" ng-model="zonedata.morningTime">
                         </div>
                         <div class="form-group">
-                            <label for="pwd">Zone Expiration</label>
-                            <input type="text" class="form-control" id="pwd" placeholder="Expiration....." name="expiration">
+                            <label for="pwd">Zone Contact</label>
+                            <input type="text" class="form-control"  required id="pwd" placeholder="Expiration....." name="expiration" ng-model="zonedata.primaryContact">
                         </div>
                         <div class="form-group">
                             <label for="pwd">Free Trial Limit Per Month</label>
-                            <input type="text" class="form-control" id="pwd" placeholder="Cuncurency Limit....." name="cuncurency">
+                            <input type="text" class="form-control"  required id="pwd" placeholder="Cuncurency Limit....." name="cuncurency" ng-model="zonedata.zonefreeTrailPerMonth">
                         </div>
                         <div class="form-group">
                             <label for="comment">Deactivate Member Message</label>
-                            <textarea class="form-control" rows="5" id="failure-comment">Drop Message..</textarea>
+                            <textarea class="form-control"  required rows="5" id="failure-comment" ng-model="zonedata.zoneMemberDeactivateMessage">Drop Message..</textarea>
                         </div>
                     </form>
                 </div>
@@ -89,19 +93,19 @@
                     <form action="#">
                         <div class="form-group">
                             <label for="text">Evening Time</label>
-                            <input type="text" class="form-control" id="zone-cost" placeholder="......." name="text">
+                            <input type="text" class="form-control"  required id="zone-cost" placeholder="......." name="text" ng-model="zonedata.eveningTime">
                         </div>
                         <div class="form-group">
-                            <label for="pwd">Zone Duration</label>
-                            <input type="text" class="form-control" id="pwd" placeholder="......" name="duration">
+                            <label for="pwd">Short Description</label>
+                            <input type="text" class="form-control"  required id="pwd" placeholder="......" name="duration" ng-model="zonedata.zoneShortDescription">
                         </div>
                         <div class="form-group">
                             <label for="pwd">Free Trial Limit Per Day</label>
-                            <input type="text" class="form-control" id="pwd" placeholder="Limit....." name="cuncurency">
+                            <input type="text" class="form-control"  required id="pwd" placeholder="Limit....." name="cuncurency" ng-model="zonedata.zonefreeTrailPerDay">
                         </div>
                         <div class="form-group">
                             <label for="comment">Activate Member Message</label>
-                            <textarea class="form-control" rows="5" id="limit-comment">Drop Message..</textarea>
+                            <textarea class="form-control"  required rows="5" id="limit-comment" ng-model="zonedata.zoneMemberActivateMessage">Drop Message..</textarea>
                         </div>
                     </form>
                 </div>
@@ -112,7 +116,7 @@
                             <form action="#">
                                 <div class="form-group">
                                     <label for="comment">Plan Expire Message</label>
-                                    <textarea class="form-control" rows="5" id="plain-comment">Drop Message..</textarea>
+                                    <textarea class="form-control"  required rows="5" id="plain-comment" ng-model="zonedata.zoneMemberPlanExpireMessage">Drop Message..</textarea>
                                 </div>
                             </form>
                         </div>
@@ -127,7 +131,7 @@
     <!-- End Form -->
 
 
-    <div id="zone-basics" class="form-section">
+    <div id="zone-basics" class="form-section" ng-show="zone_basics">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -135,19 +139,19 @@
                     <form action="#">
                         <div class="form-group">
                             <label for="text">Zone Name</label>
-                            <input type="text" class="form-control" id="zone-time" placeholder="Type Your Timing" name="text">
+                            <input type="text" class="form-control"  required id="zone-time" placeholder="Type Your Timing" name="text" ng-model="zonedata.zoneName">
                         </div>
                         <div class="form-group">
                             <label for="pwd">Zone Owner</label>
-                            <input type="text" class="form-control" id="pwd" placeholder="Expiration....." name="expiration">
+                            <input type="text" class="form-control"  required id="pwd" placeholder="Expiration....." name="expiration" ng-model="zonedata.zoneOwnerName">
                         </div>
                         <div class="form-group">
                             <label for="pwd">Zone Since</label>
-                            <input type="text" class="form-control" id="pwd" placeholder="Cuncurency Limit....." name="cuncurency">
+                            <input type="text" class="form-control"  required id="pwd" placeholder="Cuncurency Limit....." name="cuncurency" ng-model="zonedata.zoneSince">
                         </div>
                         <div class="form-group">
                                 <label for="comment">Country</label>
-                                <select class="form-control" id="sel1">
+                                <select class="form-control"  required id="sel1" ng-model="zonedata.Country">
                                         <option>India</option>
                                         <option>Us</option>
                                         <option>Uk</option>
@@ -158,7 +162,7 @@
                             </div>
                         <div class="form-group">
                                 <label for="comment">City</label>
-                                <select class="form-control" id="sel1">
+                                <select class="form-control"  required id="sel1" ng-model="zonedata.city">
                                         <option>Mumbai</option>
                                         <option>Banglor</option>
                                         <option>Hyderabad</option>
@@ -166,7 +170,7 @@
                             </div>
                         <div class="form-group">
                             <label for="comment">Zone Address</label>
-                            <textarea class="form-control" rows="5" id="failure-comment">Address..</textarea>
+                            <textarea class="form-control"  required rows="5" id="failure-comment" ng-model="zonedata.zoneAddress">Address..</textarea>
                         </div>
                     </form>
                 </div>
@@ -175,7 +179,7 @@
                     <form action="#">
                         <div class="form-group">
                             <label for="sel1">Trainers</label>
-                            <select class="form-control" id="sel1">
+                            <select class="form-control"  required id="sel1" ng-model="zonedata.zoneTrainers">
                                 <option>Lala</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -184,7 +188,7 @@
                         </div>
                         <div class="form-group">
                             <label for="pwd">Zone Current Plans</label>
-                            <select class="form-control" id="sel1">
+                            <select class="form-control"  required id="sel1" ng-model="zonedata.zoneCurrentPlans">
                                     <option>Cardio-500$</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -193,7 +197,7 @@
                         </div>
                         <div class="form-group">
                             <label for="pwd">Discount Offers</label>
-                            <select class="form-control" id="sel1">
+                            <select class="form-control"  required id="sel1" ng-model="zonedata.zoneCurrentDiscounts">
                                     <option>Cardio-20%</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -202,7 +206,7 @@
                         </div>
                         <div class="form-group">
                             <label for="comment">Available For</label>
-                            <select class="form-control" id="sel1">
+                            <select class="form-control"  required id="sel1" ng-model="zonedata.zoneFor">
                                     <option>For Unisex</option>
                                     <option>For Male</option>
                                     <option>For Woman</option>
@@ -221,7 +225,7 @@
                             <form action="#">
                                 <div class="form-group">
                                     <label for="comment">About Zone</label>
-                                    <textarea class="form-control" rows="5" id="plain-comment">About Zone.</textarea>
+                                    <textarea class="form-control"  required rows="5" id="plain-comment" ng-model="zonedata.aboutZone">About Zone.</textarea>
                                 </div>
                             </form>
                         </div>
@@ -232,7 +236,9 @@
 
         </div>
     </div>
-    <div class="zone-upload">
+     <!-- Zone cover Images -->
+     <div ng-show="zone_upload">
+    
         <div class="container">
             <div class="row">
                 <div class="upload-heading">
@@ -255,10 +261,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    
     <!--  -->
-    <!-- Zone cover Images -->
-    <div class="images-upload">
+   
+    <div class="images-upload" >
         <div class="container">
             <div class="row">
                 <div class="images-upload-head">
@@ -348,7 +354,7 @@
                                 </center>
                             </a>
                             <div class="form-group zone-img-title">
-                                <input type="text" class="form-control" id="title-name" placeholder="Title name...">
+                                <input type="text" class="form-control"  required id="title-name" placeholder="Title name...">
                             </div>
                         </div>
                     </div>
@@ -368,7 +374,7 @@
                             <div class="form-group">
 
                                 <label for="text">Add Zone Videos</label>
-                                <input type="url" class="form-control" id="zone-time" placeholder="https://www.youtube.com/watch?v=ETJj330AN48"name="text">
+                                <input type="url" class="form-control"  required id="zone-time" placeholder="https://www.youtube.com/watch?v=ETJj330AN48"name="text">
                             </div>
                         </form>
                     </div>
@@ -377,6 +383,7 @@
         </div>
     </div>
     <!-- end zone videos -->
+    </div>
 </div>
 
 
@@ -384,6 +391,7 @@
     <!-- End Container -->
 </div>
 <!-- js links -->
+
 <script>
         function myMap() {
           var mapCanvas = document.getElementById("map");
@@ -393,3 +401,12 @@
           var map = new google.maps.Map(mapCanvas, mapOptions);
         }
         </script>
+
+<style>
+input.ng-invalid {
+    background-color:pink;
+}
+input.ng-valid {
+    background-color:lightgreen;
+}
+</style>
