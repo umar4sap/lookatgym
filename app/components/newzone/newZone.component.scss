@@ -414,6 +414,90 @@ body{
     
     
     
+    *{
+        margin:0px;
+        padding: 0px;
+    }
+    
+    .zone-price-tiles{
+        margin-top:50px;
+    }
+    
+    .zone-price-tiles>.col-md-3>.zone-price-tile-free{
+        border:3px solid #898989;
+       min-height: 300px;
+       border-radius: 5px;
+       min-width: 90%;
+    }
+    
+    .zone-price-tile-body>hr { 
+        display: block;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        margin-left: 5%;
+        margin-right: 5%;
+        border-style: inset;
+        border-width: 1px;
+    } 
+    
+    
+    .price-body-content>.pull-left>.price-body-content>h6{
+        margin-left:25px;
+        font-size:14px;
+    }
+    
+    .price-body-content>.pull-right>h6{
+        margin-right:25px;
+        font-size:14px;
+        font-weight: bold;
+    }
+    
+    
+    
+    .zone-price-tile-header>.zone-tile-title>p{
+        font-size:14px;
+        font-weight: bold;
+        opacity: 0.5;
+    }
+    
+    .zone-price-tile-footer{
+    padding-bottom:5px;
+    margin-top:10px;
+    
+    }
+    
+    .zone-price-tile-footer>.zone-footer-tile-title>p{
+        font-size:15px;
+        color:#a19d9d;
+    }
+    
+    .zone-price-tile-footer>.price-tile-footer-button>.btn-default{
+        color:#fff;
+    background: #42d3ff;
+    }
+    
+    
+    
+        .zone-price-tile-footer>.price-tile-footer-button>.btn-danger{
+            color:#fff;
+            background:#f0c518;
+            border: none;
+            }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

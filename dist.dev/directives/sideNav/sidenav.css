@@ -108,7 +108,8 @@
   text-align: center; }
 
 .tiles .tile-box-add img {
-  padding-top: 44px; }
+  padding-top: 44px;
+  padding-bottom: 6px; }
 
 .tiles .tile-box {
   width: 80%;

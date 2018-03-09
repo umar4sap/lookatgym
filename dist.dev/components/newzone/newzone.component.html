@@ -1,7 +1,9 @@
+
+<div class="loading" style="position:fixed;top:350px;left:550px" ng-show="vm.inprogress">
+    <img src="images/loading.svg" alt="loading">
+  </div>
 <div class="screen-second-section">
-        <div class="loading" ng-show="inprogress">
-                <img src="images/loading.svg" alt="loading">
-              </div>
+
     <div class="container-fluid">
         <header class="well screen-header-second">
             <div class="row">
@@ -14,8 +16,8 @@
                     <div class="header-buttons pull-right">
                         <button type="button" class="btn btn-link">Save As Draft</button>
                         <button type="button" class="btn btn-primary" ng-click="vm.live(zonedata)">Live</button>
-                        <a href="#">
-                            <span class="glyphicon glyphicon-remove-circle close-icon"></span>
+                        <a href="dashboard">
+                            <span class="glyphicon glyphicon-remove-circle close-icon" </span>
                         </a>
                     </div>
                 </div>
@@ -49,7 +51,7 @@
                         </div>
                        
                         <div class="stepwizard-step col-xs-3">
-                            <a type="button" class="btn btn-default btn-circle" ng-click="vm.section('zone_basics')">4</a>
+                            <a type="button" class="btn btn-default btn-circle" ng-click="vm.section('pricing')">4</a>
                             <p>
                                 <small>Payments</small>
                             </p>
@@ -363,6 +365,9 @@
         </div>
     </div>
 
+
+
+    
     <!-- end zone images -->
     <!-- zone videos -->
     <div class="zone-videos">
@@ -383,6 +388,116 @@
         </div>
     </div>
     <!-- end zone videos -->
+    </div>
+
+    <div class="zone-price-page" ng-show="pricing">
+        <div class="container">
+            <div class="row">
+                <!-- Tiles -->
+                <div class="zone-price-tiles">
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="zone-price-tile-free">
+                            <div class="zone-price-tile-header">
+                                <div class="zone-tile-title">
+                                    <p class="text-center" style="font-weight:bold;">Basic</p>
+                                </div>
+                                <div class="zone-tile-heading">
+                                    <h2 class="text-center">
+                                        <small>
+                                            <b> $ </b>
+                                        </small> 15.35
+                                        <small style="font-size:15px;"> USD </small>
+                                    </h2>
+                                </div>
+                                <div class="zone-tile-title">
+                                    <p class="text-center"> Per Month Bill Anually</p>
+                                </div>
+                            </div>
+                            <div class="zone-price-tile-body">
+                                <div class="row">
+                                    <div class="price-body-content">
+                                        <div class="pull-left">
+                                            <div class="price-body-content">
+                                                <h6 class="price-body-heading"> Zone</h6>
+                                            </div>
+                                        </div>
+                                        <div class="pull-right">
+                                            <h6 class="price-body-detail"> 01 at a time </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="price-body-content">
+                                        <div class="pull-left">
+                                            <div class="price-body-content">
+                                                <h6 class="price-body-heading"> Member </h6>
+                                            </div>
+                                        </div>
+                                        <div class="pull-right">
+                                            <h6 class="price-body-detail"> 50 active </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="price-body-content">
+                                        <div class="pull-left">
+                                            <div class="price-body-content">
+                                                <h6 class="price-body-heading"> Premium Apps </h6>
+                                            </div>
+                                        </div>
+                                        <div class="pull-right">
+                                            <h6 class="price-body-detail">
+                                                <input type="checkbox"> </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="price-body-content">
+                                        <div class="pull-left">
+                                            <div class="price-body-content">
+                                                <h6 class="price-body-heading"> Multi-Step Zaps </h6>
+                                            </div>
+                                        </div>
+                                        <div class="pull-right">
+                                            <h6 class="price-body-detail">
+                                                <input type="checkbox"> </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="price-body-content">
+                                        <div class="pull-left">
+                                            <div class="price-body-content">
+                                                <h6 class="price-body-heading"> AutoreplynTask </h6>
+                                            </div>
+                                        </div>
+                                        <div class="pull-right">
+                                            <h6 class="price-body-detail">
+                                                <input type="checkbox"> </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="zone-price-tile-footer text-center">
+                                <div class="zone-footer-tile-title">
+                                    <p class="text-center">Zone Run in Every 5 min</p>
+                                </div>
+                                <div class="price-tile-footer-button">
+                                    <button class="btn btn-default">Free Trail Plan</button>
+                                    <button style="margin-left:10px;" class="btn btn-danger">Buy Plan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Tiles -->
+            </div>
+        </div>
     </div>
 </div>
 

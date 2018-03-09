@@ -1,0 +1,407 @@
+<div class="members-screen" >
+        <!-- header -->
+        <div class="well well-sm">
+            <div class="container">
+                <div class="row">
+                    <div class="header-content-members">
+                        <div class="members-zone-logo">
+                            <img class="img img-responsive " alt="members-logo-zone" src="/images/logo-blue.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end header -->
+        <!-- cover -->
+        <div class="members-cover" style="width:100%;
+        height:400px;
+        background: url('http://www.jamco.com.pk/wp-content/uploads/web-development.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-size: 100% 100%;
+        background-position: center;
+        background-attachment: fixed;">
+            <div class="container">
+                <div class="row">
+                    <div class="cover-top-icons">
+                        <div class="pull-right">
+                            <ul class="nav navbar-nav">
+                                <li>
+                                    <a href="#">
+                                        <img src="images/msg-icon.png" class="img img-responsive">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="images/share-icon.png" class="img img-responsive">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="cover-heading">
+                    <center>
+                        <h2 class="text-center">{{vm.zoneData.zoneName}} </h2>
+                        <ul class="nav cover-text">
+                            <li>
+                                <a href="#"> Zone Service </a>
+                            </li>
+                            <li>
+                                <a href="#"> Personal Coaching </a>
+                            </li>
+                        </ul>
+                    </center>
+                </div>
+                <!-- second-row -->
+                <div class="row">
+                    <div class="about-cover-text">
+                        <p class="text-center">
+                                {{vm.zoneData.zoneShortDescription}}
+                        </p>
+                    </div>
+                </div>
+                <!-- end second-row -->
+                <!-- thir row -->
+                <div class="container">
+                    <div class="row">
+                        <center>
+                            <div class="join-content">
+                                <div class="text-join">
+                                    <p class="text-center">
+                                        Join Zone for
+                                        <b> 50% </b> Off (Offer valid till 13 august 2018)
+                                    </p>
+                                </div>
+                                <div class="cover-buttons">
+                                    <button class="btn btn-primary">Join</button>
+                                    <button class="btn btn-primary" ng-click="vm.getTrail($event,vm.zoneData.zoneId,vm.zoneData.zoneName)">Get 1 day Trial</button>
+                                </div>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+                <!-- end third row -->
+            </div>
+            <!-- cover bottam -->
+            <div class="cover-bottom">
+                <div class="well well-lg">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
+                                <center>
+                                    <div class="rating-sec">
+                                        <label for="ratings" style="color:#fff;">Rating</label>
+                                        <br>
+                                        <span class="fa fa-star checked-star"></span>
+                                        <span class="fa fa-star checked-star"></span>
+                                        <span class="fa fa-star checked-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                </center>
+                            </div>
+                            <div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
+                                <center>
+                                    <div class="members-sec">
+                                        <label for="ratings" style="color:#fff;">Enrolled Members</label>
+                                        <br>
+                                        <div class="total-members-list" style="color:cadetblue;">
+                                            <h4 style="font-size:18px;">
+                                                <b style="color:#38a4d2;">956</b>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </center>
+                            </div>
+                            <div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
+                                <center>
+                                    <div class="genders-sec">
+                                        <label for="ratings" style="color:#fff;">Avaiable for</label>
+                                        <br>
+                                        <div class="total-members-list">
+                                            <h4 style="font-size:15px;">
+                                                <b style="color:#38a4d2;">Uni Sex</b>
+                                                <i class="fas fa-female"></i>
+                                                <i class="fas fa-male"></i>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </center>
+                            </div>
+                            <div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
+                                <center>
+                                    <div class="genders-sec">
+                                        <label for="ratings" style="color:#fff;">Time Shift</label>
+                                        <br>
+                                        <div class="total-members-list">
+                                            <h4 style="font-size:15px;color:#fff;">
+                                                <b style="color:#38a4d2;">12 pm </b>
+                                                to
+                                                <b style="color:#38a4d2;"> 6 pm </b>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- cover bottam -->
+        </div>
+
+        <!-- end cover -->
+    </div>
+
+
+    <!-- Zone Members About -->
+    <div class="zone-members-about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="zone-about-text">
+                        <h2 style="color:#737473;padding-bottom:10px;" class="text-left"> About Zone </h2>
+                        <p style="color:#737473;padding-bottom:10px;font-size:15px;" class="text-left">
+                                {{vm.zoneData.aboutZone}}
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="zone-about-logos">
+                        <center>
+                            <img src="images/zone-about-logo.png" class="img img-responsive zone-about-logo.png" alt="zone-about-logo">
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Zone Members About -->
+
+    <!-- zone videos -->
+
+    <div class="zone-members-videos">
+        <div class="container">
+            <div class="zone-video-header">
+                <h2 style="color:#737473;padding-bottom:10px;" class="zone-video-heading">
+                    Gym Videos
+                </h2>
+               
+            </div>
+            <div class="zone-video-content">
+                <center>
+                    <iframe width="60%" height="400" src="https://www.youtube.com/embed/tmAiGvdRqG8" frameborder="0" allow="autoplay; encrypted-media"
+                        allowfullscreen>
+                    </iframe>
+                </center>
+            </div>
+        </div>
+    </div>
+
+    <!-- end zone videos -->
+
+    <!-- Zone members images -->
+
+    <div class="zone-members-images">
+
+        <div class="container gallery-container">
+            <div class="zone-images-header">
+                <div class="row">
+                    <h2 class="text-left">Gym Gallery</h2>
+                   
+                </div>
+            </div>
+
+            <div class="tz-gallery">
+
+                <div class="row">
+                    <div class="col-sm-6 col-xs-6 col-md-4">
+                        <a class="lightbox" href="images/zone-img/img-1.jpg">
+                            <img src="images/zone-img/img-1.jpg" alt="Park">
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-xs-6 col-md-4">
+                        <a class="lightbox" href="images/zone-img/img-2.jpg">
+                            <img src="images/zone-img/img-2.jpg" alt="Bridge">
+                        </a>
+                    </div>
+                    <div class="col-sm-12 col-xs-6 col-md-4">
+                        <a class="lightbox" href="images/zone-img/img-3.jpg">
+                            <img src="images/zone-img/img-3.jpg" alt="Tunnel">
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-xs-6 col-md-4">
+                        <a class="lightbox" href="images/zone-img/img-4.jpg">
+                            <img src="images/zone-img/img-4.jpg" alt="Coast">
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <a class="lightbox" href="images/zone-img/img-5.jpg">
+                            <img src="images/zone-img/img-5.jpg" alt="Rails">
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-xs-6 col-md-4">
+                        <a class="lightbox" href="images/zone-img/img-6.jpg">
+                            <img src="images/zone-img/img-6.jpg" alt="Traffic">
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-xs-6 col-md-4">
+                        <a class="lightbox" href="images/zone-img/img-7.jpg">
+                            <img src="images/zone-img/img-7.jpg" alt="Rocks">
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-xs-6 col-md-4">
+                        <a class="lightbox" href="images/zone-img/img-8.jpg">
+                            <img src="images/zone-img/img-8.jpg" alt="Benches">
+                        </a>
+                    </div>
+                    <div class="col-sm-6 col-xs-6 col-md-4">
+                        <a class="lightbox" href="images/zone-img/img-9.jpg">
+                            <img src="images/zone-img/img-9.jpg" alt="Sky">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Zone members images -->
+
+    <!-- Facilities and special -->
+    <div class="zone-facilities">
+        <div class="container">
+            <div class="row">
+                <div class="zone-facilities-header">
+                    <h2 style="color:#606762;" class="text-left">Gym area</h2>
+                </div>
+                <div class="zone-facilities-content-cards">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                            <div class="zone-facilities-card lightbox">
+                                <div class="zone-card-facilities-img">
+                                    <img class="img img-responsive" alt="card-cover" src="images/facilities/cardio-card-img.png">
+                                </div>
+                                <div class="zone-card-facilities-heading">
+                                    <h3 style="color:#606762" class="text-center">Cardio</h3>
+                                </div>
+                                <div class="zone-card-facilities-text">
+                                    <p class="text-center">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                            <div class="zone-facilities-card lightbox">
+                                <div class="zone-card-facilities-img">
+                                    <img class="img img-responsive" alt="card-cover" src="images/facilities/cardio-card-img.png">
+                                </div>
+                                <div class="zone-card-facilities-heading">
+                                    <h3 style="color:#606762" class="text-center">Weight Lefting</h3>
+                                </div>
+                                <div class="zone-card-facilities-text">
+                                    <p class="text-center">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                            <div class="zone-facilities-card lightbox">
+                                <div class="zone-card-facilities-img">
+                                    <img class="img img-responsive" alt="card-cover" src="images/facilities/crossfit-card-img.png">
+                                </div>
+                                <div class="zone-card-facilities-heading">
+                                    <h3 style="color:#606762" class="text-center">Cros Fit</h3>
+                                </div>
+                                <div class="zone-card-facilities-text">
+                                    <p style="color:#606762" class="text-center">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                            <div class="zone-facilities-card lightbox">
+                                <div class="zone-card-facilities-img">
+                                    <img class="img img-responsive" alt="card-cover" src="images/facilities/trainer-card-img.png">
+                                </div>
+                                <div class="zone-card-facilities-heading">
+                                    <h3 style="color:#606762" class="text-center">Personal Trainer</h3>
+                                </div>
+                                <div class="zone-card-facilities-text">
+                                    <p class="text-center">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Facilities and special -->
+
+    <!-- Zone Membership Prices -->
+
+    <div class="zone-membership-prizes">
+        <div class="container">
+            <div class="row">
+                <div class="zone-prizing-header">
+                    <h2 style="color:#737473;" class="zone-membership-prizes-heading">
+                        Membership details
+                    </h2>
+                    <p style="color:#737473;padding-bottom:10px;font-size:15px;" class="">
+
+                    </p>
+                </div>
+            </div>
+            <div class="zone-prizing">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td class="text-center">Membership Plans</td>
+                            <td class="text-center"> About Plans </td>
+                            <td class="text-center">Duration</td>
+                            <td class="text-center">Fee</td>
+                            <td class="text-center">Special Offers</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row" align="center">Be A Member</td>
+                            <td></td>
+                            <td>2,500</td>
+                            <td>2,500</td>
+                        </tr>
+                        <tr>
+                            <td scope="row" align="center">Cardio</td>
+                            <td>2,500</td>
+                            <td>2,500</td>
+                            <td>2,500</td>
+                        </tr>
+                        <tr>
+                            <td scope="row" align="center">Cross Fit</td>
+                            <td>2,500</td>
+                            <td>2,500</td>
+                            <td>2,500</td>
+                        </tr>
+                        <tr>
+                            <td scope="row" align="center">Weight Lifting</td>
+                            <td class="text-center">period (months)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

@@ -1,4 +1,8 @@
 
+
+<div class="loading" style="position:fixed;top:350px;left:550px" ng-show="vm.inprogress">
+    <img src="images/loading.svg" alt="loading">
+  </div>
 <div class="dashboard">
 <div class="row">
 <sidenav>  </sidenav>
@@ -8,10 +12,10 @@
        <div class="row">
           <div class="col-md-6 col-sm-8 col-main-nav">
                <ul class="nav navbar-nav">
-                   <li> <a href="#" class="acttive-blog"> Blog </a> </li>
-                   <li> <a href="#"> Zoon Members </a> </li>
-                   <li> <a href="#"> Badges </a> </li>
-                   <li> <a href="#"> Upgrade </a> </li>
+                   <li> <a href="dashboard "> My Zones </a> </li>
+                   <li> <a href="members"> My Zone Members </a> </li>
+                   <li> <a href="badges"> Badges </a> </li>
+                   <li> <a href="pricing"> Upgrade plan </a> </li>
               </ul>
           </div>
          
@@ -23,11 +27,11 @@
             <div class="col-md-3 col-sm-6 col-xs-6 banner-cards">
                 <div class="banner-card-one">
                     <div class="card" style="">
-          <a href="#" style="text-decoration:none;">
+          <a href="#" style="text-decoration:none;border:none;">
            <div class="tile-box-add">
              <center>
                <img class="img img-responsive" alt="add-plus" src="images/plus-add.png" ng-click="vm.go('newzone')">
-               <p style="">Create New Zone</p>
+               <p style="padding-bottom:20px">Create New Zone</p>
              </center>
        </div>
           </a>
@@ -35,14 +39,14 @@
       </div>
       </div>
       
-      <div class="col-md-3 col-sm-6 col-xs-6 banner-cards">
+      <div class="col-md-3 col-sm-6 col-xs-6 banner-cards " ng-repeat="zone in vm.zones">
         <div class="banner-card-one">
-            <div class="card" style="width:90%;height:220px;background:white;">
+            <div class="card" style="width:90%;height:238px;background:white;">
                 <img class="card-img-top" src="images/zone-banner-card2.jpg" alt="Card image" style="width:100%;max-height:80px;min-height:80px">
                 <div class="card-body">
-                    <h4 class="card-title text-center">F1 Gym</h4>
+                    <h4 class="card-title text-center">{{zone.zoneName}}</h4>
                     <p class="card-text text-center">
-                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout
+                        {{zone.zoneShortDescription}} 
                     </p>
                     <div class="card-footer">
                         <br>
@@ -61,7 +65,7 @@
         </div>
     </div>
  
-      <div class="col-md-5 banner-cards" style="height:220px;">
+      <!-- <div class="col-md-5 banner-cards" style="height:238px;">
         <div class="list-group">
                 <a href="#" class="list-group-item list-group-item-action active">
                  Member Messages
@@ -72,15 +76,15 @@
                 <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
                 <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
               </div>
-              </div>
+              </div> -->
       
-    <div class="row">
+    <!-- <div class="row">
     <div class="col-md-7 col-sm-6 col-xs-6 banner-cards" ng-controller="chartController" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
         
          <div  google-chart chart="myChart"></div>
      
                      </div> 
-                     </div>
+                     </div> -->
     
 </div>
         </div>

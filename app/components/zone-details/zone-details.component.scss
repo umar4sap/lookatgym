@@ -1,0 +1,422 @@
+*{
+    margin: 0px;
+    padding:0px;
+
+}
+
+/* Header Section */
+
+.header-content-members>.members-zone-logo{
+    position: relative;
+    top: 10px;
+
+    left: 70px;
+   
+}
+
+
+
+.header-content-members>.members-zone-logo>img{
+    height: 40px;
+}
+
+.members-screen>.well{
+    min-height:60px;
+    padding: 0px;
+    margin-bottom: 0px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+}
+
+/* Cover Section */
+
+.members-cover{
+    width:100%;
+    height:400px;
+    background: url('http://www.jamco.com.pk/wp-content/uploads/web-development.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 100% 100%;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.cover-top-icons>.pull-right>ul>li>a>span{
+    color: #fff;
+    font-size: 28px;
+
+}
+
+.cover-top-icons>.pull-right>ul>li>a:hover{
+    
+background:none;
+}
+
+.members-cover>.container>.cover-heading>center>h2{
+color:#fff;
+}
+
+.cover-heading>center>.cover-text>li{
+    display: inline-block;
+}
+
+.cover-heading>center>.cover-text>li>a{
+   color:#fff;
+   background-color: #2b3438;
+   padding:0px;
+   padding-left:10px;
+   padding-right:10px;
+   border-radius: 5px;
+}
+
+.about-cover-text{
+    margin-top:20px;
+}
+.about-cover-text>p{
+    color: #fff;
+    
+ 
+    border-radius: 10px;
+    padding:5px;
+}
+
+.join-content{
+    min-height:75px;
+    background-color:black;
+    width:50%;
+    margin-top:20px;
+    opacity: 0.5;
+    border-top-left-radius: 75px;
+    border-top-right-radius: 75px;
+}
+
+.join-content>.text-join>p{
+    color: #fff;
+    font-size: 17px;
+    border-radius: 10px;
+    padding:5px;
+}
+
+.join-content>.text-join>p>b{
+    color:#38a4d2;
+}
+
+.join-content>.cover-buttons>button{
+    background-color: red;
+    padding: 3px;
+    padding-left:20px;
+    padding-right:20px;
+    border-radius: 20px;
+    border:none;
+}
+
+/*cover bottam */
+
+.cover-bottom>.well{
+    min-height:90px;
+    padding: 0px;
+    margin-bottom: 0px;
+    background-color: black;
+    border-radius: 0px;
+    opacity: 0.8;
+    border: 0px;
+}
+
+
+.checked-star{
+    color:#ffd600;
+    
+}
+
+.rating-sec{
+    margin-top:20px;
+}
+
+.members-sec{
+    margin-top:20px;
+}
+
+.total-members-list>h4>i{
+    color: #fff;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.genders-sec{
+    margin-top:20px;
+}
+
+/*about zone*/
+
+.zone-members-about{
+    background-color:#e4eae4;
+    padding-top:50px;
+    padding-bottom:50px;
+}
+
+
+
+
+/*videos*/
+
+.zone-members-videos{
+    background-color:#e4eae4;
+    min-height: 400px;
+    width: 100%;
+    margin-top:2%;
+    padding-bottom: 20px;
+}
+
+
+
+
+
+/*Facilities and special*/
+
+.zone-facilities{
+   height:auto;
+    padding-bottom:20px;
+    margin-top:2%;
+    background-color:#e4eae4;
+}
+
+
+.zone-facilities-card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 100%;
+    border-radius:10px;
+    margin-top:20px;
+    background-color: #fff;
+    
+}
+
+.zone-card-facilities-text{
+    padding-bottom: 10px;
+}
+
+.zone-card-facilities-img>.img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 50%;
+}
+
+
+.zone-facilities-card:hover {
+    transform: scale(1.05);
+    -moz-user-focus: initial;
+    transition: 0.2s ease-in-out;
+}
+
+/*images zone */
+
+.zone-members-images {
+    background-color:#e4eae4;
+    color: #35373a;
+    min-height: 100vh;
+    margin-top:2%;
+    
+}
+
+.gallery-container>.zone-images-header>.row>h2 {
+    
+    margin-top: 50px;
+    
+    
+    color: #606762;
+}
+
+.gallery-container p.page-description {
+    
+    
+   
+    color: #888;
+    font-size: 18px;
+}
+
+.tz-gallery {
+    padding: 40px;
+}
+
+.tz-gallery .lightbox img {
+    width: 100%;
+    margin-bottom: 30px;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+    height:200px;
+}
+
+
+.tz-gallery .lightbox img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.tz-gallery img {
+    border-radius: 4px;
+}
+
+.baguetteBox-button {
+    background-color: transparent !important;
+}
+
+
+
+
+
+
+/*zone-membership-prizes*/
+
+.zone-membership-prizes{
+    height: auto;
+    background-color:#e4eae4;
+    width:100%;
+    margin-top:2%;
+    padding-top:20px;
+}
+
+
+.zone-prizing{
+    color:crimson;
+    background-color: white;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*large size*/
+
+@media screen and (max-width: 1326px) and (min-width: 1078px) {
+    
+}
+
+@media screen and (max-width: 990px) and (min-width: 768px) {
+    
+    .about-cover-text>p{
+        display: none;
+    }    
+    .join-content{
+        margin-top:70px;
+    }
+    .join-content>.text-join>p{
+        font-size: 10px;
+        padding:5px;
+    }
+
+}
+
+
+/* tab */
+
+@media screen and (max-width: 770px) and (min-width: 668px) {
+    .about-cover-text>p{
+        display: none;
+    }  
+    .join-content{
+        margin-top:12px;
+        width: 77%;
+    }
+}
+
+@media screen and (max-width: 667px) and (min-width: 549px) {
+    .about-cover-text>p{
+        display: none;
+    }  
+    .join-content{
+        width: 64%;
+    }
+    .join-content>.text-join>p{
+        font-size: 10px;
+        padding:5px;
+        text-align: center;
+    }
+}
+
+
+@media screen and (max-width: 548px) and (min-width: 400px) {
+    .about-cover-text>p{
+        display: none;
+    }  
+    .join-content{
+        width: 77%;
+        margin-top:22px;
+    }
+    .join-content>.text-join>p{
+        font-size: 10px;
+        padding:5px;
+        text-align: center;
+    }
+
+    .cover-heading{
+        margin-top: -12px;
+    }
+
+    .cover-bottom .rating-sec>span{
+        font-size:10px;
+    }
+
+    .cover-bottom .rating-sec>label{
+        font-size:12px;
+    }
+
+    .cover-bottom .members-sec>label,.cover-bottom .members-sec>.total-members-list>h4>b{
+        font-size:12px;
+    }
+
+    .cover-bottom .genders-sec>label,.cover-bottom .genders-sec>.total-members-list>h4>b,.cover-bottom .genders-sec>.total-members-list>h4>b>i{
+        font-size:12px;
+    }
+    .cover-bottom .genders-sec>.total-members-list>h4>i{
+        
+        margin-left: 2px;
+    }
+    
+}
+
+
+
+
+
+/*Mobile*/
+
+@media screen and (max-width: 480px) and (min-width: 280px) {
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

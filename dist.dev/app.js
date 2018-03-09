@@ -48,6 +48,22 @@
 				controllerAs: 'vm',
 				
 			})
+			.state('zonedetails', {
+				url: '/zonedetails/:zoneId/:city',
+				controller: 'zoneDetailsController',
+				params:      {'zoneId':null,'city':null},
+				templateUrl: 'components/zone-details/zone-details.component.html',
+				controllerAs: 'vm',
+				
+			})
+			.state('memberdetails', {
+				url: '/memberdetails/:zoneId/:memberId',
+				controller: 'memberDetailsController',
+				params:      {'zoneId':null,'memberId':null},
+				templateUrl: 'components/member-details/member-details.component.html',
+				controllerAs: 'vm',
+				
+			})
 			.state('zonelisting', {
 				url: '/zonelisting',
 				controller: 'zoneListingController',
@@ -65,6 +81,13 @@
 				url: '/trainers',
 				controller: 'trainersController',
 				templateUrl: 'components/trainers/trainers.component.html',
+				controllerAs: 'vm',
+				
+			})
+			.state('members', {
+				url: '/members',
+				controller: 'membersController',
+				templateUrl: 'components/members/members.component.html',
 				controllerAs: 'vm',
 				
 			})
