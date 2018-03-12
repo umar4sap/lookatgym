@@ -14,7 +14,7 @@ function DashboardController($state,$scope, authService,zoneService, $location, 
         $state.go(path);
     };
 
-    $state.go('tileboard');
+   // $state.go('tileboard');
     var userProfile = localStorage.getItem('profile');
     $scope.userProfile = JSON.parse(userProfile);
 

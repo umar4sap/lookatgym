@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html lang="en" ng-app="zoneapp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="zoneapp" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html lang="en" ng-app="zoneapp" class="no-js">
+<html lang="en"  class="no-js">
 <!--<![endif]-->
 
 <head>
@@ -34,7 +34,7 @@
     <!-- endinject -->
 </head>
 
-<body ng-app="zoneapp" flow-init flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-files-submitted="$flow.upload()">
+<body ng-app="zoneapp" class="sidebar-is-reduced" flow-init flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-files-submitted="$flow.upload()">
   
 <ui-view></ui-view>
 

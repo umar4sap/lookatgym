@@ -1,7 +1,7 @@
 (function() {
 
     'use strict';
-	var zoneapp = angular.module('zoneapp', ['angular-jwt', 'ngRoute', 'ngMaterial', 'ngSanitize', 'vAccordion', 'schemaForm', 'ui.ace', 'pubnub.angular.service', 'naif.base64', 'ngMessages','auth0.auth0','ui.router','googlechart','flow']);
+	var zoneapp = angular.module('zoneapp', ['angular-jwt', 'ngRoute', 'ngMaterial', 'ui.bootstrap.demo','ngSanitize', 'vAccordion', 'schemaForm', 'ui.ace', 'pubnub.angular.service', 'naif.base64', 'ngMessages','auth0.auth0','ui.router','googlechart','flow']);
 	zoneapp.constant("moment", moment);
 	zoneapp.config(config);
 	
