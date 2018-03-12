@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-md-9">
                     <div class="header-heading">
-                        <h4 class="header-name">Create Zone</h4>
+                        <h4 class="header-name text-center">Create Zone</h4>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -32,26 +32,26 @@
                 <div class="stepwizard">
                     <div class="stepwizard-row setup-panel">
                         <div class="stepwizard-step col-xs-3">
-                            <a  type="button" class="btn btn-default btn-circle" ng-click="vm.section('zone_basics')">1</a>
+                            <a  type="button" class="btn btn-default btn-circle" ng-class="{'btn-success':zone_basics==true}" ng-click="vm.section('zone_basics')">1</a>
                             <p>
                                 <small>Basic Details</small>
                             </p>
                         </div>
                         <div class="stepwizard-step col-xs-3">
-                                <a type="button" class="btn btn-success btn-circle" ng-click="vm.section('zone_setting')">3</a>
+                                <a type="button" class="btn btn-default btn-circle" ng-class="{'btn-success':zone_setting==true}" ng-click="vm.section('zone_setting')">2</a>
                                 <p>
                                     <small>Setting</small>
                                 </p>
                             </div>
                         <div class="stepwizard-step col-xs-3">
-                            <a type="button" class="btn btn-default btn-circle" ng-click="vm.section('zone_upload')">2</a>
+                            <a type="button" class="btn btn-default btn-circle" ng-class="{'btn-success':zone_upload==true}" ng-click="vm.section('zone_upload')">3</a>
                             <p>
                                 <small>Videos/Images</small>
                             </p>
                         </div>
                        
                         <div class="stepwizard-step col-xs-3">
-                            <a type="button" class="btn btn-default btn-circle" ng-click="vm.section('pricing')">4</a>
+                            <a type="button" class="btn btn-default btn-circle" ng-class="{'btn-success':pricing==true}" ng-click="vm.section('pricing')">4</a>
                             <p>
                                 <small>Payments</small>
                             </p>
@@ -189,12 +189,12 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="pwd">Zone Current Plans</label>
-                            <select class="form-control"  required id="sel1" ng-model="zonedata.zoneCurrentPlans">
-                                    <option>Cardio-500$</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
+                            <label for="pwd">Zone Facilities</label>
+                            <select class="form-control"  required id="sel1" ng-model="zonedata.zoneCurrentFacilities">
+                                    <option>Wifi</option>
+                                    <option>Steam bath</option>
+                                    <option>spa</option>
+                                    <option>towel</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -239,31 +239,37 @@
         </div>
     </div>
      <!-- Zone cover Images -->
+
      <div ng-show="zone_upload">
     
         <div class="container">
             <div class="row">
-                <div class="upload-heading">
-                    <h4 class="head-text">Zone Icons
-                        <small>
-                            <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                                been the industry's standard dummy text ever since the 1500s, when </p>
-                        </small>
-                    </h4>
-                </div>
-                <div class="upload-media">
-                    <div class="media-section">
-                        <a href="#">
-                            <center class="media-content">
-                                <span type="file" class="glyphicon glyphicon-plus"></span>
-                                <p class="text-center">Upload image</p>
-                            </center>
-                        </a>
-                    </div>
-                </div>
-            </div>
+                    <div flow-init flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-files-submitted="$flow.upload()" flow-file-success="filelogoAdded( $file, $message, $flow )">
+                            <div class="thumbnail" ng-hide="$flow.files.length" style="width:200px;height:200px">
+                              <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" />
+                            </div>
+                            <div class="thumbnail" ng-show="$flow.files.length" style="width:200px;height:200px">
+                              <img flow-img="$flow.files[0]" />
+                              <div class="progress progress-striped" ng-class="{active: file.isUploading()}">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" ng-style="{width: (file.progress() * 100) + '%'}" style="width: 100%;">
+                                      <span class="sr-only ng-binding">1% Complete</span>
+                                    </div>
+                                  </div>
+                            </div>
+                            <div>
+                              <button  class="btn btn-xs btn-primary" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Select image</button>
+                             
+                              <button  class="btn btn-xs btn-danger" ng-show="$flow.files.length"
+                                 ng-click="$flow.cancel()">
+                                Remove
+                              </button>
+                            </div>
+                            <p>
+                              Only PNG,GIF,JPG files allowed.
+                            </p>
+                          </div>
         </div>
-    
+    </div>
     <!--  -->
    
     <div class="images-upload" >
@@ -279,41 +285,45 @@
                 </div>
             </div>
             <div class="upload-contain">
-                <div class="row">
-                    <div class="col-md-4">
+                <div class="row" flow-init >
+                    <div class="col-md-8">
                         <div class="upload-content-image">
                             <center class="upload-img-cnt">
-                                <a href="#">
+                                
                                     <div class="upload-img-cover">
-                                        <input type="file" class="form-control img-upload-setup" name="img-upload-setup" id="img-upload-setup">
+                                            <div  flow-init flow-files-submitted="$flow.upload()" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]"  flow-file-success="filecoverAdded( $file, $message, $flow )">
+                                                    <div class="thumbnail" ng-hide="$flow.files.length" style="width:400px;max-height:150px">
+                                                      <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" />
+                                                    </div>
+                                                    <div class="thumbnail" ng-show="$flow.files.length" style="width:400px;max-height:150px">
+                                                      <img flow-img="$flow.files[0]" />
+                                                      <div class="progress progress-striped" ng-class="{active: file.isUploading()}">
+                                                            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" ng-style="{width: (file.progress() * 100) + '%'}" style="width: 100%;">
+                                                              <span class="sr-only ng-binding">1% Complete</span>
+                                                            </div>
+                                                          </div>
+                                                    </div>
+                                                    <div>
+                                                      <button  class="btn btn-xs btn-primary" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Select image</button>
+        
+                                                      <button  class="btn btn-xs btn-danger" ng-show="$flow.files.length"
+                                                         ng-click="$flow.cancel()">
+                                                        Remove
+                                                      </button>
+                                                    </div>
+                                                    <p>
+                                                      Only PNG,GIF,JPG files allowed.
+                                                    </p>
+                                                  </div>
                                     </div>
-                                </a>
+                                
                             </center>
-                            <div class="cover-content">
-                                <div class="img-cnt-about">
-                                    <h4 class="text-center" style="color:#000;margin-top: 0px;margin-bottom: 0px;">Umars Empire</h4>
-                                    <p class="text-center" class="img-about-p">Test</p>
-                                </div>
-                                <div class="start-rating">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                     <!-- about cover images -->
-                    <div class="col-md-8">
+                    <div class="col-md-2">
                         <div class="content-about-cover-images">
-                            <p class="text-default text-left">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                <br> Iipsum has been the industry's standard dummy text ever since the 1500s, when
-                                <br> unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                <br>
-                            </p>
-                            <br>
                             <h2 class="text-left text-default">
                                 Important Guidnes
                             </h2>
@@ -331,9 +341,8 @@
             </div>
         </div>
     </div>
-    <!-- End zone images-->
-
-    <!-- Zone Images-->
+    
+   
 
     <div class="zones-images-upload">
         <div class="zone-upload">
@@ -347,16 +356,41 @@
                             </small>
                         </h4>
                     </div>
-                    <div class="upload-media">
-                        <div class="media-section">
-                            <a href="#">
-                                <center class="media-content">
-                                    <span type="file" class="glyphicon glyphicon-plus"></span>
-                                    <p class="text-center">Upload image</p>
-                                </center>
-                            </a>
-                            <div class="form-group zone-img-title">
-                                <input type="text" class="form-control"  required id="title-name" placeholder="Title name...">
+                    <div class="">
+                        <div class="media-section" flow-init flow-files-submitted="$flow.upload()" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-file-success="fileimagesAdded( $file, $message, $flow )">
+                                <div class="drop" flow-drop="" ng-class="dropClass">
+                                        <span class="btn btn-default" flow-btn="">Upload Image<input type="file" multiple="multiple" style="visibility: hidden; position: absolute;"></span>
+                                        <span class="btn btn-default" flow-btn="" flow-directory="" ng-show="$flow.supportDirectory">Upload Folder of Images<input type="file" multiple="multiple" webkitdirectory="webkitdirectory" style="visibility: hidden; position: absolute;"></span>
+                                        <b>OR</b>
+                                        Drag And Drop your images here
+                                      </div>
+                            <div class="">
+                                   
+                                            
+    <div ng-repeat="file in $flow.files" class="gallery-box">
+            <span class="title">{{file.name}}</span>
+            <div class="thumbnail" ng-show="$flow.files.length">
+              <img flow-img="file" />
+            </div>
+            <div class="progress progress-striped" ng-class="{active: file.isUploading()}">
+              <div class="progress-bar" role="progressbar"
+                   aria-valuenow="{{file.progress() * 100}}"
+                   aria-valuemin="0"
+                   aria-valuemax="100"
+                   ng-style="{width: (file.progress() * 100) + '%'}">
+                <span class="sr-only">{{file.progress()}}% Complete</span>
+              </div>
+            </div>
+            <div class="btn-group">
+              <a class="btn btn-xs btn-danger" ng-click="file.cancel()">
+                Remove
+              </a>
+            </div>
+          </div>
+          
+                                                
+                                           
+                                
                             </div>
                         </div>
                     </div>
@@ -364,12 +398,6 @@
             </div>
         </div>
     </div>
-
-
-
-    
-    <!-- end zone images -->
-    <!-- zone videos -->
     <div class="zone-videos">
         <div class="container">
             <div class="row">
@@ -379,7 +407,7 @@
                             <div class="form-group">
 
                                 <label for="text">Add Zone Videos</label>
-                                <input type="url" class="form-control"  required id="zone-time" placeholder="https://www.youtube.com/watch?v=ETJj330AN48"name="text">
+                                <input type="url" class="form-control"  required id="zone-time" ng-model="zonedata.vidurl" placeholder="https://www.youtube.com/watch?v=ETJj330AN48"name="text">
                             </div>
                         </form>
                     </div>
@@ -387,7 +415,7 @@
             </div>
         </div>
     </div>
-    <!-- end zone videos -->
+   
     </div>
 
     <div class="zone-price-page" ng-show="pricing">
@@ -499,7 +527,7 @@
             </div>
         </div>
     </div>
-</div>
+
 
 
 
@@ -523,5 +551,11 @@ input.ng-invalid {
 }
 input.ng-valid {
     background-color:lightgreen;
+}
+.thumbnail>img {
+    display: block;
+    max-width: 400px;
+    height: auto;
+    max-height: 150px;
 }
 </style>

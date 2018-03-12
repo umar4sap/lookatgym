@@ -22,8 +22,9 @@
                 <div class="row" >
                     <div class="col-md-3 col-sm-6 col-xs-6 banner-cards" ng-repeat="zone in vm.zones">
                         <div class="banner-card-one">
-                            <div class="card" style="width:90%;height:300px;" ng-click="vm.go('zonedetails',zone.zoneId,vm.city)">
-                                <img class="card-img-top" src="images/zone-banner-card2.jpg" alt="Card image" style="width:100%;max-height:150px;min-height:150px">
+                            <div class="card cardtile" style="width:90%;height:300px;" ng-click="vm.go('zonedetails',zone.zoneId,vm.city)">
+                                <img class="card-img-top" ng-show='!zone.zoneCoverImage.url == ""' src="{{zone.zoneCoverImage.url}}"  alt="Card image" style="width:100%;max-height:150px;min-height:150px" />
+                                <div class="card-img-top" ng-show='zone.zoneCoverImage.url == ""' alt="Card image" style="width:100%;max-height:150px;min-height:150px;background:#2D8DF3;color:white;font-size:20px;text-align:center;"> {{zone.zoneName}}</div>
                                 <div class="card-body">
                                     <h4 class="card-title text-center">{{zone.zoneName}}</h4>
                                     <p class="card-text text-center">

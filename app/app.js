@@ -1,16 +1,16 @@
 (function() {
 
     'use strict';
-	var zoneapp = angular.module('zoneapp', ['angular-jwt', 'ngRoute', 'ngMaterial', 'ngSanitize', 'vAccordion', 'schemaForm', 'ui.ace', 'pubnub.angular.service', 'naif.base64', 'ngMessages','auth0.auth0','ui.router','googlechart']);
+	var zoneapp = angular.module('zoneapp', ['angular-jwt', 'ngRoute', 'ngMaterial', 'ngSanitize', 'vAccordion', 'schemaForm', 'ui.ace', 'pubnub.angular.service', 'naif.base64', 'ngMessages','auth0.auth0','ui.router','googlechart','flow']);
 	zoneapp.constant("moment", moment);
 	zoneapp.config(config);
 	
 	config.$inject = ['$stateProvider',
     '$locationProvider',
     '$urlRouterProvider',
-    'angularAuth0Provider'];
+    'angularAuth0Provider','flowFactoryProvider'];
 
-    function config($stateProvider,$locationProvider,$urlRouterProvider,angularAuth0Provider) {
+    function config($stateProvider,$locationProvider,$urlRouterProvider,angularAuth0Provider,flowFactoryProvider) {
 	
 		$urlRouterProvider.otherwise('/');
 
@@ -34,18 +34,41 @@
 				controllerAs: 'vm',
 				
 			})
+			.state('tileboard', {
+				url: '/tileboard',
+				views: {
+                    "main": {
+						templateUrl: 'components/home/home.html'
+						
+
+					}
+				},
+				parent: 'dashboard'
+			})
 			.state('newzone', {
 				url: '/newzone',
-				controller: 'newZoneController',
-				templateUrl: 'components/newzone/newzone.component.html',
-				controllerAs: 'vm',
-				
+				views: {
+                    "main": {
+						templateUrl: 'components/newzone/newzone.component.html',
+						controller: 'newZoneController',
+						controllerAs: 'vm'
+
+					}
+				},
+				parent: 'dashboard'
 			})
+
 			.state('zoneplans', {
 				url: '/zoneplans',
-				controller: 'zonePlansController',
-				templateUrl: 'components/zone-plans/zone-plans.component.html',
-				controllerAs: 'vm',
+				views: {
+                    "main": {
+						controller: 'zonePlansController',
+				         templateUrl: 'components/zone-plans/zone-plans.component.html',
+				        controllerAs: 'vm',
+
+					}
+				},
+				parent: 'dashboard'
 				
 			})
 			.state('zonedetails', {
@@ -72,23 +95,45 @@
 			})
 			.state('badges', {
 				url: '/badges',
-				controller: 'badgesController',
+				
+				views: {
+                    "main": {
+						controller: 'badgesController',
 				templateUrl: 'components/badges/badges.component.html',
 				controllerAs: 'vm',
+
+					}
+				},
+				parent: 'dashboard'
 				
 			})
 			.state('trainers', {
 				url: '/trainers',
-				controller: 'trainersController',
+				views: {
+                    "main": {
+						controller: 'trainersController',
 				templateUrl: 'components/trainers/trainers.component.html',
 				controllerAs: 'vm',
+
+					}
+				},
+				parent: 'dashboard'
+				
 				
 			})
 			.state('members', {
 				url: '/members',
-				controller: 'membersController',
+				
+				views: {
+                    "main": {
+						controller: 'membersController',
 				templateUrl: 'components/members/members.component.html',
 				controllerAs: 'vm',
+					}
+				},
+				parent: 'dashboard'
+				
+				
 				
 			})
 			.state('callback', {
@@ -108,7 +153,14 @@
 			scope: 'openid profile app_metadata'
 		});
 		
-
+		flowFactoryProvider.defaults = {
+			target: '/upload',
+			permanentErrors:[404, 500, 501]
+		};
+		// You can also set default events:
+		flowFactoryProvider.on('catchAll', function (event) {
+		  
+		});
 	}
 
 })();

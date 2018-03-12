@@ -1,97 +1,613 @@
-
-
-<div class="loading" style="position:fixed;top:350px;left:550px" ng-show="vm.inprogress">
-    <img src="images/loading.svg" alt="loading">
-  </div>
-<div class="dashboard">
-<div class="row">
-<sidenav>  </sidenav>
-
-<div class="col-md-9 pull-right">
-  <div class="content-icons">
-       <div class="row">
-          <div class="col-md-6 col-sm-8 col-main-nav">
-               <ul class="nav navbar-nav">
-                   <li> <a href="dashboard "> My Zones </a> </li>
-                   <li> <a href="members"> My Zone Members </a> </li>
-                   <li> <a href="badges"> Badges </a> </li>
-                   <li> <a href="pricing"> Upgrade plan </a> </li>
-              </ul>
-          </div>
-         
-      </div>
-  </div>
-  </div>
-  <div class="tiles">
-        <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-6 banner-cards">
-                <div class="banner-card-one">
-                    <div class="card" style="">
-          <a href="#" style="text-decoration:none;border:none;">
-           <div class="tile-box-add">
-             <center>
-               <img class="img img-responsive" alt="add-plus" src="images/plus-add.png" ng-click="vm.go('newzone')">
-               <p style="padding-bottom:20px">Create New Zone</p>
-             </center>
-       </div>
-          </a>
-      </div>
-      </div>
-      </div>
-      
-      <div class="col-md-3 col-sm-6 col-xs-6 banner-cards " ng-repeat="zone in vm.zones">
-        <div class="banner-card-one">
-            <div class="card" style="width:90%;height:238px;background:white;">
-                <img class="card-img-top" src="images/zone-banner-card2.jpg" alt="Card image" style="width:100%;max-height:80px;min-height:80px">
-                <div class="card-body">
-                    <h4 class="card-title text-center">{{zone.zoneName}}</h4>
-                    <p class="card-text text-center">
-                        {{zone.zoneShortDescription}} 
-                    </p>
-                    <div class="card-footer">
-                        <br>
-                        <span class="fa fa-star checked-star-card"></span>
-                        <span class="fa fa-star checked-star-card"></span>
-                        <span class="fa fa-star checked-star-card"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <p class="card-text">
-                            <b style="color:#0DC8B4;">Fee</b> 500
-                            <strike>1000</strike> (50% Off)
-                        </p>
-                    </div>
-                </div>
+<body class="sidebar-is-reduced">
+        <header class="l-header">
+          <div class="l-header__inner clearfix">
+            <div class="c-header-icon js-hamburger">
+              <div class="hamburger-toggle"><span class="bar-top"></span><span class="bar-mid"></span><span class="bar-bot"></span></div>
             </div>
-        </div>
-    </div>
- 
-      <!-- <div class="col-md-5 banner-cards" style="height:238px;">
-        <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action active">
-                 Member Messages
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-                <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-                <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-                <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
-                <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+            <div class="c-header-icon has-dropdown"><span class="c-badge c-badge--header-icon animated shake">87</span><i class="fa fa-bell"></i>
+              <div class="c-dropdown c-dropdown--notifications">
+                <div class="c-dropdown__header"></div>
+                <div class="c-dropdown__content"></div>
               </div>
-              </div> -->
-      
-    <!-- <div class="row">
-    <div class="col-md-7 col-sm-6 col-xs-6 banner-cards" ng-controller="chartController" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        
-         <div  google-chart chart="myChart"></div>
-     
-                     </div> 
-                     </div> -->
-    
-</div>
+            </div>
+            <div class="c-search">
+              <input class="c-search__input u-input" placeholder="Search..." type="text"/>
+            </div>
+            <div class="header-icons-group">
+              <div class="c-header-icon basket"><span class="c-badge c-badge--header-icon animated shake">12</span><i class="fa fa-shopping-basket"></i></div>
+              <div class="c-header-icon logout"><i class="fa fa-power-off"></i></div>
+            </div>
+          </div>
+        </header>
+        <div class="l-sidebar">
+                <div class="admin-profiler">
+                        <img class="img img-circle img-responsive" alt="profiler-img"  src="{{userProfile.picture}}">
+                        <p class="text-center profiler-name img-responsive"> {{userProfile.name}} </p>
+                        <p class="text-center profiler-status">Zone Owner</p>
+                        <a href="#" style="text-decoration: none;">
+                          <p class="text-center profiler-update"> Update Profile </p>
+                        </a>
+                      </div>
+          <div class="l-sidebar__content">
+            <nav class="c-menu js-menu">
+              <ul class="u-list">
+                <li class="c-menu__item is-active" data-toggle="tooltip" title="Dashboard">
+                  <div class="c-menu__item__inner"><i class="fas fa-tachometer-alt"></i>
+                    <a ui-sref="tileboard"  class="c-menu-item__title"><span>Dashboard</span></a>
+                  </div>
+                </li>
+                <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Trainers">
+                  <div class="c-menu__item__inner"><i class="far fa-user"></i>
+                    <a ui-sref="trainers"class="c-menu-item__title"><span>Trainers</span></a>
+                    <div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i></div>
+                  </div>
+                  <ul class="c-menu__submenu u-list">
+                    <li>Payments</li>
+                    <li>Maps</li>
+                    <li>Notifications</li>
+                  </ul>
+                </li>
+                <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Zone List">
+                  <div class="c-menu__item__inner"><i class="fas fa-list-ul"></i>
+                    <a ui-sref="zonelisting" class="c-menu-item__title"><span>Zone List</span></a>
+                  </div>
+                </li>
+                <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Members">
+                  <div class="c-menu__item__inner"><i class="fas fa-users"></i>
+                    <a ui-sref="members" class="c-menu-item__title"><span>Members</span></a>
+                  </div>
+                </li>
+                <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Plans">
+                  <div class="c-menu__item__inner"><i class="fas fa-cubes"></i>
+                    <a ui-sref="zoneplans" class="c-menu-item__title"><span>Plans</span></a>
+                  </div>
+                </li>
+                <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Badges">
+                        <div class="c-menu__item__inner"><i class="fas fa-certificate"></i>
+                          <a ui-sref="badges"class="c-menu-item__title"><span>Badges</span></a>
+                        </div>
+                      </li>
+              </ul>
+            </nav>
+          </div>
         </div>
-   </div>
-  
- 
-  
-                </div>
- 
+        <main class="l-main" >
+                 <div ui-view="main" ></div> 
 
+             
+              </main>
+      </body>
+
+      <script >
+            var Dashboard = function () {
+          var global = {
+              tooltipOptions: {
+                  placement: "right"
+              },
+              menuClass: ".c-menu"
+          };
+      
+          var menuChangeActive = function menuChangeActive(el) {
+              var hasSubmenu = $(el).hasClass("has-submenu");
+              $(global.menuClass + " .is-active").removeClass("is-active");
+              $(el).addClass("is-active");
+      
+              // if (hasSubmenu) {
+              // 	$(el).find("ul").slideDown();
+              // }
+          };
+      
+          var sidebarChangeWidth = function sidebarChangeWidth() {
+              var $menuItemsTitle = $("li .menu-item__title");
+      
+              $("body").toggleClass("sidebar-is-reduced sidebar-is-expanded");
+              $(".hamburger-toggle").toggleClass("is-opened");
+      
+              if ($("body").hasClass("sidebar-is-expanded")) {
+                  $('[data-toggle="tooltip"]').tooltip("destroy");
+              } else {
+                  $('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
+              }
+          };
+      
+          return {
+              init: function init() {
+                  $(".js-hamburger").on("click", sidebarChangeWidth);
+      
+                  $(".js-menu li").on("click", function (e) {
+                      menuChangeActive(e.currentTarget);
+                  });
+      
+                  $('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
+              }
+          };
+      }();
+      
+      Dashboard.init();
+            //# sourceURL=pen.js
+          </script>
+
+<style>
+        @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&subset=latin-ext");
+  html, body {
+    height: 100%;
+    width: 100%;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 400;
+    overflow: hidden;
+    background-color: #f3f3f3;
+    color: #102c58;
+  }
+  
+  * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  ::-webkit-input-placeholder {
+    color: #c3c3c3;
+  }
+  
+  p {
+    color: #ababab;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  h2 {
+    font-size: 20px;
+  }
+  
+  h3 {
+    font-size: 18px;
+  }
+  
+  .u-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .u-input {
+    outline: 0;
+    border: 1px solid #d0d0d0;
+    padding: 5px 10px;
+    height: 35px;
+    font-size: 12px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-clip: padding-box;
+  }
+  
+  .c-badge {
+    font-size: 10px;
+    font-weight: 700;
+    min-width: 17px;
+    padding: 5px 4px;
+    border-radius: 100px;
+    display: block;
+    line-height: 0.7;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #f91605;
+  }
+  .c-badge--header-icon {
+    position: absolute;
+    bottom: -9px;
+  }
+  
+  .tooltip {
+    width: 120px;
+  }
+  .tooltip-inner {
+    padding: 8px 10px;
+    color: #fff;
+    text-align: center;
+    background-color: #051835;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+  .tooltip-arrow {
+    border-right-color: #051835 !important;
+  }
+  
+  .hamburger-toggle {
+    position: relative;
+    padding: 0;
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    order: 1;
+  }
+  .hamburger-toggle [class*='bar-'] {
+    display: block;
+    background: #102c58;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .2s ease all;
+    transition: .2s ease all;
+    border-radius: 2px;
+    height: 2px;
+    width: 24px;
+    margin-bottom: 4px;
+  }
+  .hamburger-toggle [class*='bar-']:nth-child(2) {
+    width: 18px;
+  }
+  .hamburger-toggle [class*='bar-']:last-child {
+    margin-bottom: 0;
+    width: 12px;
+  }
+  .hamburger-toggle.is-opened {
+    left: 3px;
+  }
+  .hamburger-toggle.is-opened [class*='bar-'] {
+    background: #102c58;
+  }
+  .hamburger-toggle.is-opened .bar-top {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform-origin: 15% 15%;
+    transform-origin: 15% 15%;
+  }
+  .hamburger-toggle.is-opened .bar-mid {
+    opacity: 0;
+  }
+  .hamburger-toggle.is-opened .bar-bot {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(-45deg);
+    -webkit-transform-origin: 15% 95%;
+    transform-origin: 15% 95%;
+    width: 24px;
+  }
+  .hamburger-toggle:focus {
+    outline-width: 0;
+  }
+  
+  .header-icons-group {
+    display: flex;
+    order: 3;
+    margin-left: auto;
+    height: 100%;
+    border-left: 1px solid #cccccc;
+  }
+  .header-icons-group .c-header-icon:last-child {
+    border-right: 0;
+  }
+  
+  .c-header-icon {
+    position: relative;
+    display: flex;
+    float: left;
+    width: 70px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    cursor: pointer;
+    border-right: 1px solid #cccccc;
+  }
+  .c-header-icon svg {
+    font-size: 18px;
+    line-height: 40px;
+  }
+  .c-header-icon--in-circle {
+    border: 1px solid #d0d0d0;
+    border-radius: 100%;
+  }
+  .c-header-icon:hover svg {
+    color: #f5642d;
+  }
+  .c-header-icon:hover [class*='bar-'] {
+    background: #f5642d;
+  }
+  
+  .l-header {
+    padding-left: 70px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    width: 100%;
+    background: #ffffff;
+    -webkit-transition: padding 0.5s ease-in-out;
+    -moz-transition: padding 0.5s ease-in-out;
+    -ms-transition: padding 0.5s ease-in-out;
+    -o-transition: padding 0.5s ease-in-out;
+    transition: padding 0.5s ease-in-out;
+  }
+  .l-header__inner {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    height: 70px;
+    align-items: center;
+    justify-content: stretch;
+    border-bottom: 1px solid;
+    border-color: #cccccc;
+  }
+  .sidebar-is-expanded .l-header {
+    padding-left: 220px;
+  }
+  
+  .c-search {
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+  }
+  .c-search__input {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-right: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    font-size: 14px;
+    padding: 0 20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .c-dropdown {
+    opacity: 0;
+    text-align: left;
+    position: absolute;
+    flex-direction: column;
+    display: none;
+    width: 300px;
+    top: 30px;
+    right: -40px;
+    background-color: #fff;
+    overflow: hidden;
+    min-height: 300px;
+    border: 1px solid #d0d0d0;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-clip: padding-box;
+    -webkit-box-shadow: 0px 5px 14px -1px #cecece;
+    -moz-box-shadow: 0px 5px 14px -1px #cecece;
+    box-shadow: 0px 5px 14px -1px #cecece;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .l-sidebar {
+    width: 70px;
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: #102c58;
+    -webkit-transition: width 0.5s ease-in-out;
+    -moz-transition: width 0.5s ease-in-out;
+    -ms-transition: width 0.5s ease-in-out;
+    -o-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+  }
+  .l-sidebar .logo {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #051835;
+  }
+  .l-sidebar .logo .logo__txt {
+    font-size: 26px;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+  }
+  .l-sidebar__content {
+    height: 100%;
+    position: relative;
+  }
+  .sidebar-is-expanded .l-sidebar {
+    width: 220px;
+  }
+  
+  .c-menu > ul {
+    display: flex;
+    flex-direction: column;
+  }
+  .c-menu > ul .c-menu__item {
+    color: #184a98;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .c-menu > ul .c-menu__item__inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 60px;
+    position: relative;
+    cursor: pointer;
+    -webkit-transition: background-color 0.5s ease-in-out;
+    -moz-transition: background-color 0.5s ease-in-out;
+    -ms-transition: background-color 0.5s ease-in-out;
+    -o-transition: background-color 0.5s ease-in-out;
+    transition: background-color 0.5s ease-in-out;
+  }
+  .c-menu > ul .c-menu__item__inner:before {
+    position: absolute;
+    content: " ";
+    height: 0;
+    width: 2px;
+    left: 0;
+    top: 50%;
+    margin-top: -18px;
+    background-color: #5f9cfd;
+    opacity: 0;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+  .c-menu > ul .c-menu__item.is-active {
+    color: #fff;
+  }
+  .c-menu > ul .c-menu__item.is-active .c-menu__item__inner {
+    border-left-color: #fff;
+    background-color: #1e3e6f;
+  }
+  .c-menu > ul .c-menu__item.is-active .c-menu__item__inner svg {
+    color: #fff;
+  }
+  .c-menu > ul .c-menu__item.is-active .c-menu__item__inner .c-menu-item__title span {
+    color: #fff;
+  }
+  .c-menu > ul .c-menu__item.is-active .c-menu__item__inner:before {
+    height: 36px;
+    opacity: 1;
+  }
+  .c-menu > ul .c-menu__item:not(.is-active):hover {
+    color: #fff;
+  }
+  .c-menu > ul .c-menu__item:not(.is-active):hover .c-menu__item__inner {
+    background-color: #f5642d;
+    border-left-color: #f5642d;
+  }
+  .c-menu > ul .c-menu__item svg {
+    flex: 0 0 70px;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+  .c-menu > ul .c-menu__item .c-menu-item__expand {
+    position: relative;
+    left: 100px;
+    padding-right: 20px;
+    color: #fff;
+    margin-left: auto;
+    -webkit-transition: left 1s ease-in-out;
+    -moz-transition: left 1s ease-in-out;
+    -ms-transition: left 1s ease-in-out;
+    -o-transition: left 1s ease-in-out;
+    transition: left 1s ease-in-out;
+  }
+  .sidebar-is-expanded .c-menu > ul .c-menu__item .c-menu-item__expand {
+    left: 0px;
+  }
+  .c-menu > ul .c-menu__item .c-menu-item__title {
+    flex-basis: 100%;
+    padding-right: 10px;
+    position: relative;
+    color: #fff;
+    left: 220px;
+    opacity: 0;
+    -webkit-transition: all 0.7s ease-in-out;
+    -moz-transition: all 0.7s ease-in-out;
+    -ms-transition: all 0.7s ease-in-out;
+    -o-transition: all 0.7s ease-in-out;
+    transition: all 0.7s ease-in-out;
+  }
+  .c-menu > ul .c-menu__item .c-menu-item__title span {
+    font-weight: 400;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-transition: left 0.5s ease-in-out;
+    -moz-transition: left 0.5s ease-in-out;
+    -ms-transition: left 0.5s ease-in-out;
+    -o-transition: left 0.5s ease-in-out;
+    transition: left 0.5s ease-in-out;
+  }
+  .sidebar-is-expanded .c-menu > ul .c-menu__item .c-menu-item__title {
+    left: 0px;
+    opacity: 1;
+  }
+  .c-menu > ul .c-menu__item .c-menu__submenu {
+    background-color: #051835;
+    padding: 15px;
+    font-size: 12px;
+    display: none;
+  }
+  .c-menu > ul .c-menu__item .c-menu__submenu li {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid;
+    border-color: #072048;
+    color: #5f9cfd;
+  }
+  .c-menu > ul .c-menu__item .c-menu__submenu li:last-child {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  
+  main.l-main {
+    width: 100%;
+    height: 100%;
+    padding: 70px 0 0 70px;
+    -webkit-transition: padding 0.5s ease-in-out;
+    -moz-transition: padding 0.5s ease-in-out;
+    -ms-transition: padding 0.5s ease-in-out;
+    -o-transition: padding 0.5s ease-in-out;
+    transition: padding 0.5s ease-in-out;
+  }
+  main.l-main .content-wrapper {
+    padding: 25px;
+    height: 100%;
+  }
+  main.l-main .content-wrapper .page-content {
+    border-top: 1px solid #d0d0d0;
+    padding-top: 25px;
+    color: #ababab;
+  }
+  main.l-main .content-wrapper--with-bg .page-content {
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #d0d0d0;
+    padding: 25px;
+  }
+  main.l-main .page-title {
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 25px;
+  }
+  .sidebar-is-expanded main.l-main {
+    padding-left: 220px;
+  }
+  
+      </style>
+  
+
+
+  <script>
+        window.console = window.console || function(t) {};
+      </script>
+      
+        
+        
+        <script>
+        if (document.location.search.match(/type=embed/gi)) {
+          window.parent.postMessage("resize", "*");
+        }
+      </script>
+
+<script src='https://use.fontawesome.com/releases/v5.0.6/js/all.js'></script>

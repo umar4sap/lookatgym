@@ -13,6 +13,8 @@ function DashboardController($state,$scope, authService,zoneService, $location, 
         debugger;
         $state.go(path);
     };
+
+    $state.go('tileboard');
     var userProfile = localStorage.getItem('profile');
     $scope.userProfile = JSON.parse(userProfile);
 

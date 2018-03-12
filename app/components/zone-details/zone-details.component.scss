@@ -7,21 +7,15 @@
 /* Header Section */
 
 .header-content-members>.members-zone-logo{
-    position: relative;
-    top: 10px;
-
-    left: 70px;
-   
+    margin-left:10px;
 }
 
-
-
 .header-content-members>.members-zone-logo>img{
-    height: 40px;
+    height: 60px;
 }
 
 .members-screen>.well{
-    min-height:60px;
+    min-height:auto;
     padding: 0px;
     margin-bottom: 0px;
     background-color: #f5f5f5;
@@ -35,8 +29,8 @@
 
 .members-cover{
     width:100%;
-    height:400px;
-    background: url('http://www.jamco.com.pk/wp-content/uploads/web-development.jpg');
+    height:400px;;
+    background:url('../images/members-banner.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-size: 100% 100%;
@@ -73,7 +67,7 @@ color:#fff;
 }
 
 .about-cover-text{
-    margin-top:20px;
+    margin-top:40px;
 }
 .about-cover-text>p{
     color: #fff;
@@ -85,10 +79,9 @@ color:#fff;
 
 .join-content{
     min-height:75px;
-    background-color:black;
+    background-color:rgba(36, 38, 39, 0.65);
     width:50%;
-    margin-top:20px;
-    opacity: 0.5;
+    margin-top:10px;
     border-top-left-radius: 75px;
     border-top-right-radius: 75px;
 }
@@ -119,9 +112,8 @@ color:#fff;
     min-height:90px;
     padding: 0px;
     margin-bottom: 0px;
-    background-color: black;
+    background-color: rgba(36, 38, 39, 0.65);
     border-radius: 0px;
-    opacity: 0.8;
     border: 0px;
 }
 
@@ -211,66 +203,50 @@ color:#fff;
 }
 
 /*images zone */
-
 .zone-members-images {
     background-color:#e4eae4;
     color: #35373a;
-    min-height: 100vh;
+    min-height: 50vh;
     margin-top:2%;
-    
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.zone-details-img-slider>.nav-justified>li>a>small {
+    display: block;
 }
 
-.gallery-container>.zone-images-header>.row>h2 {
-    
-    margin-top: 50px;
-    
-    
-    color: #606762;
+.zone-details-img-slider>.nav-justified>li>a{
+color:#25484b;
+font-size:17px;
+
 }
 
-.gallery-container p.page-description {
-    
-    
-   
-    color: #888;
-    font-size: 18px;
+.zone-details-img-slider>.nav-justified>li>a:hover{
+background:#25484b;
+font-size:17px;
+color: #fff;
 }
 
-.tz-gallery {
-    padding: 40px;
+.zone-details-images-page>.container-fluid>.zone-img-slider-content>.carousel-inner>.item>img{
+width: 100%;
 }
 
-.tz-gallery .lightbox img {
-    width: 100%;
-    margin-bottom: 30px;
-    transition: 0.2s ease-in-out;
-    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
-    height:200px;
-}
-
-
-.tz-gallery .lightbox img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
-}
-
-.tz-gallery img {
-    border-radius: 4px;
-}
-
-.baguetteBox-button {
-    background-color: transparent !important;
+#myCarousel .nav {
+background: #eee;
 }
 
 
 
-
+.zone-details-img-slider>.nav-justified>.zone-carousel-img>img {
+width: 100%;
+height: 50px;
+}
 
 
 /*zone-membership-prizes*/
 
 .zone-membership-prizes{
-    height: auto;
+    height: 400px;
     background-color:#e4eae4;
     width:100%;
     margin-top:2%;
@@ -284,6 +260,201 @@ color:#fff;
     margin-top: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+
+/*zone-facilities-section*/
+
+
+.zone-facilities-section{
+    height: 500px;
+    background-color:#e4eae4;
+    width:100%;
+    margin-top:2%;
+    padding-top:20px;
+    padding-bottom: 20px;
+}
+
+.zone-facilities-section-heading>h2{
+    color: #606762;
+}
+
+
+.facilities-section-content-icons .gym-floor>img{
+    height: 70px;
+    width: 92px;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+.facilities-img-about>h6{
+font-size: 18px;
+font-weight: bold;
+
+}
+
+.zone-facilities-section-content{
+    margin-top:50px;
+    padding-bottom: 10px;
+}
+
+/* zone-about-info-details */
+
+.zone-about-info-details{
+    background-color:#e4eae4;
+    
+}
+
+/*Zone trainer Info*/
+
+
+
+.zone-trainer-details-page{
+    
+    height: 400px;
+    
+    width:100%;
+   
+    padding-top:20px;
+    padding-bottom: 20px;
+}
+
+
+.zone-trainer-details-profile{
+    margin-right:auto;
+    margin-left:auto;
+    
+}
+
+.zone-trainer-details-profile>img{
+width:60%;
+height: 230px;
+}
+
+.zone-trainer-details-about>.zone-trainer-about-heading>h2{
+   
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:30px;
+    margin-bottom: 0px;
+    color: #7c858c;
+    text-shadow: 1px 1px 4px #74dce6;
+    
+}
+
+.zone-trainer-details-about>.zone-trainer-about-status>h5{
+    color:#74dce6;
+    font-size:20px;
+    margin-left:2px;
+    margin-top:0px;
+}
+
+.zone-trainer-details-about>.zoon-trainer-about-info{
+    margin-top:10px;
+}
+
+.zone-trainer-details-about>.zoon-trainer-about-info>span{
+    color: #7c858c;
+    font-size:18px;
+    margin-top:10px;
+}
+
+
+
+
+
+
+
+
+
+/*zone owner info*/
+
+
+.zone-owner-details-page{
+   
+    margin-top:2%;
+    height: 400px;
+    
+    width:100%;
+   
+    padding-top:20px;
+    padding-bottom: 20px;
+}
+
+.zone-owner-details-profile{
+    margin-right:auto;
+    margin-left:auto;
+}
+
+.zone-owner-details-profile>img{
+width:70%;
+height: 280px;
+border: none;
+
+}
+
+.zone-owner-details-about{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: #fff;
+    padding-top: 10px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    width: 105%;
+    overflow: hidden;
+    height: 175px;
+    margin-top: 40px;
+}
+
+.zone-owner-details-about>.zone-owner-about-heading>h2{
+    font-size:30px;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-bottom: 0px;
+    color: #7c858c;
+    text-shadow: 1px 1px 4px #74dce6;
+}
+
+.zone-owner-details-about>.zone-owner-about-status>h5{
+    color:#74dce6;
+    font-size:18px;
+    margin-left:2px;
+    margin-top: 2px;
+}
+
+.zone-owner-details-about>.zoon-owner-about-info{
+    margin-top:10px;
+}
+
+.zone-owner-details-about>.zoon-owner-about-info>span{
+    color: #7c858c;
+    font-size:18px;
+    margin-top:10px;
+    text-align: center;
+}
+
+.zone-owner-about-text>p{
+    font-size: 14px;
+    color:#418990;
+    margin-top:5px;
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 767px) and (min-width: 300px) {
+    .zone-details-about-followers>.row>.col-sm-1{
+       display: inline-block;
+       margin-left:20px;
+    }
+}
+
+
+
+
+
+
+
 
 
 
@@ -343,6 +514,7 @@ color:#fff;
         text-align: center;
     }
 }
+
 
 
 @media screen and (max-width: 548px) and (min-width: 400px) {

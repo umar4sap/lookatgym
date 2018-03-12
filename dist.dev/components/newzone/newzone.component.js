@@ -33,16 +33,15 @@
                  "evening":""
                 },
                 "zoneSubcriptionDetails": "silver" ,
-                "zoneTrainers":  [],
                 "zoneMemberPlanExpireMessage":"onLabShare",
                 "zonefreeTrailPerDay": 4,
-                "images":[{"imgId":"","url":"","title":""}],
-                "videos":[{"vidId":"","url":"","title":""}],
-                 "zoneCoverImage":[{"imgId":"","url":"","title":""}],
-                 "logo":[{"imgId":"","url":"","title":""}],
+                "images":[],
+                "videos":{"vidId":"","url":"","title":""},
+                 "zoneCoverImage":{"imgId":"","url":"","title":""},
+                 "logo":{"imgId":"1","url":"","title":"logo"},
                  "zoneFor":[],
                  "zoneCurrentDiscounts":  [],
-                 "zoneCurrentPlans":  [],
+                 "zoneCurrentFacilities":  [],
                  "primaryContact":"7507848446",
                  "aboutZone":"aboutZone",
                  "zoneShortDescription":"zoneShortDescription"     
@@ -79,6 +78,33 @@ vm.section=function(data){
         
     }
 }
+$scope.filelogoAdded=function(file, msg, flow){
+    var fileReader = new FileReader();
+    fileReader.readAsDataURL(file.file);
+    fileReader.onload = function (event) {
+    $scope.mockData.logo.url=event.target.result;
+    }
+    
+}
+$scope.filecoverAdded=function(file, msg, flow){
+    
+    var fileReader = new FileReader();
+    fileReader.readAsDataURL(file.file);
+    fileReader.onload = function (event) {
+       
+    $scope.mockData.zoneCoverImage.url=event.target.result;
+    }
+    
+}
+$scope.fileimagesAdded=function(file, msg, flow){
+    debugger;
+    var fileReader = new FileReader();
+    fileReader.readAsDataURL(file.file);
+    fileReader.onload = function (event) {
+    $scope.mockData.images.push({"imgId":"","url":event.target.result,"title":""});
+    }
+    
+}
 
 vm.live=function(data){
     $scope.inprogress=true;
@@ -96,14 +122,14 @@ vm.live=function(data){
     $scope.mockData.zoneMemberActivateMessage=data.zoneMemberActivateMessage;
     $scope.mockData.zoneMemberDeactivateMessage=data.zoneMemberDeactivateMessage;
     $scope.mockData.primaryContact=data.primaryContact;
+    $scope.mockData.videos.url=data.vidurl;
     $scope.mockData.zoneShortDescription=data.zoneShortDescription;
     $scope.mockData.zonefreeTrailPerMonth=Number(data.zonefreeTrailPerMonth);
     $scope.mockData.zonefreeTrailPerDay=Number(data.zonefreeTrailPerDay);
     $scope.mockData.zoneMemberPlanExpireMessage=data.zoneMemberPlanExpireMessage;
-    $scope.mockData.zoneTrainers=[data.zoneTrainers];
-    $scope.mockData.zoneCurrentPlans=[data.zoneCurrentPlans];
     $scope.mockData.zoneCurrentDiscounts=[data.zoneCurrentDiscounts];
-    $scope.mockData.zoneFor=[data.zoneFor];
+    $scope.mockData.zoneCurrentFacilities=[data.zoneCurrentFacilities];
+    $scope.mockData.zoneFor=data.zoneFor;
     $scope.mockData.zoneSubcriptionDetails=[data.zoneSubcriptionDetails || "silver"];
    
     $scope.showAlert = function(ev,msg) {

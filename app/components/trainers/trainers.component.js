@@ -43,33 +43,43 @@
                     .targetEvent(ev)
                 );
               };
-            vm.getZones=function(city){
-                
-                zoneService.getZones(city,function(response){
-                    debugger;
-                    vm.zones=response.data.data
-                })
-            }
-            vm.getZones("Hyderabad");
 
             $scope.trainermock= {
                 "deparment": "cross fit",
                 "description": "abids is having 10 years experiance",
-                "photo": [
+                "photo": 
                     {
                         "id": "",
                         "title": "abids",
                         "url": "/images/user.png",
                         "urlType": "static"
                     }
-                ],
+                ,
                 "name": "abids"
        
             }
+            $scope.fileAdded=function(file, msg, flow){
+                var fileReader = new FileReader();
+                fileReader.readAsDataURL(file.file);
+                fileReader.onload = function (event) {
+                $scope.trainermock.photo.url=event.target.result;
+                
+                }
+    
+                
+            }
+            vm.getOwnersZones=function(){
+                zoneService.getOwnersZones(function(response){
+                    vm.zones=response.data.data
+                })
+            }
+            vm.getOwnersZones();
             vm.createTrainer=function(data){
                 $scope.trainermock.deparment=data.deparment;
                 $scope.trainermock.description=data.description;
                 $scope.trainermock.name=data.name;
+               
+                debugger;
                 zoneService.createTrainer(data.zoneId,$scope.trainermock,function(res){
                     console.log(res)
                     if(res.data.status==200){
@@ -82,6 +92,7 @@
                     
                 })
             }
-              
+            
+            
         }
     }());

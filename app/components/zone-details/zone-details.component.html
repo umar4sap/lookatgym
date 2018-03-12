@@ -1,11 +1,12 @@
-<div class="members-screen" >
+
+    <div class="members-screen">
         <!-- header -->
         <div class="well well-sm">
             <div class="container">
                 <div class="row">
                     <div class="header-content-members">
                         <div class="members-zone-logo">
-                            <img class="img img-responsive " alt="members-logo-zone" src="/images/logo-blue.png">
+                            <img class="img img-responsive" alt="members-logo-zone" src="images/logo-blue.png">
                         </div>
                     </div>
                 </div>
@@ -14,8 +15,8 @@
         <!-- end header -->
         <!-- cover -->
         <div class="members-cover" style="width:100%;
-        height:400px;
-        background: url('http://www.jamco.com.pk/wp-content/uploads/web-development.jpg');
+        height:400px;;
+        background:url({{vm.zoneData.zoneCoverImage.url}});
         background-repeat: no-repeat;
         background-size: cover;
         background-size: 100% 100%;
@@ -42,7 +43,7 @@
                 </div>
                 <div class="cover-heading">
                     <center>
-                        <h2 class="text-center">{{vm.zoneData.zoneName}} </h2>
+                        <h2 class="text-center">{{vm.zoneData.zoneName}}</h2>
                         <ul class="nav cover-text">
                             <li>
                                 <a href="#"> Zone Service </a>
@@ -57,7 +58,7 @@
                 <div class="row">
                     <div class="about-cover-text">
                         <p class="text-center">
-                                {{vm.zoneData.zoneShortDescription}}
+                            {{vm.zoneData.zoneShortDescription}}
                         </p>
                     </div>
                 </div>
@@ -75,7 +76,7 @@
                                 </div>
                                 <div class="cover-buttons">
                                     <button class="btn btn-primary">Join</button>
-                                    <button class="btn btn-primary" ng-click="vm.getTrail($event,vm.zoneData.zoneId,vm.zoneData.zoneName)">Get 1 day Trial</button>
+                                    <button class="btn btn-primary" ng-click="vm.getTrail($event,vm.zoneData.zoneId,vm.zoneData.zoneName)">Request For Trial</button>
                                 </div>
                             </div>
                         </center>
@@ -121,7 +122,7 @@
                                         <br>
                                         <div class="total-members-list">
                                             <h4 style="font-size:15px;">
-                                                <b style="color:#38a4d2;">Uni Sex</b>
+                                                <b style="color:#38a4d2;">{{vm.zoneData.zoneFor}}</b>
                                                 <i class="fas fa-female"></i>
                                                 <i class="fas fa-male"></i>
                                             </h4>
@@ -136,9 +137,9 @@
                                         <br>
                                         <div class="total-members-list">
                                             <h4 style="font-size:15px;color:#fff;">
-                                                <b style="color:#38a4d2;">12 pm </b>
-                                                to
-                                                <b style="color:#38a4d2;"> 6 pm </b>
+                                                <b style="color:#38a4d2;">Morning {{vm.zoneData.zoneTiming.morning}} am</b>
+                                                
+                                                <b style="color:#38a4d2;">Evening {{vm.zoneData.zoneTiming.evening}} pm </b>
                                             </h4>
                                         </div>
                                     </div>
@@ -163,14 +164,14 @@
                     <div class="zone-about-text">
                         <h2 style="color:#737473;padding-bottom:10px;" class="text-left"> About Zone </h2>
                         <p style="color:#737473;padding-bottom:10px;font-size:15px;" class="text-left">
-                                {{vm.zoneData.aboutZone}}
+                            {{vm.zoneData.aboutZone}}
                         </p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="zone-about-logos">
                         <center>
-                            <img src="images/zone-about-logo.png" class="img img-responsive zone-about-logo.png" alt="zone-about-logo">
+                            <img src="{{vm.zoneData.logo.url}}"  style="width:230px;height:220px"class="img img-responsive img-circle zone-about-logo.png" alt="zone-about-logo">
                         </center>
                     </div>
                 </div>
@@ -186,9 +187,11 @@
         <div class="container">
             <div class="zone-video-header">
                 <h2 style="color:#737473;padding-bottom:10px;" class="zone-video-heading">
-                    Gym Videos
+                    Relavent Videos
                 </h2>
-               
+                <p style="color:#737473;padding-bottom:10px;font-size:15px;" class="">
+                    de Finibus Bonorum et Malorum" by Cicero are
+                </p>
             </div>
             <div class="zone-video-content">
                 <center>
@@ -204,71 +207,46 @@
 
     <!-- Zone members images -->
 
+    
     <div class="zone-members-images">
 
-        <div class="container gallery-container">
-            <div class="zone-images-header">
-                <div class="row">
-                    <h2 class="text-left">Gym Gallery</h2>
-                   
+            <div class="zone-details-images-page">
+                <div class="container-fluid">
+                    <div id="myCarousel" class="carousel slide zone-img-slider-content" data-ride="carousel">
+    
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+    
+                            <div  class="item " style="height:600px" ng-class="{'active': $index == 0}" ng-repeat="image in vm.zoneData.images">
+                                <img src="{{image.url}}">
+                            </div>
+                            <!-- End Item -->
+    
+                           
+                            <!-- End Item -->
+    
+                        </div>
+                        <!-- End Carousel Inner -->
+    
+                        <!-- zone details img slider -->
+                        <div class="zone-details-img-slider">
+                            <ul class="nav nav-pills nav-justified">
+                                <li data-target="#myCarousel"  data-slide-to={{$index}} class=" zone-carousel-img" ng-class="{'active': $index == 0}" ng-repeat="image in vm.zoneData.images">
+                                    <img class="img img-responsive" style="height:150px" src="{{image.url}}">
+                                    <a  >
+                                        <small>Gym Area</small>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        <!--end zone details img slider -->
+                    </div>
+                    <!-- End Carousel -->
                 </div>
             </div>
-
-            <div class="tz-gallery">
-
-                <div class="row">
-                    <div class="col-sm-6 col-xs-6 col-md-4">
-                        <a class="lightbox" href="images/zone-img/img-1.jpg">
-                            <img src="images/zone-img/img-1.jpg" alt="Park">
-                        </a>
-                    </div>
-                    <div class="col-sm-6 col-xs-6 col-md-4">
-                        <a class="lightbox" href="images/zone-img/img-2.jpg">
-                            <img src="images/zone-img/img-2.jpg" alt="Bridge">
-                        </a>
-                    </div>
-                    <div class="col-sm-12 col-xs-6 col-md-4">
-                        <a class="lightbox" href="images/zone-img/img-3.jpg">
-                            <img src="images/zone-img/img-3.jpg" alt="Tunnel">
-                        </a>
-                    </div>
-                    <div class="col-sm-6 col-xs-6 col-md-4">
-                        <a class="lightbox" href="images/zone-img/img-4.jpg">
-                            <img src="images/zone-img/img-4.jpg" alt="Coast">
-                        </a>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <a class="lightbox" href="images/zone-img/img-5.jpg">
-                            <img src="images/zone-img/img-5.jpg" alt="Rails">
-                        </a>
-                    </div>
-                    <div class="col-sm-6 col-xs-6 col-md-4">
-                        <a class="lightbox" href="images/zone-img/img-6.jpg">
-                            <img src="images/zone-img/img-6.jpg" alt="Traffic">
-                        </a>
-                    </div>
-                    <div class="col-sm-6 col-xs-6 col-md-4">
-                        <a class="lightbox" href="images/zone-img/img-7.jpg">
-                            <img src="images/zone-img/img-7.jpg" alt="Rocks">
-                        </a>
-                    </div>
-                    <div class="col-sm-6 col-xs-6 col-md-4">
-                        <a class="lightbox" href="images/zone-img/img-8.jpg">
-                            <img src="images/zone-img/img-8.jpg" alt="Benches">
-                        </a>
-                    </div>
-                    <div class="col-sm-6 col-xs-6 col-md-4">
-                        <a class="lightbox" href="images/zone-img/img-9.jpg">
-                            <img src="images/zone-img/img-9.jpg" alt="Sky">
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
+    
         </div>
-
-    </div>
 
     <!-- Zone members images -->
 
@@ -277,7 +255,7 @@
         <div class="container">
             <div class="row">
                 <div class="zone-facilities-header">
-                    <h2 style="color:#606762;" class="text-left">Gym area</h2>
+                    <h2 style="color:#606762;" class="text-left">Facilities and special for:</h2>
                 </div>
                 <div class="zone-facilities-content-cards">
                     <div class="row">
@@ -355,7 +333,7 @@
             <div class="row">
                 <div class="zone-prizing-header">
                     <h2 style="color:#737473;" class="zone-membership-prizes-heading">
-                        Membership details
+                        Zone Offers
                     </h2>
                     <p style="color:#737473;padding-bottom:10px;font-size:15px;" class="">
 
@@ -363,45 +341,358 @@
                 </div>
             </div>
             <div class="zone-prizing">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <td class="text-center">Membership Plans</td>
-                            <td class="text-center"> About Plans </td>
-                            <td class="text-center">Duration</td>
-                            <td class="text-center">Fee</td>
-                            <td class="text-center">Special Offers</td>
+                <table class="table table-hover ">
+                    
+                        <tr class="info">
+                            <th class="text-center">Membership Plans</th>
+                            <th class="text-center"> About Plans </th>
+                            <th class="text-center">Duration</th>
+                            <th class="text-center">Fee</th>
+                            <th class="text-center">Special Offers</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td scope="row" align="center">Be A Member</td>
-                            <td></td>
-                            <td>2,500</td>
-                            <td>2,500</td>
-                        </tr>
-                        <tr>
-                            <td scope="row" align="center">Cardio</td>
-                            <td>2,500</td>
-                            <td>2,500</td>
-                            <td>2,500</td>
-                        </tr>
-                        <tr>
-                            <td scope="row" align="center">Cross Fit</td>
-                            <td>2,500</td>
-                            <td>2,500</td>
-                            <td>2,500</td>
-                        </tr>
-                        <tr>
-                            <td scope="row" align="center">Weight Lifting</td>
-                            <td class="text-center">period (months)</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-
-                    </tbody>
+                    
+                        <tbody>
+                                <tr class="" ng-repeat="plan in vm.plansData">
+                                    <td scope="row" align="center">{{plan.planName}}</td>
+                                    <td scope="row" align="center">{{plan.aboutPlan}}</td>
+                                    <td scope="row" align="center">{{plan.planMonth}}(Months)</td>
+                                    <td scope="row" align="center">{{plan.planFee}}(inr)</td>
+                                    <td scope="row" align="center">{{plan.planOffer}}% ( valid till {{plan.offerValidity | date}})</td>
+                                </tr>
+                               
+                              
+                                
+        
+                            </tbody>
                 </table>
             </div>
         </div>
     </div>
+
+    <!-- End Zone Membership Prices -->
+
+    <!-- Zone Facilities -->
+
+    <div class="zone-facilities-section">
+        <div class="container">
+                <div class="zone-trainer-about-status">
+                        <h3> Gym facilities </h3>
+                    </div>
+            <!-- Facilities Icons -->
+            <div class="zone-facilities-section-content">
+                <div class="row">
+                    <div class="facilities-section-content-icons">
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/gym-flour.png" class="img img-responsive" alt="gym-flour">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Gym Floor </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/internet-station.png" class="img img-responsive" alt="internet-station">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Wifi </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/members-longues.png" class="img img-responsive" alt="members-longues">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Members Longues </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/personal-trainer.png" class="img img-responsive" alt="personal-trainer">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Personal Trainer </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/shower-area.png" class="img img-responsive" alt="shower-area">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Shower Area </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/towel-service.png" class="img img-responsive" alt="towel-service">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Towel Service </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Second Row Facilities Icons -->
+            <div class="zone-facilities-section-content">
+                <div class="row">
+                    <div class="facilities-section-content-icons">
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/cardio-area.png" class="img img-responsive" alt="cardio-area">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Cardio Area </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/ccle-studio.png" class="img img-responsive" alt="ccle-studio">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Cycle Studio </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/freestyle.png" class="img img-responsive" alt="freestyle">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Weight lifting</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/strength-area.png" class="img img-responsive" alt="strength-area">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Strength Area</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/group-exersize.png" class="img img-responsive" alt="group-exersize">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Group Exersize </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/yoga.png" class="img img-responsive" alt="yoga">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Yoga </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end icons -->
+        </div>
+    </div>
+
+    <!-- End Zone Facilities -->
+
+    <!-- zone info -->
+
+
+        <!-- zone owner info -->
+
+        <div class="zone-owner-details-page">
+
+            <div class="container">
+                    <div class="zone-trainer-about-status">
+                            <h3> Owner's Bio </h3>
+                        </div>
+                <div class="row">
+
+                    <!-- zone-owner-details-about -->
+                    <div class="col-md-8  col-sm-8 col-lg-8 col-xs-12">
+                        <div class="zone-owner-details-about ">
+                            <div class="zone-owner-about-heading">
+                                <h3 >{{userProfile.name}} </h3>
+                            </div>
+                            <div class="zone-owner-about-status">
+                                <h5 > Owner </h5>
+                            </div>
+                            
+                            <div class="zone-owner-about-text">
+                                <p >
+                                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.It
+                                    is a
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end zone-owner-details-about -->
+                    <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
+                        <!-- owner profile -->
+                        <div class="zone-owner-details-profile">
+                            <img class="img img-responsive img-thumbnail" src="{{userProfile.picture}}" >
+                        </div>
+                        <!--end owner profile -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+       
+
+       
+
+           
+            <div class="zone-trainer-details-page" >
+               
+                <div class="container" >
+                        <div class="zone-trainer-about-status">
+                                <h3> Trainers </h3>
+                            </div>
+                    <div class="row">
+                        <div class="zone-trainer-info-data col-md-5" ng-repeat="trainer in vm.trainersData">
+                            <div  >
+                                <!-- trainer profile -->
+                                <div class="zone-trainer-details-profile">
+                                    <img class="img img-responsive img-circle" width="100" heigth="200" src="{{trainer.photo.url}}" alt="zoon-detail">
+                                </div>
+                                <!--end trainer profile -->
+                            </div>
+                            <!-- zone-trainer-details-about -->
+                            <div class="">
+                                <div class="zone-trainer-details-about">
+                                    <div class="">
+                                        <h3>{{trainer.name}}</h3>
+                                    </div>
+                                  
+                                  
+                                    <div class="zoon-trainer-about-info">
+                                        <span>{{trainer.deparment}}</span>
+                                        <br>
+                                        <span>From: Hyderabad</span>
+                                        <br>
+                                        <span>{{trainer.description}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <!-- end zone-trainer-details-about -->
+                    </div>
+                </div>
+            
+
+            
+
+            </div>
+            <div class="zone-trainer-details-page" style="margin-top:50px;">
+               
+                    <div class="container" >
+                            <div class="zone-trainer-about-status">
+                                    <h3> What Members saying about {{vm.zoneData.zoneName}} </h3>
+                                </div>
+                        <div class="row">
+                
+                  <md-content>
+                    <md-list>
+                      <md-list-item class="md-3-line" >
+                        <img ng-src="{{userProfile.picture}}" class="md-avatar" alt="">
+                        <div class="md-list-item-text">
+                          <h3>User</h3>
+                          <h4>Date : 31/03/2018</h4>
+                          <div class="rating-sec">
+                                <label for="ratings" style="color:#fff;">Rating</label>
+                                <br>
+                                <span class="fa fa-star checked-star"></span>
+                                <span class="fa fa-star checked-star"></span>
+                                <span class="fa fa-star checked-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                          <p>This is very good zone</p>
+                        </div>
+                        <md-divider md-inset ng-if="!$last"></md-divider>
+                      </md-list-item>
+                    </md-list>
+                  </md-content>
+               </div>
+               <div class="row">
+                
+                    <md-content>
+                      <md-list>
+                        <md-list-item class="md-3-line" >
+                          <img ng-src="{{userProfile.picture}}" class="md-avatar" alt="">
+                          <div class="md-list-item-text">
+                            <h3>User</h3>
+                            <h4>Date : 31/03/2018</h4>
+                            <div class="rating-sec">
+                                  <label for="ratings" style="color:#fff;">Rating</label>
+                                  <br>
+                                  <span class="fa fa-star checked-star"></span>
+                                  <span class="fa fa-star checked-star"></span>
+                                  <span class="fa fa-star checked-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                              </div>
+                            <p>This is very good zone</p>
+                          </div>
+                          <md-divider md-inset ng-if="!$last"></md-divider>
+                        </md-list-item>
+                      </md-list>
+                    </md-content>
+                 </div>     <div class="row">
+                
+                        <md-content>
+                          <md-list>
+                            <md-list-item class="md-3-line" >
+                              <img ng-src="{{userProfile.picture}}" class="md-avatar" alt="">
+                              <div class="md-list-item-text">
+                                <h3>User</h3>
+                                <h4>Date : 31/03/2018</h4>
+                                <div class="rating-sec">
+                                      <label for="ratings" style="color:#fff;">Rating</label>
+                                      <br>
+                                      <span class="fa fa-star checked-star"></span>
+                                      <span class="fa fa-star checked-star"></span>
+                                      <span class="fa fa-star checked-star"></span>
+                                      <span class="fa fa-star"></span>
+                                      <span class="fa fa-star"></span>
+                                  </div>
+                                <p>This is very good zone</p>
+                              </div>
+                              <md-divider md-inset ng-if="!$last"></md-divider>
+                            </md-list-item>
+                          </md-list>
+                        </md-content>
+                     </div>
+               </div>
+               </div>
+              
+
+        </div>
+    
+        <script>
+            $(document).ready(function () {
+    $('#myCarousel').carousel({
+        interval:4000
+    });
+
+    var clickEvent = false;
+    $('#myCarousel').on('click', '.nav a', function () {
+        clickEvent = true;
+        $('.nav li').removeClass('active');
+        $(this).parent().addClass('active');
+    }).on('slid.bs.carousel', function (e) {
+        if (!clickEvent) {
+            var count = $('.nav').children().length - 1;
+            var current = $('.nav li.active');
+            current.removeClass('active').next().addClass('active');
+            var id = parseInt(current.data('slide-to'));
+            if (count == id) {
+             //   $('.nav li').first().addClass('active');
+            }
+        }
+        clickEvent = false;
+    });
+});
+            </script>

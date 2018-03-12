@@ -20,17 +20,28 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
     <script src="https://cdn.auth0.com/js/auth0/9.2.2/auth0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+   
+   
     <!-- bower:css -->
     <!-- endinject -->
     <!-- inject:css -->
     <!-- endinject -->
 </head>
 
-<body ng-app="app" >
+<body ng-app="zoneapp" flow-init flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-files-submitted="$flow.upload()">
   
 <ui-view></ui-view>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js"></script>
+    
+   
+ 
     <!-- bower:js -->
     <!-- endinject -->
     <script type="text/javascript" src="ng-google-chart.js"></script>

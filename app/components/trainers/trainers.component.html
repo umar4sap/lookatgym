@@ -1,22 +1,43 @@
-<div class="dashboard">
-    <div class="row">
-    <sidenav>  </sidenav>
-<div class="zone-badge-screen col-md-8">
+
+<div class="loading" style="position:fixed;top:350px;left:550px" ng-show="vm.inprogress">
+    <img src="images/loading.svg" alt="loading">
+  </div>
+
+<div class="zone-badge-screen col-md-9">
     <div class="container">
         <div class="row">
             <!-- row -->
-            <div class="col-md-2">
-                <div class="badge-logo">
-                        <span><img class="img img-responsive" src="images/img-logo-badge.png" /><input type="file" class="form-control" placeholder="logo" id="badge-name"></span>
+            <div class="col-md-3">
+                <div class="badge-logo" flow-init flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-files-submitted="$flow.upload()" flow-file-success="fileAdded( $file, $message, $flow )">
+                    <div >
+                        <div class="thumbnail" ng-hide="$flow.files.length" style="width:200px;height:200px">
+                          <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" />
+                        </div>
+                        <div class="thumbnail" ng-show="$flow.files.length" style="width:200px;height:200px">
+                          <img flow-img="$flow.files[0]" />
+                        </div>
+                        <div>
+                          <button  class="btn btn-primary" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Select image</button>
+                          <button class="btn" ng-show="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Change</button>
+                          <button  class="btn btn-danger" ng-show="$flow.files.length"
+                             ng-click="$flow.cancel()">
+                            Remove
+                          </button>
+                        </div>
+                        <p>
+                          Only PNG,GIF,JPG files allowed.
+                        </p>
+                      </div>
+                    </div>
                 </div>
-            </div>
+           
             <!-- end col-md-2 -->
             <div class="col-md-5">
                 <div class="badge-inputs">
                     <form action="#">
                         <div class="form-group">
                             <label for="text">Trainer Name</label>
-                            <input type="text" class="form-control" placeholder="Enter trainer name.." id="badge-name" ng-model="tarinerData.name">
+                            <input type="text" class="form-control" placeholder="trainer name.." id="badge-name" ng-model="tarinerData.name">
                         </div>
                     </form>
                 </div>
@@ -26,7 +47,7 @@
                     <form action="#">
                         <div class="form-group">
                             <label for="text">Trainer Deparment</label>
-                            <input type="text" class="form-control" placeholder="Enter trainer name.."  ng-model="tarinerData.deparment">
+                            <input type="text" class="form-control" placeholder="Gym deparment"  ng-model="tarinerData.deparment">
                         </div>
                     </form>
                 </div>
@@ -36,7 +57,7 @@
                     <form action="#">
                         <div class="form-group">
                             <label for="text">Trainer Description</label>
-                            <input type="text" class="form-control" placeholder="Enter trainer description.."  ng-model="tarinerData.description">
+                            <input type="text" class="form-control" placeholder="description.."  ng-model="tarinerData.description">
                         </div>
                     </form>
                 </div>
@@ -46,7 +67,8 @@
                     <form action="#">
                         <div class="form-group">
                             <label for="text">Zone</label>
-                            <select class="form-control"  required id="sel1" ng-model="tarinerData.zoneId">
+                            <select class="form-control"   required id="sel1" ng-model="tarinerData.zoneId">
+                                
                                 <option ng-repeat="zone in vm.zones" value="{{zone.zoneId}}">{{zone.zoneName}}</option>
                                
                         </select>
@@ -55,15 +77,15 @@
                 </div>
             </div>
            
-           </div>
+          </div> 
             
             <div class="row">
-                <div class="col-md-1 col-md-offset-2">
+                <div class="col-md-1 col-md-offset-3">
                     <div class="badge-buttons">
                         <button class="btn btn-primary create-badge-btn" ng-click="vm.createTrainer(tarinerData)">Create Trainer</button>
                     </div>
                 </div>
-                <div class="col-md-7 pull-left col-md-offset-1">
+                <div class="col-md-1  col-md-offset-1">
                     <div class="badge-buttons">
                         <button class="btn btn-default create-badge-btn">Cancel</button>
                     </div>
@@ -72,7 +94,7 @@
         
         <!-- end row -->
 
-    </div>
+    
     <!--end container -->
     <!-- content -->
     <div class="badges-content">
@@ -117,7 +139,7 @@
                             <div class="row">
                                 <div class="badge-tile-img">
                                     <center>
-                                        <img class="img img-responsive" src="{{userProfile.picture}}">
+                                        <img class="img img-responsive" style="width:150px;height:120px;" src="{{trainer.photo.url}}">
                                     </center>
                                 </div>
                             </div>
@@ -139,9 +161,8 @@
 
         <!-- end badges tiles -->
     </div>
-
+</div>
 
     <!-- end content -->
 </div>
-</div>
-</div>
+
