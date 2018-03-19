@@ -1,4 +1,5 @@
-
+<div class="container">
+        <div class="row">
     <div class="members-screen">
         <!-- header -->
         <div class="well well-sm">
@@ -154,8 +155,9 @@
 
         <!-- end cover -->
     </div>
+</div>
 
-
+<div class="row">
     <!-- Zone Members About -->
     <div class="zone-members-about">
         <div class="container">
@@ -178,11 +180,11 @@
             </div>
         </div>
     </div>
-
+</div>
     <!-- End Zone Members About -->
 
     <!-- zone videos -->
-
+    <div class="row">
     <div class="zone-members-videos">
         <div class="container">
             <div class="zone-video-header">
@@ -202,12 +204,12 @@
             </div>
         </div>
     </div>
-
+</div>
     <!-- end zone videos -->
 
     <!-- Zone members images -->
 
-    
+    <div class="row">
     <div class="zone-members-images">
 
             <div class="zone-details-images-page">
@@ -245,90 +247,172 @@
                     <!-- End Carousel -->
                 </div>
             </div>
-    
-        </div>
+    </div>
+</div>
+ 
 
-    <!-- Zone members images -->
-
-    <!-- Facilities and special -->
-    <div class="zone-facilities">
-        <div class="container">
-            <div class="row">
-                <div class="zone-facilities-header">
-                    <h2 style="color:#606762;" class="text-left">Facilities and special for:</h2>
+<div class="row">
+        <div class="zone-user-details-card-page" style="height:auto;">
+                <div class="head-trainer-section">
+                    <h2 class="text-left">
+                        Trainers
+                    </h2>
                 </div>
-                <div class="zone-facilities-content-cards">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-6">
-                            <div class="zone-facilities-card lightbox">
-                                <div class="zone-card-facilities-img">
-                                    <img class="img img-responsive" alt="card-cover" src="images/facilities/cardio-card-img.png">
-                                </div>
-                                <div class="zone-card-facilities-heading">
-                                    <h3 style="color:#606762" class="text-center">Cardio</h3>
-                                </div>
-                                <div class="zone-card-facilities-text">
-                                    <p class="text-center">
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    </p>
-                                </div>
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-12 col-lg-3" ng-repeat="trainer in vm.trainersData">
+                        <!-- card -->
+                        <div class="zone-user-details-cards">
+                            <div class="user-details-card-header">
+                                <h4 class="text-center"> {{trainer.name }}</h4>
+                                <img src="images/zone-owner.png" class="img img-responsive">
                             </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-6">
-                            <div class="zone-facilities-card lightbox">
-                                <div class="zone-card-facilities-img">
-                                    <img class="img img-responsive" alt="card-cover" src="images/facilities/cardio-card-img.png">
-                                </div>
-                                <div class="zone-card-facilities-heading">
-                                    <h3 style="color:#606762" class="text-center">Weight Lefting</h3>
-                                </div>
-                                <div class="zone-card-facilities-text">
-                                    <p class="text-center">
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    </p>
-                                </div>
+                            <div class="user-details-card-body">
+                                <h5 class="text-center">
+                                    {{trainer.description}}
+                                </h5>
                             </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-6">
-                            <div class="zone-facilities-card lightbox">
-                                <div class="zone-card-facilities-img">
-                                    <img class="img img-responsive" alt="card-cover" src="images/facilities/crossfit-card-img.png">
-                                </div>
-                                <div class="zone-card-facilities-heading">
-                                    <h3 style="color:#606762" class="text-center">Cros Fit</h3>
-                                </div>
-                                <div class="zone-card-facilities-text">
-                                    <p style="color:#606762" class="text-center">
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-6">
-                            <div class="zone-facilities-card lightbox">
-                                <div class="zone-card-facilities-img">
-                                    <img class="img img-responsive" alt="card-cover" src="images/facilities/trainer-card-img.png">
-                                </div>
-                                <div class="zone-card-facilities-heading">
-                                    <h3 style="color:#606762" class="text-center">Personal Trainer</h3>
-                                </div>
-                                <div class="zone-card-facilities-text">
-                                    <p class="text-center">
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    </p>
+                            <div class="user-details-card-footer">
+                                <div class="text-center">
+                                    <div class="btn-group footer-buttons" role="group">
+                                        <button class="btn view-btn btn-info"> Training For </button>
+                                        <button class="btn abt-btn btn-success"> {{trainer.deparment}}</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+    </div>
+
+<div class="row">
+    <div class="zone-facilities-section" style="height:auto">
+        <div class="container">
+            <div class="row">
+                <div class="zone-facilities-section-header">
+                    <div class="zone-facilities-section-heading">
+                        <h2 class="text-left">Our Facilities</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- Facilities Icons -->
+            <div class="zone-facilities-section-content">
+                <div class="row">
+                    <div class="facilities-section-content-icons">
+                        <div class="col-md-2 col-sm-4 col-xs-12">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/gym-flour.png" class="img img-responsive" alt="gym-flour">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Gym Floor </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/internet-station.png" class="img img-responsive" alt="internet-station">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Internet Station </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/members-longues.png" class="img img-responsive" alt="members-longues">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Members Longues </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/personal-trainer.png" class="img img-responsive" alt="personal-trainer">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Personal Trainer </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/shower-area.png" class="img img-responsive" alt="shower-area">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Shower Area </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-12">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/towel-service.png" class="img img-responsive" alt="towel-service">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Towel Service </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Second Row Facilities Icons -->
+            <div class="zone-facilities-section-content">
+                <div class="row">
+                    <div class="facilities-section-content-icons">
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/cardio-area.png" class="img img-responsive" alt="cardio-area">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Cardio Area </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/ccle-studio.png" class="img img-responsive" alt="ccle-studio">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Cyle Studio </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/freestyle.png" class="img img-responsive" alt="freestyle">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Free Style</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/strength-area.png" class="img img-responsive" alt="strength-area">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Strength Area</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/group-exersize.png" class="img img-responsive" alt="group-exersize">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Group Exersize </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                            <div class="gym-floor">
+                                <img src="images/zone-facilities/yoga.png" class="img img-responsive" alt="yoga">
+                                <div class="facilities-img-about">
+                                    <h6 class="text-center"> Yoga </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end icons -->
         </div>
     </div>
-    <!--End Facilities and special -->
+  </div>
 
-    <!-- Zone Membership Prices -->
 
-    <div class="zone-membership-prizes">
+  <div class="row">
+    <div class="zone-membership-prizes" style="height:auto">
         <div class="container">
             <div class="row">
                 <div class="zone-prizing-header">
@@ -368,228 +452,96 @@
             </div>
         </div>
     </div>
-
-    <!-- End Zone Membership Prices -->
-
-    <!-- Zone Facilities -->
-
-    <div class="zone-facilities-section">
-        <div class="container">
-                <div class="zone-trainer-about-status">
-                        <h3> Gym facilities </h3>
-                    </div>
-            <!-- Facilities Icons -->
-            <div class="zone-facilities-section-content">
-                <div class="row">
-                    <div class="facilities-section-content-icons">
-                        <div class="col-md-2 col-sm-2 col-xs-2">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/gym-flour.png" class="img img-responsive" alt="gym-flour">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Gym Floor </h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-2 col-xs-2">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/internet-station.png" class="img img-responsive" alt="internet-station">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Wifi </h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-2 col-xs-2">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/members-longues.png" class="img img-responsive" alt="members-longues">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Members Longues </h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-2 col-xs-2">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/personal-trainer.png" class="img img-responsive" alt="personal-trainer">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Personal Trainer </h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-2 col-xs-2">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/shower-area.png" class="img img-responsive" alt="shower-area">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Shower Area </h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-2 col-xs-2">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/towel-service.png" class="img img-responsive" alt="towel-service">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Towel Service </h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Second Row Facilities Icons -->
-            <div class="zone-facilities-section-content">
-                <div class="row">
-                    <div class="facilities-section-content-icons">
-                        <div class="col-md-2 col-sm-2 col-xs-2">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/cardio-area.png" class="img img-responsive" alt="cardio-area">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Cardio Area </h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-2 col-xs-2">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/ccle-studio.png" class="img img-responsive" alt="ccle-studio">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Cycle Studio </h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-2 col-xs-2">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/freestyle.png" class="img img-responsive" alt="freestyle">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Weight lifting</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-2 col-xs-2">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/strength-area.png" class="img img-responsive" alt="strength-area">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Strength Area</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-2 col-xs-2">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/group-exersize.png" class="img img-responsive" alt="group-exersize">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Group Exersize </h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-2 col-xs-2">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/yoga.png" class="img img-responsive" alt="yoga">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Yoga </h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end icons -->
-        </div>
-    </div>
-
-    <!-- End Zone Facilities -->
-
-    <!-- zone info -->
-
-
-        <!-- zone owner info -->
-
-        <div class="zone-owner-details-page">
-
-            <div class="container">
-                    <div class="zone-trainer-about-status">
-                            <h3> Owner's Bio </h3>
-                        </div>
-                <div class="row">
-
-                    <!-- zone-owner-details-about -->
-                    <div class="col-md-8  col-sm-8 col-lg-8 col-xs-12">
-                        <div class="zone-owner-details-about ">
-                            <div class="zone-owner-about-heading">
-                                <h3 >{{userProfile.name}} </h3>
-                            </div>
-                            <div class="zone-owner-about-status">
-                                <h5 > Owner </h5>
-                            </div>
-                            
-                            <div class="zone-owner-about-text">
-                                <p >
-                                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.It
-                                    is a
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end zone-owner-details-about -->
-                    <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
-                        <!-- owner profile -->
-                        <div class="zone-owner-details-profile">
-                            <img class="img img-responsive img-thumbnail" src="{{userProfile.picture}}" >
-                        </div>
-                        <!--end owner profile -->
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-       
+  </div>
+</div>
+    
 
        
 
            
-            <div class="zone-trainer-details-page" >
-               
-                <div class="container" >
-                        <div class="zone-trainer-about-status">
-                                <h3> Trainers </h3>
-                            </div>
-                    <div class="row">
-                        <div class="zone-trainer-info-data col-md-5" ng-repeat="trainer in vm.trainersData">
-                            <div  >
-                                <!-- trainer profile -->
-                                <div class="zone-trainer-details-profile">
-                                    <img class="img img-responsive img-circle" width="100" heigth="200" src="{{trainer.photo.url}}" alt="zoon-detail">
-                                </div>
-                                <!--end trainer profile -->
-                            </div>
-                            <!-- zone-trainer-details-about -->
-                            <div class="">
-                                <div class="zone-trainer-details-about">
-                                    <div class="">
-                                        <h3>{{trainer.name}}</h3>
-                                    </div>
-                                  
-                                  
-                                    <div class="zoon-trainer-about-info">
-                                        <span>{{trainer.deparment}}</span>
-                                        <br>
-                                        <span>From: Hyderabad</span>
-                                        <br>
-                                        <span>{{trainer.description}}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                       
-                        <!-- end zone-trainer-details-about -->
-                    </div>
-                </div>
-            
+           
 
-            
+<!-- rating progress -->
 
-            </div>
+<!-- delete div -->
+    
+
+
+
             <div class="zone-trainer-details-page" style="margin-top:50px;">
                
                     <div class="container" >
                             <div class="zone-trainer-about-status">
                                     <h3> What Members saying about {{vm.zoneData.zoneName}} </h3>
+                                    <div class="zone-rating-mobo-section" >
+
+                                            <div class="row">
+                                                <div class="zone-mobo-for-rating-screen text-center">
+                                                    <label for="mobo-rating">Cleanliness</label>
+                                                    <br>
+                                                    <div class="progress zone-mobo-rating">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width:98%">
+                                                        </div>
+                                                    </div>
+                                                    <span class="mobo-rating-text">9.8</span>
+                                                </div>
+                                                <div class="zone-mobo-for-rating-screen text-center">
+                                                    <label for="mobo-rating">Staff</label>
+                                                    <br>
+                                                    <div class="progress zone-mobo-rating">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+                                                        </div>
+                                                    </div>
+                                                    <span class="mobo-rating-text">9.8</span>
+                                                </div>
+                                                <div class="zone-mobo-for-rating-screen text-center">
+                                                    <label for="mobo-rating">Comfort</label>
+                                                    <br>
+                                                    <div class="progress zone-mobo-rating">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100" style="width:87%">
+                                                        </div>
+                                                    </div>
+                                                    <span class="mobo-rating-text">9.8</span>
+                                                </div>
+                                                <div class="zone-mobo-for-rating-screen text-center">
+                                                    <label for="mobo-rating">Location</label>
+                                                    <br>
+                                                    <div class="progress zone-mobo-rating">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+                                                        </div>
+                                                    </div>
+                                                    <span class="mobo-rating-text">9.8</span>
+                                                </div>
+                                                <div class="zone-mobo-for-rating-screen text-center">
+                                                    <label for="mobo-rating">Facilities</label>
+                                                    <br>
+                                                    <div class="progress zone-mobo-rating">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:93%">
+                                                        </div>
+                                                    </div>
+                                                    <span class="mobo-rating-text">9.8</span>
+                                                </div>
+                                                <div class="zone-mobo-for-rating-screen text-center">
+                                                    <label for="mobo-rating">Value For Money</label>
+                                                    <br>
+                                                    <div class="progress zone-mobo-rating">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                                                        </div>
+                                                    </div>
+                                                    <span class="mobo-rating-text">9.8</span>
+                                                </div>
+                                                <div class="zone-mobo-for-rating-screen text-center">
+                                                    <label for="mobo-rating">Free Wifi</label>
+                                                    <br>
+                                                    <div class="progress zone-mobo-rating">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:80%">
+                                                        </div>
+                                                    </div>
+                                                    <span class="mobo-rating-text">9.8</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
                                 </div>
                         <div class="row">
                 
@@ -669,7 +621,7 @@
                </div>
               
 
-        </div>
+       
     
         <script>
             $(document).ready(function () {

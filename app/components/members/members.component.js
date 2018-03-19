@@ -22,5 +22,16 @@
                 debugger;
                 $state.go(path,{ 'zoneId': zoneId, 'memberId': memberId });
             };
+            vm.list=true;
+            vm.viewType=function(data){
+                debugger;
+                if(data=="list"){
+                    vm.list=true;
+                    vm.grid=false;
+            }else{
+                vm.grid=true;
+                vm.list=false;
+            }
+        }
         }
     }());

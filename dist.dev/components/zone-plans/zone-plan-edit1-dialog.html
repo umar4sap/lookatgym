@@ -1,0 +1,53 @@
+
+       
+        
+                   
+                <div class="row" >
+                    <div class="container">
+                    <div class="col-md-6 col-sm-5 col-xs-10" >
+                        <div class="creation-from" >
+                            <form action="#">
+                                <div class="form-group">
+                                    <label for="text">Plan Name</label>
+                                    <input type="text" class="form-control" id="plan-name" placeholder="Enter plan name" name="plan-name" ng-model="vm.plan.planName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="deuration">Plan duration [Months]</label>
+                                    <input type="number" class="form-control" id="plan-deuration" placeholder="Enter plan deuration" name="plan-deuration" ng-model="vm.plan.planMonth">
+                                </div>
+                                <div class="form-group">
+                                    <label for="deuration">Special Offer</label>
+                                    <input type="text" class="form-control" id="plan-offer" placeholder="%90$" name="plan-offer" ng-model="vm.plan.planOffer">
+                                </div>
+                                <div class="form-group">
+                                    <label for="text">Zone</label>
+                                    <select class="form-control"   required id="sel1" ng-model="vm.plan.zoneName">
+                                        
+                                        <option ng-repeat="zone in vm.zones" value='{"zoneId":"{{zone.zoneId}}","zoneName":"{{zone.zoneName}}"}' >{{zone.zoneName}}</option>
+                                       
+                                </select>
+                                </div>
+                                <div class="form-group">
+                                        <label for="text">About Plan</label>
+                                        <input type="text" class="form-control" id="about-plan" placeholder="Enter about plan" name="about-plan" ng-model="vm.plan.aboutPlan">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="deuration">Plan Price</label>
+                                        <input type="number" class="form-control" id="plan-price" placeholder="Enter plan price" name="plan-price" ng-model="vm.plan.planFee">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="deuration">Offer Valid upto</label>
+                                        <input type="date" class="form-control" id="plan-validity" placeholder="Enter plan validity" name="plan-validity" ng-model="vm.plan.offerValidity">
+                                    </div>
+                            </form>
+                            <div class="create-plan-button">
+                                 <button type="submit" class="btn btn-danger" ng-click="vm.cancel()">Cancel</button> <button type="submit" class="btn btn-primary" ng-click="vm.createPlan(vm.plan)">Create Plan</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!-- end row form -->
+           
+        

@@ -1,7 +1,7 @@
 (function() {
 
     'use strict';
-	var zoneapp = angular.module('zoneapp', ['angular-jwt', 'ngRoute', 'ngMaterial', 'ui.bootstrap.demo','ngSanitize', 'vAccordion', 'schemaForm', 'ui.ace', 'pubnub.angular.service', 'naif.base64', 'ngMessages','auth0.auth0','ui.router','googlechart','flow']);
+	var zoneapp = angular.module('zoneapp', ['angular-jwt', 'ngRoute', 'ngMaterial', 'ui.bootstrap','ngSanitize', 'vAccordion', 'schemaForm', 'ui.ace', 'pubnub.angular.service', 'naif.base64', 'ngMessages','auth0.auth0','ui.router','googlechart','flow']);
 	zoneapp.constant("moment", moment);
 	zoneapp.config(config);
 	
@@ -30,7 +30,7 @@
 			.state('dashboard', {
 				url: '/dashboard',
 				controller: 'DashboardController',
-				templateUrl: 'components/dashboard/dashboard.component.html',
+				templateUrl: 'components/dashboard/dashboard.component.mobo.html',
 				controllerAs: 'vm',
 				
 			})
@@ -55,7 +55,18 @@
 
 					}
 				},
-				parent: 'dashboard'
+				parent:"dashboard"
+				
+			})
+			.state('newzonemobo', {
+				url: '/newzonemobo',
+				templateUrl: 'components/newzone/newzone.component.mobo.html',
+						controller: 'newZoneController',
+						controllerAs: 'vm'
+
+				
+				
+				
 			})
 
 			.state('zoneplans', {
@@ -63,7 +74,7 @@
 				views: {
                     "main": {
 						controller: 'zonePlansController',
-				         templateUrl: 'components/zone-plans/zone-plans.component.html',
+				         templateUrl: 'components/zone-plans/zone-plans.component.mobo.html',
 				        controllerAs: 'vm',
 
 					}
@@ -111,7 +122,7 @@
 				url: '/trainers',
 				views: {
                     "main": {
-						controller: 'trainersController',
+				controller: 'trainersController',
 				templateUrl: 'components/trainers/trainers.component.html',
 				controllerAs: 'vm',
 
@@ -126,7 +137,7 @@
 				
 				views: {
                     "main": {
-						controller: 'membersController',
+				controller: 'membersController',
 				templateUrl: 'components/members/members.component.html',
 				controllerAs: 'vm',
 					}

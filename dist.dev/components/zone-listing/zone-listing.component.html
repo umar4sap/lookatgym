@@ -1,67 +1,160 @@
-
 <div class="loading" style="position:fixed;top:350px;left:550px" ng-show="vm.inprogress">
     <img src="images/loading.svg" alt="loading">
-  </div>
+</div>
 <div class="row">
     <div class="ribbon">
-     
-            <div class="logo">
-                <img class="img img-responsive logo-img" alt="zone-logo" src="/images/logo-blue.png">
-            </div>
-    
+
+        <div class="logo">
+            <img class="img img-responsive logo-img" alt="zone-logo" src="/images/logo-blue.png">
+        </div>
+
     </div>
 </div>
-<div class="row">
-    <div class="ribbon-banner ">
-        <h4 class="banner-heading ">Find your ideal gym and fitness club<br>
-           <h3 class="banner-heading3"> Start Getting 1 day trail for any Zone at <span  ><b><input style="background:#2D8DF3;text-align:center;margin-left:10px;"type="text" ng-model="vm.city"></b><i  ><a href="" style="margin-left:10px;font-size:12px;color:white" ng-click="vm.getZones(vm.city)">update city</a></i></b></h3> 
-    </div>
-</div>
-   
+
+
+<!-- filters -->
+<div class="zone-top-filter">
+    <!-- filter -->
+    <div class="zone-search-filters">
         <div class="container">
-                <div class="row" >
-                    <div class="col-md-3 col-sm-6 col-xs-6 banner-cards" ng-repeat="zone in vm.zones">
-                        <div class="banner-card-one">
-                            <div class="card cardtile" style="width:90%;height:300px;" ng-click="vm.go('zonedetails',zone.zoneId,vm.city)">
-                                <img class="card-img-top" ng-show='!zone.zoneCoverImage.url == ""' src="{{zone.zoneCoverImage.url}}"  alt="Card image" style="width:100%;max-height:150px;min-height:150px" />
-                                <div class="card-img-top" ng-show='zone.zoneCoverImage.url == ""' alt="Card image" style="width:100%;max-height:150px;min-height:150px;background:#2D8DF3;color:white;font-size:20px;text-align:center;"> {{zone.zoneName}}</div>
-                                <div class="card-body">
-                                    <h4 class="card-title text-center">{{zone.zoneName}}</h4>
-                                    <p class="card-text text-center">
-                                       {{zone.zoneShortDescription}} 
-                                    </p>
-                                    <div class="card-footer">
-                                        <br>
-                                        <span class="fa fa-star checked-star-card"></span>
-                                        <span class="fa fa-star checked-star-card"></span>
-                                        <span class="fa fa-star checked-star-card"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <p class="card-text">
-                                            <b style="color:#0DC8B4;">Fee</b> 500
-                                            <strike>1000</strike> (50% Off)
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+            <!-- container -->
+            <div class="row " style="margin:15% 0% 60% 0%">
+                <!-- row -->
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="zone-filter-content text-center">
+                        <div class="zone-fee-content">
+                            <input style="background:#2D8DF3;text-align:center;margin-left:10px;" type="text" ng-model="vm.city">
+                        </div>
+                        <div class="zone-fee-content-max">
+                            <a href="" style="margin-left:10px;font-size:12px;color:white" ng-click="vm.getZones(vm.city)">update city</a>
+                        </div>
+                        <div class="price-value">
+
+                        </div>
+                        <div class="filter-status">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" value="">Available Zones</label>
+                            <br>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" value="">Filter By popularity</label>
                         </div>
                     </div>
-                    
-           
-    </div>
-    <div class="row">
-            <div class="footer-ribbon col-md-offset-4">
-             
-                    <div class=" col-md-3 ">
-                       <span> <img class="img img-responsive logo-img logo2 " alt="zone-logo" src="/images/logo-blue.png"> 2018@ Powered By  </span>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="filter-class-status text-center">
+                        <div class="filter-class-heading">
+                            <h5 class="text-center" style="color:#fff;">Filter By Ratings</h5>
+                        </div>
+                        <label for="star-rating">
+                            <button class="btn btn-default">
+                                <span class="fa fa-star checked"></span>
+                            </button>
+                            <br>
+                            <div class="rating-value">1</div>
+                        </label>
+                        <label for="star-rating">
+                            <button class="btn btn-default">
+                                <span class="fa fa-star checked"></span>
+                            </button>
+                            <br>
+                            <div class="rating-value">2</div>
+                        </label>
+                        <label for="star-rating">
+                            <button class="btn btn-default">
+                                <span class="fa fa-star checked"></span>
+                            </button>
+                            <br>
+                            <div class="rating-value">3</div>
+                        </label>
+                        <label for="star-rating">
+                            <button class="btn btn-default">
+                                <span class="fa fa-star checked"></span>
+                            </button>
+                            <br>
+                            <div class="rating-value">4</div>
+                        </label>
+                        <label for="star-rating">
+                            <button class="btn btn-default">
+                                <span class="fa fa-star checked"></span>
+                            </button>
+                            <br>
+                            <div class="rating-value">5</div>
+                        </label>
                     </div>
-            
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="filter-distance text-center">
+                        <div class="filter-distance-heading">
+                            <h5 class="text-center" style="color:#fff;">Filter By Distance</h5>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control input-sm" id="sel1" style="width:250px;">
+                                <option>City Center</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+                        <div class="zone-fee-content-max">
+                            <p class="text-center"> Max. 2km </p>
+                        </div>
+                        <div class="price-value">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end row -->
+        </div>
+    </div>
+    <!-- end filter -->
+    <!-- end container -->
+</div>
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12 col-lg-3 banner-cards" ng-repeat="zone in vm.zones">
+            <div class="banner-card-one">
+                <div class="card cardtile" style="width:90%;height:300px;" ng-click="vm.go('zonedetails',zone.zoneId,vm.city)">
+                    <img class="card-img-top" ng-show='!zone.zoneCoverImage.url == ""' src="{{zone.zoneCoverImage.url}}" alt="Card image" style="width:100%;max-height:150px;min-height:150px"
+                    />
+                    <div class="card-img-top" ng-show='zone.zoneCoverImage.url == ""' alt="Card image" style="width:100%;max-height:150px;min-height:150px;background:#2D8DF3;color:white;font-size:20px;text-align:center;">
+                        {{zone.zoneName}}</div>
+                    <div class="card-body">
+                        <h4 class="card-title text-center">{{zone.zoneName}}</h4>
+                        <p class="card-text text-center">
+                            {{zone.zoneShortDescription}}
+                        </p>
+                        <div class="card-footer">
+                            <br>
+                            <span class="fa fa-star checked-star-card"></span>
+                            <span class="fa fa-star checked-star-card"></span>
+                            <span class="fa fa-star checked-star-card"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <p class="card-text">
+                                <b style="color:#0DC8B4;">Fee</b> 500
+                                <strike>1000</strike> (50% Off)
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
 
+    </div>
+    <div class="row">
+        <div class="footer-ribbon col-md-offset-4">
 
+            <div class=" col-md-3 ">
+                <span>
+                    <img class="img img-responsive logo-img logo2 " alt="zone-logo" src="/images/logo-blue.png"> 2018@ Powered By </span>
+            </div>
 
-
-
-
+        </div>
+    </div>

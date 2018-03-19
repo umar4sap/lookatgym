@@ -40,13 +40,14 @@
                  "zoneCoverImage":{"imgId":"","url":"","title":""},
                  "logo":{"imgId":"1","url":"","title":"logo"},
                  "zoneFor":[],
-                 "zoneCurrentDiscounts":  [],
+                 
                  "zoneCurrentFacilities":  [],
                  "primaryContact":"7507848446",
                  "aboutZone":"aboutZone",
-                 "zoneShortDescription":"zoneShortDescription"     
+                 "zoneShortDescription":"zoneShortDescription",
+                 "openDays":{}
               };
-
+ $scope.zone_basics=true;
 vm.section=function(data){
     debugger;
     if(data=="zone_basics"){
@@ -78,6 +79,130 @@ vm.section=function(data){
         
     }
 }
+$scope.mytime = new Date();
+
+$scope.hstep = 1;
+$scope.mstep = 15;
+
+$scope.options = {
+  hstep: [1, 2, 3],
+  mstep: [1, 5, 10, 15, 25, 30]
+};
+
+$scope.ismeridian = true;
+$scope.toggleMode = function() {
+  $scope.ismeridian = ! $scope.ismeridian;
+};
+$scope.update = function() {
+    var d = new Date();
+    d.setHours( 14 );
+    d.setMinutes( 0 );
+    $scope.mytime = d;
+  };
+
+  $scope.changed = function () {
+    $log.log('Time changed to: ' + $scope.mytime);
+  };
+
+  $scope.clear = function() {
+    $scope.mytime = null;
+  };
+
+$scope.toppings = [
+    { category: 'basic', name: 'PARKING' },
+    { category: 'basic', name: 'FLOOR' },
+    { category: 'basic', name: 'PERSONAL INSTRUCTOR' },
+    { category: 'basic', name: 'TRADEMILL' },
+    { category: 'basic', name: 'CARDIO' },
+    { category: 'basic', name: 'MINIRAL WATER' },
+    { category: 'basic', name: 'FIRST AID' },
+    { category: 'basic', name: 'STEAM BATH' },
+    { category: 'Special', name: 'LOCKER ROOM' },
+    { category: 'Special', name: 'AC' },
+    { category: 'Special', name: 'WIFI' },
+    { category: 'Special', name: 'PERSONAL INSTRUCTOR' },
+    { category: 'Special', name: 'DEIT PLANNING' },
+    { category: 'Special', name: 'LOUNGE' },
+    { category: 'Special', name: 'STREAGTH AREA' }
+  ];
+
+  $scope.days = [
+    { status: 'open', name: 'MONDAY' },
+    { status: 'open', name: 'TUESDAY' },
+    { status: 'open', name: 'WEDNASDAY' },
+    { status: 'open', name: 'THURSDAY' },
+    { status: 'open', name: 'FRIDAY' },
+    { status: 'open', name: 'SATURDAY' },
+    { status: 'open', name: 'SUNDAY' },
+    { status: 'close', name: 'MONDAY' },
+    { status: 'close', name: 'TUESDAY' },
+    { status: 'close', name: 'WEDNASDAY' },
+    { status: 'close', name: 'THURSDAY' },
+    { status: 'close', name: 'FRIDAY' },
+    { status: 'close', name: 'SATURDAY' },
+    { status: 'close', name: 'SUNDAY' },
+  ];
+  vm.openingDays = [];
+
+vm.selectedToppings = [];
+console.log($scope.selectedToppings );
+vm.printSelectedToppings = function() {
+    var numberOfToppings = vm.selectedToppings.length;
+debugger;
+    // If there is more than one topping, we add an 'and'
+    // to be gramatically correct. If there are 3+ toppings
+    // we also add an oxford comma.
+    if (numberOfToppings > 1) {
+      var needsOxfordComma = numberOfToppings > 2;
+      var lastToppingConjunction = (needsOxfordComma ? ',' : '') + ' and ';
+      var lastTopping = lastToppingConjunction +
+          vm.selectedToppings[vm.selectedToppings.length - 1];
+      return vm.selectedToppings.slice(0, -1).join(', ') + lastTopping[0].name;
+    }
+
+    return vm.selectedToppings.join('');
+  };
+  
+vm.sectionmobo=function(data){
+    debugger;
+    if(!data){
+        $scope.zone_basics=false;
+        $scope.zone_setting=true;
+        $scope.zone_upload=true;
+        $scope.pricing=true;
+    }
+    if(data=="zone_basics"){
+        
+    $scope.zone_basics=false;
+    $scope.zone_setting=true;
+    $scope.zone_upload=true;
+    $scope.pricing=true;
+    
+    }else if(data=="zone_setting"){
+        $scope.zone_basics=true;
+        $scope.zone_setting=false;
+        $scope.zone_upload=true;
+        $scope.pricing=true;
+      
+    }else if(data=="zone_upload"){
+        $scope.zone_basics=true;
+    $scope.zone_setting=true;
+    $scope.zone_upload=false;
+    $scope.pricing=true;
+       
+        
+    }else if(data=="pricing"){
+        $scope.zone_basics=true;
+    $scope.zone_setting=true;
+    $scope.zone_upload=true;
+   
+        $scope.pricing=false;
+       
+        
+    }
+
+}
+vm.sectionmobo();
 $scope.filelogoAdded=function(file, msg, flow){
     var fileReader = new FileReader();
     fileReader.readAsDataURL(file.file);
@@ -107,6 +232,7 @@ $scope.fileimagesAdded=function(file, msg, flow){
 }
 
 vm.live=function(data){
+    debugger;
     $scope.inprogress=true;
     $scope.mockData.zoneName=data.zoneName;
     $scope.mockData.aboutZone=data.aboutZone;
@@ -127,9 +253,10 @@ vm.live=function(data){
     $scope.mockData.zonefreeTrailPerMonth=Number(data.zonefreeTrailPerMonth);
     $scope.mockData.zonefreeTrailPerDay=Number(data.zonefreeTrailPerDay);
     $scope.mockData.zoneMemberPlanExpireMessage=data.zoneMemberPlanExpireMessage;
-    $scope.mockData.zoneCurrentDiscounts=[data.zoneCurrentDiscounts];
-    $scope.mockData.zoneCurrentFacilities=[data.zoneCurrentFacilities];
+    //$scope.mockData.zoneCurrentDiscounts=[data.zoneCurrentDiscounts];
+    $scope.mockData.zoneCurrentFacilities=data.selectedFacilities;
     $scope.mockData.zoneFor=data.zoneFor;
+    $scope.mockData.openDays=data.openingDays;
     $scope.mockData.zoneSubcriptionDetails=[data.zoneSubcriptionDetails || "silver"];
    
     $scope.showAlert = function(ev,msg) {
@@ -168,5 +295,8 @@ vm.live=function(data){
 });
 
 }
+
+
+
         }
     }());

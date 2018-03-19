@@ -1,0 +1,107 @@
+<div class="container">
+    <div class="row">
+        <div class=" pull-right" style="margin-top:2%;">
+            <button ng-click="vm.viewType('list')" style="border:none;background:none;">
+                <i class="fas fa-list-ul" style="font-size:20px"></i>
+            </button>
+            <button ng-click="vm.viewType('grid')" style="border:none;background:none;">
+                <i class="fas fa-th-large" style="font-size:20px"></i>
+            </button>
+            <md-button class="md-primary md-fab md-fab-bottom-right" ng-click="vm.open('lg')" style="width:80px;height:50px;font-size:12px;font-weight:600;text-align:center">
+                <span> New Plan</span>
+            </md-button>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="creation-plans-tiles " style="margin-top:20px" ng-show="vm.grid">
+            <div class="record-strip pipelines">
+
+                <div>
+                    <md-card layout="column" layout-align="spacce-between start" class="progress pull-left col-md-4 col-sm-6 col-xs-12 col-lg-3"
+                        ng-repeat="plan in vm.plans">
+                        <div style="background-color:white;">
+                            <md-card-title>
+                                <md-card-title-text layout-padding>
+                                    <div layout="row">
+
+                                        <div layout="column">
+                                            <span class="md-headline">Plan : {{plan.planName}}</span>
+                                            <span class="md-subhead">Zone : {{plan.zoneName}}</span>
+                                        </div>
+                                    </div>
+                                </md-card-title-text>
+
+                            </md-card-title>
+                        </div>
+                        <div style="background-color:white;">
+                            <md-card-title-media>
+                                <div layout="row">
+                                    <md-list>
+                                        <md-list-item>Fee: {{plan.planFee}}</md-list-item>
+                                        <md-list-item>Discount: {{plan.planOffer}}%
+                                        </md-list-item>
+                                        <md-list-item>Offer valid Till : {{plan.offerValidity}} </md-list-item>
+                                    </md-list>
+                                    <md-list>
+
+                                        <md-list-item> About plan: {{plan.aboutPlan}}</md-list-item>
+                                    </md-list>
+                                </div>
+                            </md-card-title-media>
+                        </div>
+                        <div flex style="background-color:white;">
+                        </div>
+                        <div>
+                            <md-card-actions layout="row" layout-align="space-between center">
+                                <span class="pipslineStatus success" ng-class="success"> </span>Active
+                                <div>
+                                    <md-button ng-click="vm.edit('lg',plan.planId,plan.zoneId)">
+                                        <i class="material-icons">mode_edit</i>
+                                    </md-button>
+                                    <md-button ng-click="delPipe(item.pipelineID)">
+                                        <i class="fa fa-trash-o"></i>
+                                    </md-button>
+                                </div>
+                            </md-card-actions>
+                        </div>
+                    </md-card>
+                </div>
+            </div>
+        </div>
+
+        <div ng-cloak layout-gt-lg="row" layout="column" style="margin-top:2%;" ng-show="vm.list">
+
+            <div flex-gt-sm="50" flex>
+
+                <md-toolbar layout="row" class="md-hue-3">
+                    <div class="md-toolbar-tools">
+                        <span>Zone Plans</span>
+                    </div>
+                </md-toolbar>
+                <md-content>
+                    <md-list flex>
+                        <md-subheader class="md-no-sticky">Active Plan</md-subheader>
+                        <md-list-item class="md-3-line" ng-click="null" ng-repeat="plan in vm.plans">
+                            <img ng-src="images/user.png" class="md-avatar" alt="member" />
+                            <div class="md-list-item-text" layout="column">
+                                <h3>{{plan.planName}}</h3>
+                                <h4>{{plan.zoneName}}</h4>
+                                <p><b>Price:</b>  {{plan.planFee}}  <b>About plan:</b> {{plan.aboutPlan}} <b>Discount:</b> {{plan.planOffer}}%</p>
+                                  <p>Offer valid Till : {{plan.offerValidity}} </p>
+                            </div>
+                            <div class="user-details-card-footer">
+                                <div class="user-details-card-buttons btn-group ">
+                                    <button class="btn btn-info" ng-click="vm.edit('lg',plan.planId,plan.zoneId)"> Edit </button>
+                                    <button class="btn btn-danger"> Delete </Button>
+                                </div>
+                            </div>
+                        </md-list-item>
+                       
+                      
+                    </md-list>
+                </md-content>
+            </div>
+        </div>
+    </div>
+</div>

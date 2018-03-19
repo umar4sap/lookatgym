@@ -3,13 +3,13 @@
 <!--[if IE 7]>         <html lang="en" ng-app="zoneapp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="zoneapp" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html lang="en" ng-app="zoneapp" class="no-js">
+<html lang="en"  class="no-js">
 <!--<![endif]-->
 
 <head>
     <title>Look at zone</title>
     <base href="/">
-
+    <link rel="icon" href="images/logo-look.png" type="image">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
@@ -19,6 +19,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+   
     <script src="https://cdn.auth0.com/js/auth0/9.2.2/auth0.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
@@ -26,7 +27,9 @@
    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
    
+
    
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angular-material.css">
@@ -46,6 +49,7 @@
     <link rel="stylesheet" href="components/editPipeline/editPipeline.component.css">
     <link rel="stylesheet" href="components/editProject/editProject.component.css">
     <link rel="stylesheet" href="components/executionPipeline/executionPipeline.component.css">
+    <link rel="stylesheet" href="components/home/home.component.css">
     <link rel="stylesheet" href="components/layout/layout.css">
     <link rel="stylesheet" href="components/login/login.component.css">
     <link rel="stylesheet" href="components/member-details/member-details.component.css">
@@ -78,7 +82,7 @@
     <!-- endinject -->
 </head>
 
-<body ng-app="zoneapp" flow-init flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-files-submitted="$flow.upload()">
+<body ng-app="zoneapp" class="sidebar-is-reduced" style="height:100%" flow-init flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-files-submitted="$flow.upload()">
   
 <ui-view></ui-view>
 
@@ -87,42 +91,75 @@
    
  
     <!-- bower:js -->
+    
     <script src="bower_components/moment.js"></script>
+    
     <script src="bower_components/ace.js"></script>
+    
     <script src="bower_components/jquery.js"></script>
+    
     <script src="bower_components/angular.js"></script>
+    
     <script src="bower_components/ObjectPath.js"></script>
+    
     <script src="bower_components/tv4.js"></script>
+    
     <script src="bower_components/schema-form.js"></script>
+    
     <script src="bower_components/angular-animate.js"></script>
+    
     <script src="bower_components/angular-aria.js"></script>
+    
     <script src="bower_components/angular-auth0.js"></script>
+    
     <script src="bower_components/angular-base64-upload.js"></script>
+    
     <script src="bower_components/angular-fullscreen.js"></script>
+    
     <script src="bower_components/angular-jwt.js"></script>
+    
     <script src="bower_components/angular-material.js"></script>
+    
     <script src="bower_components/angular-messages.js"></script>
+    
     <script src="bower_components/angular-moment.js"></script>
+    
     <script src="bower_components/angular-route.js"></script>
+    
     <script src="bower_components/angular-sanitize.js"></script>
+    
     <script src="bower_components/angular-ui-router.js"></script>
+    
     <script src="bower_components/auth0.js"></script>
+    
     <script src="bower_components/bootstrap-decorator.js"></script>
+    
     <script src="bower_components/fastclick.js"></script>
+    
     <script src="bower_components/flow.js"></script>
+    
     <script src="bower_components/foundation.js"></script>
+    
     <script src="bower_components/jquery.cookie.js"></script>
+    
     <script src="bower_components/jquery.placeholder.js"></script>
+    
     <script src="bower_components/moment-timezone-with-data-2012-2022.js"></script>
+    
     <script src="bower_components/ng-flow.js"></script>
+    
     <script src="bower_components/ui-ace.js"></script>
+    
     <script src="bower_components/v-accordion.js"></script>
+    
     <!-- endinject -->
     <script type="text/javascript" src="ng-google-chart.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.8.0.min.js"></script>
     
     <script src="https://cdn.pubnub.com/sdk/pubnub-angular/pubnub-angular-4.0.2.min.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+   
     <!-- inject:js -->
     <script src="app.js"></script>
     <script src="app.run.js"></script>
@@ -179,6 +216,8 @@
                     var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
             })(window,document,'https://cdn.bitrix24.com/b6252493/crm/site_button/loader_2_yd7ehj.js');
     </script> -->
+   
 </body>
+
 
 </html>

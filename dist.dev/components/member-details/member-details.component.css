@@ -57,3 +57,6 @@
   color: #2d829c;
   font-weight: bold;
   font-size: 20px; }
+
+.zone-details-about-followers > .row > .col-sm-2 {
+  display: inline-block; }

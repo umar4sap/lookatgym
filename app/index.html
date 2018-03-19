@@ -9,7 +9,7 @@
 <head>
     <title>Look at zone</title>
     <base href="/">
-
+    <link rel="icon" href="images/logo-look.png" type="image">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
@@ -19,6 +19,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+   
     <script src="https://cdn.auth0.com/js/auth0/9.2.2/auth0.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
@@ -26,7 +27,9 @@
    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
    
+
    
     <!-- bower:css -->
     <!-- endinject -->
@@ -34,7 +37,7 @@
     <!-- endinject -->
 </head>
 
-<body ng-app="zoneapp" class="sidebar-is-reduced" flow-init flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-files-submitted="$flow.upload()">
+<body ng-app="zoneapp" class="sidebar-is-reduced" style="height:100%" flow-init flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-files-submitted="$flow.upload()">
   
 <ui-view></ui-view>
 
@@ -43,12 +46,15 @@
    
  
     <!-- bower:js -->
+    
     <!-- endinject -->
     <script type="text/javascript" src="ng-google-chart.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.8.0.min.js"></script>
     
     <script src="https://cdn.pubnub.com/sdk/pubnub-angular/pubnub-angular-4.0.2.min.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+   
     <!-- inject:js -->
     <!-- endinject -->
     <!-- <script data-skip-moving="true">
@@ -57,6 +63,8 @@
                     var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
             })(window,document,'https://cdn.bitrix24.com/b6252493/crm/site_button/loader_2_yd7ehj.js');
     </script> -->
+   
 </body>
+
 
 </html>

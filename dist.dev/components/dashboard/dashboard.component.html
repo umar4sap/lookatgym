@@ -1,10 +1,10 @@
-<body class="sidebar-is-reduced">
+
         <header class="l-header">
           <div class="l-header__inner clearfix">
             <div class="c-header-icon js-hamburger">
               <div class="hamburger-toggle"><span class="bar-top"></span><span class="bar-mid"></span><span class="bar-bot"></span></div>
             </div>
-            <div class="c-header-icon has-dropdown"><span class="c-badge c-badge--header-icon animated shake">87</span><i class="fa fa-bell"></i>
+            <div class="c-header-icon has-dropdown"><span class="c-badge c-badge--header-icon animated shake">1</span><i class="fa fa-bell"></i>
               <div class="c-dropdown c-dropdown--notifications">
                 <div class="c-dropdown__header"></div>
                 <div class="c-dropdown__content"></div>
@@ -15,7 +15,7 @@
             </div>
             <div class="header-icons-group">
               <div class="c-header-icon basket"><span class="c-badge c-badge--header-icon animated shake">12</span><i class="fa fa-shopping-basket"></i></div>
-              <div class="c-header-icon logout"><i class="fa fa-power-off"></i></div>
+              <div class="c-header-icon logout" ng-click="vm.authService.logout()"><i class="fa fa-power-off"></i></div>
             </div>
           </div>
         </header>
@@ -32,13 +32,13 @@
             <nav class="c-menu js-menu">
               <ul class="u-list">
                 <li class="c-menu__item is-active" data-toggle="tooltip" title="Dashboard">
-                  <div class="c-menu__item__inner"><i class="fas fa-tachometer-alt"></i>
+                  <div  ui-sref="tileboard" class="c-menu__item__inner"><i class="fas fa-tachometer-alt"></i>
                     <a ui-sref="tileboard"  class="c-menu-item__title"><span>Dashboard</span></a>
                   </div>
                 </li>
                 <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Trainers">
-                  <div class="c-menu__item__inner"><i class="far fa-user"></i>
-                    <a ui-sref="trainers"class="c-menu-item__title"><span>Trainers</span></a>
+                  <div ui-sref="trainers" class="c-menu__item__inner"><i class="far fa-user"></i>
+                    <a ui-sref="trainers" class="c-menu-item__title hamburger-toggle"><span>Trainers</span></a>
                     <div class="c-menu-item__expand js-expand-submenu"><i class="fa fa-angle-down"></i></div>
                   </div>
                   <ul class="c-menu__submenu u-list">
@@ -48,23 +48,23 @@
                   </ul>
                 </li>
                 <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Zone List">
-                  <div class="c-menu__item__inner"><i class="fas fa-list-ul"></i>
+                  <div ui-sref="zonelisting" class="c-menu__item__inner"><i class="fas fa-list-ul"></i>
                     <a ui-sref="zonelisting" class="c-menu-item__title"><span>Zone List</span></a>
                   </div>
                 </li>
                 <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Members">
-                  <div class="c-menu__item__inner"><i class="fas fa-users"></i>
+                  <div ui-sref="members" class="c-menu__item__inner"><i class="fas fa-users"></i>
                     <a ui-sref="members" class="c-menu-item__title"><span>Members</span></a>
                   </div>
                 </li>
                 <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Plans">
-                  <div class="c-menu__item__inner"><i class="fas fa-cubes"></i>
+                  <div ui-sref="zoneplans" class="c-menu__item__inner"><i class="fas fa-cubes"></i>
                     <a ui-sref="zoneplans" class="c-menu-item__title"><span>Plans</span></a>
                   </div>
                 </li>
                 <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Badges">
-                        <div class="c-menu__item__inner"><i class="fas fa-certificate"></i>
-                          <a ui-sref="badges"class="c-menu-item__title"><span>Badges</span></a>
+                        <div ui-sref="newzonemobo" class="c-menu__item__inner"><i class="fal fa-badge-check"></i>
+                          <a ui-sref="newzonemobo" class="c-menu-item__title"><span>mobo screen</span></a>
                         </div>
                       </li>
               </ul>
@@ -76,7 +76,7 @@
 
              
               </main>
-      </body>
+      
 
       <script >
             var Dashboard = function () {
@@ -388,7 +388,7 @@
   }
   
   .l-sidebar {
-    width: 70px;
+    width: 85px;
     position: absolute;
     z-index: 10;
     left: 0;
@@ -421,7 +421,7 @@
     position: relative;
   }
   .sidebar-is-expanded .l-sidebar {
-    width: 220px;
+     width: 220px; 
   }
   
   .c-menu > ul {

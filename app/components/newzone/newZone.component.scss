@@ -29,7 +29,7 @@
     font-size: 22px;
 }
 
-.well .col-md-3>.header-buttons>.btn-link{
+.well .col-md-9>.header-buttons>.btn-link{
     text-decoration: none;
     color:#fff;
     border:1px solid #2dbbf6;
@@ -37,7 +37,7 @@
     margin-right:10px;
 }
 
-.well .col-md-3>.header-buttons>.btn-primary{
+.well .col-md-9>.header-buttons>.btn-primary{
     
     color:#fff;
     border:1px solid #000;
@@ -48,12 +48,12 @@
     margin-right:10px;
 }
 
-.well .col-md-3>.header-buttons>a{
+.well .col-md-9>.header-buttons>a{
     text-decoration: none;
     margin-top:2px;
 }
 
-.well .col-md-3>.header-buttons>a>span{
+.well .col-md-9>.header-buttons>a>span{
     font-size: 20px;
     color:#d48080;
     padding:5px;
@@ -252,7 +252,7 @@ body{
         font-size: 25px;
     }
     
-    .well .col-md-3>.header-buttons>.btn-link{
+    .well .col-md-9>.header-buttons>.btn-link{
         text-decoration: none;
         color:#fff;
         border:1px solid #2dbbf6;
@@ -260,7 +260,7 @@ body{
         margin-right:10px;
     }
     
-    .well .col-md-3>.header-buttons>.btn-primary{
+    .well .col-md-9.header-buttons>.btn-primary{
         
         color:#fff;
         border:1px solid #000;
@@ -271,14 +271,14 @@ body{
         margin-right:10px;
     }
     
-    .well .col-md-3>.header-buttons>a{
+    .well .col-md-9>.header-buttons>a{
         text-decoration: none;
         margin-top:2px;
     }
 
   
 
-    .well .col-md-3>.header-buttons>a>span{
+    .well .col-md-9>.header-buttons>a>span{
         font-size: 20px;
         color:#d48080;
         
@@ -286,10 +286,8 @@ body{
         top: 5px;
     }
     
-    .upload-heading>h4{
-        font-family: 'Angkor';
-    font-size: 23px;
-    font-weight: bold;
+    .videos-links{
+        margin-top:20px;
     }
     
     .zone-upload .upload-media>.media-section{
@@ -480,6 +478,17 @@ body{
     }
     
     
+   .btn-primary{
+        background-color: #0DC8B4;
+        border: none;
+        border-radius: 15px;
+    }
+
+   .btn-danger{
+        background-color: #f0c518;
+        border: none;
+        border-radius: 15px;
+    }
     
         .zone-price-tile-footer>.price-tile-footer-button>.btn-danger{
             color:#fff;

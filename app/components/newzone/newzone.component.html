@@ -74,7 +74,9 @@
                     <form action="#">
                         <div class="form-group">
                             <label for="text">Morning Timinig</label>
-                            <input type="text" class="form-control"  required id="zone-time" placeholder="Type Your Timing" name="text" ng-model="zonedata.morningTime">
+                            <timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+
+                            <pre class="alert alert-info">Time is: {{mytime | date:'shortTime' }}</pre>
                         </div>
                         <div class="form-group">
                             <label for="pwd">Zone Contact</label>

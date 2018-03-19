@@ -3,7 +3,7 @@
     <img src="images/loading.svg" alt="loading">
   </div>
 
-<div class="zone-badge-screen col-md-9">
+
     <div class="container">
         <div class="row">
             <!-- row -->
@@ -76,93 +76,88 @@
                     </form>
                 </div>
             </div>
-           
-          </div> 
+      </div> 
             
             <div class="row">
-                <div class="col-md-1 col-md-offset-3">
+                <div class="col-md-1 col-md-offset-3" style="margin:10px 10px 10px 10px;">
                     <div class="badge-buttons">
                         <button class="btn btn-primary create-badge-btn" ng-click="vm.createTrainer(tarinerData)">Create Trainer</button>
                     </div>
                 </div>
-                <div class="col-md-1  col-md-offset-1">
+                <div class="col-md-1  col-md-offset-1" style="margin:10px 10px 10px 10px;">
                     <div class="badge-buttons">
                         <button class="btn btn-default create-badge-btn">Cancel</button>
                     </div>
                 </div>
             </div>
         
-        <!-- end row -->
+   
 
-    
-    <!--end container -->
-    <!-- content -->
-    <div class="badges-content">
-        <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="badges-header">
                         <h4 class="badge-header-text">
-                            <span style="color:#5DBCD2;margin-right:20px;" class="glyphicon glyphicon-tasks"></span><b > Available Trainers</b></4>
+                            <span style="color:#5DBCD2;margin-right:20px;" class="glyphicon glyphicon-tasks"></span><b > Available Trainers</b></h4>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- badges tiles -->
-        <div class="badges-tiles">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3" ng-repeat="trainer in vm.trainers">
-                        <div class="tile-one" > 
-                            <p class="text-center" style="margin-top:20px;">Created On: {{trainer.createdDTS}}</p>
-                            <!-- collapse -->
-                            <div class="row">
-                                <div class="col-md-4 col-md-offset-8">
-                                    <div class="optional-vertical-icon pull-right">
-                                        <button class="btn-optional" data-toggle="collapse" data-target="#demo">
-                                            <span class="glyphicon glyphicon-option-vertical"></span>
-                                        </button>
-                                                <div id="demo" class="collapse">
-                                                    <ul class="nav">
-                                                        <li>
-                                                            <a href="#"></a> View </li>
-                                                        <li>
-                                                            <a href="#"></a> Edit </li>
-                                                        <li>
-                                                            <a href="#"></a> Delete </li>
-                                                    </ul>
-                                                </div>
-                                    </div>
-                                    <!-- collapse end -->
-                                </div>
+     
+            <div class="row">
+      
+                <div class="creation-plans-tiles " style="margin-top:20px">
+                    <div class="record-strip pipelines">
+                      
+            <md-card 
+            layout="column" layout-align="spacce-between start" class="progress pull-left " ng-repeat="trainer in vm.trainers">
+            <div style="background-color:white;">
+                <md-card-title>
+                    <md-card-title-text layout-padding>
+                        <div layout="row">
+                            <div layout="row">
+                                <img ng-src="{{trainer.photo.url}}" alt="" class="pipelineImage">
                             </div>
-                            <div class="row">
-                                <div class="badge-tile-img">
-                                    <center>
-                                        <img class="img img-responsive" style="width:150px;height:120px;" src="{{trainer.photo.url}}">
-                                    </center>
-                                </div>
+                            <div layout="column">
+                                <span class="md-headline" >Trainer : {{trainer.name}}</span>
+                                <span class="md-subhead">Zone : Zone Name</span>
                             </div>
-                            <div class="tile-badge-name">
-                                <h4 class="text-center"> {{trainer.name}}</h4>
-                            </div>
-                            <p style="opecity:0.5;color:#000;font-size:16px;margin-top:0px;" class="text-center">
-                                {{trainer.description}} <br> of section
-                            </p>
-                            <p style="opecity:0.5;color:#000;" class="text-center">
-                                Deparment to <br>
-                                <a href="#" class="badge-link">{{trainer.name}} best at {{trainer.deparment}}+1 more</a>
-                            </p>
                         </div>
-                    </div>
-                </div>
+                    </md-card-title-text>
+
+                </md-card-title>
             </div>
-        </div>
-
-        <!-- end badges tiles -->
+            <div style="background-color:white;">
+                <md-card-title-media>
+                    <div layout="row">
+                        <md-list>
+                            <md-list-item>About</md-list-item>
+                            <md-list-item>{{trainer.description}}
+                            </md-list-item>
+                            <md-list-item>Trainer {{trainer.name}} best at {{trainer.deparment}} overview,+1 more  </md-list-item>
+                        </md-list>
+                        <md-list>
+                            
+                            <md-list-item> Pay :None </md-list-item>
+                        </md-list>
+                    </div>
+                </md-card-title-media>
+            </div>
+            <div flex style="background-color:white;">
+            </div>
+            <div>
+                <md-card-actions layout="row" layout-align="space-between center">
+                    <span class="pipslineStatus success" ng-class="success"> </span>Active
+                    <div>
+                        <md-button ng-click="go('/editPipeline/'+item.pipelineID)"><i class="material-icons">mode_edit</i></md-button>
+                        <md-button ng-click="delPipe(item.pipelineID)"><i class="fa fa-trash-o"></i></md-button>
+                    </div>
+                </md-card-actions>
+            </div>
+        </md-card>
+  
     </div>
+
+</div>
+</div>
 </div>
 
-    <!-- end content -->
-</div>
 

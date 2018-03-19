@@ -1,52 +1,371 @@
-<div class="content-wrapper content-wrapper--with-bg">
-    <h1 class="page-title">Dashboard</h1>
-    <div class="page-content"> 
-       
-      <div class="tiles">
-          <div class="row">
-              <div class="col-md-3 col-sm-6 col-xs-6 banner-cards">
-                  <div class="banner-card-one">
-                      <div class="card" style="">
-            <a href="#" style="text-decoration:none;border:none;">
-             <div class="tile-box-add">
-               <center>
-                 <img class="img img-responsive" alt="add-plus" src="images/plus-add.png" ui-sref="newzone">
-                 <p style="padding-bottom:20px">Create New Zone</p>
-               </center>
-         </div>
-            </a>
-        </div>
-        </div>
-        </div>
-          <div class="col-md-3 col-sm-6 col-xs-6 banner-cards " >
-      <div class="banner-card-one">
-          <div class="card" style="width:90%;height:238px;background:white;">
-              <img class="card-img-top" src="images/zone-banner-card2.jpg" alt="Card image" style="width:100%;max-height:80px;min-height:80px">
-              <div class="card-body">
-                  <h4 class="card-title text-center">lalal gym</h4>
-                  <p class="card-text text-center">
-                     lalalalalal lalalalala
-                  </p>
-                  <div class="card-footer">
-                      <br>
-                      <span class="fa fa-star checked-star-card"></span>
-                      <span class="fa fa-star checked-star-card"></span>
-                      <span class="fa fa-star checked-star-card"></span>
-                      <span class="fa fa-star"></span>
-                      <span class="fa fa-star"></span>
-                      <p class="card-text">
-                          <b style="color:#0DC8B4;">Fee</b> 500
-                          <strike>1000</strike> (50% Off)
-                      </p>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-      </div>
-  </div>
-  
+<div class="loading" style="position:fixed;top:350px;left:550px" ng-show="vm.inprogress">
+        <img src="images/loading.svg" alt="loading">
+    </div>
+<div ng-cloak>
+    <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="Cockpit">
+                        <md-content class="md-padding">
+                            <h5>My zones</h5>
+                            <div class="container">
+                                <div class="row">
+        
+                                    <div class=" pull-right" style="margin-top:2%;">
+                                        <button ng-click="vm.viewType('list')" style="border:none;background:none;">
+                                            <i class="fas fa-list-ul" style="font-size:20px"></i>
+                                        </button>
+                                        <button ng-click="vm.viewType('grid')" style="border:none;background:none;">
+                                            <i class="fas fa-th-large" style="font-size:20px"></i>
+                                        </button>
+                                        <md-button ui-sref="newzonemobo" class="md-primary md-fab md-fab-bottom-right" style="width:90px;height:50px;font-size:12px;font-weight:600;text-align:center">
+                                            <span> Create New</span>
+                                        </md-button>
+                                    </div>
+                                </div>
+        
+        
+        
+        
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-6 col-xs-12  banner-cards" ng-show="zone">
+                                        <div class="banner-card-one">
+                                            <div class="card">
+                                                <a href="#" style="text-decoration:none;border:none;">
+                                                    <div class="tile-box-add">
+                                                        <center>
+                                                            <img class="img img-responsive" alt="add-plus" src="images/plus-add.png" ui-sref="newzonemobo">
+                                                            <p style="padding-bottom:20px">Create New Zone</p>
+                                                        </center>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+        
+                                    <div class="col-md-4 col-sm-6 col-xs-11 col-lg-4 banner-cards" ng-repeat="zone in vm.zones">
+                                        <div class="banner-card-one">
+                                            <div class="card cardtile" style="width:90%;height:300px;" ng-click="vm.go('zonedetails',zone.zoneId,vm.city)">
+                                                <img class="card-img-top" ng-show='!zone.zoneCoverImage.url == ""' src="{{zone.zoneCoverImage.url}}" alt="Card image" style="width:100%;max-height:150px;min-height:150px"
+                                                />
+                                                <div class="card-img-top" ng-show='zone.zoneCoverImage.url == ""' alt="Card image" style="width:100%;max-height:150px;min-height:150px;background:#2D8DF3;color:white;font-size:20px;text-align:center;">
+                                                    {{zone.zoneName}}</div>
+                                                <div class="card-body">
+                                                    <h4 class="card-title text-center">{{zone.zoneName}}</h4>
+                                                    <p class="card-text text-center">
+                                                        {{zone.zoneShortDescription}}
+                                                    </p>
+                                                    <div class="card-footer">
+                                                        <br>
+                                                        <span class="fa fa-star checked-star-card"></span>
+                                                        <span class="fa fa-star checked-star-card"></span>
+                                                        <span class="fa fa-star checked-star-card"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <p class="card-text">
+                                                            <b style="color:#0DC8B4;">Fee</b> 500
+                                                            <strike>1000</strike> (50% Off)
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </md-content>
+                    </md-tab>
+            <md-tab label="My zones">
+                <md-content class="md-padding">
+                    <h5>My zones</h5>
+                    <div class="container">
+                        <div class="row">
+
+                            <div class=" pull-right" style="margin-top:2%;">
+                                <button ng-click="vm.viewType('list')" style="border:none;background:none;">
+                                    <i class="fas fa-list-ul" style="font-size:20px"></i>
+                                </button>
+                                <button ng-click="vm.viewType('grid')" style="border:none;background:none;">
+                                    <i class="fas fa-th-large" style="font-size:20px"></i>
+                                </button>
+                                <md-button ui-sref="newzonemobo" class="md-primary md-fab md-fab-bottom-right" style="width:90px;height:50px;font-size:12px;font-weight:600;text-align:center">
+                                    <span> Create New</span>
+                                </md-button>
+                            </div>
+                        </div>
 
 
 
-  </div>
+
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6 col-xs-12  banner-cards" ng-show="zone">
+                                <div class="banner-card-one">
+                                    <div class="card">
+                                        <a href="#" style="text-decoration:none;border:none;">
+                                            <div class="tile-box-add">
+                                                <center>
+                                                    <img class="img img-responsive" alt="add-plus" src="images/plus-add.png" ui-sref="newzonemobo">
+                                                    <p style="padding-bottom:20px">Create New Zone</p>
+                                                </center>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4 col-sm-6 col-xs-11 col-lg-4 banner-cards" ng-repeat="zone in vm.zones">
+                                <div class="banner-card-one">
+                                    <div class="card cardtile" style="width:90%;height:300px;" ng-click="vm.go('zonedetails',zone.zoneId,vm.city)">
+                                        <img class="card-img-top" ng-show='!zone.zoneCoverImage.url == ""' src="{{zone.zoneCoverImage.url}}" alt="Card image" style="width:100%;max-height:150px;min-height:150px"
+                                        />
+                                        <div class="card-img-top" ng-show='zone.zoneCoverImage.url == ""' alt="Card image" style="width:100%;max-height:150px;min-height:150px;background:#2D8DF3;color:white;font-size:20px;text-align:center;">
+                                            {{zone.zoneName}}</div>
+                                        <div class="card-body">
+                                            <h4 class="card-title text-center">{{zone.zoneName}}</h4>
+                                            <p class="card-text text-center">
+                                                {{zone.zoneShortDescription}}
+                                            </p>
+                                            <div class="card-footer">
+                                                <br>
+                                                <span class="fa fa-star checked-star-card"></span>
+                                                <span class="fa fa-star checked-star-card"></span>
+                                                <span class="fa fa-star checked-star-card"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <p class="card-text">
+                                                    <b style="color:#0DC8B4;">Fee</b> 500
+                                                    <strike>1000</strike> (50% Off)
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </md-content>
+            </md-tab>
+
+            <md-tab label="Member approve requests">
+                <md-content class="md-padding">
+                    <h5>Member approve requests</h5>
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="zone-request-form-fill">
+                                <div class="panel-group" id="accordion">
+                                    <div class="zone-panel-content first">
+                                        <div class="panel panel-default">
+                                            <div class="zone-approvel-panel-head">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Zone Members Add Request
+                                                            <i style="color:#e1ecff;" class="caret"></i>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                            <div id="collapse1" class="panel-collapse collapse in">
+                                                <div class="zone-approvel-panel-body-content">
+                                                    <div class="panel-body">
+                                                        <table class="table table-bordered text-center">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="text-center"> Name</th>
+                                                                    <th class="text-center">Status</th>
+                                                                    <th class="text-center">Payment</th>
+                                                                    <th class="text-center">Payment Type</th>
+                                                                    <th class="text-center">Plan</th>
+                                                                    <th class="text-center">FEE</th>
+                                                                    <th class="text-center">Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Umars Empire</td>
+                                                                    <td>Publish</td>
+                                                                    <td>Done</td>
+                                                                    <td>Cash</td>
+                                                                    <td>Basic</td>
+                                                                    <td>700 INR</td>
+                                                                    <td><a href="">Approve </a> | <a href="">Reject </a>  | <a href="">Hold </a> | <a href="">Report (Spam) </a></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </md-content>
+            </md-tab>
+
+            <md-tab label="Zone approve requests">
+                <md-content class="md-padding">
+                    <h5>Zone approve requests</h5>
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="zone-request-form-fill">
+                                <div class="panel-group" id="accordion">
+                                    <div class="zone-panel-content first">
+                                        <div class="panel panel-default">
+                                            <div class="zone-approvel-panel-head">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Zone Club s & Park
+                                                            <i style="color:#e1ecff;" class="caret"></i>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                            <div id="collapse1" class="panel-collapse collapse in">
+                                                <div class="zone-approvel-panel-body-content">
+                                                    <div class="panel-body">
+                                                        <table class="table table-bordered text-center">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="text-center">Club Name</th>
+                                                                    <th class="text-center">Status</th>
+                                                                    <th class="text-center">Payment</th>
+                                                                    <th class="text-center">Plans</th>
+                                                                    <th class="text-center">Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Umars Empire</td>
+                                                                    <td>Publish</td>
+                                                                    <td>Done</td>
+                                                                    <td>Basic</td>
+                                                                    <td>Approve</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="Reviews approve requests">
+                <md-content class="md-padding">
+                    <h5>Zone approve requests</h5>
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="zone-request-form-fill">
+                                <div class="panel-group" id="accordion">
+                                    <div class="zone-panel-content first">
+                                        <div class="panel panel-default">
+                                            <div class="zone-approvel-panel-head">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Zone Club s & Park
+                                                            <i style="color:#e1ecff;" class="caret"></i>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                            <div id="collapse1" class="panel-collapse collapse in">
+                                                <div class="zone-approvel-panel-body-content">
+                                                    <div class="panel-body">
+                                                        <table class="table table-bordered text-center">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="text-center">Club Name</th>
+                                                                    <th class="text-center">Status</th>
+                                                                    <th class="text-center">Payment</th>
+                                                                    <th class="text-center">Plans</th>
+                                                                    <th class="text-center">Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Umars Empire</td>
+                                                                    <td>Publish</td>
+                                                                    <td>Done</td>
+                                                                    <td>Basic</td>
+                                                                    <td>Approve</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="Revenue Calculator">
+                    <md-content class="md-padding">
+                        <h5>Zone approve requests</h5>
+                        <div class="container">
+                            <div class="row">
+    
+                                <div class="zone-request-form-fill">
+                                    <div class="panel-group" id="accordion">
+                                        <div class="zone-panel-content first">
+                                            <div class="panel panel-default">
+                                                <div class="zone-approvel-panel-head">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Zone Club s & Park
+                                                                <i style="color:#e1ecff;" class="caret"></i>
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                </div>
+                                                <div id="collapse1" class="panel-collapse collapse in">
+                                                    <div class="zone-approvel-panel-body-content">
+                                                        <div class="panel-body">
+                                                            <table class="table table-bordered text-center">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="text-center">Club Name</th>
+                                                                        <th class="text-center">Status</th>
+                                                                        <th class="text-center">Payment</th>
+                                                                        <th class="text-center">Plans</th>
+                                                                        <th class="text-center">Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>Umars Empire</td>
+                                                                        <td>Publish</td>
+                                                                        <td>Done</td>
+                                                                        <td>Basic</td>
+                                                                        <td>Approve</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </md-content>
+                </md-tab>
+        </md-tabs>
+    </md-content>
+</div>

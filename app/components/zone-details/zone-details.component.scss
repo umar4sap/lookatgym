@@ -568,6 +568,88 @@ border: none;
 }
 
 
+/* rating progress */
+
+.zone-mobo-for-rating-screen{
+    margin-right:auto;
+    margin-left:auto;
+    background-color:rgba(36, 38, 39, 0.65);
+   
+}
+
+.zone-rating-mobo-section{
+    //background-image: url('../images/zone-img/zone-banner-card4.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.zone-mobo-for-rating-screen>label{
+color:#fff;
+padding:0px;
+margin: 0px;
+text-align: left;
+
+}
+
+.zone-mobo-rating{
+    width:200px;
+    margin-left:auto;
+    margin-right:auto;
+    height: 8px;
+   padding:0px;
+margin: 0px;
+}
+
+.zone-mobo-rating>.progress-bar{
+background-color: #38a4d2;
+}
+
+.zone-mobo-rating{
+    display:inline-flex;
+}
+
+.mobo-rating-text{
+    color:#fff;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+
+/*Facilities and special*/
+
+.zone-facilities{
+    height:auto;
+     padding-bottom:20px;
+     margin-top:2%;
+     background-color:#e4eae4;
+ }
+ 
+ 
+ .zone-facilities-card{
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+     width: 100%;
+     border-radius:10px;
+     margin-top:20px;
+     background-color: #fff;
+     
+ }
+ 
+ .zone-card-facilities-text{
+     padding-bottom: 10px;
+ }
+ 
+ .zone-card-facilities-img>.img{
+     border-top-left-radius: 10px;
+     border-top-right-radius: 10px;
+     height: 50%;
+ }
+ 
+ 
+ .zone-facilities-card:hover {
+     transform: scale(1.05);
+     -moz-user-focus: initial;
+     transition: 0.2s ease-in-out;
+ }
 
 
 
@@ -576,11 +658,52 @@ border: none;
 
 
 
+ .user-details-card-header>img{
+    margin-right: auto;
+    margin-left:auto;
+    padding-top:10px;
+    height:200px;
+}
 
-
-
-
-
+.zone-user-details-cards{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius:10px;
+    
+    background:#fff;
+    width:90%;
+    padding: 5px;
+    height: auto;
+    
+    margin-top:30px;
+}
+.user-details-card-body>h5 {
+    color: #6e767d;
+}
+.user-details-card-header>h3{
+    color: #6e767d;
+}
+.footer-buttons>.view-btn{
+    border-radius: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background: #42d3ff;
+    color: #fff;
+    border: none;
+}
+.footer-buttons>.abt-btn{
+    border-radius: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: #fff;
+    background: #f0c518;
+    border: none;
+    margin-left: 20px;
+}
+.head-trainer-section>h2{
+    color: #7c858c;
+    font-size:22px;
+    margin-top:10px;
+}
 
 
 

@@ -1,87 +1,119 @@
-
-
-<div class="zone-user-details-card-page">
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-3 col-xs-6 col-lg-3" style="margin-top:10%;">
-                <!-- card -->
-                <div class="zone-user-details-cards" >
-                    <div class="user-details-card-header">
-                         <img src="images/user.png" class="img img-circle img-responsive">
-                    </div>
-                    <div class="user-details-card-body">
-                        <h3 class="details-card-body-title text-center">Umars Empire</h3>
-                        <h4 class="text-center">Zone Member</h4>
-                    </div>
-                    <div class="user-details-card-footer">
-                         <div class="user-details-card-buttons text-center">
-                            <buttom class="btn btn-info" ng-click="vm.getMemberDetails('memberdetails','zoneId','memberId')"> View </buttom>
-                            <buttom class="btn btn-success"> Delete </Button>
-                         </div>
-                    </div>
-                </div>
+<div class="container zone-user-details-card-page">
+    <div class="row">
+            <div class=" pull-right" style="margin-top:2%;" >
+            <button ng-click="vm.viewType('list')" style="border:none;background:none;"><i class="fas fa-list-ul" style="font-size:20px" ></i></button>
+            <button ng-click="vm.viewType('grid')" style="border:none;background:none;"><i class="fas fa-th-large" style="font-size:20px" ></i></button>
+            <md-button class="md-primary md-fab md-fab-bottom-right" style="width:50px;height:50px;font-size:12px;font-weight:600;text-align:center">
+                    <span> New</span>
+                   </md-button>
             </div>
-            <!-- card-2 -->
-            <div class="col-md-3 col-sm-3 col-xs-6 col-lg-3" style="margin-top:10%;">
-                <!-- card -->
-                <div class="zone-user-details-cards">
-                    <div class="user-details-card-header">
-                         <img src="images/user.png" class="img img-circle img-responsive">
-                    </div>
-                    <div class="user-details-card-body">
-                        <h3 class="details-card-body-title text-center">Umars Empire</h3>
-                        <h4 class="text-center">Owner</h4>
-                    </div>
-                    <div class="user-details-card-footer">
-                         <div class="user-details-card-buttons text-center">
-                            <buttom class="btn btn-info"> View </buttom>
-                            <buttom class="btn btn-success"> Delete </Button>
-                         </div>
-                    </div>
+</div>
+    
+    <div class="row" style="height:auto;">
+         
+                      
+        <div class="col-md-3 col-sm-10 col-xs-10 col-lg-3" style="margin-top:2%;" ng-show="vm.grid">
+               
+       
+            <div class="zone-user-details-cards text-center" >
+                <div class="user-details-card-header" >
+                    <img src="images/user.png" class="img img-circle img-responsive" style="width:80px;height:100px;">
                 </div>
-            </div>
-            <!-- card-3 -->
-            <div class="col-md-3 col-sm-3 col-xs-6 col-lg-3" style="margin-top:10%;">
-                <!-- card -->
-                <div class="zone-user-details-cards">
-                    <div class="user-details-card-header">
-                         <img src="images/user.png" class="img img-circle img-responsive">
-                    </div>
-                    <div class="user-details-card-body">
-                        <h3 class="details-card-body-title text-center">Umars Empire</h3>
-                        <h4 class="text-center">Owner</h4>
-                    </div>
-                    <div class="user-details-card-footer">
-                         <div class="user-details-card-buttons text-center">
-                            <buttom class="btn btn-info"> View </buttom>
-                            <buttom class="btn btn-success"> Delete </Button>
-                         </div>
-                    </div>
+                <div class="user-details-card-body">
+                    <h5 class="details-card-body-title">Umars Empire</h5>
+                    <h6 class="">Nitro Fitness</h6>
+                    <p class="zone-member-user-details-text">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <td>Plan Status</td>
+                                    <td style="color:#34b8ec;">Active</td>
+                                </tr>
+                                <tr>
+                                    <td>Star Date</td>
+                                    <td>09-29-2017</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Expiry Date</td>
+                                    <td>09-29-2017</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </p>
                 </div>
-            </div>
-            <!-- card-4 -->
-            <div class="col-md-3 col-sm-3 col-xs-6 col-lg-3" style="margin-top:10%;">
-                <!-- card -->
-                <div class="zone-user-details-cards">
-                    <div class="user-details-card-header">
-                         <img src="images/user.png" class="img img-circle img-responsive">
-                    </div>
-                    <div class="user-details-card-body">
-                        <h3 class="details-card-body-title text-center">Umars Empire</h3>
-                        <h4 class="text-center">Owner</h4>
-                    </div>
-                    <div class="user-details-card-footer">
-                         <div class="user-details-card-buttons text-center">
-                            <buttom class="btn btn-info"> View </buttom>
-                            <buttom class="btn btn-success"> Delete </Button>
-                         </div>
+                <div class="user-details-card-footer">
+                    <div class="user-details-card-buttons btn-group ">
+                        <button class="btn btn-info"> View </button>
+                        <button class="btn btn-danger"> Delete </Button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <div ng-cloak layout-gt-lg="row" layout="column" ng-show="vm.list" style="margin-top:2%;" >
+
+        <div flex-gt-sm="50" flex>
+
+            <md-toolbar layout="row" class="md-hue-3" >
+                <div class="md-toolbar-tools">
+                    <span>Zone Members</span>
+                </div>
+            </md-toolbar>
+            <md-content>
+                <md-list flex>
+                    <md-subheader class="md-no-sticky">Active Members</md-subheader>
+                    <md-list-item class="md-3-line" ng-click="null">
+                        <img ng-src="images/user.png" class="md-avatar" alt="member" />
+                        <div class="md-list-item-text" layout="column">
+                            <h3>Mr.lala</h3>
+                            <h4>Umars Empire</h4>
+                            <p>He has three years of exp</p>
+                            
+                        </div>
+                        <div class="user-details-card-footer">
+                                <div class="user-details-card-buttons btn-group ">
+                                    <button class="btn btn-info"> View </button>
+                                    <button class="btn btn-danger"> Delete </Button>
+                                </div>
+                            </div>
+                    </md-list-item>
+                    <md-list-item class="md-3-line" ng-click="null">
+                            <img ng-src="images/user.png" class="md-avatar" alt="member" />
+                            <div class="md-list-item-text" layout="column">
+                                <h3>Mr.lala</h3>
+                                <h4>Umars Empire</h4>
+                                <p>He has three years of exp</p>
+                                
+                            </div>
+                            <div class="user-details-card-footer">
+                                    <div class="user-details-card-buttons btn-group ">
+                                        <button class="btn btn-info"> View </button>
+                                        <button class="btn btn-danger"> Delete </Button>
+                                    </div>
+                                </div>
+                    </md-list-item>
+                    <md-list-item class="md-3-line" ng-click="null">
+                            <img ng-src="images/user.png" class="md-avatar" alt="member" />
+                            <div class="md-list-item-text" layout="column">
+                                <h3>Mr.junaid</h3>
+                                <h4>Umars Empire</h4>
+                                <p>He has three years of exp</p>
+                                
+                            </div>
+                            <div class="user-details-card-footer">
+                                    <div class="user-details-card-buttons btn-group row">
+
+                                        <button class="btn btn-xsm btn-info"> View </button>
+                                        <button class="btn btn-xsm btn-danger"> Delete </Button>
+                                    </div>
+                                </div>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </div>
+    </div>
 </div>
-
-

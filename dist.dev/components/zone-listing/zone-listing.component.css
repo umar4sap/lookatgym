@@ -78,3 +78,50 @@
   left: 60px;
   font-size: 20px;
   font-weight: 400; }
+
+.zone-top-filter {
+  background-image: url("../../images/3dlogo.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+  background-size: 100% 100%;
+  background-position: center;
+  height: 400px; }
+
+.zone-search-filters {
+  background-color: none;
+  width: 100%;
+  height: auto;
+  padding: 10px; }
+
+.zone-fee-content-max > p {
+  font-size: 15px;
+  color: #efefef; }
+
+.filter-status > label {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #efefef; }
+
+.rating-value {
+  color: #efefef;
+  margin-top: 10px; }
+
+.filter-rating-heading > h4 {
+  color: #efefef; }
+
+.filter-class-status > label > button {
+  background: none;
+  display: inline; }
+
+.filter-class-status > label > button:hover {
+  background: none;
+  border: 1px solid #0DC8B4; }
+
+.filter-class-status > label > button > .checked {
+  color: orange; }
+
+.filter-distance > .form-group > select {
+  margin-right: auto;
+  margin-left: auto; }
