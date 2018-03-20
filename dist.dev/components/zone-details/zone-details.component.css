@@ -324,14 +324,14 @@
     margin-left: 20px; } }
 
 /*large size*/
-@media screen and (max-width: 990px) and (min-width: 768px) {
-  .about-cover-text > p {
-    display: none; }
+@media screen and (max-width: 991px) and (min-width: 768px) {
   .join-content {
-    margin-top: 70px; }
+    margin-top: 10px; }
   .join-content > .text-join > p {
     font-size: 10px;
-    padding: 5px; } }
+    padding: 5px; }
+  .cover-heading {
+    margin-top: -98px; } }
 
 /* tab */
 @media screen and (max-width: 770px) and (min-width: 668px) {
@@ -349,7 +349,24 @@
   .join-content > .text-join > p {
     font-size: 10px;
     padding: 5px;
-    text-align: center; } }
+    text-align: center; }
+  .cover-bottom .members-sec > label, .cover-bottom .members-sec > .total-members-list > h4 > b {
+    font-size: 10px;
+    text-align: left; }
+  .genders-sec {
+    margin-top: 0px; }
+  .members-sec {
+    margin-top: 0px; }
+  .cover-bottom .rating-sec > span {
+    font-size: 10px; }
+  .cover-bottom .rating-sec > label {
+    font-size: 12px; }
+  .cover-bottom .members-sec > label, .cover-bottom .members-sec > .total-members-list > h4 > b {
+    font-size: 12px; }
+  .cover-bottom .genders-sec > label, .cover-bottom .genders-sec > .total-members-list > h4 > b, .cover-bottom .genders-sec > .total-members-list > h4 > b > i {
+    font-size: 12px; }
+  .cover-bottom .genders-sec > .total-members-list > h4 > i {
+    margin-left: 2px; } }
 
 @media screen and (max-width: 548px) and (min-width: 400px) {
   .about-cover-text > p {

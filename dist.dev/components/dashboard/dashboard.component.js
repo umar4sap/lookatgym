@@ -3,9 +3,9 @@ angular
     .module('zoneapp')
     .controller('DashboardController', DashboardController);
 
-DashboardController.$inject = ['$state','$scope', 'authService','zoneService', '$location', '$http', 'Pubnub'];
+DashboardController.$inject = ['$state','$scope', 'authService','zoneService', '$location', '$http',];
 
-function DashboardController($state,$scope, authService,zoneService, $location, $http, Pubnub) {
+function DashboardController($state,$scope, authService,zoneService, $location, $http) {
     var vm = this;
     vm.authService = authService;
     vm.inprogress=true;

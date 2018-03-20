@@ -180,7 +180,7 @@ function zoneService($http) {
 		getPlanById: function ( planData, cb) {
 			$http({
 				method: 'GET',
-				url: localhost+':9006/v2/components/plan-service/zone/'+planData.zoneId+'/plans/'+planData.planId,
+				url: host+':9006/v2/components/plan-service/zone/'+planData.zoneId+'/plans/'+planData.planId,
 				headers: {
 					'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
 					'Content-Type': 'application/json',
@@ -200,9 +200,9 @@ function zoneService($http) {
 			debugger;
 			$http({
 				method: 'PUT',
-				url: localhost+':9006/v2/components/plan-service/zone/'+planData.zoneId+'/plans/'+planData.planId,
+				url: host+':9006/v2/components/plan-service/zone/'+planData.zoneId+'/plans/'+planData.planId,
 				headers: {
-					'Authorization': 'Bearer ' + idToken,
+					'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
 					'Content-Type': 'application/json',
 					'Access-Control-Allow-Origin': "*",
 					'user_access':"true",

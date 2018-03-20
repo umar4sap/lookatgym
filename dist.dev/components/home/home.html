@@ -4,75 +4,433 @@
 <div ng-cloak>
     <md-content>
         <md-tabs md-dynamic-height md-border-bottom>
-                <md-tab label="Cockpit">
+                <md-tab label="Cockpit" >
                         <md-content class="md-padding">
-                            <h5>My zones</h5>
-                            <div class="container">
-                                <div class="row">
-        
-                                    <div class=" pull-right" style="margin-top:2%;">
-                                        <button ng-click="vm.viewType('list')" style="border:none;background:none;">
-                                            <i class="fas fa-list-ul" style="font-size:20px"></i>
-                                        </button>
-                                        <button ng-click="vm.viewType('grid')" style="border:none;background:none;">
-                                            <i class="fas fa-th-large" style="font-size:20px"></i>
-                                        </button>
-                                        <md-button ui-sref="newzonemobo" class="md-primary md-fab md-fab-bottom-right" style="width:90px;height:50px;font-size:12px;font-weight:600;text-align:center">
-                                            <span> Create New</span>
-                                        </md-button>
-                                    </div>
-                                </div>
+                            <h5 class="hvr-curl-top-left">Gym Cockpit</h5>
+                            <div class="wrapper">
         
         
-        
-        
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-6 col-xs-12  banner-cards" ng-show="zone">
-                                        <div class="banner-card-one">
-                                            <div class="card">
-                                                <a href="#" style="text-decoration:none;border:none;">
-                                                    <div class="tile-box-add">
-                                                        <center>
-                                                            <img class="img img-responsive" alt="add-plus" src="images/plus-add.png" ui-sref="newzonemobo">
-                                                            <p style="padding-bottom:20px">Create New Zone</p>
-                                                        </center>
+                                <!--  -->
+                        
+                                <div class="content">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <div class="card wow bounceInRight card-stats" style="
+                                                    -webkit-animation-name: hvr-pulse-grow;
+                                                    animation-name: hvr-pulse-grow;
+                                                    -webkit-animation-duration: 0.3s;
+                                                    animation-duration: 0.3s;
+                                                    -webkit-animation-timing-function: linear;
+                                                    animation-timing-function: linear;
+                                                    -webkit-animation-iteration-count: infinite;
+                                                    animation-iteration-count: infinite;
+                                                    -webkit-animation-direction: alternate;
+                                                    animation-direction: alternate;
+                                                    font-size: 17px;
+                                                    color: skyblue;
+                                                ">
+                                                    <div class="card-header" data-background-color="orange">
+                                                        <i class="fas fa-users"></i>
                                                     </div>
-                                                </a>
+                                                    <div class="card-content">
+                                                        <p class="category wow flip">Members</p>
+                                                        <h3 class="title wow flip">495
+                        
+                                                        </h3>
+                                                    </div>
+                                                    <div class="card-footer">
+                                                        <div class="stats">
+                                                            <i class="fas fa-user-plus text-danger"></i>
+                                                            <a href="#pablo">See More</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                                <div class="card card-stats">
+                                                    <div class="card-header" data-background-color="green">
+                                                        <i class="material-icons">store</i>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <p class="category">Quik Revnue Report</p>
+                                                        <h3 class="title">45</h3>
+                                                    </div>
+                                                    <div class="card-footer">
+                                                        <div class="stats">
+                                                            <i class="material-icons">date_range</i> Last 24 Hours
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 wow bounceInRight" data-wow-duration="3s">
+                                                <div class="card card-stats">
+                                                    <div class="card-header" data-background-color="red">
+                                                        <i class="fas fa-medkit"></i>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <p class="category">Plans</p>
+                                                        <h3 class="title">75</h3>
+                                                    </div>
+                                                    <div class="card-footer">
+                                                        <div class="stats">
+                        
+                                                            <a href="#">Active Plans</a>
+                        
+                        
+                                                            <a style="margin-left:10px;" href="#">Zone Plans</a>
+                        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 wow slideOutLeft col-md-6 col-sm-6">
+                                                <div class="card card-stats wow lightSpeedOut" data-wow-duration="3s">
+                                                    <div class="card-header" data-background-color="blue">
+                                                        <i class="fas fa-street-view"></i>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <p class="category">Trainers</p>
+                                                        <h3 class="title">15</h3>
+                                                    </div>
+                                                    <div class="card-footer">
+                                                        <div class="stats">
+                                                            <i class="material-icons">update</i>
+                                                            <a href="#">Active Trainers</a>
+                                                            <a style="margin-left:10px;" href="#">Zone Trainers</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-        
-        
-                                    <div class="col-md-4 col-sm-6 col-xs-11 col-lg-4 banner-cards" ng-repeat="zone in vm.zones">
-                                        <div class="banner-card-one">
-                                            <div class="card cardtile" style="width:90%;height:300px;" ng-click="vm.go('zonedetails',zone.zoneId,vm.city)">
-                                                <img class="card-img-top" ng-show='!zone.zoneCoverImage.url == ""' src="{{zone.zoneCoverImage.url}}" alt="Card image" style="width:100%;max-height:150px;min-height:150px"
-                                                />
-                                                <div class="card-img-top" ng-show='zone.zoneCoverImage.url == ""' alt="Card image" style="width:100%;max-height:150px;min-height:150px;background:#2D8DF3;color:white;font-size:20px;text-align:center;">
-                                                    {{zone.zoneName}}</div>
-                                                <div class="card-body">
-                                                    <h4 class="card-title text-center">{{zone.zoneName}}</h4>
-                                                    <p class="card-text text-center">
-                                                        {{zone.zoneShortDescription}}
-                                                    </p>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="card">
+                                                    <div class="card-header card-chart" data-background-color="green">
+                                                        <div class="ct-chart" id="dailySalesChart"></div>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <h4 class="title">Monthly Income</h4>
+                                                        <p class="category">
+                                                            <span class="text-success">
+                                                                <i class="fas fa-arrow-up"></i> 15% </span>Members increase in today.</p>
+                                                    </div>
                                                     <div class="card-footer">
-                                                        <br>
-                                                        <span class="fa fa-star checked-star-card"></span>
-                                                        <span class="fa fa-star checked-star-card"></span>
-                                                        <span class="fa fa-star checked-star-card"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <p class="card-text">
-                                                            <b style="color:#0DC8B4;">Fee</b> 500
-                                                            <strike>1000</strike> (50% Off)
-                                                        </p>
+                                                        <div class="stats">
+                        
+                                                            <a href="#">income</a>
+                                                            <a style="margin-left:10px;" href="#">expencess</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="card">
+                                                    <div class="card-header card-chart" data-background-color="orange">
+                                                        <div class="ct-chart" id="emailsSubscriptionChart"></div>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <h4 class="title">My Subscriptions On Look@Gym</h4>
+                                                        <p class="category">Subcription name</p>
+                                                        <p class="category">Delux Owner Plan</p>
+                                                        <p class="category">purchese date</p>
+                                                    </div>
+                                                    <div class="card-footer">
+                                                        <div class="stats">
+                                                            <i class="material-icons">access_time</i> Subscription Revnue Date
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="card">
+                                                    <div class="card-header card-chart" data-background-color="red">
+                                                        <div class="ct-chart" id="completedTasksChart"></div>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <h4 class="title">Graph Revnue Report</h4>
+                                                        <p class="category">Last Campaign Performance</p>
+                                                    </div>
+                                                    <div class="card-footer">
+                                                        <div class="stats">
+                        
+                                                            <a href="#">income</a>
+                                                            <a style="margin-left:10px;" href="#">expencess</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="card card-nav-tabs">
+                                                    <div class="card-header" data-background-color="purple">
+                                                        <div class="nav-tabs-navigation">
+                                                            <div class="nav-tabs-wrapper">
+                                                                <span class="nav-tabs-title">Tasks:</span>
+                                                                <ul class="nav nav-tabs" data-tabs="tabs">
+                                                                    <li class="active">
+                                                                        <a href="#profile" data-toggle="tab">
+                                                                            <i class="far fa-comments"></i> Members Messages
+                                                                            <div class="ripple-container"></div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="">
+                                                                        <a href="#messages" data-toggle="tab">
+                                                                            <i class="material-icons">code</i> Website
+                                                                            <div class="ripple-container"></div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="">
+                                                                        <a href="#settings" data-toggle="tab">
+                                                                            <i class="material-icons">cloud</i> Server
+                                                                            <div class="ripple-container"></div>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <div class="tab-content">
+                                                            <div class="tab-pane active" id="profile">
+                                                                <table class="table">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div class="checkbox">
+                                                                                    <label>
+                                                                                        <input type="checkbox" name="optionsCheckboxes" checked>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>Sign contract for "What are conference organizers afraid of?"</td>
+                                                                            <td class="td-actions text-right">
+                                                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+                                                                                    <i class="material-icons">edit</i>
+                                                                                </button>
+                                                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                                                    <i class="material-icons">close</i>
+                                                                                </button>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div class="checkbox">
+                                                                                    <label>
+                                                                                        <input type="checkbox" name="optionsCheckboxes">
+                                                                                    </label>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
+                                                                            <td class="td-actions text-right">
+                                                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+                                                                                    <i class="material-icons">edit</i>
+                                                                                </button>
+                                                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                                                    <i class="material-icons">close</i>
+                                                                                </button>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div class="checkbox">
+                                                                                    <label>
+                                                                                        <input type="checkbox" name="optionsCheckboxes">
+                                                                                    </label>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>Flooded: One year later, assessing what was lost and what was found when
+                                                                                a ravaging rain swept through metro Detroit
+                                                                            </td>
+                                                                            <td class="td-actions text-right">
+                                                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+                                                                                    <i class="material-icons">edit</i>
+                                                                                </button>
+                                                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                                                    <i class="material-icons">close</i>
+                                                                                </button>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div class="checkbox">
+                                                                                    <label>
+                                                                                        <input type="checkbox" name="optionsCheckboxes" checked>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>Create 4 Invisible User Experiences you Never Knew About</td>
+                                                                            <td class="td-actions text-right">
+                                                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+                                                                                    <i class="material-icons">edit</i>
+                                                                                </button>
+                                                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                                                    <i class="material-icons">close</i>
+                                                                                </button>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="tab-pane" id="messages">
+                                                                <table class="table">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div class="checkbox">
+                                                                                    <label>
+                                                                                        <input type="checkbox" name="optionsCheckboxes" checked>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>Flooded: One year later, assessing what was lost and what was found when
+                                                                                a ravaging rain swept through metro Detroit
+                                                                            </td>
+                                                                            <td class="td-actions text-right">
+                                                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+                                                                                    <i class="material-icons">edit</i>
+                                                                                </button>
+                                                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                                                    <i class="material-icons">close</i>
+                                                                                </button>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div class="checkbox">
+                                                                                    <label>
+                                                                                        <input type="checkbox" name="optionsCheckboxes">
+                                                                                    </label>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>Sign contract for "What are conference organizers afraid of?"</td>
+                                                                            <td class="td-actions text-right">
+                                                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+                                                                                    <i class="material-icons">edit</i>
+                                                                                </button>
+                                                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                                                    <i class="material-icons">close</i>
+                                                                                </button>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="tab-pane" id="settings">
+                                                                <table class="table">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div class="checkbox">
+                                                                                    <label>
+                                                                                        <input type="checkbox" name="optionsCheckboxes">
+                                                                                    </label>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
+                                                                            <td class="td-actions text-right">
+                                                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+                                                                                    <i class="material-icons">edit</i>
+                                                                                </button>
+                                                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                                                    <i class="material-icons">close</i>
+                                                                                </button>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div class="checkbox">
+                                                                                    <label>
+                                                                                        <input type="checkbox" name="optionsCheckboxes" checked>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>Flooded: One year later, assessing what was lost and what was found when
+                                                                                a ravaging rain swept through metro Detroit
+                                                                            </td>
+                                                                            <td class="td-actions text-right">
+                                                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+                                                                                    <i class="material-icons">edit</i>
+                                                                                </button>
+                                                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                                                    <i class="material-icons">close</i>
+                                                                                </button>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div class="checkbox">
+                                                                                    <label>
+                                                                                        <input type="checkbox" name="optionsCheckboxes">
+                                                                                    </label>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>Sign contract for "What are conference organizers afraid of?"</td>
+                                                                            <td class="td-actions text-right">
+                                                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+                                                                                    <i class="material-icons">edit</i>
+                                                                                </button>
+                                                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                                                    <i class="material-icons">close</i>
+                                                                                </button>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="card">
+                                                    <div class="card-header" data-background-color="orange">
+                                                        <h4 class="title">Zone Members</h4>
+                                                        <p class="category">New members added on 15th September, 2018</p>
+                                                    </div>
+                                                    <div class="card-content table-responsive">
+                                                        <table class="table table-hover">
+                                                            <thead class="text-warning">
+                                                                <th>ID</th>
+                                                                <th>Name</th>
+                                                                <th>Fee</th>
+                                                                <th>Address</th>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>Dakota Rice</td>
+                                                                    <td>$36,738</td>
+                                                                    <td>Niger</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>2</td>
+                                                                    <td>Minerva Hooper</td>
+                                                                    <td>$23,789</td>
+                                                                    <td>Curaçao</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>3</td>
+                                                                    <td>Sage Rodriguez</td>
+                                                                    <td>$56,142</td>
+                                                                    <td>Netherlands</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>4</td>
+                                                                    <td>Philip Chaney</td>
+                                                                    <td>$38,735</td>
+                                                                    <td>Korea, South</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-        
                                 </div>
+                        
                             </div>
                         </md-content>
                     </md-tab>

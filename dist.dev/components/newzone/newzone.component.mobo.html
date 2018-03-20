@@ -114,7 +114,7 @@
 <div uib-collapse="zone_basics">
     
 
-    <div class="form-section">
+    <form class="form-section">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
@@ -205,7 +205,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="comment">Available For</label>
-                                <select class="form-control" required id="sel1" ng-model="zonedata.zoneFor">
+                                <select class="form-control"  required id="sel1" ng-model="zonedata.zoneFor">
                                     <option>For Unisex</option>
                                     <option>For Male</option>
                                     <option>For Woman</option>
@@ -233,18 +233,20 @@
                     </div>
                
                 <!-- end 1st row -->
-    
+               <div class="newzone-btn">
+                   <button type="submit" class="btn btn-primary">Next</button>
+               </div>
             </div>
-        </div>
+        </form>
 </div>
 
 <div uib-collapse="zone_setting">
-        <div class="form-section">
+        <form class="form-section">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6">
                             <!--col-md-6 -->
-                            <form action="#">
+                            
                                 <div >
                                     <label for="pwd">Morning Time</label>
                                     <input type="time" class="form-control" required id="pwd" placeholder="time" name="expiration" ng-model="zonedata.morningTiming">
@@ -262,11 +264,11 @@
                                     <label for="comment">Deactivate Member Message</label>
                                     <textarea class="form-control" required rows="5" id="failure-comment" ng-model="zonedata.zoneMemberDeactivateMessage">You were de Activated from zone</textarea>
                                 </div>
-                            </form>
+                            
                         </div>
                         <!-- end col-md-6 -->
                         <div class="col-md-6">
-                            <form action="#">
+                            
                                 <div class="form-group">
                                     <label for="text">Evening Time</label>
                                     <input type="time" class="form-control" required id="zone-cost" placeholder="e.g 7-10" name="text" ng-model="zonedata.eveningTime">
@@ -283,7 +285,7 @@
                                     <label for="comment">Activate Member Message</label>
                                     <textarea class="form-control" required rows="5" id="limit-comment" ng-model="zonedata.zoneMemberActivateMessage">Drop Message..</textarea>
                                 </div>
-                            </form>
+                            
                         </div>
                         </div>
                         <!-- end col-md-6 -->
@@ -298,15 +300,17 @@
                                 </div>
                             </div>
                         </div>
-                    
+                        <div class="newzone-btn">
+                            <button class="btn btn-primary">Next</button>
+                        </div>
                     <!-- end 1st row -->
         
                 </div>
-            </div>
+            </form>
 </div>
 
 <div uib-collapse="zone_upload">
-    <div class="form-section">
+    <form class="form-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-xs-11 col-xs-offset-1 col-sm-offset-1 col-sm-11 col-lg-12">
@@ -452,10 +456,12 @@
                         </div>
                     </div>
                 </div>
+
+                <button type="submit" class="btn btn-info">Publish</button>
            
 
     </div>
-</div>
+</form>
 </div>
 
 <script >

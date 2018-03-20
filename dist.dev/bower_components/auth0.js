@@ -720,7 +720,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 10 */
 /***/ function(module, exports) {
 
-	module.exports = { raw: '9.3.2' };
+	module.exports = { raw: '9.3.3' };
 
 
 /***/ },
@@ -1325,9 +1325,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var _this = this;
 	  var theWindow = windowHelper.getWindow();
 	  var url = urljoin(this.baseOptions.rootUrl, '/co/authenticate');
+	  options.username = options.username || options.email;
+	  delete options.email;
+	
 	  var authenticateBody = {
 	    client_id: options.clientID || this.baseOptions.clientID,
-	    username: options.username || options.email
+	    username: options.username
 	  };
 	  if (options.password) {
 	    authenticateBody.password = options.password;
@@ -1654,9 +1657,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	
 	function encodeString(str) {
-	  return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function (match, p1) {
+	  return base64.fromByteArray(stringToByteArray(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function (match, p1) {
 	    return String.fromCharCode('0x' + p1);
-	  }))
+	  })))
 	  .replace(/\+/g, '-') // Convert '+' to '-'
 	  .replace(/\//g, '_'); // Convert '/' to '_';
 	}
@@ -1666,7 +1669,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    .replace(/\-/g, '+') // Convert '-' to '+'
 	    .replace(/_/g, '/'); // Convert '_' to '/'
 	
-	  return decodeURIComponent(atob(str).split('').map(function (c) {
+	  return decodeURIComponent(byteArrayToString(base64.toByteArray(str)).split('').map(function (c) {
 	    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
 	  }).join(''));
 	}
@@ -3894,8 +3897,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var state = parsedHash.state;
 	  var transaction = this.transactionManager.getStoredTransaction(state);
 	  var transactionState = options.state || (transaction && transaction.state) || null;
+	
 	  var transactionStateMatchesState = transactionState === state;
-	  if (!state || !transactionStateMatchesState) {
+	  var shouldBypassStateChecking = !state && !transactionState && options.__enableImpersonation;
+	
+	  if (!shouldBypassStateChecking && !transactionStateMatchesState) {
 	    return cb({
 	      error: 'invalid_token',
 	      errorDescription: '`state` does not match.'
@@ -5998,10 +6004,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	      kid: kid
 	    }, function (err, keyInfo) {
 	      if (err) {
-	        cb(err);
+	        return cb(err);
 	      }
 	      _this.jwksCache.set(cachekey, keyInfo);
-	      cb(null, new RSAVerifier(keyInfo.modulus, keyInfo.exp));
+	      return cb(null, new RSAVerifier(keyInfo.modulus, keyInfo.exp));
 	    });
 	  } else {
 	    var keyInfo = this.jwksCache.get(cachekey); // eslint-disable-line vars-on-top
@@ -9046,7 +9052,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function StorageHandler() {
 	  this.warn = new Warn({});
-	  this.storage = windowHandler.getWindow().localStorage || new CookieStorage();
+	  this.storage = new CookieStorage();
+	  try {
+	    // some browsers throw an error when trying to access localStorage
+	    // when localStorage is disabled.
+	    this.storage = windowHandler.getWindow().localStorage;
+	  } catch (e) {
+	    this.warn.warning(e);
+	    this.warn.warning("Can't use localStorage. Using CookieStorage instead.");
+	  }
 	}
 	
 	StorageHandler.prototype.failover = function() {
