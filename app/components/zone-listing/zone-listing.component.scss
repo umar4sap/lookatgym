@@ -102,14 +102,14 @@ font-weight: 800;
     }
 
     .zone-top-filter{
-        background-image: url('../../images/3dlogo.jpg');
+        background-image: url('../../images/thumb.png');
         background-repeat: no-repeat;
-        background-attachment: fixed;
+       //background-attachment: fixed;
         background-size: cover;
         width: 100%;
         background-size: 100% 100%;
-        background-position: center;
-        height: auto;
+        //background-position: center;
+        height: 400px;
         
     }
     
@@ -128,7 +128,7 @@ font-weight: 800;
     .filter-status>label{
         font-size:16px;
         margin-top:10px;
-        color: #efefef;
+        color:#2D8DF3;
     }
     
     .rating-value{
@@ -140,16 +140,26 @@ font-weight: 800;
         color:#efefef;
         
     }
+
+    .filter-class-status{
+        margin-top:102px;
+    }
     
+
+    .zone-filter-content{
+        margin-top:111px;
+    }
     
     .filter-class-status>label>button{
     background: none;
     display: inline;
+    padding:6px;
+    background-color:#2D8DF3;
     }
     
     .filter-class-status>label>button:hover{
-    background: none;
-    border:1px solid #0DC8B4;
+    padding:6px;
+    box-shadow: none;
     }
     
     
@@ -163,8 +173,75 @@ font-weight: 800;
     }
 
 
+    .filter-distance{
+        margin-top:86px;
+    }
 
 
 
 
+    @media screen and (max-width: 991px) and (min-width: 768px) {
+    
+        .zone-filter-content {
+            margin-top: 0px;
+            text-align: center;
+        }
+
+        .filter-class-status {
+            margin-top: -77px;
+        }
+
+        .filter-distance {
+            margin-top: 106px;
+        }
+    
+    }
+
+
+    @media screen and (max-width: 767px) and (min-width:600px) {
+
+        .zone-filter-content {
+            margin-top: -18px;
+        }
+        .filter-class-status {
+            margin-top: -115px;
+        }
+        .filter-distance {
+            margin-top: 78px;
+        }
+
+    }
+
+
+    @media screen and (max-width:599px) and (min-width:450px) {
+        .zone-filter-content {
+            margin-top: -67px;
+            text-align: center;
+        }
+        .filter-class-status {
+            margin-top: 17px;
+            text-align: center;
+        }
+        .filter-distance {
+            margin-top: 6px;
+            text-align: center;
+        }
+
+    }
+
+    @media screen and (max-width:449px) and (min-width:370px) {
+        .zone-filter-content {
+            margin-top: -44px;
+            text-align: center;
+        }
+        .filter-class-status {
+            margin-top: 17px;
+            text-align: center;
+        }
+        .filter-distance {
+            margin-top: 6px;
+            text-align: center;
+        }
+
+    }
 
