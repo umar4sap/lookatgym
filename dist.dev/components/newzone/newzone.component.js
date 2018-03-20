@@ -163,43 +163,58 @@ debugger;
     return vm.selectedToppings.join('');
   };
   
-vm.sectionmobo=function(data){
+vm.sectionmobo=function(data,zoneData){
     debugger;
     if(!data){
         $scope.zone_basics=false;
         $scope.zone_setting=true;
         $scope.zone_upload=true;
         $scope.pricing=true;
-    }
+    }else if(zoneData){
     if(data=="zone_basics"){
-        
+       
     $scope.zone_basics=false;
     $scope.zone_setting=true;
     $scope.zone_upload=true;
     $scope.pricing=true;
     
     }else if(data=="zone_setting"){
-        $scope.zone_basics=true;
+       
+        if(zoneData.Country && zoneData.city && zoneData.aboutZone&&zoneData.zoneName && zoneData.zoneSince && zoneData.zoneOwnerName && zoneData.zoneFor && zoneData.zoneAddress&& zoneData.selectedFacilities && zoneData.openingDays){
+        $scope.zone_basics="done";
         $scope.zone_setting=false;
         $scope.zone_upload=true;
         $scope.pricing=true;
+        }else{
+            $scope.showAlert(null, "Please fill out the details")
+        }
+    
       
     }else if(data=="zone_upload"){
-        $scope.zone_basics=true;
-    $scope.zone_setting=true;
+        if(zoneData.zoneMemberPlanExpireMessage && zoneData.zoneMemberActivateMessage && zoneData.zonefreeTrailPerDay&&zoneData.zoneShortDescription && zoneData.morningTiming && zoneData.eveningTime && zoneData.zoneMemberDeactivateMessage && zoneData.zonefreeTrailPerMonth&& zoneData.primaryContact){
+        $scope.zone_basics="done";
+    $scope.zone_setting="done"
     $scope.zone_upload=false;
     $scope.pricing=true;
-       
+        }else{
+            $scope.showAlert(null, "Please fill out the details")
+        }
         
     }else if(data=="pricing"){
-        $scope.zone_basics=true;
-    $scope.zone_setting=true;
-    $scope.zone_upload=true;
-   
+        if(zoneData.vidurl){
+        $scope.zone_basics="done";
+    $scope.zone_setting="done";
+    $scope.zone_upload="done";
         $scope.pricing=false;
-       
+        }else{
+            $scope.showAlert(null, "upload images/videos or add urls")
+        }
         
     }
+}
+else{
+    $scope.showAlert(null, "Aaaha! please fillout details")
+}
 
 }
 vm.sectionmobo();
@@ -230,6 +245,21 @@ $scope.fileimagesAdded=function(file, msg, flow){
     }
     
 }
+ $scope.showAlert = function(ev,msg) {
+        // Appending dialog to document.body to cover sidenav in docs app
+        // Modal dialogs should fully cover application
+        // to prevent interaction outside of dialog
+        $mdDialog.show(
+          $mdDialog.alert()
+            .parent(angular.element(document.querySelector('#popupContainer')))
+            .clickOutsideToClose(true)
+            .title('Zone Creation')
+            .textContent(msg)
+            .ariaLabel('Alert Dialog Demo')
+            .ok('okay!')
+            .targetEvent(ev)
+        );
+      };
 
 vm.live=function(data){
     debugger;
@@ -259,21 +289,7 @@ vm.live=function(data){
     $scope.mockData.openDays=data.openingDays;
     $scope.mockData.zoneSubcriptionDetails=[data.zoneSubcriptionDetails || "silver"];
    
-    $scope.showAlert = function(ev,msg) {
-        // Appending dialog to document.body to cover sidenav in docs app
-        // Modal dialogs should fully cover application
-        // to prevent interaction outside of dialog
-        $mdDialog.show(
-          $mdDialog.alert()
-            .parent(angular.element(document.querySelector('#popupContainer')))
-            .clickOutsideToClose(true)
-            .title('Zone Creation')
-            .textContent(msg)
-            .ariaLabel('Alert Dialog Demo')
-            .ok('okay!')
-            .targetEvent(ev)
-        );
-      };
+   
    zoneService.createZone(data.city,$scope.mockData,function(response){
 
     

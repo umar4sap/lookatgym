@@ -134,7 +134,8 @@
                         "urlType": "static"
                     }
                 ,
-                "name": "abids"
+                "name": "abids",
+                "zoneName":""
        
             }
             $scope.fileAdded=function(file, msg, flow){
@@ -154,10 +155,13 @@
             }
             vm.getOwnersZones();
             vm.createTrainer=function(data){
+                var stringdata=data.zoneInfo;
+                debugger;
+                data.zoneInfo=JSON.parse(stringdata)
                 $scope.trainermock.deparment=data.deparment;
                 $scope.trainermock.description=data.description;
                 $scope.trainermock.name=data.name;
-               
+                $scope.trainermock.zoneName=data.zoneInfo.zoneName;;
                 debugger;
                 zoneService.createTrainer(data.zoneId,$scope.trainermock,function(res){
                     console.log(res)

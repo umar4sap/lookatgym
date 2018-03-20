@@ -162,7 +162,8 @@
 .stepwizard-step {
   display: table-cell;
   text-align: center;
-  position: relative; }
+  position: relative;
+  margin-top: -6px; }
 
 .btn-circle {
   width: 30px;

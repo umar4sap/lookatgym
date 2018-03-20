@@ -67,11 +67,11 @@
                     <form action="#">
                         <div class="form-group">
                             <label for="text">Zone</label>
-                            <select class="form-control"   required id="sel1" ng-model="tarinerData.zoneId">
-                                
-                                <option ng-repeat="zone in vm.zones" value="{{zone.zoneId}}">{{zone.zoneName}}</option>
-                               
-                        </select>
+                            <select class="form-control"   required id="sel1" ng-model="tarinerData.zoneInfo">
+                                        
+                                    <option ng-repeat="zone in vm.zones" value='{"zoneId":"{{zone.zoneId}}","zoneName":"{{zone.zoneName}}"}' >{{zone.zoneName}}</option>
+                                   
+                            </select>
                         </div>
                     </form>
                 </div>
@@ -118,7 +118,7 @@
                             </div>
                             <div layout="column">
                                 <span class="md-headline" >Trainer : {{trainer.name}}</span>
-                                <span class="md-subhead">Zone : Zone Name</span>
+                                <span class="md-subhead">Zone : {{trainer.zoneName}}</span>
                             </div>
                         </div>
                     </md-card-title-text>
