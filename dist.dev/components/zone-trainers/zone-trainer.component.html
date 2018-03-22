@@ -1,0 +1,66 @@
+
+
+   
+    <div class="container">
+       
+        <div class="row">
+      
+<div class="creation-plans-tiles " style="margin-top:20px">
+    <div class="record-strip pipelines">
+        <span class="md-subhead">Current Plans</span>  <md-button class="cc-button" ng-click="vm.open('lg', 'creation-from')" aria-label="Add Project">
+                Create New Plan
+            </md-button>
+            <div class="creation-plans-tiles " style="margin-top:20px">
+                <div class="record-strip pipelines">
+            <md-card 
+                layout="column" layout-align="spacce-between start" class="progress pull-left col-md-4 col-sm-6 col-xs-12 col-lg-3" ng-repeat="plan in vm.plans">
+                <div style="background-color:white;">
+                    <md-card-title>
+                        <md-card-title-text layout-padding>
+                            <div layout="row">
+                                
+                                <div layout="column">
+                                    <span class="md-headline" >Plan : {{plan.planName}}</span>
+                                    <span class="md-subhead">Zone : {{plan.zoneName}}</span>
+                                </div>
+                            </div>
+                        </md-card-title-text>
+
+                    </md-card-title>
+                </div>
+                <div style="background-color:white;">
+                    <md-card-title-media>
+                        <div layout="row">
+                            <md-list>
+                                <md-list-item>Fee: {{plan.planFee}}</md-list-item>
+                                <md-list-item>Discount: {{plan.planOffer}}%
+                                </md-list-item>
+                                <md-list-item>Offer valid Till : {{plan.offerValidity}} </md-list-item>
+                            </md-list>
+                            <md-list>
+                                
+                                <md-list-item> About plan: {{plan.aboutPlan}}</md-list-item>
+                            </md-list>
+                        </div>
+                    </md-card-title-media>
+                </div>
+                <div flex style="background-color:white;">
+                </div>
+                <div>
+                    <md-card-actions layout="row" layout-align="space-between center">
+                        <span class="pipslineStatus success" ng-class="success"> </span>Active
+                        <div>
+                            <md-button ng-click="go('/editPipeline/'+item.pipelineID)"><i class="material-icons">mode_edit</i></md-button>
+                            <md-button ng-click="delPipe(item.pipelineID)"><i class="fa fa-trash-o"></i></md-button>
+                        </div>
+                    </md-card-actions>
+                </div>
+            </md-card>
+        </div>
+        </div>
+        </div>
+    </div>
+            </div>
+        </div>
+   
+  

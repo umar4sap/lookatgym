@@ -5,7 +5,7 @@ angular
 
 zoneService.$inject = ['$http'];
 var host="http://159.65.15.180";
-var localhost="http://localhost"
+var localhost="http://159.65.15.180"
 function zoneService($http) {
 	var obj = {};
 	
@@ -88,7 +88,7 @@ function zoneService($http) {
 			debugger;
 			var req = {
 				method: 'POST',
-				url: host+':9005/v2/components/trainer-service/zone/'+zoneId+'/trainers',
+				url: localhost+':9005/v2/components/trainer-service/zone/'+zoneId+'/trainers',
 				data: data,
 				headers: {
 					"Authorization":"Bearer "+localStorage.getItem('id_token'),
@@ -108,7 +108,7 @@ function zoneService($http) {
 
 			$http({
 				method: 'get',
-				url: host+':9005/v2/components/trainer-service/zone/trainers',
+				url: localhost+':9005/v2/components/trainer-service/zone/trainers',
 				headers: {
 					//'Authorization': localStorage.getItem("id_token"),
 					'Content-Type': 'application/json',
@@ -194,7 +194,23 @@ function zoneService($http) {
 				return cb(data);
 			});
 		},
-		
+		getTrainerById: function ( trainerData, cb) {
+			debugger;
+			$http({
+				method: 'GET',
+				url: localhost+':9005/v2/components/trainer-service/zone/'+trainerData.zoneId+'/trainers/'+trainerData.trainerId,
+				headers: {
+					'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
+					'Content-Type': 'application/json',
+					'Access-Control-Allow-Origin': "*"
+					
+				}
+			}).then(function (response) {
+				var data = response;
+				
+				return cb(data);
+			});
+		},
 
 		updatePlanById: function ( planData, data,cb) {
 			debugger;
@@ -232,5 +248,6 @@ function zoneService($http) {
 				return cb(data);
 			});
 		}
+		
 	};
 }

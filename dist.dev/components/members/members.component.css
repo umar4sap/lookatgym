@@ -48,3 +48,52 @@
 md-toolbar, .md-toolbar-tools {
   background-color: orange;
   color: white; }
+
+.zone-member-form {
+  background-image: url("../images/user-reg-bg.jpg");
+  background-size: cover;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100%; }
+
+.zone-member-form-media {
+  margin-top: 5%; }
+
+.zone-member-form-media > img {
+  margin-right: auto;
+  margin-left: auto;
+  width: 70%; }
+
+.btn-bs-file {
+  background-color: #3b3b30;
+  border: none; }
+
+.btn-bs-file:hover {
+  background-color: orange;
+  border: none; }
+
+.zone-member-form-profile > .btn-bs-file input[type="file"] {
+  position: absolute;
+  top: -9999999;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  width: 0;
+  height: 0;
+  outline: none;
+  cursor: inherit; }
+
+.zone-member-form-profile > label {
+  margin-top: 20px; }
+
+.zone-member-form .inputGroupContainer > .input-group > input {
+  background: rgba(240, 196, 114, 0.24); }
+
+.zone-member-form .input-group-addon {
+  background-color: rgba(240, 196, 114, 0.24); }
+
+.zone-member-form .input-group-addon > i {
+  color: #fff; }
+
+.zone-member-form .control-label {
+  color: #fff; }

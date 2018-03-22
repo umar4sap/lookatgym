@@ -58,6 +58,8 @@
 				parent:"dashboard"
 				
 			})
+			
+			
 			.state('newzonemobo', {
 				url: '/newzonemobo',
 				templateUrl: 'components/newzone/newzone.component.mobo.html',
@@ -122,8 +124,8 @@
 				url: '/trainers',
 				views: {
                     "main": {
-				controller: 'trainersController',
-				templateUrl: 'components/trainers/trainers.component.html',
+				controller: 'zonetrainersController',
+				templateUrl: 'components/zone-trainers/zone-trainer.component.mobo.html',
 				controllerAs: 'vm',
 
 					}

@@ -1,0 +1,80 @@
+<div class="row">
+    <div class="container">
+        <div class="col-md-6 col-sm-5 col-xs-10">
+            <div class="creation-from">
+                 
+                <form >
+                        <div class="form-group">
+                                <div class="badge-logo" flow-init flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-files-submitted="$flow.upload()"
+                                    flow-file-success="fileAdded( $file, $message, $flow )">
+                                    <div>
+                                        <div class="thumbnail" ng-hide="$flow.files.length" style="width:200px;height:200px">
+                                            <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" />
+                                        </div>
+                                        <div class="thumbnail" ng-show="$flow.files.length" style="width:200px;height:200px">
+                                            <img flow-img="$flow.files[0]" />
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-primary" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Select image</button>
+                                            <button class="btn" ng-show="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Change</button>
+                                            <button class="btn btn-danger" ng-show="$flow.files.length" ng-click="$flow.cancel()">
+                                                Remove
+                                            </button>
+                                        </div>
+                                        <p>
+                                            Upload trainer Image.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                    <div class="form-group">
+                        
+                        <input type="text" class="form-control" id="trainer-name" placeholder="Trainer name" name="trainer-name" ng-model="trainerData.name" required>
+                    </div>
+                    <div class="form-group">
+  
+                        <input type="text" class="form-control" id="trainer-deuration" placeholder="Deparment" name="trainer-deuration"
+                            ng-model="trainerData.deparment" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Zone</label>
+                        <select class="form-control" required id="sel1" ng-model="trainerData.zoneInfo">
+
+                            <option ng-repeat="zone in vm.zones" value='{"zoneId":"{{zone.zoneId}}","zoneName":"{{zone.zoneName}}"}'>{{zone.zoneName}}</option>
+
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                       
+                        <input type="text" class="form-control" id="about-trainer" placeholder="About trainer" name="about-trainer" ng-model="trainerData.description" required>
+                    </div>
+                    <div class="form-group">
+                            <label ><b>Optional details</b></label>
+                    </br>
+                        <label for="deuration">Joining date</label>
+                        <input type="date" class="form-control" id="trainer-offer" placeholder="%90$" name="trainer-offer" ng-model="trainerData.joiningDate">
+                    </div>
+                    <div class="form-group">
+                        
+                        <input type="number" class="form-control" id="trainer-price" placeholder="trainer monthly salary" name="trainer-price" ng-model="trainerData.monthlySalary">
+                    </div>
+                    <div class="form-group">
+                        <label for="deuration">payout date</label>
+                        <input type="date" class="form-control" id="trainer-offer" placeholder="" name="trainer-offer" ng-model="trainerData.payoutDate">
+                    </div>
+
+
+                    <div class="create-trainer-button">
+                        <button type="submit" class="btn btn-danger" ng-click="vm.cancel()">Cancel</button>
+                        <button type="submit" class="btn btn-primary" ng-click="vm.createTrainer(trainerData)">Create trainer</button>
+                    </div>
+
+                </form>
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row form -->

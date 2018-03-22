@@ -1,0 +1,106 @@
+.creation-from{
+   // margin-top:20px;
+}
+
+.creation-from>form>.form-group>label{
+    margin-top:10px;
+}
+
+.create-plan-button>button{
+background-color: #0DC8B4;
+padding:5px;
+color:#fff;
+border:none;
+border-radius: 15px;
+padding-left:10px;
+padding-right:10px;
+}
+
+.create-plan-button>button:hover{
+    background-color: #0DC8B4;
+   
+    color:#000;
+    border:none;
+    }
+
+    .cancel-plan-button>button{
+        background-color: orange;
+        padding:5px;
+        color:#fff;
+        border:none;
+        border-radius: 15px;
+        padding-left:10px;
+padding-right:10px;
+        }
+        
+        .cancel-plan-button>button:hover{
+            background-color: orange;
+           
+            color:#000;
+            border:none;
+            }
+
+/*tiles*/
+
+.badges-content{
+    margin-top:20px;
+}
+
+.tile-one{
+    border:1px solid #0DC8B4;
+    height: 340px;
+    border-radius: 10px;
+    margin-top:20px;
+    
+}
+
+.badges-tiles .col-md-3>.tile-one>p{
+    opacity: 0.5;
+    color: rgb(60, 209, 194);
+    
+}
+
+.optional-vertical-icon>button{
+    background: none;
+    border: none;
+    opacity: 0.5;
+
+}
+.optional-vertical-icon>button>.glyphicon-option-vertical{
+    font-size: 20px;
+
+}
+
+.badge-tile-img{
+    height: auto;
+}
+
+.tile-one .text-center>a{
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(28, 73, 110);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
