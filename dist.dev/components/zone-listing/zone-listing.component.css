@@ -3,7 +3,7 @@
   padding: 0px; }
 
 .ribbon {
-  background: whitesmoke;
+  background: #202122;
   height: 50px;
   width: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
@@ -20,10 +20,10 @@
 
 .logo {
   position: relative;
-  top: 10px;
+  top: 5px;
   left: 153px;
-  height: 70px;
-  width: 70px; }
+  height: 150px;
+  width: 160px; }
 
 .logo2 {
   position: relative;
@@ -80,7 +80,7 @@
   font-weight: 400; }
 
 .zone-top-filter {
-  background-image: url("../../images/thumb.png");
+  background-image: url("../../images/thumb1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -109,8 +109,9 @@
 .filter-rating-heading > h4 {
   color: #efefef; }
 
-.filter-class-status {
-  margin-top: 102px; }
+.filters {
+  background: #202122;
+  margin-top: 10px; }
 
 .zone-filter-content {
   margin-top: 111px; }
