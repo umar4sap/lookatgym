@@ -3,7 +3,7 @@
             <div class=" pull-right" style="margin-top:2%;" >
             <button ng-click="vm.viewType('list')" style="border:none;background:none;"><i class="fas fa-list-ul" style="font-size:20px" ></i></button>
             <button ng-click="vm.viewType('grid')" style="border:none;background:none;"><i class="fas fa-th-large" style="font-size:20px" ></i></button>
-            <md-button class="md-primary md-fab md-fab-bottom-right" style="width:50px;height:50px;font-size:12px;font-weight:600;text-align:center">
+            <md-button ng-click="vm.open('lg')" class="md-primary md-fab md-fab-bottom-right" style="width:50px;height:50px;font-size:12px;font-weight:600;text-align:center">
                     <span> New</span>
                    </md-button>
             </div>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="user-details-card-footer">
                     <div class="user-details-card-buttons btn-group ">
-                        <button class="btn btn-info"> View </button>
+                        <button ng-click="vm.view('lg')" class="btn btn-info"> View </button>
                         <button class="btn btn-danger"> Delete </Button>
                     </div>
                 </div>
@@ -76,41 +76,10 @@
                         </div>
                         <div class="user-details-card-footer">
                                 <div class="user-details-card-buttons btn-group ">
-                                    <button class="btn btn-info"> View </button>
+                                    <button ng-click="vm.view('lg')"  class="btn btn-info"> View </button>
                                     <button class="btn btn-danger"> Delete </Button>
                                 </div>
                             </div>
-                    </md-list-item>
-                    <md-list-item class="md-3-line" ng-click="null">
-                            <img ng-src="images/user.png" class="md-avatar" alt="member" />
-                            <div class="md-list-item-text" layout="column">
-                                <h3>Mr.lala</h3>
-                                <h4>Umars Empire</h4>
-                                <p>He has three years of exp</p>
-                                
-                            </div>
-                            <div class="user-details-card-footer">
-                                    <div class="user-details-card-buttons btn-group ">
-                                        <button class="btn btn-info"> View </button>
-                                        <button class="btn btn-danger"> Delete </Button>
-                                    </div>
-                                </div>
-                    </md-list-item>
-                    <md-list-item class="md-3-line" ng-click="null">
-                            <img ng-src="images/user.png" class="md-avatar" alt="member" />
-                            <div class="md-list-item-text" layout="column">
-                                <h3>Mr.junaid</h3>
-                                <h4>Umars Empire</h4>
-                                <p>He has three years of exp</p>
-                                
-                            </div>
-                            <div class="user-details-card-footer">
-                                    <div class="user-details-card-buttons btn-group row">
-
-                                        <button class="btn btn-xsm btn-info"> View </button>
-                                        <button class="btn btn-xsm btn-danger"> Delete </Button>
-                                    </div>
-                                </div>
                     </md-list-item>
                 </md-list>
             </md-content>

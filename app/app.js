@@ -58,6 +58,8 @@
 				parent:"dashboard"
 				
 			})
+			
+			
 			.state('newzonemobo', {
 				url: '/newzonemobo',
 				templateUrl: 'components/newzone/newzone.component.mobo.html',
