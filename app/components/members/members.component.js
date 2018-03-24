@@ -25,10 +25,37 @@
                 vm.cancel = function () {
                   $uibModalInstance.dismiss('cancel');
                 };
+                
+                vm.loadPlans=function(data){
+                    debugger
+                    var stringdata=data;
+                    debugger;
+                    var zoneInfo=JSON.parse(stringdata)
+                    $scope.zoneId=zoneInfo.zoneId;
+                    zoneService.getPlansForZone($scope.zoneId,function(res){
+                        debugger;
+                           vm.plansData=res.data.data; 
+                           console.log(vm.plansData);
+                })
+                }
+                vm.seletedPlan=[];
+                vm.addplan=function(plan,value){
+                    debugger;
+                    $scope.repeatOnList = $filter('filter')(vm.seletedPlan, "plan");
+                     if(value== "nop")  {
 
+                     }else{
+                        vm.seletedPlan.push(plan);
+                        console.log("added plan"+vm.seletedPlan)
+                     }
+                }
                 vm.getOwnersZones=function(){
+                    debugger;
+                    vm.inprogress=true;
                     zoneService.getOwnersZones(function(response){
                         vm.zones=response.data.data
+                        vm.inprogress=false;
+                        console.log(vm.zones)
                     })
                 }
                 vm.getOwnersZones();

@@ -1,0 +1,492 @@
+
+
+    <div class="preloader">
+    </div>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                    <div class="header__left">
+                            <div class="logo">
+                                    
+                                </div>
+                           <img class="img img-responsive " style="width:250px;height:100px; margin-top:10px;" alt="zone-logo" src="/images/clubs.png"></a>
+                           
+                            
+                        </div>
+                <div class="header__right">
+                    <nav class="header__nav">
+                        <a class="header__nav-link header__nav-link--cabinet" href="#" target="_blank">Look At Gym</a>
+                        <a class="header__nav-link" href="#">Register Zone</a>
+                        <a class="header__nav-link header__nav-link--inter" href="#" id="headerCalc">Pricing</a>
+                        <a class="header__nav-link" href="#"
+                            target="_blank" id="headerPaper">Fitness center Management software</a>
+                        <a class="header__nav-link header__nav-link--inter" href="#">How it works?</a>
+                        <a class="header__nav-link header__nav-link--inter" href="#">FAQ</a>
+                    </nav>
+                    <div class="header__hamburger">
+                        <div>
+                        </div>
+                        <div>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </header>
+    <div class="sidebar">
+        <div class="sidebar__socials">
+            <a class="sidebar__socials-item" href="#" target="_blank">
+                <svg class="sidebar__socials-item-icon sidebar__socials-item-icon--transp" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 64 64"
+                    aria-labelledby="title" aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path data-name="layer1" d="M60.448 15.109a24.276 24.276 0 0 1-3.288.968.5.5 0 0 1-.451-.853 15.146 15.146 0 0 0 3.119-4.263.5.5 0 0 0-.677-.662 18.6 18.6 0 0 1-6.527 2.071 12.92 12.92 0 0 0-9-3.75A12.363 12.363 0 0 0 31.25 20.994a12.727 12.727 0 0 0 .281 2.719c-9.048-.274-19.61-4.647-25.781-12.249a.5.5 0 0 0-.83.073 12.475 12.475 0 0 0 2.956 14.79.5.5 0 0 1-.344.887 7.749 7.749 0 0 1-3.1-.8.5.5 0 0 0-.725.477 11.653 11.653 0 0 0 7.979 10.567.5.5 0 0 1-.09.964 12.567 12.567 0 0 1-2.834 0 .506.506 0 0 0-.536.635c.849 3.282 5.092 7.125 9.839 7.652a.5.5 0 0 1 .267.87 20.943 20.943 0 0 1-14 4.577.5.5 0 0 0-.255.942 37.29 37.29 0 0 0 17.33 4.266 34.5 34.5 0 0 0 34.687-36.182v-.469a21.11 21.11 0 0 0 4.934-4.839.5.5 0 0 0-.58-.765z"
+                        fill="none" stroke="#ffffff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="miter"></path>
+                </svg>
+            </a>
+            <a class="sidebar__socials-item" href="#" target="_blank">
+                <svg class="sidebar__socials-item-icon sidebar__socials-item-icon--transp" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 64 64"
+                    aria-labelledby="title" aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path data-name="layer1" d="M39.312 13.437H47V2h-9.094C26.938 2.469 24.688 8.656 24.5 15.125v5.719H17V32h7.5v30h11.25V32h9.281l1.781-11.156H35.75v-3.469a3.714 3.714 0 0 1 3.562-3.938z"
+                        fill="none" stroke="#ffffff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="miter"></path>
+                </svg>
+            </a>
+           
+        </div>
+    </div>
+
+    <section class="intro" id="intro">
+        <div class="intro__cloud" style="background-image:url(/assets/img/cloud4.png)" data-paroller-type="foreground" data-paroller-factor="0.4">
+        </div>
+        <div class="intro__cloud intro__cloud--second" style="background-image:url(assets/img/cloud6.png)" data-paroller-type="foreground"
+            data-paroller-factor="0.5">
+        </div>
+        <div class="container">
+            <div class="intro__inner">
+                <div class="intro__left">
+                    <h3 class="title title--sm">Zone Fitness
+                    </h3>
+                    <p class="intro__subtitle">Find yours Fitness center get trail and join.
+                        <br>Details is a clear picture
+                    </p>
+                    <div class="intro__btns">
+                        <div class="intro__btns-item">
+                            <a class="btn btn--accent startico-register" ui-sref="zonelisting"
+                                target="_blank" id="introInvest">Look At Gym</a>
+                        </div>
+                        <div class="intro__btns-item">
+                            <a class="btn btn-slide" style="text-align:center;" ng-click="vm.authService.login()" id="introCalc">Regiter My Gym / Fitness Center</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="intro__right">
+                    <div class="status">
+                        <div class="status__sum">
+                            <span class="status__money">Start Registering  </span>
+                            <p class="status__money" id="curInvest">
+                            </p>
+                        </div>
+                        <div class="status__progress">
+                            <div class="">
+                                    <small><em>Object (changes type based on value)</em></small>
+                                    <uib-progressbar class="progress-striped active" max="200" value="166" type="warning"><i>166000 / 200000</i></uib-progressbar>
+                            </div>
+                            <span class="status__progress-max">Registered Zone</span>
+                        </div>
+                        <div class="status__crypto">
+                            <div class="status__crypto-item">
+                                <p class="status__crypto-item-name">Fitness centers
+                                </p>
+                                <img class="status__crypto-item-logo" src="/images/clubs.jpg" />
+                            </div>
+                            <div class="status__crypto-item">
+                                <p class="status__crypto-item-name">Personal/ Private Trainer
+                                        
+                                </p>
+                                <p class="status__crypto-item-name">Coming soon!
+                                    </p>
+                               
+                                  
+                            </div>
+                        </div>
+                        <p class="status__text">
+                            <span id="bonus"></span>
+                            <span>100 %</span> Free registration will over in: 31 June 2018
+                        </p>
+                       
+                    </div>
+                </div>
+                <div class="intro__rating">
+                    <a class="intro__rating-item" href="" target="_blank">
+                        <img src="assets/img/ir-foundico.png" alt="" role="presentation" />
+                    </a>
+                    <a class="intro__rating-item" href="https://www.trackico.io/ico/ice-rock-Fitness /" target="_blank">
+                        <img src="assets/img/ir-track.png" alt="" role="presentation" />
+                    </a>
+                    <a class="intro__rating-item" href="https://icomarks.com/ico/ice-rock-Fitness " target="_blank">
+                        <img src="assets/img/ir-marks.png" alt="" role="presentation" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="what">
+        <div class="container">
+            <div class="what__title">LOOK AT GYM
+            </div>
+            <div class="what__inner">
+                <p class="what__subtitle">Learn more about us
+                </p>
+                <div class="what__socials">
+                    <a class="what__socials-item" href="# " target="_blank">
+                        <svg class="what__socials-item-icon what__socials-item-icon--transp" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 64 64"
+                            aria-labelledby="title" aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path data-name="layer1" d="M60.448 15.109a24.276 24.276 0 0 1-3.288.968.5.5 0 0 1-.451-.853 15.146 15.146 0 0 0 3.119-4.263.5.5 0 0 0-.677-.662 18.6 18.6 0 0 1-6.527 2.071 12.92 12.92 0 0 0-9-3.75A12.363 12.363 0 0 0 31.25 20.994a12.727 12.727 0 0 0 .281 2.719c-9.048-.274-19.61-4.647-25.781-12.249a.5.5 0 0 0-.83.073 12.475 12.475 0 0 0 2.956 14.79.5.5 0 0 1-.344.887 7.749 7.749 0 0 1-3.1-.8.5.5 0 0 0-.725.477 11.653 11.653 0 0 0 7.979 10.567.5.5 0 0 1-.09.964 12.567 12.567 0 0 1-2.834 0 .506.506 0 0 0-.536.635c.849 3.282 5.092 7.125 9.839 7.652a.5.5 0 0 1 .267.87 20.943 20.943 0 0 1-14 4.577.5.5 0 0 0-.255.942 37.29 37.29 0 0 0 17.33 4.266 34.5 34.5 0 0 0 34.687-36.182v-.469a21.11 21.11 0 0 0 4.934-4.839.5.5 0 0 0-.58-.765z"
+                                fill="none" stroke="#ffffff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="miter"></path>
+                        </svg>
+                    </a>
+                    <a class="what__socials-item" href="#" target="_blank">
+                        <svg class="what__socials-item-icon what__socials-item-icon--transp" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 64 64"
+                            aria-labelledby="title" aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path data-name="layer1" d="M39.312 13.437H47V2h-9.094C26.938 2.469 24.688 8.656 24.5 15.125v5.719H17V32h7.5v30h11.25V32h9.281l1.781-11.156H35.75v-3.469a3.714 3.714 0 0 1 3.562-3.938z"
+                                fill="none" stroke="#ffffff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="miter"></path>
+                        </svg>
+                    </a>
+                    
+                    
+                </div>
+                <div class="what__video" id="about">
+                    <h3 class="title">Why Zone Fitness is the future of Fitness centers?
+                    </h3>
+                    <p>We work with you to find your fitness center at your city with detailed facilities by that you could have better picture before you join. We are here to educate you and keep you on track to being as fit and healthy as possible. At zone Fitness, you receive effective personal training through one-on-one, semi-private or from your fitness center. Our main goal is to focus 100% on you and your health!</p>
+                    <div class="what__video-container">
+                        <iframe class="what__video-item" src="https://www.youtube.com/embed/tmAiGvdRqG8" frameborder="0" allowfullscreen="allowfullscreen">
+                        </iframe>
+                        <iframe class="what__video-item" src="https://www.youtube.com/embed/tmAiGvdRqG8" frameborder="0" allowfullscreen="allowfullscreen">
+                        </iframe>
+                        <iframe class="what__video-item" src="https://www.youtube.com/embed/tmAiGvdRqG8" frameborder="0" allowfullscreen="allowfullscreen">
+                        </iframe>
+                    </div>
+                    <a class="btn btn--light" href="#"
+                        target="_blank" id="whatVideos">More videos</a>
+                       
+                </div>
+                <div class="what__desc">
+                    <h3 class="title">What is Zone fitness?
+                    </h3>
+                    <div class="what__desc-nav">
+                        <p class="what__desc-nav-item">Look at gym
+                        </p>
+                        <p class="what__desc-nav-item">How it works
+                        </p>
+                        <p class="what__desc-nav-item">Fitness center Management Tool
+                        </p>
+                        <p class="what__desc-nav-item">CMS Features
+                        </p>
+                        <p class="what__desc-nav-item">Health tracking
+                        </p>
+                    </div>
+                    <div class="what__desc-inner">
+                        <div class="what__desc-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        </div>
+                        <div class="what__desc-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        </div>
+                        <div class="what__desc-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        </div>
+                        <div class="what__desc-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        </div>
+                        <div class="what__desc-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        </div>
+                        <div class="what__desc-text">&#8226; Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            <br>&#8226;Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            <br>&#8226; Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            in price.
+                            <br>&#8226; Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            <br>&#8226; Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        </div>
+                        <img class="what__desc-img" src="assets/img/desc.png" alt="" role="presentation" />
+                        <img class="what__desc-img" src="assets/img/desc2.jpg" alt="" role="presentation" />
+                        <img class="what__desc-img" src="assets/img/desc3.png" alt="" role="presentation" />
+                        <img class="what__desc-img" src="assets/img/desc4.JPG" alt="" role="presentation" />
+                        <img class="what__desc-img" src="assets/img/desc5.jpg" alt="" role="presentation" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="what__img-bt" style="background-image:url(assets/img/what-bottom.jpg)">
+        </div>
+    </section>
+    <!-- pricing summary -->
+    <section class="advantages" id="advantages">
+        <div class="advantages__cloud" style="background-image:url(assets/img/cloud-adv.png)" data-paroller-type="foreground" data-paroller-factor="0.2">
+        </div>
+        <div class="container">
+            <h3 class="title title--cloud">Advantages For zone owners
+            </h3>
+            <div class="advantages__inner">
+                <div class="advantages__item">
+                    <svg class="advantages__item-icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 64 64" aria-labelledby="title" aria-describedby="desc"
+                        role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path data-name="layer2" fill="none" stroke="#eb3349" stroke-miterlimit="10" stroke-width="2" d="M23.4 3.4L32 12l8.6-8.6M23.4 60.6L32 52l8.6 8.6m-37.2-20L12 32l-8.6-8.6m57.2 17.2L52 32l8.6-8.6M5.8 18H18V5.8m28 52.4V46h12.2M18 58.2V46H5.8m52.4-28H46V5.8"
+                            stroke-linejoin="miter" stroke-linecap="butt"></path>
+                        <path data-name="layer1" fill="none" stroke="#f45c43" stroke-miterlimit="10" stroke-width="2" d="M2 32h60M32 2v60M10.8 10.8l42.4 42.4m0-42.4L10.8 53.2"
+                            stroke-linejoin="miter" stroke-linecap="butt"></path>
+                    </svg>
+                    <p class="advantages__item-title">Gym/Fitness Center management
+                    </p>
+                    <p class="advantages__item-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </p>
+                </div>
+                <div class="advantages__item">
+                    <svg class="advantages__item-icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 64 64" aria-labelledby="title" aria-describedby="desc"
+                        role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path data-name="layer2" fill="none" stroke="#eb3349" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="2" d="M36 46v8h-8v-8m4 8.1V62"></path>
+                        <path data-name="layer1" d="M46 18v18a10 10 0 0 1-10 10h-8a10 10 0 0 1-10-10V18m-4 0h36m-26 0V2m16 16V2" fill="none" stroke="#f45c43"
+                            stroke-linecap="butt" stroke-linejoin="miter" stroke-width="2"></path>
+                    </svg>
+                    <p class="advantages__item-title">One on One chat for diet planner 
+                    </p>
+                    <p class="advantages__item-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </p>
+                </div>
+                <div class="advantages__item">
+                    <svg class="advantages__item-icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 64 64" aria-labelledby="title" aria-describedby="desc"
+                        role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path data-name="layer2" fill="none" stroke="#eb3349" stroke-miterlimit="10" stroke-width="2" d="M34 56H2V2h24l16 16v16"
+                            stroke-linejoin="miter" stroke-linecap="round"></path>
+                        <path data-name="layer2" fill="none" stroke="#eb3349" stroke-miterlimit="10" stroke-width="2" d="M26 2v16h16" stroke-linejoin="miter"
+                            stroke-linecap="round"></path>
+                        <path data-name="layer1" fill="none" stroke="#f45c43" stroke-miterlimit="10" stroke-width="2" d="M30 46l16-16 16 16" stroke-linejoin="miter"
+                            stroke-linecap="round"></path>
+                        <path data-name="layer1" fill="none" stroke="#f45c43" stroke-miterlimit="10" stroke-width="2" d="M34 42v20h24V42" stroke-linejoin="miter"
+                            stroke-linecap="round"></path>
+                        <path data-name="layer1" fill="none" stroke="#f45c43" stroke-miterlimit="10" stroke-width="2" d="M42 62V50h8" stroke-linejoin="miter"
+                            stroke-linecap="round"></path>
+                    </svg>
+                    <p class="advantages__item-title">Member can get free trail for one day at selected center
+                    </p>
+                    <p class="advantages__item-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </p>
+                </div>
+                <div class="advantages__item">
+                    <svg class="advantages__item-icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 64 64" aria-labelledby="title" aria-describedby="desc"
+                        role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path data-name="layer2" fill="none" stroke="#eb3349" stroke-miterlimit="10" stroke-width="2" d="M28 8H8v54h48V8H36" stroke-linejoin="miter"
+                            stroke-linecap="round"></path>
+                        <path data-name="layer1" fill="none" stroke="#f45c43" stroke-miterlimit="10" stroke-width="2" d="M28 2h8v10h-8z" stroke-linejoin="miter"
+                            stroke-linecap="round"></path>
+                        <path data-name="layer2" fill="none" stroke="#eb3349" stroke-miterlimit="10" stroke-width="2" d="M44 48H20m16 8H20" stroke-linejoin="miter"
+                            stroke-linecap="round"></path>
+                        <circle data-name="layer1" cx="32" cy="25" r="6" fill="none" stroke="#f45c43" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="miter"
+                            stroke-linecap="round"></circle>
+                        <path data-name="layer1" d="M42 41a10 10 0 1 0-20 0z" fill="none" stroke="#f45c43" stroke-miterlimit="10" stroke-width="2"
+                            stroke-linejoin="miter" stroke-linecap="round"></path>
+                    </svg>
+                    <p class="advantages__item-title">24/7 Support
+                    </p>
+                    <p class="advantages__item-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </p>
+                </div>
+                <div class="advantages__item">
+                    <svg class="advantages__item-icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 64 64" aria-labelledby="title" aria-describedby="desc"
+                        role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path data-name="layer1" fill="none" stroke="#f45c43" stroke-miterlimit="10" stroke-width="2" d="M46 2l10 2-.9 10M52 62V24h8v38"
+                            stroke-linejoin="miter" stroke-linecap="round"></path>
+                        <path data-name="layer2" fill="none" stroke="#eb3349" stroke-miterlimit="10" stroke-width="2" d="M36 62V34h8v28" stroke-linejoin="miter"
+                            stroke-linecap="round"></path>
+                        <path data-name="layer1" fill="none" stroke="#f45c43" stroke-miterlimit="10" stroke-width="2" d="M20 62V44h8v18" stroke-linejoin="miter"
+                            stroke-linecap="round"></path>
+                        <path data-name="layer2" fill="none" stroke="#eb3349" stroke-miterlimit="10" stroke-width="2" d="M4 62v-8h8v8" stroke-linejoin="miter"
+                            stroke-linecap="round"></path>
+                        <path data-name="layer1" fill="none" stroke="#f45c43" stroke-miterlimit="10" stroke-width="2" d="M62 62H2M56 4L8 42" stroke-linejoin="miter"
+                            stroke-linecap="round"></path>
+                    </svg>
+                    <p class="advantages__item-title">100% Free listing and advirtise Tool
+                    </p>
+                    <p class="advantages__item-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </p>
+                </div>
+                <div class="advantages__item">
+                    <svg class="advantages__item-icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 64 64" aria-labelledby="title" aria-describedby="desc"
+                        role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path data-name="layer2" d="M24 30h12a6.8 6.8 0 0 0 7-7 6.8 6.8 0 0 0-7-7H24v32h12.7c4.8 0 9.3-4.2 9.3-9s-5.2-9-10-9m-8-14v-4m6 4v-4m-6 40v-4m6 4v-4"
+                            fill="none" stroke="#eb3349" stroke-miterlimit="10" stroke-width="2" stroke-linejoin="miter" stroke-linecap="round"></path>
+                        <ellipse data-name="layer1" cx="32" cy="32" rx="30" ry="30" fill="none" stroke="#f45c43" stroke-miterlimit="10" stroke-width="2"
+                            stroke-linejoin="miter" stroke-linecap="round"></ellipse>
+                    </svg>
+                    <p class="advantages__item-title">An opportunity to have huge zone member by listing
+                    </p>
+                    <p class="advantages__item-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+   <!-- calculator delete -->
+    <!-- delete bonuses -->
+    <!-- ICO Details delete -->
+    <!-- our team delete -->
+    <!-- investment -->
+    <!-- Roadmap delete -->
+    <!-- Partners delete -->
+    <section class="faq" id="faq">
+        <div class="faq__cloud" style="background-image:url(assets/img/cloud2.png)" data-paroller-type="foreground" data-paroller-factor="0.2">
+        </div>
+        <div class="faq__cloud faq__cloud--second" style="background-image:url(assets/img/cloud3.png)" data-paroller-type="foreground"
+            data-paroller-factor="0.4">
+        </div>
+        <div class="container">
+            <h3 class="title">FAQS
+            </h3>
+            <div class="faq__inner">
+                   
+                <div class="faq__item" >
+                    <p class="faq__item-question">How I can Register my Gym/Fitness center on lookatgym?
+                    </p>
+                    <p class="faq__item-answer">Register gym/fitness center gives the login page for gym owner to register                     </p>
+                </div>
+                <div class="faq__item">
+                    <p class="faq__item-question">What is pricing to get register my gym on your website?
+                    </p>
+                    <p class="faq__item-answer">We do have free registration offer for the owner to get register their fitness center till november 2018.  
+                    </p>
+                </div>
+                <div class="faq__item">
+                    <p class="faq__item-question">Can I get support while registring my gym information?
+                    </p>
+                    <p class="faq__item-answer">Yes, We do have support team to have better clarity about regsitration and you can watch out this video too
+                        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b8dcd1d9cb96d3cdcad5d9d6d7cef8dfd5d9d1d496dbd7d596">[email&#160;protected]</a> We are opened for collaboration.
+                    </p>
+                </div>
+                <div class="faq__item">
+                    <p class="faq__item-question">What is the fee to regiter my fitness center?
+                    </p>
+                    <p class="faq__item-answer">Its free for now, Sir
+                    </p>
+                </div>
+                <div class="faq__item">
+                    <p class="faq__item-question">Do you have a software to manage the gym operations?
+                    </p>
+                    <p class="faq__item-answer">Yes, We do have a gym managment software you can find more info with this video "link".
+                    </p>
+                </div>
+                <div class="faq__item">
+                    <p class="faq__item-question">Gym management is free of cost or do you have any pricing for that?
+                    </p>
+                    <p class="faq__item-answer"> Yes sir, We do have pricing for it, Because to run this software for each zone and center we do required robust and virtual cloud envirnoment to serve better services.
+                    </p>
+                </div>
+             
+            </div>
+            <img class="faq__img" src="assets/img/faq.png" alt="" role="presentation" />
+        </div>
+    </section>
+    <section class="contact">
+        <h3 class="contact__title">Stay in touch
+        </h3>
+        <h3 class="title title--center">Subscribe
+        </h3>
+        <div class="container">
+            <form class="contact__form" id="mainForm">
+                <label class="contact__form-item">
+                    <input class="input" placeholder="E-mail" name="email" type="email" />
+                </label>
+                <button class="btn btn--small btn--light btn--center" id="contactFormBtn">Subscribe
+                </button>
+            </form>
+        </div>
+        <div class="contact__img" style="background-image:url(assets/img/contact-bg.jpg)">
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__block footer__block--logo">
+                    <img class="footer__logo" src="assets/img/logo.png" alt="" role="presentation" />
+                    <p class="footer__text">Zone Fitness
+                    </p>
+                </div>
+                <div class="footer__block">
+                    <p class="footer__title">Contacts
+                    </p>
+                    <div class="footer__contact">
+                        <svg class="footer__contact-icon footer__contact-icon--mail" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 64 64" aria-labelledby="title"
+                            aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path data-name="layer2" fill="none" stroke="#ffffff" stroke-miterlimit="10" stroke-width="2" d="M2 12l30 29 30-29M42 31.6L62 52M2 52l20-20.4"
+                                stroke-linejoin="miter" stroke-linecap="round"> </path>
+                            <path data-name="layer1" fill="none" stroke="#ffffff" stroke-miterlimit="10" stroke-width="2" d="M2 12h60v40H2z" stroke-linejoin="miter"
+                                stroke-linecap="round"></path>
+                        </svg>
+                        <a class="footer__contact-text" href="">
+                            <span class="__cf_email__" data-cfemail="7704020707180503371e14120518141c1a1e191e1910591e18">[email&#160;protected]</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__block footer__block--socials">
+                    <p class="footer__title">Find us
+                    </p>
+                    <div class="footer__socials">
+                        <a class="footer__socials-item" href="#" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 64 64" aria-labelledby="title" aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <path data-name="layer1" d="M60.448 15.109a24.276 24.276 0 0 1-3.288.968.5.5 0 0 1-.451-.853 15.146 15.146 0 0 0 3.119-4.263.5.5 0 0 0-.677-.662 18.6 18.6 0 0 1-6.527 2.071 12.92 12.92 0 0 0-9-3.75A12.363 12.363 0 0 0 31.25 20.994a12.727 12.727 0 0 0 .281 2.719c-9.048-.274-19.61-4.647-25.781-12.249a.5.5 0 0 0-.83.073 12.475 12.475 0 0 0 2.956 14.79.5.5 0 0 1-.344.887 7.749 7.749 0 0 1-3.1-.8.5.5 0 0 0-.725.477 11.653 11.653 0 0 0 7.979 10.567.5.5 0 0 1-.09.964 12.567 12.567 0 0 1-2.834 0 .506.506 0 0 0-.536.635c.849 3.282 5.092 7.125 9.839 7.652a.5.5 0 0 1 .267.87 20.943 20.943 0 0 1-14 4.577.5.5 0 0 0-.255.942 37.29 37.29 0 0 0 17.33 4.266 34.5 34.5 0 0 0 34.687-36.182v-.469a21.11 21.11 0 0 0 4.934-4.839.5.5 0 0 0-.58-.765z"
+                                    fill="none" stroke="#ffffff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
+                                    stroke-linejoin="miter"></path>
+                            </svg>
+                        </a>
+                        <a class="footer__socials-item" href="#" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 64 64" aria-labelledby="title" aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <path data-name="layer1" d="M39.312 13.437H47V2h-9.094C26.938 2.469 24.688 8.656 24.5 15.125v5.719H17V32h7.5v30h11.25V32h9.281l1.781-11.156H35.75v-3.469a3.714 3.714 0 0 1 3.562-3.938z"
+                                    fill="none" stroke="#ffffff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
+                                    stroke-linejoin="miter"></path>
+                            </svg>
+                        </a>
+                       
+                    </div>
+                </div>
+                <div class="footer__block footer__block--white">
+                    <a class="footer__title" href="#"
+                        target="_blank">Follow us on twitter</a>
+                    <div class="footer__rights">
+                        <p>© 2018 Lookatgym
+                        </p>
+                        <p>United Arab Emirates.
+                        </p>
+                        <p>All rights reserved.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+   
+
+    
+ 
+   
+   
+   
+   
+  
+    <script> 
+    
+    
+    
+    function hidePreloader() { 
+        //faqs
+        $(".faq__item-question").click(function () {
+            $(this).toggleClass("faq__item-question--active"),
+            $(this).siblings(".faq__item-answer").slideToggle()
+        })
+//faqs end
+        //header
+
+        let e = $(".header"), a = e.outerHeight();
+        $(window).scroll(function () { e.offset().top > a ? e.addClass("header--scrolled") : e.removeClass("header--scrolled") }), $(".header__hamburger").click(function () {
+            $(this).toggleClass("header__hamburger--active"), $(".header__nav").toggleClass("header__nav--active")
+        }), $(".header__lang").click(function () { $(".header__lang-items").slideToggle("fast") })
+
+        //header end
+        $('.preloader').delay(350).fadeOut('slow'); } window.onload = hidePreloader();</script>
+
+

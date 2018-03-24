@@ -1,7 +1,5 @@
-<div id="page-wrapper" ng-controller="ProjectsController">
-    <div ng-controller="ToolbarController">
-        <toolbar></toolbar>
-    </div>
+<div id="page-wrapper" >
+  
     <div id="content-wrapper" layout="row">
         <sidemenu id="sidebar-wrapper" layout="column"></sidemenu>
         <md-content class="main-container outletContainer" layout-padding>
@@ -12,32 +10,32 @@
                         <span class="md-subhead">List of all created projects with status</span>
                     </div>
                     <div>
-                        <md-button class="md-fab" ng-click="go('/newProject')" aria-label="Add Project" layout="row" layout-align="center center">
+                        <md-button class="md-fab" ng-click="" aria-label="Add Project" layout="row" layout-align="center center">
                             <i class="material-icons">add</i>
                         </md-button>
                     </div>
                 </div>
                 <md-input-container class="md-block">
                     <label>Search</label>
-                    <input md-maxlength="50" md-no-asterisk name="description" ng-model="searchProject.projectName">
+                    <input md-maxlength="50" md-no-asterisk name="description" ng-model="">
                 </md-input-container>
-                <ci-spinner ng-if="!projectsLoaded"></ci-spinner>
+              
                 <div>
-                    <div class="record-strip projectCards" ng-repeat="project in ciproject | filter:searchProject:strict" ng-if="projectsLoaded" flex="15">
+                    <div class="record-strip projectCards"   flex="15">
                         <md-card layout="column" layout-align="space-between start" class="progress">
                             <md-card-header>
                                 <md-card-header-text>
                                     <h5>{{project.projectName}}</h5>
                                     <div layout="column">
-                                        <span class="md-subhead">Project ID:  {{project.projectID}} </span>
-                                        <span class="md-subhead">Repo: {{project.githubRepoName}}</span>
-                                        <span class="md-subhead">Branch: {{project.githubRepoBranch}}</span>
+                                        <span class="md-subhead">Project ID:  jalal</span>
+                                        <span class="md-subhead">Repo: alal</span>
+                                        <span class="md-subhead">Branch: amala</span>
                                     </div>
                                 </md-card-header-text>
                             </md-card-header>
                             <md-card-actions layout="row" layout-align="end center">
-                                <md-button ng-click="go('/editProject/'+project.projectID)"><i class="material-icons">edit</i></md-button>
-                                <md-button ng-click="deleteProject(project.projectID)"><i class="material-icons">delete_forever</i></md-button>
+                                <md-button ng-click=""><i class="material-icons">edit</i></md-button>
+                                <md-button ng-click=""><i class="material-icons">delete_forever</i></md-button>
                             </md-card-actions>
                         </md-card>
                     </div>

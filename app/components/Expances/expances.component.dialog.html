@@ -1,0 +1,58 @@
+
+       
+        
+                   
+                <div class="row" >
+                    <div class="container">
+                    <div class="col-md-6 col-sm-5 col-xs-10" >
+                        <div class="creation-from" >
+                            <form action="#">
+                                <div class="form-group">
+                                   
+                                    <input type="text" class="form-control" id="expances-name" placeholder="Expances For e.g Rent" name="expances-name" ng-model="planData.planName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="deuration">Date</label>
+                                    <input type="Date" class="form-control" id="expances-price" placeholder="Enter expances price" name="expances-price" ng-model="planData.planFee">
+                                </div>
+                                <div class="form-group">
+                                    <label for="text">Type</label>
+                                    <select class="form-control"   required id="sel1" ng-model="planData.type">
+                                        
+                                      
+                                        <option  value='w' >For Week</option>
+                                        <option  value='m' >For Month</option>
+                                        <option  value='y' >For Year</option>
+                                       
+                                </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="text">Zone</label>
+                                    <select class="form-control"   required id="sel1" ng-model="planData.zoneInfo">
+                                        
+                                        <option ng-repeat="zone in vm.zones" value='{"zoneId":"{{zone.zoneId}}","zoneName":"{{zone.zoneName}}"}' >{{zone.zoneName}}</option>
+                                       
+                                </select>
+                                </div>
+                                <div class="form-group">
+                                        
+                                        <input type="text" class="form-control" id="about-expances" placeholder="About expances" name="about-expances" ng-model="planData.aboutPlan">
+                                    </div>
+                                    <div class="form-group">
+                                       
+                                        <input type="number" class="form-control" id="expances-price" placeholder="expances Amount e.g 5000" name="expances-price" ng-model="planData.planFee">
+                                    </div>
+                                   
+                            </form>
+                            <div class="create-expances-button">
+                                 <button type="submit" class="btn btn-danger" ng-click="vm.cancel()">Cancel</button> <button type="submit" class="btn btn-primary" ng-click="vm.createPlan(planData)">Add expances</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!-- end row form -->
+           
+        

@@ -24,7 +24,7 @@
 		.state('login', {
 			url: '/',
                 controller: 'LoginController',
-                templateUrl: 'components/login/login.html',
+                templateUrl: 'components/website-zonepro/index.html',
                 controllerAs: 'vm'
             })
 			.state('dashboard', {
@@ -141,6 +141,22 @@
                     "main": {
 				controller: 'membersController',
 				templateUrl: 'components/members/members.component.html',
+				controllerAs: 'vm',
+					}
+				},
+				parent: 'dashboard'
+				
+				
+				
+			})
+
+			.state('expances', {
+				url: '/expances',
+				
+				views: {
+                    "main": {
+				controller: 'expancesController',
+				templateUrl: 'components/Expances/expances.component.html',
 				controllerAs: 'vm',
 					}
 				},

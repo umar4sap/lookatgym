@@ -20,13 +20,13 @@ function DashboardController($state,$scope, authService,zoneService, $location, 
 
     vm.getOwnersZones=function(){
         vm.inprogress=true;
-        setTimeout(function(){
+        
         zoneService.getOwnersZones(function(response){
             debugger
             vm.zones=response.data.data
             vm.inprogress=false;
         })
-        },3000)
+        
     }
     vm.getOwnersZones();
 

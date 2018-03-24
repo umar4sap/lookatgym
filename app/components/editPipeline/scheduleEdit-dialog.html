@@ -43,7 +43,8 @@
                         <div layout="row" flex-gt-xs ng-show="repeats === 'weekly'" layout-margin>
                             <label>Repeat On</label>
                             <span flex></span>
-                            <md-checkbox ng-repeat="week in weekList" name="{{week.value}}" ng-model="week.checked" ng-change="selectedWeeks()">
+                            <md-checkbox ng-repeat="week in weekList" name="{{week.value}}" ng-model="week.checked" ng-true-value="'yup'"
+                            ng-false-value="'nope'"  ng-change="selectedPlans()">
                                 <label for="{{week.value}}">{{week.option}}</label>
                                 <md-tooltip md-direction="top">{{week.value}}</md-tooltip>
                             </md-checkbox>

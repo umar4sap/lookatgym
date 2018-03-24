@@ -88,7 +88,7 @@ function zoneService($http) {
 			debugger;
 			var req = {
 				method: 'POST',
-				url: localhost+':9005/v2/components/trainer-service/zone/'+zoneId+'/trainers',
+				url: host+':9005/v2/components/trainer-service/zone/'+zoneId+'/trainers',
 				data: data,
 				headers: {
 					"Authorization":"Bearer "+localStorage.getItem('id_token'),
@@ -108,7 +108,7 @@ function zoneService($http) {
 
 			$http({
 				method: 'get',
-				url: localhost+':9005/v2/components/trainer-service/zone/trainers',
+				url: host+':9005/v2/components/trainer-service/zone/trainers',
 				headers: {
 					//'Authorization': localStorage.getItem("id_token"),
 					'Content-Type': 'application/json',
@@ -198,7 +198,7 @@ function zoneService($http) {
 			debugger;
 			$http({
 				method: 'GET',
-				url: localhost+':9005/v2/components/trainer-service/zone/'+trainerData.zoneId+'/trainers/'+trainerData.trainerId,
+				url: host+':9005/v2/components/trainer-service/zone/'+trainerData.zoneId+'/trainers/'+trainerData.trainerId,
 				headers: {
 					'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
 					'Content-Type': 'application/json',
