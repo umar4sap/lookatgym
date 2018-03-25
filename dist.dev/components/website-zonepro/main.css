@@ -479,6 +479,7 @@ b {
   top: 0;
   left: 0;
   width: 100%;
+  background: black;
   z-index: 100;
   -webkit-transition: all .3s;
   -o-transition: all .3s;
