@@ -3,6 +3,31 @@
 
         angular
             .module('zoneapp')
+            .controller('activeMembersController',function ($scope, $stateParams,zoneService){
+                var vm=this;
+                vm.list=true
+                vm.inprogress=true;
+                var zoneId = $stateParams.zoneId;
+                var status = $stateParams.status;
+                zoneService.getAllMembersForZone(zoneId,status,function(response){
+                    debugger;
+                    vm.activeMembers=response.data.data
+                    vm.inprogress=false;
+                    
+                })
+
+                vm.viewType=function(data){
+                    debugger;
+                    if(data=="list"){
+                        vm.list=true;
+                        vm.grid=false;
+                }else{
+                    vm.grid=true;
+                    vm.list=false;
+                }
+            }
+            })
+            
             .controller('ModalInstanceCtrlmembers', function ($uibModalInstance,memberData,$scope, $rootScope, authService, zoneService,$location, $http, $q, $mdDialog, moment, $filter,$uibModal, $log, $document) {
                 var vm = this;
                debugger;
@@ -155,19 +180,35 @@
             })
             .controller('membersController', membersController);
 
-            membersController.$inject = ['$scope','$uibModal', '$rootScope','$state','authService', '$location', '$http', '$q', '$mdDialog', 'moment', '$filter'];
+            membersController.$inject = ['$scope','zoneService','$uibModal', '$rootScope','$state','authService', '$location', '$http', '$q', '$mdDialog', 'moment', '$filter'];
 
-        function membersController($scope,$uibModal, $rootScope,$state,authService, $location, $http, $q, $mdDialog, moment, $filter) {
+        function membersController($scope,zoneService,$uibModal, $rootScope,$state,authService, $location, $http, $q, $mdDialog, moment, $filter) {
             var vm = this;
             var userProfile = localStorage.getItem('profile');
-    $scope.userProfile = JSON.parse(userProfile);
+            $scope.userProfile = JSON.parse(userProfile);
             vm.authService = authService;
             vm.go = function (path) {
                 $location.path(path);
 
                 
             };
+            vm.inprogress=true;
+            vm.getAllMembers=function(status){
+                debugger;
 
+                zoneService.getAllMembers(status,function(response){
+                    debugger;
+                    vm.avzones=response.data.data
+                    vm.inprogress=false;
+                })
+            }
+            vm.getAllMembers("inProgress");
+
+            vm.viewActiveMembers=function(path,zoneId,status){
+                debugger;
+                $state.go(path,{ 'zoneId': zoneId,"status":status});
+            }
+         
             vm.getMemberDetails=function (path,zoneId,memberId) {
                 debugger;
                 $state.go(path,{ 'zoneId': zoneId, 'memberId': memberId });

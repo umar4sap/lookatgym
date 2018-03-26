@@ -10,7 +10,7 @@
         function memberDetailsController($scope, $rootScope, authService, zoneService,$location, $http, $q, $mdDialog, moment, $filter,$stateParams) {
             var vm = this;
             var userProfile = localStorage.getItem('profile');
-    $scope.userProfile = JSON.parse(userProfile);
+             $scope.userProfile = JSON.parse(userProfile);
             vm.authService = authService;
             vm.go = function (path) {
                 $location.path(path);

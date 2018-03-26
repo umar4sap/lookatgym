@@ -4,7 +4,7 @@ angular
 
 
 zoneService.$inject = ['$http'];
-var host="http://159.65.15.180";
+var host= "http://159.65.15.180";
 var localhost="http://localhost"
 function zoneService($http) {
 	var obj = {};
@@ -147,6 +147,39 @@ function zoneService($http) {
 			$http({
 				method: 'get',
 				url: host+':9006/v2/components/plan-service/zone/plans',
+				headers: {
+					//'Authorization': localStorage.getItem("id_token"),
+					'Content-Type': 'application/json',
+					'Access-Control-Allow-Origin': "*",
+					'user_access':"true",
+					"Authorization":"Bearer "+localStorage.getItem('id_token')
+				}
+			}).then(function (response) {
+				var data = response
+				return cb(data);
+			});
+		},
+		getAllMembers: function (status,cb) {
+			$http({
+				method: 'get',
+				url: host+':9004/v2/components/zones-service/zones/members/status/'+status,
+				headers: {
+					//'Authorization': localStorage.getItem("id_token"),
+					'Content-Type': 'application/json',
+					'Access-Control-Allow-Origin': "*",
+					'user_access':"true",
+					"Authorization":"Bearer "+localStorage.getItem('id_token')
+				}
+			}).then(function (response) {
+				var data = response
+				return cb(data);
+			});
+		},
+
+		getAllMembersForZone: function (zoneId,status,cb) {
+			$http({
+				method: 'get',
+				url: host+':9004/v2/components/zones-service/zones/'+zoneId+'/members/status/'+status,
 				headers: {
 					//'Authorization': localStorage.getItem("id_token"),
 					'Content-Type': 'application/json',

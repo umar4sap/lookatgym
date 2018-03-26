@@ -18,9 +18,9 @@
                                             <img flow-img="$flow.files[0]" />
                                         </div>
                                         <div>
-                                            <button class="btn btn-primary" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Select image</button>
-                                            <button class="btn" ng-show="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Change</button>
-                                            <button class="btn btn-danger" ng-show="$flow.files.length" ng-click="$flow.cancel()">
+                                            <button class="btn btn-primary btn-sm" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Select image</button>
+                                           
+                                            <button class="btn btn-danger btn-sm" ng-show="$flow.files.length" ng-click="$flow.cancel()">
                                                 Remove
                                             </button>
                                         </div>
@@ -34,10 +34,12 @@
                         
                         <input type="text" class="form-control" id="member-name" placeholder="member name" name="member-name" ng-model="trainerData.name" required>
                     </div>
+
+                   
                     <div class="form-group">
-  
-                        <input type="text" class="form-control" id="member-deuration" placeholder="Deparment" name="member-deuration"
-                            ng-model="trainerData.deparment" required>
+                            <label for="text">Joining Date</label>
+                        <input type="date" class="form-control" id="member-deuration" placeholder="Deparment" name="member-deuration"
+                            ng-model="trainerData.memberStartDate" required>
                     </div>
                     <div class="form-group">
                         <label for="text">Zone</label>
@@ -60,7 +62,14 @@
                             </md-checkbox>
                            
                         </div>
-                 
+                        <div class="form-group">
+                        
+                                <input type="number" class="form-control" id="member-price" placeholder="Bill Amount" name="member-price" ng-model="trainerData.billAmount">
+                            </div>
+                        <div class="form-group">
+                                <label ><b>Class Time</b></label>
+                                <input type="time" class="form-control" id="member-price" placeholder="member monthly salary" name="member-price" ng-model="trainerData.shiftTiming">
+                            </div>
                     
                     <div class="form-group">
                        
@@ -69,17 +78,30 @@
                     <div class="form-group">
                             <label ><b>Optional details</b></label>
                     </br>
-                        <label for="deuration">Joining date</label>
-                        <input type="date" class="form-control" id="member-offer" placeholder="%90$" name="member-offer" ng-model="trainerData.joiningDate">
+                        <input type="text" class="form-control" id="member-offer" placeholder="City Name" name="member-offer" ng-model="trainerData.joiningDate">
                     </div>
                     <div class="form-group">
                         
-                        <input type="number" class="form-control" id="member-price" placeholder="member monthly salary" name="member-price" ng-model="trainerData.monthlySalary">
-                    </div>
+                            <input type="number" class="form-control" id="member-price" placeholder="Contact No. " name= "member-price" ng-model="trainerData.primaryContact">
+                        </div>
+                        <div class="form-group">
+                        
+                                <input type="text" class="form-control" id="member-price" placeholder="Email " name= "member-price" ng-model="trainerData.memberEmail">
+                            </div>
                     <div class="form-group">
-                        <label for="deuration">payout date</label>
-                        <input type="date" class="form-control" id="member-offer" placeholder="" name="member-offer" ng-model="trainerData.payoutDate">
+                        
+                        <input type="number" class="form-control" id="member-price" placeholder="member height" name="member-price" ng-model="trainerData.memberheight">
                     </div>
+
+                    <div class="form-group">
+                        
+                            <input type="number" class="form-control" id="member-price" placeholder="member Weight" name="member-price" ng-model="trainerData.memberWeight">
+                        </div>
+                    <div class="form-group">
+                        
+                            <input type="number" class="form-control" id="member-price" placeholder="Age" name="member-price" ng-model="trainerData.memberAge">
+                        </div>
+                   
 
 
                     <div class="create-member-button">

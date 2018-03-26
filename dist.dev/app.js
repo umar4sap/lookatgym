@@ -149,6 +149,22 @@
 				
 				
 			})
+			.state('zonemembers', {
+				url: '/zonemembers/:zoneId/:status',
+				views: {
+                    "main": {
+				controller: 'activeMembersController',
+				params:      {'zoneId':null,'status':null},
+				templateUrl: 'components/members/view-members.components.html',
+				controllerAs: 'vm',
+			}
+		},
+
+				parent: 'dashboard'
+				
+				
+				
+			})
 
 			.state('expances', {
 				url: '/expances',
