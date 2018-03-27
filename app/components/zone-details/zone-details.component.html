@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="cover-heading" style="margin-bottom:-30px;">
+                <div class="cover-heading">
                     <center>
                         <h2 class="text-center">{{vm.zoneData.zoneName}}</h2>
                         <ul class="nav cover-text">
@@ -164,8 +164,8 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="zone-about-text">
-                        <h2 style="color:#737473;padding-bottom:10px;" class="text-left"> About Zone </h2>
-                        <p style="color:#737473;padding-bottom:10px;font-size:15px;" class="text-left">
+                        <h2 class="text-left"> About Zone </h2>
+                        <p class="text-left">
                             {{vm.zoneData.aboutZone}}
                         </p>
                     </div>
@@ -188,10 +188,10 @@
     <div class="zone-members-videos">
         <div class="container">
             <div class="zone-video-header">
-                <h2 style="color:#737473;padding-bottom:10px;" class="zone-video-heading">
+                <h2 class="zone-video-heading">
                     Relavent Videos
                 </h2>
-                <p style="color:#737473;padding-bottom:10px;font-size:15px;" class="">
+                <p class="">
                     de Finibus Bonorum et Malorum" by Cicero are
                 </p>
             </div>
@@ -211,7 +211,14 @@
 
     <div class="row">
     <div class="zone-members-images">
-
+    <div class="zone-members-images-heading">
+        <h2 class="text-left">
+            Relavent Images
+        </h2>
+        <p class="text-left">
+            de Finibus Bonorum et Malorum" by Cicero are
+        </p>
+    </div>
             <div class="zone-details-images-page">
                 <div class="container-fluid">
                     <div id="myCarousel" class="carousel slide zone-img-slider-content" data-ride="carousel">
@@ -235,7 +242,7 @@
                             <ul class="nav nav-pills nav-justified">
                                 <li data-target="#myCarousel"  data-slide-to={{$index}} class=" zone-carousel-img" ng-class="{'active': $index == 0}" ng-repeat="image in vm.zoneData.images">
                                     <img class="img img-responsive" style="height:150px" src="{{image.url}}">
-                                    <a  >
+                                    <a style="border-radius:1px;">
                                         <small>Gym Area</small>
                                     </a>
                                 </li>
@@ -273,7 +280,7 @@
                             </div>
                             <div class="user-details-card-footer">
                                 <div class="text-center">
-                                    <div class="btn-group footer-buttons" role="group">
+                                    <div class="btn-group trainer-card-footer-buttons" role="group">
                                         <button class="btn view-btn btn-info"> Training For </button>
                                         <button class="btn abt-btn btn-success"> {{trainer.deparment}}</button>
                                     </div>
