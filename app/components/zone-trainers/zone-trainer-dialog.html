@@ -1,7 +1,7 @@
 <div class="row">
     <div class="container">
         <div class="col-md-6 col-sm-5 col-xs-10">
-            <div class="creation-from">
+            <div class="creation-from" style="padding-left:20px;">
                  
                 <form >
                         <div class="form-group">
@@ -15,10 +15,10 @@
                                             <img flow-img="$flow.files[0]" />
                                         </div>
                                         <div>
-                                            <button class="btn btn-primary" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Select image</button>
-                                            <button class="btn" ng-show="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Change</button>
-                                            <button class="btn btn-danger" ng-show="$flow.files.length" ng-click="$flow.cancel()">
-                                                Remove
+                                            <button class="btn btn-sm btn-primary" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Select image</button>
+                                            <button class="btn btn-sm" ng-show="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Change</button>
+                                            <button class="btn btn-sm btn-danger" ng-show="$flow.files.length" ng-click="$flow.cancel()">
+                                                <i class="fas fa-times"></i>   Remove
                                             </button>
                                         </div>
                                         <p>
@@ -66,8 +66,8 @@
 
 
                     <div class="create-trainer-button">
-                        <button type="submit" class="btn btn-danger" ng-click="vm.cancel()">Cancel</button>
-                        <button type="submit" class="btn btn-primary" ng-click="vm.createTrainer(trainerData)">Create trainer</button>
+                        <button type="submit" class="btn btn-sm btn-danger" ng-click="vm.cancel()"> <i class="fas fa-times"></i> Cancel</button>
+                        <button type="submit" class="btn btn-sm btn-primary" ng-click="vm.createTrainer(trainerData)"><i class="fas fa-plus"></i> Create trainer</button>
                     </div>
 
                 </form>

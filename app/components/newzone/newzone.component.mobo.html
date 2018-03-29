@@ -102,8 +102,8 @@
     </div>
 </div>
 
-<div class="container-fluid">
-    <div class="wizard-prosses">
+<!-- <div class="container-fluid">
+    <div class="wizard-prosses" style="background:#fff;padding-top:10px;padding-bottom:10px;">
         <div class="container">
             <div class="stepwizard">
                 <div class="stepwizard-row setup-panel">
@@ -140,6 +140,33 @@
             </div>
         </div>
     </div>
+</div> -->
+<div class="container">
+    <div class="checkout-wrap">
+        <ul class="checkout-bar">
+      
+          <li class="" ng-class="{'active':zone_basics==='done' }">
+            <a  
+            ng-click="vm.sectionmobo('zone_basics')">Basics</a>
+          </li>
+          
+          <li class=""  ng-class="{ 'active':zone_setting==='done' }">
+            <a  
+            ng-click="vm.sectionmobo('zone_setting')"> Settings</a>
+          </li>
+          
+          <li class="" ng-class="{ 'active':zone_upload==='done' }"> <a  
+            ng-click="vm.sectionmobo('zone_upload')"> Uploads</a></li>
+          
+          <li class="" ng-class="{ 'active':pricing==='done' }">
+            <a  
+            ng-click="vm.sectionmobo('pricing')"> Payments</a>
+          </li>
+          
+          <li class="">Complete</li>
+             
+        </ul>
+      </div>
 </div>
 <hr></hr>
 <hr></hr>
@@ -153,52 +180,49 @@
                 <div class="col-md-6">
                     <!--col-md-6 -->
                     <form action="#">
-                        <div class="form-group">
+                        <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
+                            <label>Zone Name Title</label>
+                            <input ng-model="zonedata.zoneName" type="text" class="form-control" name="text"  id="zone-time" required>
+                      </md-input-container>
+                      
+                         <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
+                             <label>Zone Owner</label>
+                             <input ng-model="zonedata.zoneOwnerName" type="text" class="form-control" name="text"  required id="pwd">
+                        </md-input-container>
+                     
+                      
 
-                            <input type="text" class="form-control" required id="zone-time" placeholder="Zone Name Title " name="text" ng-model="zonedata.zoneName">
-                        </div>
-                        <div class="form-group">
-
-                            <input type="text" class="form-control" required id="pwd" placeholder="Zone Owner" name="expiration" ng-model="zonedata.zoneOwnerName">
-                        </div>
-                        <div class="form-group">
-
-                            <input type="text" class="form-control" required id="pwd" placeholder=" Zone Since e.g 2011" name="cuncurency" ng-model="zonedata.zoneSince">
-                        </div>
-                        <div class="form-group">
-                            <label for="comment">Country</label>
-                            <select class="form-control" required id="sel1" ng-model="zonedata.Country">
-                                <option>India</option>
-                                <option>Us</option>
-                                <option>Uk</option>
-                                <option>UAE</option>
-                                <option>Canada</option>
-                                <option>Africa</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="comment">City</label>
-                            <select class="form-control" required id="sel1" ng-model="zonedata.city">
-                                <option>Mumbai</option>
-                                <option>Banglor</option>
-                                <option>Hyderabad</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="comment">Zone Address</label>
-                            <textarea class="form-control" required rows="5" id="failure-comment" ng-model="zonedata.zoneAddress">Address..</textarea>
-                        </div>
+                            <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
+                                <label>Zone Since e.g 2011</label>
+                                <input ng-model="zonedata.zoneSince" type="text" class="form-control" name="cuncurency"  required id="pwd">
+                          </md-input-container>
+                       
+                          <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
+                            <label>Country</label>
+                            <md-select required ng-model="zonedata.Country">
+                                <md-option value="IND">INDIA</md-option>
+                                <md-option value="UAE">UAE</md-option>
+                                <md-option value="US">US</md-option>
+                            </md-select>
+                        </md-input-container>
+                        <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
+                            <label>City</label>
+                            <md-select required ng-model="zonedata.city">
+                                <md-option value="MUMBAI">MUMBAI</md-option>
+                                <md-option value="HYDERBAD">HYDERBAD</md-option>
+                               
+                            </md-select>
+                        </md-input-container>
+                        
                     </form>
                 </div>
                 <!-- end col-md-6 -->
                 <div class="col-md-6">
-                    <form action="#">
-                        <div layout="row">
-                            <div>
-                                <h1 class="md-title">Pick your zone Facilities below</h1>
-                                <md-input-container>
+                    <form>
+                       
+                                <md-input-container class="md-icon-float md-block" layout-gt-xs="row" >
                                     <label>Facilities</label>
-                                    <md-select ng-model="zonedata.selectedFacilities" multiple style="width:300px;">
+                                    <md-select ng-model="zonedata.selectedFacilities" multiple>
                                         <md-optgroup label="Basic Facilities">
                                             <md-option ng-value='{"name":"{{topping.name}}","category":"{{zone.category}}"}' ng-repeat="topping in toppings | filter: {category: 'Basic' }">{{topping.name}}</md-option>
                                         </md-optgroup>
@@ -207,19 +231,14 @@
                                         </md-optgroup>
                                     </md-select>
                                 </md-input-container>
-                            </div>
-                        </div>
-                        <div class="form-group" ng-if="zonedata.selectedFacilities">
-                            <label for="pwd">Selected Facilities</label>
-                            <pre class="alert alert-info">You selected: <span ng-repeat="facilities in zonedata.selectedFacilities">{{facilities.name}},</span></pre>
-                        </div>
-                        <div class="form-group">
-                            <div layout="row">
-                                <div>
+                           
+                      
+                      
+                            
 
-                                    <md-input-container>
+                                    <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
                                         <label>Working Days</label>
-                                        <md-select ng-model="zonedata.openingDays" multiple style="width:300px;">
+                                        <md-select ng-model="zonedata.openingDays" multiple >
                                             <md-optgroup label="Open Days">
                                                 <md-option ng-value='{"name":"{{day.name}}","status":"{{day.status}}"}' ng-repeat="day in days | filter: {status: 'open' }">{{day.name}}</md-option>
                                             </md-optgroup>
@@ -228,38 +247,32 @@
                                             </md-optgroup>
                                         </md-select>
                                     </md-input-container>
-                                </div>
-                            </div>
-                            <div class="form-group" ng-if="zonedata.openingDays">
-                                <label for="pwd">Selected Days</label>
-
-                                <pre class="alert alert-info">You selected: <span ng-repeat="day in zonedata.openingDays">{{day.name}},</span></pre>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="comment">Available For</label>
-                            <select class="form-control" required id="sel1" ng-model="zonedata.zoneFor">
-                                <option>For Unisex</option>
-                                <option>For Male</option>
-                                <option>For Woman</option>
-                            </select>
-                        </div>
+                               
+                       
+                            <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
+                            <label>Available For</label>
+                            <md-select  ng-model="zonedata.zoneFor" required>
+                                <md-option value='unisex'>For Unisex</md-option>
+                                <md-option value='men'>Men</md-option>
+                                <md-option value='women'>Women</md-option>
+                            </md-select>
+                        </md-input-container>
                     </form>
-                    <div class="form-group">
-                        <label class="map-label">Pick Your Location</label>
-                        <div id="map" class="zone-map"></div>
-                    </div>
+                    <md-input-container class="md-block">
+                        <label>Address.</label>
+                        <textarea ng-model="zonedata.zoneAddress" required md-maxlength="150" rows="5" md-select-on-focus id="failure-comment"></textarea>
+                      </md-input-container>
                 </div>
             </div>
             <!-- end col-md-6 -->
             <div class="row">
                 <div class="message-plain">
                     <div class="col-md-12">
-                        <form action="#">
-                            <div class="form-group">
-
-                                <textarea class="form-control" placeholder="About Zone" required rows="5" id="plain-comment" ng-model="zonedata.aboutZone">About Zone.</textarea>
-                            </div>
+                        <form>
+                            <md-input-container class="md-block">
+                                <label>About Zone.</label>
+                                <textarea ng-model="zonedata.aboutZone" required md-maxlength="150" rows="5" md-select-on-focus id="failure-comment"> About Zone.</textarea>
+                              </md-input-container>
                         </form>
                     </div>
                 </div>
@@ -267,7 +280,7 @@
 
             <!-- end 1st row -->
             <div class="newzone-btn">
-                <button type="submit" class="btn btn-primary" ng-click="vm.sectionmobo('zone_setting',zonedata)">Next Step</button>
+                <button type="submit" class="btn btn-sm btn-primary" ng-click="vm.sectionmobo('zone_setting',zonedata)">Next Step</button>
             </div>
         </div>
     </form>
@@ -280,63 +293,54 @@
                 <div class="col-md-6">
                     <!--col-md-6 -->
 
-                    <div>
-                        <label for="pwd">Morning Time</label>
-                        <input type="time" class="form-control" required id="pwd" placeholder="time" name="expiration" ng-model="zonedata.morningTiming">
-                    </div>
+                    <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
+                        <label>Morning Time</label>
+                        <input ng-model="zonedata.morningTiming" type="time" class="form-control" name="expiration"  required id="pwd">
+                  </md-input-container>
 
-                    <div class="form-group">
-
-                        <input type="text" class="form-control" required id="pwd" placeholder="Zone Contact. e.g 98339-3302" name="expiration" ng-model="zonedata.primaryContact">
-                    </div>
-                    <div class="form-group">
-
-                        <input type="number" class="form-control" required id="pwd" placeholder="Free trails per month" name="cuncurency" ng-model="zonedata.zonefreeTrailPerMonth">
-                    </div>
-                    <div class="form-group">
-
-                        <textarea class="form-control" placeholder="Deactivate Member Message" required rows="5" id="failure-comment" ng-model="zonedata.zoneMemberDeactivateMessage">You were de Activated from zone</textarea>
-                    </div>
+                  <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
+                    <label>Zone Contact. e.g 98339-3302</label>
+                    <input ng-model="zonedata.primaryContact" type="number" class="form-control" name="expiration"  required id="pwd">
+              </md-input-container>
+              <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
+                <label>Free trails per month</label>
+                <input ng-model="zonedata.zonefreeTrailPerMonth" type="number" class="form-control" name="cuncurency"  required id="pwd">
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label>Plan Expire Message</label>
+            <textarea ng-model="zonedata.zoneMemberPlanExpireMessage" required md-maxlength="150" rows="5" md-select-on-focus id="plain-comment">Dear Member, Your plan has expired please renew it as Thnaks</textarea>
+          </md-input-container>
 
                 </div>
                 <!-- end col-md-6 -->
                 <div class="col-md-6">
 
-                    <div class="form-group">
-                        <label for="text">Evening Time</label>
-                        <input type="time" class="form-control" required id="zone-cost" placeholder="e.g 7-10" name="text" ng-model="zonedata.eveningTime">
-                    </div>
-                    <div class="form-group">
-
-                        <input type="text" class="form-control" required id="pwd" placeholder="Short Description e.g This a pretty place to get fit"
-                            name="duration" ng-model="zonedata.zoneShortDescription">
-                    </div>
-                    <div class="form-group">
-
-                        <input type="number" class="form-control" required id="pwd" placeholder="Free Trial Limit Per Day e.g40  [How many user do you allow for free trail]"
-                            name="cuncurency" ng-model="zonedata.zonefreeTrailPerDay">
-                    </div>
-                    <div class="form-group">
-
-                        <textarea class="form-control" placeholder="Activate Member Message " required rows="5" id="limit-comment" ng-model="zonedata.zoneMemberActivateMessage">Drop Message..</textarea>
-                    </div>
-
+                    <md-input-container class="md-icon-float md-block" layout-gt-sm="row">
+                        <label>Evening Time</label>
+                        <input ng-model="zonedata.eveningTime" type="time" class="form-control" name="expiration"  required id="zone-cost">
+                  </md-input-container>
+                  <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
+                    <label>Short Description e.g This a pretty place to get fit</label>
+                    <input ng-model="zonedata.zoneShortDescription"  type="text" class="form-control" name="expiration"  required id="pwd">
+              </md-input-container>
+              <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
+                <label>Free Trial Limit Per Day e.g40  [How many user do you allow for free trail]</label>
+                <input ng-model="zonedata.zonefreeTrailPerDay"  type="number" class="form-control" name="cuncurency"  required id="pwd">
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label>Activate Member Message</label>
+            <textarea ng-model="zonedata.zoneMemberActivateMessage" required md-maxlength="150" rows="5" md-select-on-focus id="limit-comment">Drop Message..</textarea>
+          </md-input-container>
+          
                 </div>
             </div>
             <!-- end col-md-6 -->
-            <div class="row">
-                <div class="message-plain">
-                    <div class="col-md-12">
-                        <div class="form-group">
-
-                            <textarea class="form-control" placeholder="Plan Expire Message " required rows="5" id="plain-comment" ng-model="zonedata.zoneMemberPlanExpireMessage">Dear Member, Your plan has expired please renew it as Thnaks</textarea>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+            <md-input-container class="md-block">
+                <label>Deactivate Member Message</label>
+                <textarea ng-model="zonedata.zoneMemberDeactivateMessage" required md-maxlength="150" rows="5" md-select-on-focus id="failure-comment">Drop Message..</textarea>
+              </md-input-container>
             <div class="newzone-btn">
-                <button class="btn btn-primary" ng-click="vm.sectionmobo('zone_upload',zonedata)">Next Step</button>
+                <button class="btn btn-sm btn-primary" ng-click="vm.sectionmobo('zone_upload',zonedata)">Next Step</button>
             </div>
             <!-- end 1st row -->
 
@@ -351,7 +355,7 @@
                 <div class="col-md-12 col-xs-11 col-xs-offset-1 col-sm-offset-1 col-sm-11 col-lg-12">
                     <div class="zone-upload-setup-content">
                         <div class="zone-upload-img-header">
-                            <h4 class="text-left">Zone Logo</h4>
+                            <h4 class="text-left" style="margin-right:10px;">Zone Logo</h4>
                         </div>
                         <div flow-init flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-files-submitted="$flow.upload()"
                             flow-file-success="filelogoAdded( $file, $message, $flow )">
@@ -368,12 +372,10 @@
                                 </div>
                             </div>
                             <div class="zone-basic-upload-setup-button">
-
-
-                                <button class="btn btn-danger" ng-show="$flow.files.length" ng-click="$flow.cancel()">
-                                    Remove
+                                <button class="btn btn-sm btn-danger" ng-show="$flow.files.length" ng-click="$flow.cancel()">
+                                    <i class="fas fa-times"></i> Remove
                                 </button>
-                                <button class="btn btn-primary" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Select image</button>
+                                <button class="btn btn-sm btn-primary" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Select image</button>
                             </div>
                             <p>
                                 Note:Only PNG,GIF,JPG files allowed.
@@ -409,10 +411,10 @@
                             </div>
                         </div>
                         <div>
-                            <button class="btn  btn-primary " ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Select image</button>
+                            <button class="btn btn-sm  btn-primary " ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Select image</button>
 
-                            <button class="btn btn-danger" ng-show="$flow.files.length" ng-click="$flow.cancel()">
-                                Remove
+                            <button class="btn btn-sm btn-danger" ng-show="$flow.files.length" ng-click="$flow.cancel()">
+                                <i class="fas fa-times"></i>  Remove
                             </button>
                         </div>
                         <p>
@@ -436,14 +438,14 @@
 
 
                     </div>
-                    <div class="">
+                    <div class="new-zone-upload-sec-btn">
                         <div class="media-section" flow-init flow-files-submitted="$flow.upload()" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]"
                             flow-file-success="fileimagesAdded( $file, $message, $flow )">
                             <div class="drop" flow-drop="" ng-class="dropClass">
-                                <span class="btn btn-primary" flow-btn="">Upload Image
+                                <span class="btn btn-sm btn-primary" flow-btn="">Upload Image
                                     <input type="file" multiple="multiple" style="visibility: hidden; position: absolute;">
                                 </span>
-                                <span class="btn btn-primary" flow-btn="" flow-directory="" ng-show="$flow.supportDirectory">Upload Folder of Images
+                                <span class="btn btn-sm btn-primary" flow-btn="" flow-directory="" ng-show="$flow.supportDirectory">Upload Folder of Images
                                     <input type="file" multiple="multiple" webkitdirectory="webkitdirectory" style="visibility: hidden; position: absolute;">
                                 </span>
 
@@ -464,7 +466,7 @@
                                     </div>
                                     <div class="btn-group">
                                         <a class="btn btn-xs btn-danger" ng-click="file.cancel()">
-                                            Remove
+                                            <i class="fas fa-times"></i>  Remove
                                         </a>
                                     </div>
                                 </div>
@@ -483,12 +485,10 @@
                 <div class="col-md-12 col-xs-11 col-xs-offset-1 col-sm-offset-1 col-sm-11 col-lg-12">
                     <div class="videos-links">
 
-                        <div class="form-group">
-
-                            <label for="text">Add Zone Videos</label>
-                            <input type="url" class="form-control" required id="zone-time" ng-model="zonedata.vidurl" placeholder="https://www.youtube.com/watch?v=ETJj330AN48"
-                                name="text">
-                        </div>
+                        <md-input-container>
+                            <label>Add Zone Videos</label>
+                            <input ng-model="zonedata.vidurl"  type="url" class="form-control" name="text"  required id="zone-time">
+                      </md-input-container>
 
                     </div>
                     <div class="newzone-btn">

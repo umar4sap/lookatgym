@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="container">
+        <div class="col-md-6 col-sm-5 col-xs-10">
+            <div class="creation-from" style="padding-left:20px;">
+
+                <form>
+                    <div class="form-group">
+
+                        <input type="email" class="form-control" id="manager-name" placeholder="Manager Email" name="manager-name" ng-model="managerData.name"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="manager-deuration" placeholder="Manager Name" name="manager-deuration" ng-model="managerData.deparment"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Zone Name</label>
+                        <select class="form-control" required id="sel1" ng-model="managerData.zoneInfo">
+
+                            <option ng-repeat="zone in vm.zones" value='{"zoneId":"{{zone.zoneId}}","zoneName":"{{zone.zoneName}}"}'>{{zone.zoneName}}</option>
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Permission</label>
+                        <select class="form-control" required id="sel1" ng-model="managerData.zoneInfo">
+
+                            <option ng-repeat="zone in vm.zones" value='{"zoneId":"{{zone.zoneId}}","zoneName":"{{zone.zoneName}}"}'>{{zone.zoneName}}</option>
+
+                        </select>
+                    </div>
+
+                    <div class="create-managers-button">
+                        <button type="reset" class="btn btn-sm btn-danger" ng-click="vm.cancel()"> <i class="fas fa-times"></i> Cancel</button>
+                        <button type="submit" class="btn btn-sm btn-primary" ng-click="vm.createManager(managerData)"> <i class="fas fa-plus"></i> Create manager</button>
+                    </div>
+
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row form -->

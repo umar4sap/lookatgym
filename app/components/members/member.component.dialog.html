@@ -21,7 +21,7 @@
                                             <button class="btn btn-primary btn-sm" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Select image</button>
                                            
                                             <button class="btn btn-danger btn-sm" ng-show="$flow.files.length" ng-click="$flow.cancel()">
-                                                Remove
+                                                <i class="fas fa-times"></i>  Remove
                                             </button>
                                         </div>
                                         <p>
@@ -105,8 +105,8 @@
 
 
                     <div class="create-member-button">
-                        <button type="submit" class="btn btn-danger" ng-click="vm.cancel()">Cancel</button>
-                        <button type="submit" class="btn btn-primary" ng-click="vm.createTrainer(trainerData)">Create member</button>
+                        <button type="submit" class="btn btn-sm btn-danger" ng-click="vm.cancel()"> <i class="fas fa-times"></i> Cancel</button>
+                        <button type="submit" class="btn btn-sm btn-primary" ng-click="vm.createTrainer(trainerData)"> <i class="fas fa-plus"></i> Create member</button>
                     </div>
 
                 </form>

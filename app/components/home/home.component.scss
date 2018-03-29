@@ -23,7 +23,6 @@
 .cardtile:hover{
     position: relative;
     
-    transform: scale(1.2);
 }
 
 .zone-overlay {
@@ -38,7 +37,7 @@
 
   .cardtile:hover .zone-overlay {
     display: block;
-    background: rgba(255, 167, 38, 0.43);
+    background-color:rgba(36, 38, 39, 0.65);
     
   }
 

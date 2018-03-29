@@ -5,7 +5,7 @@
 }
 
 .screen-second-section{
-    background-color:#d4e2e3;
+    background-color:#fff;
     width: 100%;
     height:auto;
     margin:0px;
@@ -142,16 +142,9 @@
 
 /*form_section*/
 
-.form-section .col-md-6>form>.form-group>label{
-
-}
-
-.form-section .col-md-6>form>.form-group>.form-control{
-
-//box-shadow: 0px 4px 7px #aaaaaa;
 
 
-}
+
 
 .form-section .col-md-6>form>.form-group>.form-control:focus {
     width:100%;
@@ -222,6 +215,7 @@
 
 .form-section{
     margin-top:15px;
+    background: #fff;
 }
 body{
     overflow: scroll !important};
@@ -236,7 +230,7 @@ body{
         
     
     .screen-first{
-        background-color:#d4e2e3;
+        background-color:#fff;
         width: 100%;
         height:auto;
         margin:0px;
@@ -362,13 +356,13 @@ body{
     
     .upload-contain .upload-content-image>.upload-img-cnt>a>.upload-img-cover>input[type=file] {
         height: 150px;
-        background-color:#d4e2e3;
+        background-color:#fff;
         
     }
     
     .cover-content{
         margin-top: 30px;
-        background-color:#d4e2e3;
+        background-color:#fff;
         margin-top: -8px;
         padding-top: 49px;
         padding-left: 5px;
@@ -412,7 +406,7 @@ body{
         margin-top:100px;
     }
     
-    
+    .new-zone-upload-sec-btn
     
     
     
@@ -498,9 +492,191 @@ body{
             }
     
     
-    
-    
-    
+//new wizard css
+
+@-webkit-keyframes myanimation {
+    from {
+      left: 0%;
+    }
+    to {
+      left: 50%;
+    }
+  }
+  h1 {
+    text-align: center;
+    font-family: 'PT Sans Caption', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    padding: 20px 0;
+    color: #777;
+  }
+  
+  .checkout-wrap {
+    color: #444;
+    font-family: 'PT Sans Caption', sans-serif;
+    margin: 40px auto;
+    max-width: 1200px;
+    position: relative;
+  }
+  
+  ul.checkout-bar {
+    margin: 0 20px;
+  }
+  ul.checkout-bar li {
+    color: #ccc;
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 14px 20px 14px 80px;
+    position: relative;
+  }
+  ul.checkout-bar li:before {
+    -webkit-box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    background: #ddd;
+    border: 2px solid #FFF;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    left: 20px;
+    line-height: 37px;
+    height: 35px;
+    position: absolute;
+    text-align: center;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+    top: 4px;
+    width: 35px;
+    z-index: 999;
+  }
+  ul.checkout-bar li.active {
+    color: #8bc53f;
+    font-weight: bold;
+  }
+  ul.checkout-bar li.active:before {
+    background: #8bc53f;
+    z-index: 99999;
+  }
+  ul.checkout-bar li.visited {
+    background: #ECECEC;
+    color: #57aed1;
+    z-index: 99999;
+  }
+  ul.checkout-bar li.visited:before {
+    background: #57aed1;
+    z-index: 99999;
+  }
+  ul.checkout-bar li:nth-child(1):before {
+    content: "1";
+  }
+  ul.checkout-bar li:nth-child(2):before {
+    content: "2";
+  }
+  ul.checkout-bar li:nth-child(3):before {
+    content: "3";
+  }
+  ul.checkout-bar li:nth-child(4):before {
+    content: "4";
+  }
+  ul.checkout-bar li:nth-child(5):before {
+    content: "5";
+  }
+  ul.checkout-bar li:nth-child(6):before {
+    content: "6";
+  }
+  ul.checkout-bar a {
+    color: #57aed1;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  @media all and (min-width: 800px) {
+    .checkout-bar li.active:after {
+      -webkit-animation: myanimation 3s 0;
+      background-size: 35px 35px;
+      background-color: #8bc53f;
+      background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+      background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+      -webkit-box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+      box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+      content: "";
+      height: 15px;
+      width: 100%;
+      left: 50%;
+      position: absolute;
+      top: -50px;
+      z-index: 0;
+    }
+  
+    .checkout-wrap {
+      margin: 80px auto;
+    }
+  
+    ul.checkout-bar {
+      -webkit-box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+      box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+      background-size: 35px 35px;
+      background-color: #EcEcEc;
+      background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 75%, transparent 75%, transparent);
+      background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 75%, transparent 75%, transparent);
+      border-radius: 15px;
+      height: 15px;
+      margin: 0 auto;
+      padding: 0;
+      position: absolute;
+      width: 100%;
+    }
+    ul.checkout-bar:before {
+      background-size: 35px 35px;
+      background-color: #57aed1;
+      background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+      background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+      -webkit-box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+      box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+      border-radius: 15px;
+      content: " ";
+      height: 15px;
+      left: 0;
+      position: absolute;
+      width: 10%;
+    }
+    ul.checkout-bar li {
+      display: inline-block;
+      margin: 50px 0 0;
+      padding: 0;
+      text-align: center;
+      width: 19%;
+    }
+    ul.checkout-bar li:before {
+      height: 45px;
+      left: 40%;
+      line-height: 45px;
+      position: absolute;
+      top: -65px;
+      width: 45px;
+      z-index: 99;
+    }
+    ul.checkout-bar li.visited {
+      background: none;
+    }
+    ul.checkout-bar li.visited:after {
+      background-size: 35px 35px;
+      background-color: #57aed1;
+      background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+      background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+      -webkit-box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+      box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+      content: "";
+      height: 15px;
+      left: 50%;
+      position: absolute;
+      top: -50px;
+      width: 100%;
+      z-index: 99;
+    }
+  }
+  
     
     
     

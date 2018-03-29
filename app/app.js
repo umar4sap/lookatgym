@@ -134,6 +134,20 @@
 				
 				
 			})
+			.state('managers', {
+				url: '/managers',
+				views: {
+                    "main": {
+				controller: 'zonemanagersController',
+				templateUrl: 'components/zone-managers/zone-managers.component.mobo.html',
+				controllerAs: 'vm',
+
+					}
+				},
+				parent: 'dashboard'
+				
+				
+			})
 			.state('members', {
 				url: '/members',
 				

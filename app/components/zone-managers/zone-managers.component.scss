@@ -6,6 +6,16 @@
     margin-top:10px;
 }
 
+.create-managers-button>button{
+    display: inline-block;
+    border: none;
+}
+
+.create-managers-button>button:hover{
+    border: none;
+    transition:0s;
+}
+
 .create-plan-button>button{
 background-color: #0DC8B4;
 padding:5px;
@@ -14,10 +24,6 @@ border:none;
 border-radius: 15px;
 padding-left:10px;
 padding-right:10px;
-}
-
-.create-trainer-button>button{
-    display: inline-block;
 }
 
 .create-plan-button>button:hover{
@@ -45,11 +51,6 @@ padding-right:10px;
             }
 
 /*tiles*/
-
-*button:hover{
-transition: 0s !important;
-transform: scale(0s) !important;
-}
 
 .badges-content{
     margin-top:20px;
