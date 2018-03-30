@@ -149,8 +149,6 @@
 					}
 				},
 				parent: 'dashboard'
-				
-				
 			})
 			.state('members', {
 				url: '/members',
@@ -163,8 +161,6 @@
 					}
 				},
 				parent: 'dashboard'
-				
-				
 				
 			})
 			.state('zonemembers', {
@@ -179,9 +175,6 @@
 		},
 
 				parent: 'dashboard'
-				
-				
-				
 			})
 
 			.state('expances', {
@@ -195,18 +188,22 @@
 					}
 				},
 				parent: 'dashboard'
-				
-				
-				
 			})
 			.state('callback', {
 				url: '/callback',
 				controller: 'CallbackController',
 				templateUrl: 'components/callback/callback.html',
 				controllerAs: 'vm'
-			  });
+			  })
 
-		
+			  .state('zoneownerform', {
+				url: '/zoneownerform',
+				controller: 'zoneownerFormController',
+				templateUrl: 'components/zone-owner-sign-up/zoneowner-component-form.html',
+				controllerAs: 'vm',
+				
+			})
+
 			angularAuth0Provider.init({
 			clientID: AUTH0_CLIENT_ID,
 			domain: AUTH0_DOMAIN,

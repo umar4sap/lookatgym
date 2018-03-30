@@ -1,0 +1,91 @@
+<div class="container-fluid">
+    <div class="row zone-signup-signin-form" style="background:#000;">
+        
+        <div class="cont-sing-up" style="margin-top:4%;overflow:hidden;">
+            <div class="zone-signin-form sign-in">
+                <h2>Welcome back,</h2>
+                <form>
+                        <div class="zone-owner-form-inputs">
+                                
+                                        <label>Email
+                                        <input type="email" class="form-control" name="text"  required>
+                                    </label>
+                                <br>
+                                        <label>password
+                                        <input type="Password" class="form-control" name="text"  required>
+                                    </label>                    
+                        </div>
+                        <p class="forgot-pass btn-link">Forgot password?</p>
+                <div class="zone-signup-form-buttons">
+                    <button type="submit" class="submit hvr-push zone-sign-btn">Sign In</button>
+                   
+                </div>
+                </form>
+                
+            </div>
+            <div class="sub-cont-zone-sign">
+                <div class="img-sign-zone">
+                    <div class="img__text m--up">
+                        <h2>New here?</h2>
+                        <p>Sign up and discover great amount of new opportunities!</p>
+                    </div>
+                    <div class="img__text m--in">
+                        <h2>One of us?</h2>
+                        <p>If you already has an account, just sign in. We've missed you!</p>
+                    </div>
+                    <div class="img__btn">
+                        <span class="m--up">Sign Up</span>
+                        <span class="m--in">Sign In</span>
+                    </div>
+                </div>
+                <div class="zone-signin-form col-6 sign-up">
+                    <h2 class="text-center">Create Your Ownership Account</h2>
+                    <form>
+                            <div class="zone-owner-form-inputs-signup">
+                                    
+                                            <label>User Name
+                                            <input type="name" class="form-control" name="text"  required>
+                                       
+                                        </label>
+                                            <label>Ownership Name
+                                            <input type="name" class="form-control" name="text"  required>
+                                        </label>
+                                
+                                        <label>Email
+                                        <input type="email" class="form-control" name="text"  required>
+                                    </label>
+                                
+                                        <label>password
+                                        <input type="Password" class="form-control" name="text"  required>
+                                    </label>
+                                
+                                        <label>Confirm password
+                                        <input type="Password" class="form-control" name="text"  required>
+                                    </label>
+                                
+                                        <label>Phone Number Number
+                                        <input type="text" class="form-control" name="text"  required>
+                                    </label><br>
+                                   
+                                        <label>Registration For
+                                        <select class="form-control" style="border: 1px solid;width: 200px;">
+                                            <option value="ZL">Zone Listing</option>
+                                            <option value="SS">Studio Sass</option>
+                                            <option value="PT">Personal Trainer</option>
+                                        <select>
+                                    </label>
+                            </div>
+                            <button type="submit" class="submit hvr-push zone-sign-btn">Sign Up</button>
+                    </form>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelector('.img__btn').addEventListener('click', function () {
+        document.querySelector('.cont-sing-up').classList.toggle('s--signup');
+    });
+</script>
