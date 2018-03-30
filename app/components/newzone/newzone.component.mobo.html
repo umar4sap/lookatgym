@@ -1,106 +1,4 @@
-<div class="screen-second-section">
 
-    <header class="l-header">
-        <div class="l-header__inner clearfix">
-            <div class="c-header-icon js-hamburger">
-                <div class="hamburger-toggle">
-                    <span class="bar-top"></span>
-                    <span class="bar-mid"></span>
-                    <span class="bar-bot"></span>
-                </div>
-            </div>
-            <div class="header-icons-group">
-                <!-- <button class="btn btn-sm btn-primary" ng-click="vm.live(zonedata)" >Publish</button> -->
-
-                <div class="c-header-icon basket">
-                    <i class="fa fa-shopping-basket"></i>
-                </div>
-                <div class="c-header-icon logout" ng-click="vm.authService.logout()">
-                    <i class="fa fa-power-off"></i>
-                </div>
-            </div>
-
-
-        </div>
-    </header>
-    <div class="l-sidebar">
-
-        <div class="l-sidebar__content">
-
-            <nav class="c-menu js-menu">
-
-                <ul class="u-list">
-                    <li class="c-menu__item is-active" data-toggle="tooltip" title="Dashboard">
-                        <div class="admin-profiler">
-                            <img class="img img-circle img-responsive" alt="profiler-img" src="{{userProfile.picture}}">
-                            <p class="text-center profiler-name img-responsive"> {{userProfile.name}} </p>
-                            <p class="text-center profiler-status">Zone Owner</p>
-                            <a style="text-decoration: none;">
-                                <p class="text-center profiler-update"> Update Profile </p>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="c-menu__item is-active" data-toggle="tooltip" title="Dashboard">
-                        <div ui-sref="tileboard" class="c-menu__item__inner js-hamburger">
-                            <i class="fas fa-tachometer-alt"></i>
-                            <a ui-sref="tileboard" class="c-menu-item__title js-hamburger">
-                                <span>Dashboard</span>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Trainers">
-                        <div ui-sref="trainers" class="c-menu__item__inner">
-                            <i class="far fa-user"></i>
-                            <a ui-sref="trainers" class="c-menu-item__title">
-                                <span>Trainers</span>
-                            </a>
-                            <div class="c-menu-item__expand js-expand-submenu">
-                                <i class="fa fa-angle-down"></i>
-                            </div>
-                        </div>
-                        <ul class="c-menu__submenu u-list">
-                            <li>Payments</li>
-                            <li>Maps</li>
-                            <li>Notifications</li>
-                        </ul>
-                    </li>
-                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Zone List">
-                        <div ui-sref="zonelisting" class="c-menu__item__inner">
-                            <i class="fas fa-list-ul"></i>
-                            <a ui-sref="zonelisting" class="c-menu-item__title">
-                                <span>Zone List</span>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Members">
-                        <div ui-sref="members" class="c-menu__item__inner">
-                            <i class="fas fa-users"></i>
-                            <a ui-sref="members" class="c-menu-item__title">
-                                <span>Members</span>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Plans">
-                        <div ui-sref="zoneplans" class="c-menu__item__inner">
-                            <i class="fas fa-cubes"></i>
-                            <a ui-sref="zoneplans" class="c-menu-item__title">
-                                <span>Plans</span>
-                            </a>
-                        </div>
-                    </li>
-                    <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Badges">
-                        <div ui-sref="newzonemobo" class="c-menu__item__inner">
-                            <i class="fas fa-certificate"></i>
-                            <a ui-sref="newzonemobo" class="c-menu-item__title">
-                                <span>mobo screen</span>
-                            </a>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</div>
 
 <!-- <div class="container-fluid">
     <div class="wizard-prosses" style="background:#fff;padding-top:10px;padding-bottom:10px;">
@@ -280,7 +178,7 @@
 
             <!-- end 1st row -->
             <div class="newzone-btn">
-                <button type="submit" class="btn btn-sm btn-primary" ng-click="vm.sectionmobo('zone_setting',zonedata)">Next Step</button>
+                <button type="submit" class="btn btn-sm btn-primary pull-right" ng-click="vm.sectionmobo('zone_setting',zonedata)">Next Step</button>
             </div>
         </div>
     </form>
@@ -340,7 +238,7 @@
                 <textarea ng-model="zonedata.zoneMemberDeactivateMessage" required md-maxlength="150" rows="5" md-select-on-focus id="failure-comment">Drop Message..</textarea>
               </md-input-container>
             <div class="newzone-btn">
-                <button class="btn btn-sm btn-primary" ng-click="vm.sectionmobo('zone_upload',zonedata)">Next Step</button>
+                <button class="btn btn-sm btn-primary pull-right" ng-click="vm.sectionmobo('zone_upload',zonedata)">Next Step</button>
             </div>
             <!-- end 1st row -->
 
@@ -492,7 +390,7 @@
 
                     </div>
                     <div class="newzone-btn">
-                        <button type="submit" class="btn btn-info" ng-click="vm.sectionmobo('pricing',zonedata)">Ready To publish</button>
+                        <button type="submit" class="btn btn-info pull-right" ng-click="vm.sectionmobo('pricing',zonedata)">Ready To publish</button>
                     </div>
                 </div>
             </div>
@@ -609,54 +507,7 @@
 
     </form>
 </div>
-<script>
-    var Dashboard = function () {
-        var global = {
-            tooltipOptions: {
-                placement: "right"
-            },
-            menuClass: ".c-menu"
-        };
 
-        var menuChangeActive = function menuChangeActive(el) {
-            var hasSubmenu = $(el).hasClass("has-submenu");
-            $(global.menuClass + " .is-active").removeClass("is-active");
-            $(el).addClass("is-active");
-
-            // if (hasSubmenu) {
-            // 	$(el).find("ul").slideDown();
-            // }
-        };
-
-        var sidebarChangeWidth = function sidebarChangeWidth() {
-            var $menuItemsTitle = $("li .menu-item__title");
-
-            $("body").toggleClass("sidebar-is-reduced sidebar-is-expanded");
-            $(".hamburger-toggle").toggleClass("is-opened");
-
-            if ($("body").hasClass("sidebar-is-expanded")) {
-                $('[data-toggle="tooltip"]').tooltip("destroy");
-            } else {
-                $('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
-            }
-        };
-
-        return {
-            init: function init() {
-                $(".js-hamburger").on("click", sidebarChangeWidth);
-
-                $(".js-menu li").on("click", function (e) {
-                    menuChangeActive(e.currentTarget);
-                });
-
-                $('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
-            }
-        };
-    }();
-
-    Dashboard.init();
-            //# sourceURL=pen.js
-</script>
 
 <style>
     @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&subset=latin-ext");
@@ -1230,16 +1081,3 @@
 
 
 
-<script>
-    window.console = window.console || function (t) { };
-</script>
-
-
-
-<script>
-    if (document.location.search.match(/type=embed/gi)) {
-        window.parent.postMessage("resize", "*");
-    }
-</script>
-
-<script src='https://use.fontawesome.com/releases/v5.0.6/js/all.js'></script>

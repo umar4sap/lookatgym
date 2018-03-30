@@ -62,11 +62,15 @@
 			
 			.state('newzonemobo', {
 				url: '/newzonemobo',
+				views: {
+                    "main": {
 				templateUrl: 'components/newzone/newzone.component.mobo.html',
 						controller: 'newZoneController',
 						controllerAs: 'vm'
 
-				
+					}
+				},
+				parent:"dashboard"
 				
 				
 			})
