@@ -280,6 +280,26 @@ function zoneService($http) {
 				
 				return cb(data);
 			});
+		},
+		createUser: function ( data, cb) {
+			$http({
+				method: 'POST',
+				url: localhost+':9009/v2/components/auth0-client/user',
+				headers: {
+					//'Authorization': 'Bearer ' + idToken,
+					'Content-Type': 'application/json',
+					'Access-Control-Allow-Origin': "*",
+					//'user_access':"true"
+					
+				},
+				data: data
+			}).then(function mySuccess(response) {
+				data = response;
+				return cb(null,data)
+			  }, function myError(response) {
+				err = response;
+				return cb(err,null)
+			});
 		}
 		
 	};

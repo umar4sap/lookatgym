@@ -4,15 +4,15 @@
         <div class="cont-sing-up" style="margin-top:4%;overflow:hidden;">
             <div class="zone-signin-form sign-in">
                 <h2>Welcome back,</h2>
-                <form>
+                <form ng-submit="vm.getToken(vm.login)">
                         <div class="zone-owner-form-inputs">
                                 
                                         <label>Email
-                                        <input type="email" class="form-control" name="text"  required>
+                                        <input type="email" class="form-control" name="text" ng-model="vm.login.username" required>
                                     </label>
                                 <br>
                                         <label>password
-                                        <input type="Password" class="form-control" name="text"  required>
+                                        <input type="Password" class="form-control" name="text" ng-model="vm.login.password" required>
                                     </label>                    
                         </div>
                         <p class="forgot-pass btn-link">Forgot password?</p>
@@ -39,35 +39,36 @@
                 </div>
                 <div class="zone-signin-form col-6 sign-up">
                     <h2 class="text-center">Create Your Ownership Account</h2>
-                    <form>
+                    <form ng-submit="vm.userRegistration(vm.signupData)">
                             <div class="zone-owner-form-inputs-signup">
                                     
                                             <label>User Name
-                                            <input type="name" class="form-control" name="text"  required>
+                                            <input type="name" class="form-control" name="text"  ng-model="vm.signupData.username" required>
                                        
                                         </label>
                                             <label>Ownership Name
-                                            <input type="name" class="form-control" name="text"  required>
+                                            <input type="name" class="form-control" name="text"  ng-model="vm.signupData.app_metadata.ownership"  required>
                                         </label>
                                 
                                         <label>Email
-                                        <input type="email" class="form-control" name="text"  required>
+                                        <input type="email" class="form-control" name="text" ng-model="vm.signupData.email"  required>
                                     </label>
                                 
                                         <label>password
-                                        <input type="Password" class="form-control" name="text"  required>
+                                        <input type="Password" class="form-control" name="text" ng-model="vm.password" required>
                                     </label>
                                 
                                         <label>Confirm password
-                                        <input type="Password" class="form-control" name="text"  required>
+                                        <input type="Password" class="form-control" name="text"  ng-model="vm.signupData.confirmpassword" required>
+                                        <label ng-show="vm.passwordError" style="color:red">{{vm.passwordError}}</label>
                                     </label>
                                 
                                         <label>Phone Number Number
-                                        <input type="text" class="form-control" name="text"  required>
+                                        <input type="text" class="form-control" name="text" ng-model="vm.signupData.app_metadata.phonenumber" required>
                                     </label><br>
                                    
                                         <label>Registration For
-                                        <select class="form-control" style="border: 1px solid;width: 200px;">
+                                        <select class="form-control" style="border: 1px solid;width: 200px;" ng-model="vm.signupData.app_metadata.register_Type">
                                             <option value="ZL">Zone Listing</option>
                                             <option value="SS">Studio Sass</option>
                                             <option value="PT">Personal Trainer</option>
@@ -88,3 +89,5 @@
         document.querySelector('.cont-sing-up').classList.toggle('s--signup');
     });
 </script>
+
+
