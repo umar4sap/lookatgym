@@ -1,0 +1,752 @@
+<!-- start header_top -->
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script>
+    $(function () {
+        // setup your carousels as you normally would using JS
+        // or via data attributes according to the documentation
+        // https://getbootstrap.com/javascript/#carousel
+        $('#carousel123').carousel({ interval: 2000 });
+        $('#carouselABC').carousel({ interval: 3600 });
+    }());
+
+    $(function () {
+        $('.carousel-showmanymoveone .item').each(function () {
+            var itemToClone = $(this);
+
+            for (var i = 1; i < 4; i++) {
+                itemToClone = itemToClone.next();
+
+                // wrap around if at end of item collection
+                if (!itemToClone.length) {
+                    itemToClone = $(this).siblings(':first');
+                }
+
+                // grab item, clone, add marker class, add to collection
+                itemToClone.children(':first-child').clone()
+                    .addClass("cloneditem-" + (i))
+                    .appendTo($(this));
+            }
+        });
+    }());
+</script>
+<div class="header-zone-mobo-detail" style="height:50%;
+background:url({{vm.zoneData.zoneCoverImage.url}});
+background-repeat: no-repeat;
+background-size: cover;
+background-size: 100% 100%;
+background-position: center;
+background-attachment: fixed;
+top: 0px;
+left: 0px;
+padding:16% 0 0 0;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;">
+    <div class="container">
+        <div class="header-text-mobo text-div">
+            <h1>{{vm.zoneData.zoneName}}</h1>
+            <h2>Best Choice For your site</h2>
+            <p>{{vm.zoneData.zoneShortDescription}}</p>
+            <div class="banner_btn">
+                <a href="#">Join</a>
+            </div>
+            <div class="banner_btn">
+                <a href="#" ng-click="vm.getTrail($event,vm.zoneData.zoneId,vm.zoneData.zoneName)"> Request For Trial </a>
+            </div>
+        </div>
+        <div class="header-arrow">
+            <a href="#menu" class="class scroll">
+                <span> </span </a>
+        </div>
+    </div>
+</div>
+<!-- end header_top -->
+<!-- start header_bottom -->
+<div class="header-bottom">
+    <div class="container">
+        <div class="header-bottom_left">
+            <i class="phone"> </i>
+            <span>1-200-346-2986</span>
+        </div>
+        <div class="social">
+            <ul>
+                <li class="facebook">
+                    <a href="#">
+                        <span> </span>
+                    </a>
+                </li>
+                <li class="twitter">
+                    <a href="#">
+                        <span> </span>
+                    </a>
+                </li>
+                <li class="pinterest">
+                    <a href="#">
+                        <span> </span>
+                    </a>
+                </li>
+                <li class="google">
+                    <a href="#">
+                        <span> </span>
+                    </a>
+                </li>
+                <li class="tumblr">
+                    <a href="#">
+                        <span> </span>
+                    </a>
+                </li>
+                <li class="instagram">
+                    <a href="#">
+                        <span> </span>
+                    </a>
+                </li>
+                <li class="rss">
+                    <a href="#">
+                        <span> </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- end header_bottom -->
+<!-- start menu -->
+<div class="menu" id="menu">
+    <div class="container">
+        <div class="h_menu4">
+            <!-- start h_menu4 -->
+            <div class="cover-bottom">
+                <div class="well well-lg" style="background:none;border:0px;height:auto;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
+                                <div>
+                                    <div class="rating-sec">
+                                        <label for="ratings" style="color:#fff;">Rating</label>
+                                        <br>
+                                        <span class="fa fa-star checked-star"></span>
+                                        <span class="fa fa-star checked-star"></span>
+                                        <span class="fa fa-star checked-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
+                                <div>
+                                    <div class="members-sec">
+                                        <label for="ratings" style="color:#fff;">Contact</label>
+                                        <br>
+                                        <div class="total-members-list" style="color:cadetblue;">
+                                            <h4 style="font-size:14px;margin-bottom:0px;margin-top:0px">
+                                                <b style="color:#38A4A3;">+971-6543298</b>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
+                                <div>
+                                    <div class="genders-sec">
+                                        <label for="ratings" style="color:#fff;">Avaiable for</label>
+                                        <br>
+                                        <div class="total-members-list">
+                                            <h4 style="margin-bottom:0px;margin-top:0px">
+                                                <b style="color:#38A4A3;font-size:14px;">{{vm.zoneData.zoneFor}}</b>
+                                                <i class="fas fa-female"></i>
+                                                <i class="fas fa-male"></i>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
+                                <div>
+                                    <div class="genders-sec">
+                                        <label for="ratings" style="color:#fff;">Time Shift</label>
+                                        <br>
+                                        <div class="total-members-list">
+                                            <h4 style="margin-bottom:0px;margin-top:0px;color:#fff;">
+                                                <b style="color:#38A4A3;font-size:14px;"> {{vm.zoneData.zoneTiming.morning}}</b>
+
+                                                <b style="color:#38A4A3;font-size:14px;"> {{vm.zoneData.zoneTiming.evening}} </b>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end h_menu4 -->
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- end menu -->
+<div class="main">
+    <div class="container">
+        <!-- start content-top -->
+        <div class="row content-top">
+            <div class="col-md-5">
+                <img src="{{vm.zoneData.logo.url}}" class="img-responsive" alt="" />
+            </div>
+            <div class="col-md-7 content_left_text">
+                <h3>Heading about</h3>
+                <p>{{vm.zoneData.aboutZone}}</p>
+            </div>
+        </div>
+    </div>
+    <!-- end content-top -->
+    <div class="container">
+        <div class="row content-middle">
+            <!-- start content-middle -->
+            <div class="col-md-4">
+                <a href="pricing.html">
+                    <ul class="spinning">
+                        <li class="live">live
+                            <span class="m_1">Spinning</span>
+                        </li>
+                        <li class="room">Room 2</li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="view view-fifth">
+                        <img src="images/pic3.jpg" class="img-responsive" alt="" />
+                        <div class="mask">
+                            <div class="info">Read More</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="pricing.html">
+                    <ul class="spinning">
+                        <li class="live">live
+                            <span class="m_1">Gym</span>
+                        </li>
+                        <li class="room">Room 1</li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="view view-fifth">
+                        <img src="images/pic2.jpg" class="img-responsive" alt="" />
+                        <div class="mask">
+                            <div class="info">Read More</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="pricing.html">
+                    <ul class="spinning">
+                        <li class="live">live
+                            <span class="m_1">Pilates</span>
+                        </li>
+                        <li class="room">Room 4</li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="view view-fifth">
+                        <img src="images/pic1.jpg" class="img-responsive" alt="" />
+                        <div class="mask">
+                            <div class="info">Read More</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- end content-middle -->
+        <div class="row about">
+            <div class="col-md-8">
+                <h3 class="m_2">All Classes</h3>
+                <div class="classes">
+                    <div class="cardio_list">
+                        <div class="cardio_sublist">
+                            <ul class="cardio">
+                                <li>
+                                    <i class="clock"> </i>
+                                    <span>Cardio Fitness</span>
+                                </li>
+                            </ul>
+                            <div class="social-media">
+                                <ul>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="timetable">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="Send to">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="like it">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="share">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="cardio_sublist">
+                            <ul class="cardio">
+                                <li>
+                                    <i class="clock"> </i>
+                                    <span>Spinning</span>
+                                </li>
+                            </ul>
+                            <div class="social-media">
+                                <ul>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="timetable">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="Send to">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="like it">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="share">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="cardio_sublist">
+                            <ul class="cardio">
+                                <li>
+                                    <i class="clock"> </i>
+                                    <span>Pilates</span>
+                                </li>
+                            </ul>
+                            <div class="social-media">
+                                <ul>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="timetable">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="Send to">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="like it">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="share">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="cardio_sublist">
+                            <ul class="cardio">
+                                <li>
+                                    <i class="clock"> </i>
+                                    <span>Boxing</span>
+                                </li>
+                            </ul>
+                            <div class="social-media">
+                                <ul>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="timetable">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="Send to">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="like it">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="share">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="cardio_list1">
+                        <div class="cardio_sublist">
+                            <ul class="cardio">
+                                <li>
+                                    <i class="clock"> </i>
+                                    <span>Aerobics</span>
+                                </li>
+                            </ul>
+                            <div class="social-media">
+                                <ul>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="timetable">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="Send to">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="like it">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="share">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="cardio_sublist">
+                            <ul class="cardio">
+                                <li>
+                                    <i class="clock"> </i>
+                                    <span>Kik Boxing</span>
+                                </li>
+                            </ul>
+                            <div class="social-media">
+                                <ul>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="timetable">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="Send to">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="like it">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="share">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="cardio_sublist">
+                            <ul class="cardio">
+                                <li>
+                                    <i class="clock"> </i>
+                                    <span>CrossFit</span>
+                                </li>
+                            </ul>
+                            <div class="social-media">
+                                <ul>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="timetable">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="Send to">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="like it">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="share">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="cardio_sublist">
+                            <ul class="cardio">
+                                <li>
+                                    <i class="clock"> </i>
+                                    <span>Yoga</span>
+                                </li>
+                            </ul>
+                            <div class="social-media">
+                                <ul>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="timetable">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="Send to">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="like it">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="simptip-position-bottom simptip-movable" data-tooltip="share">
+                                            <a href="#" target="_blank"> </a>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h3 class="m_4">Membership Prices</h3>
+                <div class="members">
+                    <h4 class="m_3">25% Discount of for all members</h4>
+                    <p>Discount on services and
+                        <br>treatments at the GymBase for
+                        <br> all membership cards holders.</p>
+                    <div class="btn1">
+                        <a href="#">More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="row content_middle_bottom">
+            <div class="row">
+
+
+
+                <div class="row">
+                    <div class="trainer-slide">
+                        <div class="col-md-12 trainer-slide-sec">
+                            <h2 class="text-div m_2" style="color: #00BFF0;"> Trainers </h2>
+                            <div class="carousel carousel-showmanymoveone slide" id="carousel123">
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="trainer in vm.trainersData">
+                                            <li class="trainer-slid-section" >
+                                                <img src="images/user.png"  class="img img-responsive img-circle" />
+                                                <div class="desc " style="margin-right:auto;margin-left:auto;">
+                                                    <h3>{{trainer.name }}
+                                                        <br>
+                                                        <span class="m_tex" style="font-weight:100">Zone Name</span>
+                                                    </h3>
+                                                    <p class="text-div" style="overflow:hidden;">
+                                                        <br> {{trainer.description}}</p>
+                                                    <div class="coursel_list">
+                                                        <i class="heart1"> </i>
+                                                        <i class="like"> </i>
+                                                    </div>
+                                                    <div class="coursel_list1">
+                                                        <i class="twt"> </i>
+                                                        <i class="fb"> </i>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </li>
+                                        </div>
+                                    </div>
+                                   
+                                    
+                                    
+                                   
+                                </div>
+                               <div class="trainer-zone-icons-slide">
+                                    <a style="background:none;left:0%;" class="left trainer-slide-bg carousel-control" href="#carousel123" data-slide="prev">
+                                            <i class="glyphicon glyphicon-chevron-left"></i>
+                                        </a>
+                                        <a style="background:none;" class="right trainer-slide-bg carousel-control" href="#carousel123" data-slide="next">
+                                            <i class="glyphicon glyphicon-chevron-right"></i>
+                                        </a>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="container">
+                <!-- Start Free jQuery Slider BODY section -->
+                <div class="product-slider">
+                    <div id="carousel" class="carousel slide" data-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="item active"> <img src="http://placehold.it/1600x700?text=Product+01"> </div>
+                        <div class="item"> <img src="http://placehold.it/1600x700?text=Product+02"> </div>
+                        <div class="item"> <img src="http://placehold.it/1600x700?text=Product+03"> </div>
+                        <div class="item"> <img src="http://placehold.it/1600x700?text=Product+04"> </div>
+                        <div class="item"> <img src="http://placehold.it/1600x700?text=Product+05"> </div>
+                        <div class="item"> <img src="http://placehold.it/1600x700?text=Product+06"> </div>
+                        <div class="item"> <img src="http://placehold.it/1600x700?text=Product+07"> </div>
+                        <div class="item"> <img src="http://placehold.it/1600x700?text=Product+08"> </div>
+                        <div class="item"> <img src="http://placehold.it/1600x700?text=Product+09"> </div>
+                        <div class="item"> <img src="http://placehold.it/1600x700?text=Product+10"> </div>
+                      </div>
+                    </div>
+                    <div class="clearfix">
+                      <div id="thumbcarousel" class="carousel slide" data-interval="false">
+                        <div class="carousel-inner">
+                          <div class="item active">
+                            <div data-target="#carousel" data-slide-to="0" class="thumb"><img src="http://placehold.it/100x80?text=Thumb+01"></div>
+                            <div data-target="#carousel" data-slide-to="1" class="thumb"><img src="http://placehold.it/100x80?text=Thumb+02"></div>
+                            <div data-target="#carousel" data-slide-to="2" class="thumb"><img src="http://placehold.it/100x80?text=Thumb+03"></div>
+                            <div data-target="#carousel" data-slide-to="3" class="thumb"><img src="http://placehold.it/100x80?text=Thumb+04"></div>
+                            <div data-target="#carousel" data-slide-to="4" class="thumb"><img src="http://placehold.it/100x80?text=Thumb+05"></div>
+                          </div>
+                          <div class="item">
+                            <div data-target="#carousel" data-slide-to="5" class="thumb"><img src="http://placehold.it/100x80?text=Thumb+06"></div>
+                            <div data-target="#carousel" data-slide-to="6" class="thumb"><img src="http://placehold.it/100x80?text=Thumb+07"></div>
+                            <div data-target="#carousel" data-slide-to="7" class="thumb"><img src="http://placehold.it/100x80?text=Thumb+08"></div>
+                            <div data-target="#carousel" data-slide-to="8" class="thumb"><img src="http://placehold.it/100x80?text=Thumb+08"></div>
+                            <div data-target="#carousel" data-slide-to="9" class="thumb"><img src="http://placehold.it/100x80?text=Thumb+10"></div>
+                          </div>
+                        </div>
+                        <!-- /carousel-inner --> 
+                        <a class="left carousel-control" style="background:none;"href="#thumbcarousel" role="button" data-slide="prev"> <i class="fa fa-angle-left" style="margin-top:38px;" aria-hidden="true"></i> </a> <a class="right carousel-control" style="background:none;" href="#thumbcarousel" role="button" data-slide="next"><i class="fa fa-angle-right" style="margin-top:38px;" aria-hidden="true"></i> </a> </div>
+                      <!-- /thumbcarousel --> 
+                      
+                    </div>
+                  </div>
+                  
+        
+        <!-- End Free jQuery Slider BODY section -->
+                <!-- container / end -->
+
+                <div class="clear"></div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="map">
+        <iframe width="100%" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=United+Kingdom&amp;aq=0&amp;oq=un&amp;sll=37.0625,-95.677068&amp;sspn=48.956293,107.138672&amp;ie=UTF8&amp;hq=&amp;hnear=United+Kingdom&amp;ll=55.378051,-3.435973&amp;spn=135.795411,68.554687&amp;t=m&amp;z=2&amp;output=embed">
+        </iframe>
+        <br />
+        <small>
+            <a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=United+Kingdom&amp;aq=0&amp;oq=un&amp;sll=37.0625,-95.677068&amp;sspn=48.956293,107.138672&amp;ie=UTF8&amp;hq=&amp;hnear=United+Kingdom&amp;ll=55.378051,-3.435973&amp;spn=135.795411,68.554687&amp;t=m&amp;z=2"
+                style="color:#666;font-size:12px;text-align:left"> </a>
+        </small>
+        <div class="opening_hours">
+            <ul class="times">
+                <h3>Opening
+                    <span class="opening">Hours</span>
+                </h3>
+                <li>
+                    <i class="calender"> </i>
+                    <span class="week">Monday</span>
+                    <div class="hours">h.6:00-h.24:00</div>
+                    <div class="clear"></div>
+                </li>
+                <li>
+                    <i class="calender"> </i>
+                    <span class="week">Tuesday</span>
+                    <div class="hours">h.6:00-h.24:00</div>
+                    <div class="clear"></div>
+                </li>
+                <li>
+                    <i class="calender"> </i>
+                    <span class="week">Wednesday</span>
+                    <div class="hours">h.6:00-h.24:00</div>
+                    <div class="clear"></div>
+                </li>
+                <li>
+                    <i class="calender"> </i>
+                    <span class="week">Thrusday</span>
+                    <div class="hours">h.6:00-h.24:00</div>
+                    <div class="clear"></div>
+                </li>
+                <li>
+                    <i class="calender"> </i>
+                    <span class="week">Friday</span>
+                    <div class="hours">h.6:00-h.24:00</div>
+                    <div class="clear"></div>
+                </li>
+                <li>
+                    <i class="calender"> </i>
+                    <span class="week">Saturday</span>
+                    <div class="hours">h.6:00-h.24:00</div>
+                    <div class="clear"></div>
+                </li>
+                <li>
+                    <i class="calender"> </i>
+                    <span class="week">Sunday</span>
+                    <div class="hours">h.6:00-h.24:00</div>
+                    <div class="clear"></div>
+                </li>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet</p>
+                <h4>Enjoy it!</h4>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <md-content>
+            <md-list>
+                <md-list-item class="md-3-line">
+                    <img ng-src="{{userProfile.picture}}" class="md-avatar" alt="">
+                    <div class="md-list-item-text">
+                        <h3>User</h3>
+                        <h4>Date : 31/03/2018</h4>
+                        <div class="rating-sec">
+                            <label for="ratings" style="color:#fff;">Rating</label>
+                            <br>
+                            <span class="fa fa-star checked-star"></span>
+                            <span class="fa fa-star checked-star"></span>
+                            <span class="fa fa-star checked-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <p>This is very good zone</p>
+                    </div>
+                    <md-divider md-inset ng-if="!$last"></md-divider>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion           
+                width: 'auto', //auto or any width like 600px
+                fit: true   // 100% fit in a container
+            });
+        });
+    </script>

@@ -3,11 +3,9 @@
 </div>
 <div class="row">
     <div class="ribbon">
-
         <div class="logo">
             <img class="img img-responsive logo-img" alt="zone-logo" src="/images/logo-blue.png">
         </div>
-
     </div>
 </div>
 
@@ -16,38 +14,39 @@
 <div class="zone-top-filter">
     <!-- filter -->
     <div class="container">
-        
-            <!-- container -->
-            <div class="row " style="margin-top:10%">
-                <!-- row -->
-                <div class="col-md-4 col-sm-12 col-xs-12">
-                    <div class="zone-filter-content text-left">
-                        <div class="zone-fee-content">
-                            
-                            <input style="background: rgb(10, 13, 16);
+
+        <!-- container -->
+        <div class="row " style="margin-top:10%">
+            <!-- row -->
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <div class="zone-filter-content text-left">
+                    <div class="zone-fee-content">
+
+                        <input style="background: rgb(10, 13, 16);
                             text-align: center;
                             
                             width: 350px;
                             height: 30px;
                             font-size: 16px;
-                            font-weight: 600;" list="cities" type="text" ng-model="vm.city"> <button class="btn btn-sm btn-warning"ng-click="vm.getZones(vm.city)">Search Gym</button>
-                            <datalist id="cities" >
-                                    <option>Hyderabad</option>
-                                    <option>Mumbai</option>
-                                    <option>Banglor</option>
-                                    <option>Chennai</option>
-                                  </datalist>
-                        </div>
-                        
-                        
-                       
+                            font-weight: 600;" list="cities" type="text" ng-model="vm.city">
+                        <button class="btn btn-sm btn-warning" ng-click="vm.getZones(vm.city)">Search Gym</button>
+                        <datalist id="cities">
+                            <option>Hyderabad</option>
+                            <option>Mumbai</option>
+                            <option>Banglor</option>
+                            <option>Chennai</option>
+                        </datalist>
                     </div>
+
+
+
                 </div>
-                
             </div>
-            <!-- end row -->
+
         </div>
- 
+        <!-- end row -->
+    </div>
+
     <!-- end filter -->
     <!-- end container -->
 </div>
@@ -56,73 +55,73 @@
 
 
 <div class="container">
-        
-            <div class="row">
-                    
-                            <div class="col-md-4 col-sm-6 col-xs-12 col-lg-3 filters">
-                                    <div class="filter-class-status text-center">
-                                        <div class="filter-class-heading">
-                                            <h5 class="text-center" style="color:#fff;">Filter By Ratings</h5>
-                                        </div>
-                                        <label for="star-rating">
-                                            <button class="btn btn-sm btn-default">
-                                                <span class="fa fa-star checked"></span>
-                                            </button>
-                                            <br>
-                                            <div class="rating-value">1</div>
-                                        </label>
-                                        <label for="star-rating">
-                                            <button class="btn btn-sm btn-default">
-                                                <span class="fa fa-star checked"></span>
-                                            </button>
-                                            <br>
-                                            <div class="rating-value">2</div>
-                                        </label>
-                                        <label for="star-rating">
-                                            <button class="btn btn-sm btn-default">
-                                                <span class="fa fa-star checked"></span>
-                                            </button>
-                                            <br>
-                                            <div class="rating-value">3</div>
-                                        </label>
-                                        <label for="star-rating">
-                                            <button class="btn btn-sm btn-default">
-                                                <span class="fa fa-star checked"></span>
-                                            </button>
-                                            <br>
-                                            <div class="rating-value">4</div>
-                                        </label>
-                                        <label for="star-rating">
-                                            <button class="btn btn-sm btn-default">
-                                                <span class="fa fa-star checked"></span>
-                                            </button>
-                                            <br>
-                                            <div class="rating-value">5</div>
-                                        </label>
-                                    </div>
-                                    <div class="filter-distance text-center">
-                                            <div class="filter-distance-heading">
-                                                <h5 class="text-center" style="color:#fff;">Filter By Distance</h5>
-                                            </div>
-                                            <div class="form-group">
-                                                <select class="form-control input-sm" id="sel1" style="width:250px;">
-                                                    <option>City Center</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                </select>
-                                            </div>
-                                            <div class="zone-fee-content-max">
-                                                <p class="text-center"> Max. 2km </p>
-                                            </div>
-                                            <div class="price-value">
-                        
-                                            </div>
-                                        </div>
-                                </div>
-                    
-                                
-                        
+
+    <div class="row">
+
+        <div class="col-md-4 col-sm-6 col-xs-12 col-lg-3 filters">
+            <div class="filter-class-status text-center">
+                <div class="filter-class-heading">
+                    <h5 class="text-center" style="color:#fff;">Filter By Ratings</h5>
+                </div>
+                <label for="star-rating">
+                    <button class="btn btn-sm btn-ratings-list btn-default" style="background: none;padding: 5px;">
+                        <span class="fa fa-star checked"></span>
+                    </button>
+                    <br>
+                    <div class="rating-value">1</div>
+                </label>
+                <label for="star-rating">
+                    <button class="btn btn-sm btn-default btn-ratings-list" style="background: none;padding: 5px;">
+                        <span class="fa fa-star checked"></span>
+                    </button>
+                    <br>
+                    <div class="rating-value">2</div>
+                </label>
+                <label for="star-rating">
+                    <button class="btn btn-sm btn-default btn-ratings-list" style="background: none;padding: 5px;">
+                        <span class="fa fa-star checked"></span>
+                    </button>
+                    <br>
+                    <div class="rating-value">3</div>
+                </label>
+                <label for="star-rating">
+                    <button class="btn btn-sm btn-default btn-ratings-list" style="background: none;padding: 5px;">
+                        <span class="fa fa-star checked"></span>
+                    </button>
+                    <br>
+                    <div class="rating-value">4</div>
+                </label>
+                <label for="star-rating">
+                    <button class="btn btn-sm btn-default btn-ratings-list" style="background: none;padding: 5px;">
+                        <span class="fa fa-star checked"></span>
+                    </button>
+                    <br>
+                    <div class="rating-value">5</div>
+                </label>
+            </div>
+            <div class="filter-distance text-center">
+                <div class="filter-distance-heading">
+                    <h5 class="text-center" style="color:#fff;">Filter By Distance</h5>
+                </div>
+                <div class="form-group">
+                    <select class="form-control input-sm" id="sel1" style="width:250px;">
+                        <option>City Center</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select>
+                </div>
+                <div class="zone-fee-content-max">
+                    <p class="text-center"> Max. 2km </p>
+                </div>
+                <div class="price-value">
+
+                </div>
+            </div>
+        </div>
+
+
+
 
         <div class="col-md-4 col-sm-6 col-xs-12 col-lg-3 banner-cards" ng-repeat="zone in vm.zones">
             <div class="banner-card-one">

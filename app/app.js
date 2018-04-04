@@ -88,14 +88,24 @@
 				parent: 'dashboard'
 				
 			})
+		/*	.state('zonedetails', {
+				url: '/zonedetails/:zoneId/:city',
+				controller: 'zoneDetailsController',
+				params:      {'zoneId':null,'city':null},
+				templateUrl: 'components/zone-details-new-mobo-page/zone-details-mobo-components.html',
+				controllerAs: 'vm',
+				
+			})*/
+
 			.state('zonedetails', {
 				url: '/zonedetails/:zoneId/:city',
 				controller: 'zoneDetailsController',
 				params:      {'zoneId':null,'city':null},
-				templateUrl: 'components/zone-details/zone-details.component.html',
+				templateUrl: 'components/zone-details-new-mobo-page/zone-details-mobo-components.html',
 				controllerAs: 'vm',
 				
 			})
+
 			.state('memberdetails', {
 				url: '/memberdetails/:zoneId/:memberId',
 				controller: 'memberDetailsController',

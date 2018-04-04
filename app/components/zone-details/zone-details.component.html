@@ -1,21 +1,21 @@
 <div class="container">
-        <div class="row">
-    <div class="members-screen">
-        <!-- header -->
-        <div class="well well-sm">
-            <div class="container">
-                <div class="row">
-                    <div class="header-content-members">
-                        <div class="members-zone-logo">
-                            <img class="img img-responsive" alt="members-logo-zone" src="images/logo-blue.png">
+    <div class="row">
+        <div class="members-screen">
+            <!-- header -->
+            <div class="well well-sm">
+                <div class="container">
+                    <div class="row">
+                        <div class="header-content-members">
+                            <div class="members-zone-logo">
+                                <img class="img img-responsive" alt="members-logo-zone" src="images/logo-blue.png">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- end header -->
-        <!-- cover -->
-        <div class="members-cover" style="width:100%;
+            <!-- end header -->
+            <!-- cover -->
+            <div class="members-cover" style="width:100%;
         height:400px;;
         background:url({{vm.zoneData.zoneCoverImage.url}});
         background-repeat: no-repeat;
@@ -23,230 +23,231 @@
         background-size: 100% 100%;
         background-position: center;
         background-attachment: fixed;">
-            <div class="container">
-                <div class="row">
-                    <div class="cover-top-icons">
-                        <div class="pull-right">
-                            <ul class="nav navbar-nav">
-                                <li>
-                                    <a href="#">
-                                        <img src="images/msg-icon.png" class="img img-responsive">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="images/share-icon.png" class="img img-responsive">
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="cover-heading">
-                    <center>
-                        <h2 class="text-center">{{vm.zoneData.zoneName}}</h2>
-                        <ul class="nav cover-text">
-                            <li>
-                                <a href="#"> Zone Service </a>
-                            </li>
-                            <li>
-                                <a href="#"> Personal Coaching </a>
-                            </li>
-                        </ul>
-                    </center>
-                </div>
-                <!-- second-row -->
-                <div class="row">
-                    <div class="about-cover-text">
-                        <p class="text-center">
-                            {{vm.zoneData.zoneShortDescription}}
-                        </p>
-                    </div>
-                </div>
-                <!-- end second-row -->
-                <!-- thir row -->
                 <div class="container">
                     <div class="row">
-                        <center>
-                            <div class="join-content">
-                                <div class="text-join">
-                                    <p class="text-center">
-                                        Join Zone for
-                                        <b> 50% </b> Off (Offer valid till 13 august 2018)
-                                    </p>
-                                </div>
-                                <div class="cover-buttons">
-                                    <button class="btn btn-sm btn-primary">Join</button>
-                                    <button class="btn btn-sm btn-primary" ng-click="vm.getTrail($event,vm.zoneData.zoneId,vm.zoneData.zoneName)">Request For Trial</button>
-                                </div>
+                        <div class="cover-top-icons">
+                            <div class="pull-right">
+                                <ul class="nav navbar-nav">
+                                    <li>
+                                        <a href="#">
+                                            <img src="images/msg-icon.png" class="img img-responsive">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="images/share-icon.png" class="img img-responsive">
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
+                        </div>
+                    </div>
+                    <div class="cover-heading">
+                        <center>
+                            <h2 class="text-center">{{vm.zoneData.zoneName}}</h2>
+                            <ul class="nav cover-text">
+                                <li>
+                                    <a href="#"> Zone Service </a>
+                                </li>
+                                <li>
+                                    <a href="#"> Personal Coaching </a>
+                                </li>
+                            </ul>
                         </center>
                     </div>
-                </div>
-                <!-- end third row -->
-            </div>
-            <!-- cover bottam -->
-            <div class="cover-bottom">
-                <div class="well well-lg">
-                    <div class="container-fluid">
+                    <!-- second-row -->
+                    <div class="row">
+                        <div class="about-cover-text">
+                            <p class="text-center">
+                                {{vm.zoneData.zoneShortDescription}}
+                            </p>
+                        </div>
+                    </div>
+                    <!-- end second-row -->
+                    <!-- thir row -->
+                    <div class="container">
                         <div class="row">
-                            <div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
-                                <center>
-                                    <div class="rating-sec">
-                                        <label for="ratings" style="color:#fff;">Rating</label>
-                                        <br>
-                                        <span class="fa fa-star checked-star"></span>
-                                        <span class="fa fa-star checked-star"></span>
-                                        <span class="fa fa-star checked-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
+                            <center>
+                                <div class="join-content">
+                                    <div class="text-join">
+                                        <p class="text-center">
+                                            Join Zone for
+                                            <b> 50% </b> Off (Offer valid till 13 august 2018)
+                                        </p>
                                     </div>
-                                </center>
-                            </div>
-                            <div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
-                                <center>
-                                    <div class="members-sec">
-                                        <label for="ratings" style="color:#fff;">Contact</label>
-                                        <br>
-                                        <div class="total-members-list" style="color:cadetblue;">
-                                            <h4 style="font-size:18px;">
-                                                <b style="color:#38a4d2;">+971-6543298</b>
-                                            </h4>
+                                    <div class="cover-buttons">
+                                        <button class="btn btn-sm btn-primary">Join</button>
+                                        <button class="btn btn-sm btn-primary" ng-click="vm.getTrail($event,vm.zoneData.zoneId,vm.zoneData.zoneName)">Request For Trial</button>
+                                    </div>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                    <!-- end third row -->
+                </div>
+                <!-- cover bottam -->
+                <div class="cover-bottom">
+                    <div class="well well-lg">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
+                                    <center>
+                                        <div class="rating-sec">
+                                            <label for="ratings" style="color:#fff;">Rating</label>
+                                            <br>
+                                            <span class="fa fa-star checked-star"></span>
+                                            <span class="fa fa-star checked-star"></span>
+                                            <span class="fa fa-star checked-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
                                         </div>
-                                    </div>
-                                </center>
-                            </div>
-                            <div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
-                                <center>
-                                    <div class="genders-sec">
-                                        <label for="ratings" style="color:#fff;">Avaiable for</label>
-                                        <br>
-                                        <div class="total-members-list">
-                                            <h4>
-                                                <b style="color:#38a4d2;">{{vm.zoneData.zoneFor}}</b>
-                                                <i class="fas fa-female"></i>
-                                                <i class="fas fa-male"></i>
-                                            </h4>
+                                    </center>
+                                </div>
+                                <div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
+                                    <center>
+                                        <div class="members-sec">
+                                            <label for="ratings" style="color:#fff;">Contact</label>
+                                            <br>
+                                            <div class="total-members-list" style="color:cadetblue;">
+                                                <h4 style="font-size:18px;">
+                                                    <b style="color:#38a4d2;">+971-6543298</b>
+                                                </h4>
+                                            </div>
                                         </div>
-                                    </div>
-                                </center>
-                            </div>
-                            <div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
-                                <center>
-                                    <div class="genders-sec">
-                                        <label for="ratings" style="color:#fff;">Time Shift</label>
-                                        <br>
-                                        <div class="total-members-list">
-                                            <h4 style="font-size:15px;color:#fff;">
-                                                <b style="color:#38a4d2;"> {{vm.zoneData.zoneTiming.morning}}</b>
-                                                
-                                                <b style="color:#38a4d2;"> {{vm.zoneData.zoneTiming.evening}}  </b>
-                                            </h4>
+                                    </center>
+                                </div>
+                                <div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
+                                    <center>
+                                        <div class="genders-sec">
+                                            <label for="ratings" style="color:#fff;">Avaiable for</label>
+                                            <br>
+                                            <div class="total-members-list">
+                                                <h4>
+                                                    <b style="color:#38a4d2;">{{vm.zoneData.zoneFor}}</b>
+                                                    <i class="fas fa-female"></i>
+                                                    <i class="fas fa-male"></i>
+                                                </h4>
+                                            </div>
                                         </div>
-                                    </div>
-                                </center>
+                                    </center>
+                                </div>
+                                <div class="col-md-3 col-xs-3 col-lg-3 col-sm-3">
+                                    <center>
+                                        <div class="genders-sec">
+                                            <label for="ratings" style="color:#fff;">Time Shift</label>
+                                            <br>
+                                            <div class="total-members-list">
+                                                <h4 style="font-size:15px;color:#fff;">
+                                                    <b style="color:#38a4d2;"> {{vm.zoneData.zoneTiming.morning}}</b>
+
+                                                    <b style="color:#38a4d2;"> {{vm.zoneData.zoneTiming.evening}} </b>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </center>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- cover bottam -->
             </div>
-            <!-- cover bottam -->
-        </div>
 
-        <!-- end cover -->
-    </div>
-</div>
-
-<div class="row">
-    <!-- Zone Members About -->
-    <div class="zone-members-about">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="zone-about-text">
-                        <h2 class="text-left"> About Zone </h2>
-                        <p class="text-left">
-                            {{vm.zoneData.aboutZone}}
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="zone-about-logos">
-                        <center>
-                            <img src="{{vm.zoneData.logo.url}}"  style="width:230px;height:220px"class="img img-responsive img-circle zone-about-logo.png" alt="zone-about-logo">
-                        </center>
-                    </div>
-                </div>
-            </div>
+            <!-- end cover -->
         </div>
     </div>
-</div>
+
+    <div class="row">
+        <!-- Zone Members About -->
+        <div class="zone-members-about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="zone-about-text">
+                            <h2 class="text-left"> About Zone </h2>
+                            <p class="text-left">
+                                {{vm.zoneData.aboutZone}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="zone-about-logos">
+                            <center>
+                                <img src="{{vm.zoneData.logo.url}}" style="width:230px;height:220px" class="img img-responsive img-circle zone-about-logo.png"
+                                    alt="zone-about-logo">
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- End Zone Members About -->
 
     <!-- zone videos -->
     <div class="row">
-    <div class="zone-members-videos">
-        <div class="container">
-            <div class="zone-video-header">
-                <h2 class="zone-video-heading">
-                    Relavent Videos
-                </h2>
-                <p class="">
-                    de Finibus Bonorum et Malorum" by Cicero are
-                </p>
-            </div>
-            <div class="zone-video-content">
-                <center>
-                    <iframe width="60%" height="400" src="https://www.youtube.com/embed/tmAiGvdRqG8" frameborder="0" allow="autoplay; encrypted-media"
-                        allowfullscreen>
-                    </iframe>
-                </center>
+        <div class="zone-members-videos">
+            <div class="container">
+                <div class="zone-video-header">
+                    <h2 class="zone-video-heading">
+                        Relavent Videos
+                    </h2>
+                    <p class="">
+                        de Finibus Bonorum et Malorum" by Cicero are
+                    </p>
+                </div>
+                <div class="zone-video-content">
+                    <center>
+                        <iframe width="60%" height="400" src="https://www.youtube.com/embed/tmAiGvdRqG8" frameborder="0" allow="autoplay; encrypted-media"
+                            allowfullscreen>
+                        </iframe>
+                    </center>
+                </div>
             </div>
         </div>
     </div>
-</div>
     <!-- end zone videos -->
 
     <!-- Zone members images -->
 
     <div class="row">
-    <div class="zone-members-images">
-    <div class="zone-members-images-heading">
-        <h2 class="text-left">
-            Relavent Images
-        </h2>
-        <p class="text-left">
-            de Finibus Bonorum et Malorum" by Cicero are
-        </p>
-    </div>
+        <div class="zone-members-images">
+            <div class="zone-members-images-heading">
+                <h2 class="text-left">
+                    Relavent Images
+                </h2>
+                <p class="text-left">
+                    de Finibus Bonorum et Malorum" by Cicero are
+                </p>
+            </div>
             <div class="zone-details-images-page">
                 <div class="container-fluid">
                     <div id="myCarousel" class="carousel slide zone-img-slider-content" data-ride="carousel">
-    
+
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
-    
-                            <div  class="item " style="height:600px" ng-class="{'active': $index == 0}" ng-repeat="image in vm.zoneData.images">
+
+                            <div class="item " style="height:600px" ng-class="{'active': $index == 0}" ng-repeat="image in vm.zoneData.images">
                                 <img src="{{image.url}}">
                             </div>
                             <!-- End Item -->
-    
-                           
+
+
                             <!-- End Item -->
-    
+
                         </div>
                         <!-- End Carousel Inner -->
-    
+
                         <!-- zone details img slider -->
                         <div class="zone-details-img-slider">
                             <ul class="nav nav-pills nav-justified">
-                                <li data-target="#myCarousel"  data-slide-to={{$index}} class=" zone-carousel-img" ng-class="{'active': $index == 0}" ng-repeat="image in vm.zoneData.images">
+                                <li data-target="#myCarousel" data-slide-to={{$index}} class=" zone-carousel-img" ng-class="{'active': $index == 0}" ng-repeat="image in vm.zoneData.images">
                                     <img class="img img-responsive" style="height:150px" src="{{image.url}}">
                                     <a style="border-radius:1px;">
                                         <small>Gym Area</small>
                                     </a>
                                 </li>
-                                
+
                             </ul>
                         </div>
                         <!--end zone details img slider -->
@@ -254,186 +255,186 @@
                     <!-- End Carousel -->
                 </div>
             </div>
+        </div>
     </div>
-</div>
- 
 
-<div class="row">
+
+    <div class="row">
         <div class="zone-user-details-card-page" style="height:auto;">
-                <div class="head-trainer-section">
-                    <h2 class="text-left">
-                        Trainers
-                    </h2>
+            <div class="head-trainer-section">
+                <h2 class="text-left">
+                    Trainers
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-xs-12 col-lg-3" ng-repeat="trainer in vm.trainersData">
+                    <!-- card -->
+                    <div class="zone-user-details-cards">
+                        <div class="user-details-card-header">
+                            <h4 class="text-center"> {{trainer.name }}</h4>
+                            <img src="images/zone-owner.png" class="img img-responsive">
+                        </div>
+                        <div class="user-details-card-body">
+                            <h5 class="text-center">
+                                {{trainer.description}}
+                            </h5>
+                        </div>
+                        <div class="user-details-card-footer">
+                            <div class="text-center">
+                                <div class="btn-group trainer-card-footer-buttons" role="group">
+                                    <button class="btn btn-sm view-btn btn-info"> Training For </button>
+                                    <button class="btn btn-sm abt-btn btn-success"> {{trainer.deparment}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="zone-facilities-section" style="height:auto">
+            <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-3 col-xs-12 col-lg-3" ng-repeat="trainer in vm.trainersData">
-                        <!-- card -->
-                        <div class="zone-user-details-cards">
-                            <div class="user-details-card-header">
-                                <h4 class="text-center"> {{trainer.name }}</h4>
-                                <img src="images/zone-owner.png" class="img img-responsive">
+                    <div class="zone-facilities-section-header">
+                        <div class="zone-facilities-section-heading">
+                            <h2 class="text-left">Our Facilities</h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- Facilities Icons -->
+                <div class="zone-facilities-section-content">
+                    <div class="row">
+                        <div class="facilities-section-content-icons">
+                            <div class="col-md-2 col-sm-4 col-xs-12">
+                                <div class="gym-floor">
+                                    <img src="images/zone-facilities/gym-flour.png" class="img img-responsive" alt="gym-flour">
+                                    <div class="facilities-img-about">
+                                        <h6 class="text-center"> Gym Floor </h6>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="user-details-card-body">
-                                <h5 class="text-center">
-                                    {{trainer.description}}
-                                </h5>
+                            <div class="col-md-2 col-sm-4 col-xs-6">
+                                <div class="gym-floor">
+                                    <img src="images/zone-facilities/internet-station.png" class="img img-responsive" alt="internet-station">
+                                    <div class="facilities-img-about">
+                                        <h6 class="text-center"> Internet Station </h6>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="user-details-card-footer">
-                                <div class="text-center">
-                                    <div class="btn-group trainer-card-footer-buttons" role="group">
-                                        <button class="btn btn-sm view-btn btn-info"> Training For </button>
-                                        <button class="btn btn-sm abt-btn btn-success"> {{trainer.deparment}}</button>
+                            <div class="col-md-2 col-sm-4 col-xs-6">
+                                <div class="gym-floor">
+                                    <img src="images/zone-facilities/members-longues.png" class="img img-responsive" alt="members-longues">
+                                    <div class="facilities-img-about">
+                                        <h6 class="text-center"> Members Longues </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-4 col-xs-6">
+                                <div class="gym-floor">
+                                    <img src="images/zone-facilities/personal-trainer.png" class="img img-responsive" alt="personal-trainer">
+                                    <div class="facilities-img-about">
+                                        <h6 class="text-center"> Personal Trainer </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-4 col-xs-6">
+                                <div class="gym-floor">
+                                    <img src="images/zone-facilities/shower-area.png" class="img img-responsive" alt="shower-area">
+                                    <div class="facilities-img-about">
+                                        <h6 class="text-center"> Shower Area </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-4 col-xs-12">
+                                <div class="gym-floor">
+                                    <img src="images/zone-facilities/towel-service.png" class="img img-responsive" alt="towel-service">
+                                    <div class="facilities-img-about">
+                                        <h6 class="text-center"> Towel Service </h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-    </div>
-
-<div class="row">
-    <div class="zone-facilities-section" style="height:auto">
-        <div class="container">
-            <div class="row">
-                <div class="zone-facilities-section-header">
-                    <div class="zone-facilities-section-heading">
-                        <h2 class="text-left">Our Facilities</h2>
-                    </div>
-                </div>
-            </div>
-            <!-- Facilities Icons -->
-            <div class="zone-facilities-section-content">
-                <div class="row">
-                    <div class="facilities-section-content-icons">
-                        <div class="col-md-2 col-sm-4 col-xs-12">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/gym-flour.png" class="img img-responsive" alt="gym-flour">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Gym Floor </h6>
+                <!-- Second Row Facilities Icons -->
+                <div class="zone-facilities-section-content">
+                    <div class="row">
+                        <div class="facilities-section-content-icons">
+                            <div class="col-md-2 col-sm-4 col-xs-6">
+                                <div class="gym-floor">
+                                    <img src="images/zone-facilities/cardio-area.png" class="img img-responsive" alt="cardio-area">
+                                    <div class="facilities-img-about">
+                                        <h6 class="text-center"> Cardio Area </h6>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-2 col-sm-4 col-xs-6">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/internet-station.png" class="img img-responsive" alt="internet-station">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Internet Station </h6>
+                            <div class="col-md-2 col-sm-4 col-xs-6">
+                                <div class="gym-floor">
+                                    <img src="images/zone-facilities/ccle-studio.png" class="img img-responsive" alt="ccle-studio">
+                                    <div class="facilities-img-about">
+                                        <h6 class="text-center"> Cyle Studio </h6>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-2 col-sm-4 col-xs-6">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/members-longues.png" class="img img-responsive" alt="members-longues">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Members Longues </h6>
+                            <div class="col-md-2 col-sm-4 col-xs-6">
+                                <div class="gym-floor">
+                                    <img src="images/zone-facilities/freestyle.png" class="img img-responsive" alt="freestyle">
+                                    <div class="facilities-img-about">
+                                        <h6 class="text-center"> Free Style</h6>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-2 col-sm-4 col-xs-6">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/personal-trainer.png" class="img img-responsive" alt="personal-trainer">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Personal Trainer </h6>
+                            <div class="col-md-2 col-sm-4 col-xs-6">
+                                <div class="gym-floor">
+                                    <img src="images/zone-facilities/strength-area.png" class="img img-responsive" alt="strength-area">
+                                    <div class="facilities-img-about">
+                                        <h6 class="text-center"> Strength Area</h6>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-2 col-sm-4 col-xs-6">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/shower-area.png" class="img img-responsive" alt="shower-area">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Shower Area </h6>
+                            <div class="col-md-2 col-sm-4 col-xs-6">
+                                <div class="gym-floor">
+                                    <img src="images/zone-facilities/group-exersize.png" class="img img-responsive" alt="group-exersize">
+                                    <div class="facilities-img-about">
+                                        <h6 class="text-center"> Group Exersize </h6>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-2 col-sm-4 col-xs-12">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/towel-service.png" class="img img-responsive" alt="towel-service">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Towel Service </h6>
+                            <div class="col-md-2 col-sm-4 col-xs-6">
+                                <div class="gym-floor">
+                                    <img src="images/zone-facilities/yoga.png" class="img img-responsive" alt="yoga">
+                                    <div class="facilities-img-about">
+                                        <h6 class="text-center"> Yoga </h6>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- end icons -->
             </div>
-            <!-- Second Row Facilities Icons -->
-            <div class="zone-facilities-section-content">
-                <div class="row">
-                    <div class="facilities-section-content-icons">
-                        <div class="col-md-2 col-sm-4 col-xs-6">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/cardio-area.png" class="img img-responsive" alt="cardio-area">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Cardio Area </h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-4 col-xs-6">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/ccle-studio.png" class="img img-responsive" alt="ccle-studio">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Cyle Studio </h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-4 col-xs-6">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/freestyle.png" class="img img-responsive" alt="freestyle">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Free Style</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-4 col-xs-6">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/strength-area.png" class="img img-responsive" alt="strength-area">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Strength Area</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-4 col-xs-6">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/group-exersize.png" class="img img-responsive" alt="group-exersize">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Group Exersize </h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-4 col-xs-6">
-                            <div class="gym-floor">
-                                <img src="images/zone-facilities/yoga.png" class="img img-responsive" alt="yoga">
-                                <div class="facilities-img-about">
-                                    <h6 class="text-center"> Yoga </h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end icons -->
         </div>
     </div>
-  </div>
 
 
-  <div class="row">
-    <div class="zone-membership-prizes" style="height:auto">
-        <div class="container">
-            <div class="row">
-                <div class="zone-prizing-header">
-                    <h2 class="zone-membership-prizes-heading">
-                        Zone Offers
-                    </h2>
-                    <p style="color:#737473;padding-bottom:10px;font-size:15px;" class="">
+    <div class="row">
+        <div class="zone-membership-prizes" style="height:auto">
+            <div class="container">
+                <div class="row">
+                    <div class="zone-prizing-header">
+                        <h2 class="zone-membership-prizes-heading">
+                            Zone Offers
+                        </h2>
+                        <p style="color:#737473;padding-bottom:10px;font-size:15px;" class="">
 
-                    </p>
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="zone-prizing">
-                <table class="table table-hover ">
-                    
+                <div class="zone-prizing">
+                    <table class="table table-hover ">
+
                         <tr class="info">
                             <th class="text-center">Membership Plans</th>
                             <th class="text-center"> About Plans </th>
@@ -441,125 +442,124 @@
                             <th class="text-center">Fee</th>
                             <th class="text-center">Special Offers</th>
                         </tr>
-                    
+
                         <tbody>
-                                <tr class="" ng-repeat="plan in vm.plansData">
-                                    <td scope="row" align="center">{{plan.planName}}</td>
-                                    <td scope="row" align="center">{{plan.aboutPlan}}</td>
-                                    <td scope="row" align="center">{{plan.planMonth}}(Months)</td>
-                                    <td scope="row" align="center">{{plan.planFee}}(inr)</td>
-                                    <td scope="row" align="center">{{plan.planOffer}}% ( valid till {{plan.offerValidity | date}})</td>
-                                </tr>
-                               
-                              
-                                
-        
-                            </tbody>
-                </table>
+                            <tr class="" ng-repeat="plan in vm.plansData">
+                                <td scope="row" align="center">{{plan.planName}}</td>
+                                <td scope="row" align="center">{{plan.aboutPlan}}</td>
+                                <td scope="row" align="center">{{plan.planMonth}}(Months)</td>
+                                <td scope="row" align="center">{{plan.planFee}}(inr)</td>
+                                <td scope="row" align="center">{{plan.planOffer}}% ( valid till {{plan.offerValidity | date}})</td>
+                            </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-  </div>
 </div>
-    
 
-       
 
-           
-           
+
+
+
+
 
 <!-- rating progress -->
 
 <!-- delete div -->
-    
 
 
 
-            <div class="zone-trainer-details-page" style="margin-top:50px;">
-               
-                    <div class="container" >
-                            <div class="zone-trainer-about-status">
-                                    <h3> What Members saying about {{vm.zoneData.zoneName}} </h3>
-                                    <div class="zone-rating-mobo-section" >
 
-                                            <div class="row">
-                                                <div class="zone-mobo-for-rating-screen text-center">
-                                                    <label for="mobo-rating">Cleanliness</label>
-                                                    <br>
-                                                    <div class="progress zone-mobo-rating">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width:98%">
-                                                        </div>
-                                                    </div>
-                                                    <span class="mobo-rating-text">9.8</span>
-                                                </div>
-                                                <div class="zone-mobo-for-rating-screen text-center">
-                                                    <label for="mobo-rating">Staff</label>
-                                                    <br>
-                                                    <div class="progress zone-mobo-rating">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-                                                        </div>
-                                                    </div>
-                                                    <span class="mobo-rating-text">9.8</span>
-                                                </div>
-                                                <div class="zone-mobo-for-rating-screen text-center">
-                                                    <label for="mobo-rating">Comfort</label>
-                                                    <br>
-                                                    <div class="progress zone-mobo-rating">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100" style="width:87%">
-                                                        </div>
-                                                    </div>
-                                                    <span class="mobo-rating-text">9.8</span>
-                                                </div>
-                                                <div class="zone-mobo-for-rating-screen text-center">
-                                                    <label for="mobo-rating">Location</label>
-                                                    <br>
-                                                    <div class="progress zone-mobo-rating">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-                                                        </div>
-                                                    </div>
-                                                    <span class="mobo-rating-text">9.8</span>
-                                                </div>
-                                                <div class="zone-mobo-for-rating-screen text-center">
-                                                    <label for="mobo-rating">Facilities</label>
-                                                    <br>
-                                                    <div class="progress zone-mobo-rating">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:93%">
-                                                        </div>
-                                                    </div>
-                                                    <span class="mobo-rating-text">9.8</span>
-                                                </div>
-                                                <div class="zone-mobo-for-rating-screen text-center">
-                                                    <label for="mobo-rating">Value For Money</label>
-                                                    <br>
-                                                    <div class="progress zone-mobo-rating">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                                                        </div>
-                                                    </div>
-                                                    <span class="mobo-rating-text">9.8</span>
-                                                </div>
-                                                <div class="zone-mobo-for-rating-screen text-center">
-                                                    <label for="mobo-rating">Free Wifi</label>
-                                                    <br>
-                                                    <div class="progress zone-mobo-rating">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:80%">
-                                                        </div>
-                                                    </div>
-                                                    <span class="mobo-rating-text">9.8</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    
-                                </div>
-                        <div class="row">
-                
-                  <md-content>
-                    <md-list>
-                      <md-list-item class="md-3-line" >
+<div class="zone-trainer-details-page" style="margin-top:50px;">
+
+    <div class="container">
+        <div class="zone-trainer-about-status">
+            <h3> What Members saying about {{vm.zoneData.zoneName}} </h3>
+            <div class="zone-rating-mobo-section">
+
+                <div class="row">
+                    <div class="zone-mobo-for-rating-screen text-center">
+                        <label for="mobo-rating">Cleanliness</label>
+                        <br>
+                        <div class="progress zone-mobo-rating">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width:98%">
+                            </div>
+                        </div>
+                        <span class="mobo-rating-text">9.8</span>
+                    </div>
+                    <div class="zone-mobo-for-rating-screen text-center">
+                        <label for="mobo-rating">Staff</label>
+                        <br>
+                        <div class="progress zone-mobo-rating">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+                            </div>
+                        </div>
+                        <span class="mobo-rating-text">9.8</span>
+                    </div>
+                    <div class="zone-mobo-for-rating-screen text-center">
+                        <label for="mobo-rating">Comfort</label>
+                        <br>
+                        <div class="progress zone-mobo-rating">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100" style="width:87%">
+                            </div>
+                        </div>
+                        <span class="mobo-rating-text">9.8</span>
+                    </div>
+                    <div class="zone-mobo-for-rating-screen text-center">
+                        <label for="mobo-rating">Location</label>
+                        <br>
+                        <div class="progress zone-mobo-rating">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+                            </div>
+                        </div>
+                        <span class="mobo-rating-text"> 9.8 </span>
+                    </div>
+                    <div class="zone-mobo-for-rating-screen text-center">
+                        <label for="mobo-rating"> Facilities </label>
+                        <br>
+                        <div class="progress zone-mobo-rating">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:93%">
+                            </div>
+                        </div>
+                        <span class="mobo-rating-text">9.8</span>
+                    </div>
+                    <div class="zone-mobo-for-rating-screen text-center">
+                        <label for="mobo-rating">Value For Money</label>
+                        <br>
+                        <div class="progress zone-mobo-rating">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                            </div>
+                        </div>
+                        <span class="mobo-rating-text">9.8</span>
+                    </div>
+                    <div class="zone-mobo-for-rating-screen text-center">
+                        <label for="mobo-rating">Free Wifi</label>
+                        <br>
+                        <div class="progress zone-mobo-rating">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:80%">
+                            </div>
+                        </div>
+                        <span class="mobo-rating-text">9.8</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <md-content>
+                <md-list>
+                    <md-list-item class="md-3-line">
                         <img ng-src="{{userProfile.picture}}" class="md-avatar" alt="">
                         <div class="md-list-item-text">
-                          <h3>User</h3>
-                          <h4>Date : 31/03/2018</h4>
-                          <div class="rating-sec">
+                            <h3>User</h3>
+                            <h4>Date : 31/03/2018</h4>
+                            <div class="rating-sec">
                                 <label for="ratings" style="color:#fff;">Rating</label>
                                 <br>
                                 <span class="fa fa-star checked-star"></span>
@@ -568,69 +568,70 @@
                                 <span class="fa fa-star"></span>
                                 <span class="fa fa-star"></span>
                             </div>
-                          <p>This is very good zone</p>
+                            <p>This is very good zone</p>
                         </div>
                         <md-divider md-inset ng-if="!$last"></md-divider>
-                      </md-list-item>
-                    </md-list>
-                  </md-content>
-               </div>
-               <div class="row">
-                
-                    <md-content>
-                      <md-list>
-                        <md-list-item class="md-3-line" >
-                          <img ng-src="{{userProfile.picture}}" class="md-avatar" alt="">
-                          <div class="md-list-item-text">
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </div>
+        <div class="row">
+
+            <md-content>
+                <md-list>
+                    <md-list-item class="md-3-line">
+                        <img ng-src="{{userProfile.picture}}" class="md-avatar" alt="">
+                        <div class="md-list-item-text">
                             <h3>User</h3>
                             <h4>Date : 31/03/2018</h4>
                             <div class="rating-sec">
-                                  <label for="ratings" style="color:#fff;">Rating</label>
-                                  <br>
-                                  <span class="fa fa-star checked-star"></span>
-                                  <span class="fa fa-star checked-star"></span>
-                                  <span class="fa fa-star checked-star"></span>
-                                  <span class="fa fa-star"></span>
-                                  <span class="fa fa-star"></span>
-                              </div>
+                                <label for="ratings" style="color:#fff;">Rating</label>
+                                <br>
+                                <span class="fa fa-star checked-star"></span>
+                                <span class="fa fa-star checked-star"></span>
+                                <span class="fa fa-star checked-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
                             <p>This is very good zone</p>
-                          </div>
-                          <md-divider md-inset ng-if="!$last"></md-divider>
-                        </md-list-item>
-                      </md-list>
-                    </md-content>
-                 </div>     <div class="row">
-                
-                        <md-content>
-                          <md-list>
-                            <md-list-item class="md-3-line" >
-                              <img ng-src="{{userProfile.picture}}" class="md-avatar" alt="">
-                              <div class="md-list-item-text">
-                                <h3>User</h3>
-                                <h4>Date : 31/03/2018</h4>
-                                <div class="rating-sec">
-                                      <label for="ratings" style="color:#fff;">Rating</label>
-                                      <br>
-                                      <span class="fa fa-star checked-star"></span>
-                                      <span class="fa fa-star checked-star"></span>
-                                      <span class="fa fa-star checked-star"></span>
-                                      <span class="fa fa-star"></span>
-                                      <span class="fa fa-star"></span>
-                                  </div>
-                                <p>This is very good zone</p>
-                              </div>
-                              <md-divider md-inset ng-if="!$last"></md-divider>
-                            </md-list-item>
-                          </md-list>
-                        </md-content>
-                     </div>
-               </div>
-               </div>
-              
+                        </div>
+                        <md-divider md-inset ng-if="!$last"></md-divider>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </div>
+        <div class="row">
 
-       
-    
-        <script>
+            <md-content>
+                <md-list>
+                    <md-list-item class="md-3-line">
+                        <img ng-src="{{userProfile.picture}}" class="md-avatar" alt="">
+                        <div class="md-list-item-text">
+                            <h3>User</h3>
+                            <h4>Date : 31/03/2018</h4>
+                            <div class="rating-sec">
+                                <label for="ratings" style="color:#fff;">Rating</label>
+                                <br>
+                                <span class="fa fa-star checked-star"></span>
+                                <span class="fa fa-star checked-star"></span>
+                                <span class="fa fa-star checked-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                            <p>This is very good zone</p>
+                        </div>
+                        <md-divider md-inset ng-if="!$last"></md-divider>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- <script>
             $(document).ready(function () {
     $('#myCarousel').carousel({
         interval:4000
@@ -654,4 +655,4 @@
         clickEvent = false;
     });
 });
-            </script>
+            </script> -->
