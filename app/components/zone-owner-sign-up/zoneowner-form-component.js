@@ -5,9 +5,9 @@
         .module('zoneapp')
         .controller('zoneownerFormController', zoneownerFormController);
 
-        zoneownerFormController.$inject = ['authService', 'zoneService','$scope', '$window'];
+        zoneownerFormController.$inject = ['authService', 'zoneService','$scope', '$window','$state'];
 
-    function zoneownerFormController(authService, zoneService,$scope, $window) {
+    function zoneownerFormController(authService, zoneService,$scope, $window, $state) {
 
         var vm = this;
         vm.authService = authService;
@@ -81,6 +81,7 @@
     });
         vm.getToken= function (data) {
             debugger;
+            vm.inprogress = true;
             webAuth.client.login({
                 realm: "Username-Password-Authentication",
                 username: data.username,
@@ -90,10 +91,16 @@
                 // Auth tokens in the result or an error
                 if (err) {
                     console.log(err)
+                    vm.inprogress = false;
                     alert("err")
                 }
                 else {
                    var userDetails = authResult;
+                   if(authResult.idToken){
+                    localStorage.setItem('id_token',authResult.idToken);
+                    vm.inprogress = false;
+                    $state.go('dashboard');
+                   }
                    console.log("details"+userDetails)
                 }
             });        
