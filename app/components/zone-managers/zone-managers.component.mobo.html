@@ -7,10 +7,7 @@
             <button ng-click="vm.viewType('grid')" style="border:none;background:none;">
                 <i class="fas fa-th-large" style="font-size:20px"></i>
             </button>
-            <md-button class="md-primary md-fab md-fab-bottom-right hvr-pulse-grow" ng-click="vm.open('lg')" style="width:90px;height:50px;font-size:12px;font-weight:600;text-align:center;position:fixed;">
-                <span> New 
-                    </span>
-            </md-button>
+          
         </div>
     </div>
     <div class="row">
@@ -80,28 +77,41 @@
                         <span>Zone managers</span>
                     </div>
                 </md-toolbar>
-                <md-content>
-                    <md-list flex>
-                        <md-subheader class="md-no-sticky">Active manager</md-subheader>
-                        <md-list-item class="md-3-line" ng-click="null" ng-repeat="manager in vm.trainers">
-                            <img ng-src="{{manager.photo.url}}" class="md-avatar" alt="member" />
-                            <div class="md-list-item-text" layout="column">
-                                <h3>{{manager.name}}</h3>
-                                <h4>{{manager.zoneName}}</h4>
-                                <p><b>Salary:</b>  {{manager.monthlySalary}}  <b>About manager:</b> {{manager.description}} <b>Joining Date:</b> {{manager.joiningDate | date}}</p>
-                                  <p>Deparment : {{manager.deparment}} </p>
+                <div id="settingsbranchsUsers">
+                        <div class="activity_main settingsbranchs">
+                            <div layout="row" class="settingsHeader" layout-align="space-between center">
+                                <div class="prevIconUser cursor-pointer" ui-sref="trainings.branchs" layout="row" layout-align="start center">
+                                    <span>Branches</span>
+                                    <md-tooltip md-direction="bottom">Branches</md-tooltip>
+                                </div>
+                                <md-button  class="btn btn-info btn-sm " ng-click="vm.open('lg')">Add Branch</md-button>
+                    
                             </div>
-                            <div class="user-details-card-footer">
-                                <div class="user-details-card-buttons btn-group ">
-                                    <button class="btn btn-sm btn-info" ng-click="vm.edit('lg',manager.managerId,manager.zoneId)"> <i class="far fa-edit"></i> Edit </button>
-                                    <button class="btn btn-sm btn-danger"> <i class="far fa-trash-alt"></i> Delete </Button>
+                            <div class="settingsBranchList">
+                                <div class="branchListWrap">
+                                        <md-list-item class="md-3-line" ng-click="null" >
+                                                <img ng-src="images/user.png" class="md-avatar" alt="member" />
+                                                <div class="md-list-item-text" layout="column">
+                                                    <h3>{{plan.planName}}</h3>
+                                                    <h4>{{plan.zoneName}}</h4>
+                                                    <p><b>Price:</b>  {{plan.planFee}}  <b>About plan:</b> {{plan.aboutPlan}} <b>Discount:</b> {{plan.planOffer}}%</p>
+                                                      <p>Offer valid Till : {{plan.offerValidity}} </p>
+                                                </div>
+                                                <div class="user-details-card-footer">
+                                                    <div class="user-details-card-buttons btn-group ">
+                                                        <button class="btn btn-sm btn-info" ng-click="vm.edit('lg',plan.planId,plan.zoneId)"> <i class="far fa-edit"></i> Edit </button>
+                                                        <button class="btn btn-sm btn-danger"> <i class="far fa-trash-alt"></i> Delete </Button>
+                                                    </div>
+                                                </div>
+                                            </md-list-item>
                                 </div>
                             </div>
-                        </md-list-item>
-                       
-                      
-                    </md-list>
-                </md-content>
+                    
+                        </div>
+                        <div class="show_loading" ng-if="vm.showbranchUsersLoading">
+                            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>

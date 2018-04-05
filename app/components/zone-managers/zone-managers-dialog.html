@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
     <div class="container">
         <div class="col-md-6 col-sm-5 col-xs-10">
             <div class="creation-from" style="padding-left:20px;">
@@ -41,5 +41,57 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- end row form -->
+
+<div class="settingsMainAddbranch">
+        <div class="createbranchHeader" layout="row" layout-align="space-between center">
+            <h4>Create branch</h4>
+            <button class="md-icon-button md-button " type="button" ng-click="hide()" aria-label="Close dialog">
+                    <i class="material-icons ng-scope">clear</i>
+                </button>
+        </div>
+        <div class="createbranchBody">
+            <form novalidate name="createNewbranch" autocomplete="off" ng-submit="createNewbranch.$valid">
+                <div class="signup_form create_branch">
+                    <div class="signup_form_main">
+                        <div class="signup_main_row position-relative noPadding">
+                            <div class="signup_row">
+                                <md-input-container class="md-block paddingLeft">
+                                    <label>Name</label>
+                                    <input type="text" ng-model="branch.branchName" name="branchName" required placeholder="Enter branch Name" ng-disabled="vm.projectMode === 'readOnly'" />
+                                    <div ng-messages="newProjectForm.projectName.$error" ng-if="newProjectForm.projectName.$touched">
+                                        <div ng-message="required">This field is required</div>
+                                    </div>
+                                </md-input-container>
+     
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="signup_row">
+                                <md-input-container class="md-block paddingLeft">
+                                    <label>Description</label>
+                                    <textarea class="textarea_short_height" name="branchDescription" ng-model="branch.branchDescription" placeholder="Enter the description of the branch..." required></textarea>
+                                    <div ng-messages="createNewbranch.projectName.$error">
+                                        <div ng-message="required">This field is required</div>
+                                    </div>
+                                </md-input-container>
+     
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="signup_row" layout="row" layout-align="start center">
+                                <md-button id="cancelCreatebranchBtn" class="action_button stack_create_pool_button cancel_btn" ng-click="">Cancel
+                                    <md-tooltip md-direction="top">Cancel</md-tooltip>
+                                </md-button>
+                                <md-button id="CreatebranchBtn" class="action_button stack_create_pool_button" ng-disabled="createNewbranch.$invalid" ng-click="createbranch();">Create
+                                    <md-tooltip md-direction="top">Create</md-tooltip>
+                                </md-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="show_loading" ng-if="createbranchLoading">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+        </div>
+     </div>

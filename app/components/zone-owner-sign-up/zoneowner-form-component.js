@@ -98,6 +98,14 @@
                    var userDetails = authResult;
                    if(authResult.idToken){
                     localStorage.setItem('id_token',authResult.idToken);
+                    function parseJwt (token) {
+                        var base64Url = token.split('.')[1];
+                        var base64 = base64Url.replace('-', '+').replace('_', '/');
+                        return JSON.parse(window.atob(base64));
+                    };
+                    var tokenData= parseJwt(authResult.idToken)
+                    localStorage.setItem('profile',JSON.stringify(tokenData));
+                   
                     vm.inprogress = false;
                     $state.go('dashboard');
                    }
