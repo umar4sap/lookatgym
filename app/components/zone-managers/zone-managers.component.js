@@ -75,34 +75,98 @@
                         .targetEvent(ev)
                     );
                   };
-                vm.createManager=function(data){
-                    var stringdata=data.zoneInfo;
-                    debugger;
-                    data.zoneInfo=JSON.parse(stringdata)
-                    $scope.trainermock.name=data.name;
-                    $scope.trainermock.zoneName=data.zoneInfo.zoneName;
-                    $scope.trainermock.deparment=data.deparment;
-                    $scope.trainermock.joiningDate=data.joiningDate;
-                    $scope.trainermock.description=data.description;
-                    $scope.trainermock.monthlySalary=data.monthlySalary || "none";
-                    $scope.trainermock.payoutDate=data.payoutDate || "none";
+                vm.createBranch=function(ownershipId,data){
                    
-                    zoneService.createManager(data.zoneInfo.zoneId,$scope.trainermock,function(res){
+                    zoneService.createBranch(ownershipId,data,function(err,res){
                         console.log(res)
-                        if(res.data.status==200){
+                        if(!err){
                             $uibModalInstance.dismiss('cancel');
                             $scope.showAlert(null,res.data.data.message);
-                            vm.getAlltrainers();
+                            
                             $scope.trainercreation=false;
                         }else{
                             $uibModalInstance.dismiss('cancel');
-                            $scope.showAlert(null,"error while creating trainer");
-                            vm.getAlltrainers();
+                            $scope.showAlert(null,"error while creating manager");
+                           
                             $scope.trainercreation=false;
                         }
                         
                     })
                 }
+                vm.getAllBranches=function(ownershipId){
+                   
+                    zoneService.getBranches(ownershipId,function(err,res){
+                        console.log(res)
+                        if(!err){
+                            $uibModalInstance.dismiss('cancel');
+                            $scope.showAlert(null,res.data.data.message);
+                          
+                            $scope.trainercreation=false;
+                        }else{
+                            $uibModalInstance.dismiss('cancel');
+                            $scope.showAlert(null,"error while getting branches");
+                          
+                            $scope.trainercreation=false;
+                        }
+                        
+                    })
+                }
+                vm.getBranchDetails=function(ownershipId,branchId){
+                   
+                    zoneService.getBranchDetails(ownershipId,branchId,function(err,res){
+                        console.log(res)
+                        if(!err){
+                            $uibModalInstance.dismiss('cancel');
+                            $scope.showAlert(null,res.data.data.message);
+                           
+                            $scope.trainercreation=false;
+                        }else{
+                            $uibModalInstance.dismiss('cancel');
+                            $scope.showAlert(null,"error while getting branches");
+                          
+                            $scope.trainercreation=false;
+                        }
+                        
+                    })
+                }
+                vm.addManagerToBranch=function(ownershipId,branchId,memberEmail){
+                   
+                    zoneService.addManagerToBranch(ownershipId,branchId,memberEmail,function(err,res){
+                        console.log(res)
+                        if(!err){
+                            $uibModalInstance.dismiss('cancel');
+                            $scope.showAlert(null,res.data.data.message);
+                         
+                            $scope.trainercreation=false;
+                        }else{
+                            $uibModalInstance.dismiss('cancel');
+                            $scope.showAlert(null,"error while adding manager");
+                         
+                            $scope.trainercreation=false;
+                        }
+                        
+                    })
+                }
+                vm.deleteManagerFromBranch=function(ownershipId,branchId,memberEmail){
+                   
+                    zoneService.deleteManagerFromBranch(ownershipId,branchId,memberEmail,function(err,res){
+                        console.log(res)
+                        if(!err){
+                            $uibModalInstance.dismiss('cancel');
+                            $scope.showAlert(null,res.data.data.message);
+                          
+                            $scope.trainercreation=false;
+                        }else{
+                            $uibModalInstance.dismiss('cancel');
+                            $scope.showAlert(null,"error while deleting trainer");
+                         
+                            $scope.trainercreation=false;
+                        }
+                        
+                    })
+                }
+
+
                
 
                 vm.edittrainer=function(data){
@@ -145,29 +209,49 @@
                 }
             })
               
-            .controller('zonemanagersController', zonetrainersController);
+            .controller('zonemanagersController', zonemanagersController);
 
-            zonetrainersController.$inject = ['$scope', '$rootScope', 'authService', 'zoneService','$location', '$http', '$q', '$mdDialog', 'moment', '$filter','$uibModal', '$log', '$document'];
+            zonemanagersController.$inject = ['$scope', '$rootScope', 'authService', 'zoneService','$location', '$http', '$q', '$mdDialog', 'moment', '$filter','$uibModal', '$log', '$document'];
 
-        function zonetrainersController($scope, $rootScope, authService, zoneService,$location, $http, $q, $mdDialog, moment, $filter,$uibModal, $log, $document) {
+        function zonemanagersController($scope, $rootScope, authService, zoneService,$location, $http, $q, $mdDialog, moment, $filter,$uibModal, $log, $document) {
             var vm = this;
+            vm.inprogress=true;
             var userProfile = localStorage.getItem('profile');
     $scope.userProfile = JSON.parse(userProfile);
             vm.authService = authService;
+            var ownerships=Object.keys($scope.userProfile['https://lookatgym.com/permissions'].permissions.ownerships[0])
+             
             vm.go = function (path) {
                 $location.path(path);
    
             };
-
+             
           
-            vm.getAlltrainers=function(){
-                
-                zoneService.getAllTrainers(function(response){
-                    debugger;
-                    vm.trainers=response.data.data
+            vm.getAllBranches=function(ownershipId){
+                   debugger;
+                zoneService.getBranches(ownershipId,function(err,res){
+                    console.log(res)
+                    if(!err){
+                        debugger;
+                     vm.branches=res.data;
+                     vm.inprogress=false;
+                      if( vm.branches[0].role=='admin'){
+                          vm.isAdmin=true;
+                      }else{
+                        vm.isAdmin=false;
+                      }
+                      
+                        
+                    }else{
+                   
+                        $scope.showAlert(null,"error while getting branches");
+                      
+                       
+                    }
+                    
                 })
             }
-            vm.getAlltrainers();
+            vm.getAllBranches(ownerships[0]);
 
             $scope.newtrainer=function(){
                 $scope.trainercreation=true;

@@ -301,6 +301,145 @@ function zoneService($http) {
 				return cb(err,null)
 			});
 		}
+		,
+		createBranch: function ( ownershipId,data, cb) {
+			$http({
+				method: 'POST',
+				url: localhost+':9008/v2/components/branch-management-service/ownerships/'+ownershipId+'/branchs/',
+				headers: {
+					'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
+					'Content-Type': 'application/json',
+					'Access-Control-Allow-Origin': "*",
+					//'user_access':"true"
+					
+				},
+				data: data
+			}).then(function mySuccess(response) {
+				data = response;
+				return cb(null,data)
+			  }, function myError(response) {
+				err = response;
+				return cb(err,null)
+			});
+		},
+		getBranches: function ( ownershipId, cb) {
+			$http({
+				method: 'GET',
+				url: localhost+':9008/v2/components/branch-management-service/ownerships/'+ownershipId+'/branchs/',
+				headers: {
+					'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
+					'Content-Type': 'application/json',
+					'Access-Control-Allow-Origin': "*",
+					//'user_access':"true"
+					
+				}
+			}).then(function mySuccess(response) {
+				data = response;
+				return cb(null,data)
+			  }, function myError(response) {
+				err = response;
+				return cb(err,null)
+			});
+		},
+		getBranchDetails: function ( ownershipId,branchId, cb) {
+			$http({
+				method: 'GET',
+				url: localhost+':9008/v2/components/branch-management-service/ownerships/'+ownershipId+'/branchs/'+branchId+'/details',
+				headers: {
+					'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
+					'Content-Type': 'application/json',
+					'Access-Control-Allow-Origin': "*",
+					//'user_access':"true"
+					
+				}
+			}).then(function mySuccess(response) {
+				data = response;
+				return cb(null,data)
+			  }, function myError(response) {
+				err = response;
+				return cb(err,null)
+			});
+		}
+		,
+		addManagerToBranch: function ( ownershipId,branchId,memberEmail, cb) {
+			$http({
+				method: 'POST',
+				url: localhost+':9008/v2/components/branch-management-service/ownerships/'+ownershipId+'/branchs/'+branchId+'/members/'+memberEmail,
+				headers: {
+					'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
+					'Content-Type': 'application/json',
+					'Access-Control-Allow-Origin': "*",
+					//'user_access':"true"
+					
+				}
+			}).then(function mySuccess(response) {
+				data = response;
+				return cb(null,data)
+			  }, function myError(response) {
+				err = response;
+				return cb(err,null)
+			});
+		},
+		deleteManagerFromBranch: function ( ownershipId,branchId,memberEmail, cb) {
+			$http({
+				method: 'DELETE',
+				url: localhost+':9008/v2/components/branch-management-service/ownerships/'+ownershipId+'/branchs/'+branchId+'/members/'+memberEmail,
+				headers: {
+					'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
+					'Content-Type': 'application/json',
+					'Access-Control-Allow-Origin': "*",
+					//'user_access':"true"
+					
+				}
+			}).then(function mySuccess(response) {
+				data = response;
+				return cb(null,data)
+			  }, function myError(response) {
+				err = response;
+				return cb(err,null)
+			});
+		}
+		,
+		deleteBranch: function ( ownershipId,branchId, cb) {
+			$http({
+				method: 'DELETE',
+				url: localhost+':9008/v2/components/branch-management-service/ownerships/'+ownershipId+'/branchs/'+branchId,
+				headers: {
+					'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
+					'Content-Type': 'application/json',
+					'Access-Control-Allow-Origin': "*",
+					//'user_access':"true"
+					
+				},
+				data: data
+			}).then(function mySuccess(response) {
+				data = response;
+				return cb(null,data)
+			  }, function myError(response) {
+				err = response;
+				return cb(err,null)
+			});
+		},
+		AddPermissionsToBranch: function ( ownershipId,branchId,data, cb) {
+			$http({
+				method: 'PUT',
+				url: localhost+':9008/v2/components/branch-management-service/ownerships/'+ownershipId+'/branchs/'+branchId+'/roles',
+				headers: {
+					'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
+					'Content-Type': 'application/json',
+					'Access-Control-Allow-Origin': "*",
+					//'user_access':"true"
+					
+				},
+				data: data
+			}).then(function mySuccess(response) {
+				data = response;
+				return cb(null,data)
+			  }, function myError(response) {
+				err = response;
+				return cb(err,null)
+			});
+		}
 		
 	};
 }

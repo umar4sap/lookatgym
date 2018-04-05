@@ -1,4 +1,24 @@
+
+<div class="loading" style="position:fixed;top:30%;left:35%" ng-show="vm.inprogress">
+        <p style="
+        -webkit-animation-name: hvr-pulse-grow;
+        animation-name: hvr-pulse-grow;
+        -webkit-animation-duration: 0.3s;
+        animation-duration: 0.3s;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+        -webkit-animation-direction: alternate;
+        animation-direction: alternate;
+        font-size: 17px;
+        color: skyblue;
+    ">Loading</p>
+    <img src="images/loading.svg" alt="loading">
+    
+</div>
 <div class="container">
+    
     <div class="row">
         <div class=" pull-right" style="margin-top:2%;">
             <button ng-click="vm.viewType('list')" style="border:none;background:none;">
@@ -17,15 +37,15 @@
 
                 <div>
                     <md-card layout="column" layout-align="spacce-between start" class="progress pull-left col-md-4 col-sm-6 col-xs-12 col-lg-3"
-                        ng-repeat="manager in vm.trainers">
+                        ng-repeat="branch in vm.branches">
                         <div style="background-color:white;">
                             <md-card-title>
                                 <md-card-title-text layout-padding>
                                     <div layout="row">
-
+                                     
                                         <div layout="column">
-                                            <span class="md-headline">manager : {{manager.managerName}}</span>
-                                            <span class="md-subhead">Zone : {{manager.zoneName}}</span>
+                                            <span class="md-headline">Branch : {{branch.branch}}</span>
+                                            
                                         </div>
                                     </div>
                                 </md-card-title-text>
@@ -43,7 +63,8 @@
                                     </md-list>
                                     <md-list>
 
-                                        <md-list-item> About manager: {{manager.aboutmanager}}</md-list-item>
+                                        <md-list-item ng-show="branch.description"> About branch: {{branch.description}}</md-list-item>
+                                        <md-list-item ng-show="branch.role"> About branch: This is your ownership branch</md-list-item>
                                     </md-list>
                                 </div>
                             </md-card-title-media>
@@ -72,9 +93,9 @@
 
             <div flex-gt-sm="50" flex>
 
-                <md-toolbar layout="row" class="md-hue-3">
+                <md-toolbar layout="row" class="md-hue-3" btn-info>
                     <div class="md-toolbar-tools">
-                        <span>Zone managers</span>
+                        <span>Ownership and Branches</span>
                     </div>
                 </md-toolbar>
                 <div id="settingsbranchsUsers">
@@ -84,23 +105,25 @@
                                     <span>Branches</span>
                                     <md-tooltip md-direction="bottom">Branches</md-tooltip>
                                 </div>
-                                <md-button  class="btn btn-info btn-sm " ng-click="vm.open('lg')">Add Branch</md-button>
+                                <md-button  class="btn btn-info btn-sm " ng-show="vm.isAdmin" ng-click="vm.open('lg')">Add Branch</md-button>
                     
                             </div>
                             <div class="settingsBranchList">
                                 <div class="branchListWrap">
-                                        <md-list-item class="md-3-line" ng-click="null" >
+                                        <md-list-item class="md-3-line" ng-click="null" ng-repeat="branch in vm.branches">
                                                 <img ng-src="images/user.png" class="md-avatar" alt="member" />
                                                 <div class="md-list-item-text" layout="column">
-                                                    <h3>{{plan.planName}}</h3>
-                                                    <h4>{{plan.zoneName}}</h4>
-                                                    <p><b>Price:</b>  {{plan.planFee}}  <b>About plan:</b> {{plan.aboutPlan}} <b>Discount:</b> {{plan.planOffer}}%</p>
-                                                      <p>Offer valid Till : {{plan.offerValidity}} </p>
+                                                    <h3>Branch : {{branch.branch}}</h3>
+                                                    <h4 ng-show="vm.isAdmin"> About branch: This is your ownership branch</h4>
+                                                    <p ng-show="branch.description"> About branch: {{branch.description}}</p>
+                                                   
                                                 </div>
                                                 <div class="user-details-card-footer">
                                                     <div class="user-details-card-buttons btn-group ">
-                                                        <button class="btn btn-sm btn-info" ng-click="vm.edit('lg',plan.planId,plan.zoneId)"> <i class="far fa-edit"></i> Edit </button>
-                                                        <button class="btn btn-sm btn-danger"> <i class="far fa-trash-alt"></i> Delete </Button>
+                                                        <button class="btn btn-sm btn-info" ng-show="vm.isAdmin" ng-click="vm.edit('lg',plan.planId,plan.zoneId)"> <i class="far fa-edit"></i> Edit </button>
+                                                        <button class="btn btn-sm btn-info" ng-show="vm.isAdmin" ng-click="vm.edit('lg',plan.planId,plan.zoneId)"> <i class="far fa-view"></i> Add permissions </button>
+                                                        <button class="btn btn-sm btn-info" ng-click="vm.edit('lg',plan.planId,plan.zoneId)"> <i class="far fa-user"></i> View Managers </button>
+                                                        <button class="btn btn-sm btn-danger" ng-show="vm.isAdmin"> <i class="far fa-trash-alt"></i> Delete </Button>
                                                     </div>
                                                 </div>
                                             </md-list-item>
