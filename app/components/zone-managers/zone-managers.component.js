@@ -316,5 +316,7 @@ vm.edit = function (size,trainerId,zoneId) {
   
   });
 }
+
+
         }
     }());
