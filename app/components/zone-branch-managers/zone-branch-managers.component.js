@@ -3,7 +3,7 @@
 
         angular
             .module('zoneapp')
-            .controller('ModalInstanceCtrlManagers', function ($uibModalInstance,branchData,$scope, $rootScope, authService, zoneService,$location, $http, $q, $mdDialog, moment, $filter,$uibModal, $log, $document) {
+            .controller('ModalInstanceCtrlManagersDetails', function ($uibModalInstance,branchData,$scope, $rootScope, authService, zoneService,$location, $http, $q, $mdDialog, moment, $filter,$uibModal, $log, $document) {
                 var vm = this;
                debugger;
                 vm.branchData = branchData;
@@ -46,6 +46,24 @@
                         
                     })
                 }
+                vm.addManager=function(ownershipId,branchId,email){
+                  vm.inprogress=true;
+                  zoneService.addManagerToBranch(ownershipId,branchId,email,function(err,res){
+                    console.log(res)
+                    if(!err){
+                        debugger;
+                     vm.inprogress=false;   
+                     $uibModalInstance.dismiss('cancel');
+                      $scope.showAlert(null,res.data.message);      
+                    }else{
+                       
+                        vm.inprogress=false; 
+                        $uibModalInstance.dismiss('cancel');
+                        $scope.showAlert(null,"Error while adding member please check manager's email should registered"); 
+                    }
+                    
+                })
+                 }
                 vm.getAllBranches=function(ownershipId){
                    
                     zoneService.getBranches(ownershipId,function(err,res){
@@ -162,16 +180,17 @@
                 }
             })
               
-            .controller('zonemanagersController', zonemanagersController);
+            .controller('zonemanagersDetailsController', zonemanagersDetailsController);
 
-            zonemanagersController.$inject = ['$scope', '$state','$stateParams','$rootScope', 'authService', 'zoneService','$location', '$http', '$q', '$mdDialog', 'moment', '$filter','$uibModal', '$log', '$document'];
+            zonemanagersDetailsController.$inject = ['$scope', '$state','$stateParams','$rootScope', 'authService', 'zoneService','$location', '$http', '$q', '$mdDialog', 'moment', '$filter','$uibModal', '$log', '$document'];
 
-        function zonemanagersController($scope,$state,$stateParams, $rootScope, authService, zoneService,$location, $http, $q, $mdDialog, moment, $filter,$uibModal, $log, $document) {
+        function zonemanagersDetailsController($scope,$state,$stateParams, $rootScope, authService, zoneService,$location, $http, $q, $mdDialog, moment, $filter,$uibModal, $log, $document) {
             var vm = this;
             vm.inprogress=true;
-           
+            vm.ownershipIds = $stateParams.ownershipId;
+            vm.branchId = $stateParams.branchId;
             var userProfile = localStorage.getItem('profile');
-    $scope.userProfile = JSON.parse(userProfile);
+            $scope.userProfile = JSON.parse(userProfile);
             vm.authService = authService;
             vm.ownershipsLab=$scope.userProfile['https://lookatgym.com/permissions'].permissions.ownerships[0]
             vm.ownerships=Object.keys($scope.userProfile['https://lookatgym.com/permissions'].permissions.ownerships[0])
@@ -193,7 +212,7 @@
                 "img": "https://placehold.it/100x100/11ff99",
                 "children": vm.ownersObject,
             }]  
-          
+            vm.managers;
             vm.getAllBranches=function(ownershipId){
                    debugger;
                 zoneService.getBranches(ownershipId,function(err,res){
@@ -232,7 +251,31 @@
               $state.go(path,{ 'ownershipId': ownershipId, 'branchId': branchId });
           };
 
+            vm.getBranchDeatils=function(ownershipId,branchId){
+              debugger;
+           zoneService.getBranchDetails(ownershipId,branchId,function(err,res){
+               console.log(res)
+               if(!err){
+                   debugger;
+                vm.managers=res.data.users;
+                vm.inprogress=false;
+               
+                 if( vm.branches[0].role=='admin'){
+                     vm.isAdmin=true;
+                 }else{
+                   vm.isAdmin=false;
+                 }
+                   
+               }else{
+                   alert("error")
+                 
+               }
+               
+           })
+       }
+       vm.getBranchDeatils(vm.ownershipIds,vm.branchId)
 
+     
 
             vm.getAllBranches(vm.ownerships[0]);
 
@@ -260,20 +303,20 @@
 
   vm.animationsEnabled = true;
 
-  vm.open = function (size,ownerId) {
+  vm.open = function (size,ownerId,branchId) {
       debugger;
    
     $uibModal.open({
       animation: vm.animationsEnabled,
       ariaLabelledBy: 'modal-title',
       ariaDescribedBy: 'modal-body',
-      controller: 'ModalInstanceCtrlManagers',
-      templateUrl: 'components/zone-managers/zone-managers-dialog.html',
+      controller: 'ModalInstanceCtrlManagersDetails',
+      templateUrl: 'components/zone-branch-managers/zone-branch-managers-dialog.html',
       controllerAs: 'vm',
       size: size,
       resolve: {
         branchData: function () {
-          return {BranchMode:"open",ownershipId:ownerId};
+          return {BranchMode:"open",ownershipId:ownerId,branchId:branchId};
         }
     }
     
@@ -287,7 +330,7 @@ vm.edit = function (size,trainerId,zoneId) {
     animation: vm.animationsEnabled,
     ariaLabelledBy: 'modal-title',
     ariaDescribedBy: 'modal-body',
-    controller: 'ModalInstanceCtrlManager',
+    controller: 'ModalInstanceCtrlManagersDetails',
     templateUrl: 'components/zone-managers/zone-managers-edit-dialog.html',
     controllerAs: 'vm',
     size: size,

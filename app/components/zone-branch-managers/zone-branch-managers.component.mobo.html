@@ -33,9 +33,7 @@
     <div class="row">
 
         <div class="creation-trainer-tiles " style="margin-top:20px" ng-show="vm.grid">
-                <center>
-                        <div id="d3Hierarchy"></div>
-                       </center>
+            
         </div>
 
         <div ng-cloak layout-gt-lg="row" layout="column" style="margin-top:2%;" ng-show="vm.list">
@@ -51,27 +49,25 @@
                         <div class="activity_main settingsbranchs">
                             <div layout="row" class="settingsHeader" layout-align="space-between center">
                                 <div class="prevIconUser cursor-pointer" ui-sref="trainings.branchs" layout="row" layout-align="start center">
-                                    <span>Branches</span>
-                                    <md-tooltip md-direction="bottom">Branches</md-tooltip>
+                                    <span>Branches Managers</span>
+                                    <md-tooltip md-direction="bottom">Managers</md-tooltip>
                                 </div>
-                                <md-button  class="btn btn-info btn-sm " ng-show="vm.isAdmin" ng-click="vm.open('lg',vm.ownerships[0])">Add Branch</md-button>
+                                <md-button  class="btn btn-info btn-sm " ng-show="vm.isAdmin" ng-click="vm.open('lg',vm.ownerships[0],vm.branchId)">Add New Manager</md-button>
                     
                             </div>
                             <div class="settingsBranchList">
                                 <div class="branchListWrap">
-                                        <md-list-item class="md-3-line" ng-click="vm.getBranchDeatilsPage('branchmanagers',vm.ownerships[0],branch.branch)" ng-repeat="branch in vm.branches">
+                                        <md-list-item class="md-3-line" ng-click="null" ng-repeat="manager in vm.managers">
                                                 <img ng-src="images/user.png" class="md-avatar" alt="member" />
                                                 <div class="md-list-item-text" layout="column">
-                                                    <h3>Branch : {{branch.branch}}</h3>
-                                                    <h4 ng-show="vm.isAdmin"> About branch: This is your ownership branch</h4>
-                                                    <p ng-show="branch.description"> About branch: {{branch.description}}</p>
+                                                    <h3> {{manager.name}}</h3>
+                                                    
+                                                    <p >  {{manager.email}}</p>
                                                    
                                                 </div>
                                                 <div class="user-details-card-footer">
                                                     <div class="user-details-card-buttons btn-group ">
-                                                        <button class="btn btn-sm btn-info" ng-show="vm.isAdmin" ng-click="vm.edit('lg',plan.planId,plan.zoneId)"> <i class="far fa-edit"></i> Edit </button>
-                                                        <button class="btn btn-sm btn-info" ng-show="vm.isAdmin" ng-click="vm.edit('lg',plan.planId,plan.zoneId)"> <i class="far fa-view"></i> Add permissions </button>
-                                                        <button class="btn btn-sm btn-info" ng-click="vm.edit('lg',plan.planId,plan.zoneId)"> <i class="far fa-user"></i> View Managers </button>
+                                                        
                                                         <button class="btn btn-sm btn-danger" ng-show="vm.isAdmin"> <i class="far fa-trash-alt"></i> Delete </Button>
                                                     </div>
                                                 </div>
@@ -88,25 +84,3 @@
         </div>
     </div>
 </div>
-
-<style>
-    node {
-  cursor: pointer;
-}
-
-.node circle {
-  fill: #fff;
-  stroke: steelblue;
-  stroke-width: 1.5px;
-}
-
-.node text {
-  font: 10px sans-serif;
-}
-
-.link {
-  fill: none;
-  stroke: #ccc;
-  stroke-width: 1.5px;
-}
-    </style>

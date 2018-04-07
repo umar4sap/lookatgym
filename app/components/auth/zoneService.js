@@ -31,10 +31,8 @@ function zoneService($http) {
 			});
 		},
 		getZones: function (city,cb) {
-
-
 			$http({
-				method: 'get',
+				method: 'GET',
 				url: host+':9004/v2/components/zones-service/city/'+city+'/zones',
 				headers: {
 					//'Authorization': localStorage.getItem("id_token"),
@@ -51,7 +49,7 @@ function zoneService($http) {
 
 
 			$http({
-				method: 'get',
+				method: 'GET',
 				url: host+':9004/v2/components/zones-service/zones/owners',
 				headers: {
 					//'Authorization': localStorage.getItem("id_token"),
@@ -107,7 +105,7 @@ function zoneService($http) {
 
 
 			$http({
-				method: 'get',
+				method: 'GET',
 				url: host+':9005/v2/components/trainer-service/zone/trainers',
 				headers: {
 					//'Authorization': localStorage.getItem("id_token"),
@@ -145,7 +143,7 @@ function zoneService($http) {
 
 
 			$http({
-				method: 'get',
+				method: 'GET',
 				url: host+':9006/v2/components/plan-service/zone/plans',
 				headers: {
 					//'Authorization': localStorage.getItem("id_token"),
@@ -161,7 +159,7 @@ function zoneService($http) {
 		},
 		getAllMembers: function (status,cb) {
 			$http({
-				method: 'get',
+				method: 'GET',
 				url: host+':9004/v2/components/zones-service/zones/members/status/'+status,
 				headers: {
 					//'Authorization': localStorage.getItem("id_token"),
@@ -178,7 +176,7 @@ function zoneService($http) {
 
 		getAllMembersForZone: function (zoneId,status,cb) {
 			$http({
-				method: 'get',
+				method: 'GET',
 				url: host+':9004/v2/components/zones-service/zones/'+zoneId+'/members/status/'+status,
 				headers: {
 					//'Authorization': localStorage.getItem("id_token"),
@@ -284,7 +282,7 @@ function zoneService($http) {
 		createUser: function ( data, cb) {
 			$http({
 				method: 'POST',
-				url: localhost+':9009/v2/components/auth0-client/user',
+				url: localhost+':9009/v2/components/newuser-service/user',
 				headers: {
 					//'Authorization': 'Bearer ' + idToken,
 					'Content-Type': 'application/json',
@@ -371,7 +369,8 @@ function zoneService($http) {
 					'Access-Control-Allow-Origin': "*",
 					//'user_access':"true"
 					
-				}
+				},
+				data:{}
 			}).then(function mySuccess(response) {
 				data = response;
 				return cb(null,data)

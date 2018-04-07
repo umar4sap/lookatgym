@@ -46,7 +46,7 @@
 
 <div class="settingsMainAddbranch">
         <div class="createbranchHeader" layout="row" layout-align="space-between center">
-            <h4>Create brach under {{vm.branchData.ownershipId}}</h4>
+            <h4>Add New Manager to {{vm.branchData.branchId}}</h4>
             <button class="md-icon-button md-button " type="button" ng-click="vm.cancel()" aria-label="Close dialog">
                     <i class="material-icons ng-scope" >clear</i>
                 </button>
@@ -59,31 +59,21 @@
                             <div class="signup_row">
                                    
                                 <md-input-container class="md-block paddingLeft">
-                                    <label>Name</label>
-                                    <input type="text" ng-model="branch.branchName" name="branchName" required placeholder="Enter branch Name" ng-disabled="vm.projectMode === 'readOnly'" />
+                                    <label>Registered email</label>
+                                    <input type="email" ng-model="email" name="branchName" required placeholder="Enter branch Name" ng-disabled="vm.projectMode === 'readOnly'" />
                                     <div ng-messages="newProjectForm.projectName.$error" ng-if="newProjectForm.projectName.$touched">
-                                        <div ng-message="required">This field is required</div>
+                                        <div ng-message="required">Registered email is required</div>
                                     </div>
                                 </md-input-container>
      
                                 <div class="clearfix"></div>
                             </div>
-                            <div class="signup_row">
-                                <md-input-container class="md-block paddingLeft">
-                                    <label>Description</label>
-                                    <textarea class="textarea_short_height" name="branchDescription" ng-model="branch.branchDescription" placeholder="Enter the description of the branch..." required></textarea>
-                                    <div ng-messages="createNewbranch.projectName.$error">
-                                        <div ng-message="required">This field is required</div>
-                                    </div>
-                                </md-input-container>
-     
-                                <div class="clearfix"></div>
-                            </div>
+                          
                             <div class="signup_row" layout="row" layout-align="start center">
                                 <md-button id="cancelCreatebranchBtn" class="action_button stack_create_pool_button cancel_btn" ng-click="vm.cancel()" type="reset">Cancel
                                     <md-tooltip md-direction="top">Cancel</md-tooltip>
                                 </md-button>
-                                <md-button id="CreatebranchBtn" class="action_button stack_create_pool_button" ng-disabled="createNewbranch.$invalid" ng-click="vm.createBranch(vm.branchData.ownershipId,branch)">Create
+                                <md-button id="CreatebranchBtn" class="action_button stack_create_pool_button" ng-disabled="createNewbranch.$invalid" ng-click="vm.addManager(vm.branchData.ownershipId,vm.branchData.branchId,email)">Add Manager
                                     <md-tooltip md-direction="top">Create</md-tooltip>
                                 </md-button>
                             </div>

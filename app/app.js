@@ -160,6 +160,19 @@
 				},
 				parent: 'dashboard'
 			})
+			.state('branchmanagers', {
+				url: '/branchmanagers/:ownershipId/:branchId',
+				params:      {'ownershipId':null,'branchId':null},
+				views: {
+                    "main": {
+				controller: 'zonemanagersDetailsController',
+				templateUrl: 'components/zone-branch-managers/zone-branch-managers.component.mobo.html',
+				controllerAs: 'vm',
+
+					}
+				},
+				parent: 'dashboard'
+			})
 			.state('members', {
 				url: '/members',
 				
