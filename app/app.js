@@ -58,6 +58,18 @@
 				parent:"dashboard"
 				
 			})
+
+			.state('subscription', {
+				url: '/subscription',
+				views: {
+                    "main": {
+						templateUrl: 'components/subscription/subscription.component.html',
+						controller: 'subscriptionController',
+						controllerAs: 'vm'
+					}
+				},
+				parent:"dashboard"	
+			})
 			
 			
 			.state('newzonemobo', {
