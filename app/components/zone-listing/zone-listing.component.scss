@@ -61,7 +61,13 @@
   
   @media screen and (max-width: 758px) and (min-width: 375px) {
     .banner-card-one {
-      margin-top: 10px; } }
+      margin-top: 10px;
+    margin-left: 15%; 
+    width: 80%;
+  } 
+
+
+  }
   
   .banner-heading {
     color: white;
@@ -87,6 +93,7 @@ background-size: cover;
 background-size: 100% 100%;
 background-position: center;
 background-attachment: fixed;
+padding-top:10%;
 top: 0px;
 left: 0px;
 -webkit-background-size: cover;
@@ -147,34 +154,22 @@ width: 100%;
   
   @media screen and (max-width: 991px) and (min-width: 768px) {
 
-    .banner-cards{
-      margin-right:auto;
-      margin-left: auto;
-    }
+    
 
    }
   
   @media screen and (max-width: 767px) and (min-width: 600px) {
 
-    .banner-cards{
-      margin-right:auto;
-      margin-left: auto;
-    }
+    
    }
   
   @media screen and (max-width: 599px) and (min-width: 450px) {
 
-    .banner-cards{
-      margin-right:auto;
-      margin-left: auto;
-    }
+    
    }
   
   @media screen and (max-width: 449px) and (min-width: 370px) {
 
-    .banner-cards{
-      margin-right:auto;
-      margin-left: auto;
-    }
+    
     }
   

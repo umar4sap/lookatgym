@@ -297,7 +297,7 @@ height: 50px;
 
 .zone-membership-prizes{
     height: 400px;
-    background-color:#e4eae4;
+  
     width:100%;
     margin-top:2%;
     padding-top:20px;
@@ -311,6 +311,16 @@ height: 50px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.zone-prizing>table{
+    background: #72d0f4;
+    padding: 2px;
+    color: #fff;
+}
+
+
+.price-content>th,.price-content>td{
+    color: #fff;
+}
 
 /*zone-facilities-section*/
 

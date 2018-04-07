@@ -548,11 +548,42 @@ padding:16% 0 0 0;
             </div>
             <div class="clear"></div>
         </div>
+
+<!-- table prizing -->
+<div class="row">
+        <div class="zone-membership-prizes" style="height:auto">
+                    <div class="zone-prizing-header">
+                        <h3 class="m_2">Prizes</h3>
+                    </div>
+                <div class="table-responsive zone-prizing">
+                    <table class="table table-hover ">
+                         
+                        <tr class="price-content">
+                            <th>Membership Plans</th>
+                            <th> About Plans </th>
+                            <th>Duration</th>
+                            <th>Fee</th>
+                            <th >Special Offers</th>
+                        </tr>
+                 
+                
+                            <tr class="price-content" ng-repeat="plan in vm.plansData">
+                                <td scope="row" align="center">{{plan.planName}}</td>
+                                <td scope="row" align="center">{{plan.aboutPlan}}</td>
+                                <td scope="row" align="center">{{plan.planMonth}}(Months)</td>
+                                <td scope="row" align="center">{{plan.planFee}}(inr)</td>
+                                <td scope="row" align="center">{{plan.planOffer}}% ( valid till {{plan.offerValidity | date}})</td>
+                            </tr>
+                     
+                    </table>
+        </div>
+    </div>
+
+</div>
+
+<!-- end prizing -->
         <div class="row content_middle_bottom">
             <div class="row">
-
-
-
                 <div class="row">
                     <div class="trainer-slide">
                         <div class="col-md-12 trainer-slide-sec">
