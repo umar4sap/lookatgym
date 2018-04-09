@@ -1,0 +1,112 @@
+
+<div class="loading" style="position:fixed;top:30%;left:35%" ng-show="vm.inprogress">
+        <p style="
+        -webkit-animation-name: hvr-pulse-grow;
+        animation-name: hvr-pulse-grow;
+        -webkit-animation-duration: 0.3s;
+        animation-duration: 0.3s;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+        -webkit-animation-direction: alternate;
+        animation-direction: alternate;
+        font-size: 17px;
+        color: skyblue;
+    ">Loading</p>
+    <img src="images/loading.svg" alt="loading">
+    
+</div>
+<div class="container">
+    
+    <div class="row">
+        <div class=" pull-right" style="margin-top:2%;">
+            <button ng-click="vm.viewType('list')" style="border:none;background:none;">
+                <i class="fas fa-list-ul" style="font-size:20px"></i>
+            </button>
+            <button ng-click="vm.viewType('grid')" style="border:none;background:none;">
+                <i class="fas fa-th-large" style="font-size:20px"></i>
+            </button>
+          
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="creation-trainer-tiles " style="margin-top:20px" ng-show="vm.grid">
+                <center>
+                        <div id="d3Hierarchy"></div>
+                       </center>
+        </div>
+
+        <div ng-cloak layout-gt-lg="row" layout="column" style="margin-top:2%;" ng-show="vm.list">
+
+            <div flex-gt-sm="50" flex>
+
+                <md-toolbar layout="row" class="md-hue-3" btn-info>
+                    <div class="md-toolbar-tools">
+                        <span>{{vm.ownerships[0]}} and Branches</span>
+                    </div>
+                </md-toolbar>
+                <div id="settingsbranchsUsers">
+                        <div class="activity_main settingsbranchs">
+                            <div layout="row" class="settingsHeader" layout-align="space-between center">
+                                <div class="prevIconUser cursor-pointer" ui-sref="trainings.branchs" layout="row" layout-align="start center">
+                                    <span>Branches</span>
+                                    <md-tooltip md-direction="bottom">Branches</md-tooltip>
+                                </div>
+                                <md-button  class="btn btn-info btn-sm " ng-show="vm.isAdmin" ng-click="vm.open('lg',vm.ownerships[0])">Add Branch</md-button>
+                    
+                            </div>
+                            <div class="settingsBranchList">
+                                <div class="branchListWrap">
+                                        <md-list-item class="md-3-line" ng-click="vm.getBranchDeatilsPage('branchmanagers',vm.ownerships[0],branch.branch)" ng-repeat="branch in vm.branches">
+                                                <img ng-src="images/user.png" class="md-avatar" alt="member" />
+                                                <div class="md-list-item-text" layout="column">
+                                                    <h3>Branch : {{branch.branch}}</h3>
+                                                    <h4 ng-show="vm.isAdmin"> About branch: This is your ownership branch</h4>
+                                                    <p ng-show="branch.description"> About branch: {{branch.description}}</p>
+                                                   
+                                                </div>
+                                                <div class="user-details-card-footer">
+                                                    <div class="user-details-card-buttons btn-group ">
+                                                        <button class="btn btn-sm btn-info" ng-show="vm.isAdmin" ng-click="vm.edit('lg',plan.planId,plan.zoneId)"> <i class="far fa-edit"></i> Edit </button>
+                                                        <button class="btn btn-sm btn-info" ng-show="vm.isAdmin" ng-click="vm.edit('lg',plan.planId,plan.zoneId)"> <i class="far fa-view"></i> Add permissions </button>
+                                                        <button class="btn btn-sm btn-info" ng-click="vm.edit('lg',plan.planId,plan.zoneId)"> <i class="far fa-user"></i> View Managers </button>
+                                                        <button class="btn btn-sm btn-danger" ng-show="vm.isAdmin"> <i class="far fa-trash-alt"></i> Delete </Button>
+                                                    </div>
+                                                </div>
+                                            </md-list-item>
+                                </div>
+                            </div>
+                    
+                        </div>
+                        <div class="show_loading" ng-if="vm.showbranchUsersLoading">
+                            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    node {
+  cursor: pointer;
+}
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.node text {
+  font: 10px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+    </style>

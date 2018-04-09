@@ -1,53 +1,65 @@
 <div class="loading" style="position:fixed;top:350px;left:550px" ng-show="vm.inprogress">
     <img src="images/loading.svg" alt="loading">
 </div>
-<div class="row">
+<!-- <div class="row">
     <div class="ribbon">
-
         <div class="logo">
-            <img class="img img-responsive logo-img" alt="zone-logo" src="/images/logo-blue.png">
+            <img class="img img-responsive logo-img" alt="zone-logo" src="/images/logo-blue2.png">
         </div>
-
     </div>
-</div>
+</div> -->
 
 
 <!-- filters -->
 <div class="zone-top-filter">
     <!-- filter -->
-    <div class="container">
-        
-            <!-- container -->
-            <div class="row " style="margin-top:10%">
-                <!-- row -->
-                <div class="col-md-4 col-sm-12 col-xs-12">
-                    <div class="zone-filter-content text-left">
-                        <div class="zone-fee-content">
-                            
-                            <input style="background: rgb(10, 13, 16);
-                            text-align: center;
-                            
-                            width: 350px;
-                            height: 30px;
-                            font-size: 16px;
-                            font-weight: 600;" list="cities" type="text" ng-model="vm.city"> <button class="btn btn-warning"ng-click="vm.getZones(vm.city)">Search Gym</button>
-                            <datalist id="cities" >
-                                    <option>Hyderabad</option>
-                                    <option>Mumbai</option>
-                                    <option>Banglor</option>
-                                    <option>Chennai</option>
-                                  </datalist>
+    <div class="container-fluid">
+
+        <!-- container -->
+        <div class="row">
+            <!-- row -->
+            <div class="col-md-12 filters">
+                <div class="zone-filter-content text-left">
+                    <div class="zone-fee-content col-md-4 col-md-offset-4 text-center">
+                        <div class="form-group" style="display:inline-block;">
+                                <input style="background: none;color:#fff;border:1px solid #fff;" class="form-control text-center" list="cities" type="text" ng-model="vm.city">
+                                <button class="btn btn-warning" style="margin-top:8%;background-image: linear-gradient(to right, #ff7400, #f45c43);display:inline-block;" ng-click="vm.getZones(vm.city)">Search Gym</button>
                         </div>
                         
-                        
-                       
+                        <datalist id="cities">
+                            <option>Hyderabad</option>
+                            <option>Mumbai</option>
+                            <option>Banglor</option>
+                            <option>Chennai</option>
+                        </datalist>
                     </div>
+                    <div class="filter-distance col-md-4 ">
+                        <div class="filter-distance-heading">
+                            <h5 class="text-center" style="color:#fff;">Filter By Distance</h5>
+                        </div>
+                        <div class="form-group">
+                            <select  class="form-control input-sm" id="sel1" style="background: none;color:#fff;width:270px;border:1px solid #fff;" class="form-control" >
+                                <option>City Center</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+                        <div class="zone-fee-content-max">
+                            <p class="text-center"> Max. 2km </p>
+                        </div>
+                        <div class="price-value">
+        
+                        </div>
+                    </div>
+
                 </div>
-                
             </div>
-            <!-- end row -->
+
         </div>
- 
+        <!-- end row -->
+    </div>
+
     <!-- end filter -->
     <!-- end container -->
 </div>
@@ -56,75 +68,9 @@
 
 
 <div class="container">
-        
-            <div class="row">
-                    
-                            <div class="col-md-4 col-sm-6 col-xs-12 col-lg-3 filters">
-                                    <div class="filter-class-status text-center">
-                                        <div class="filter-class-heading">
-                                            <h5 class="text-center" style="color:#fff;">Filter By Ratings</h5>
-                                        </div>
-                                        <label for="star-rating">
-                                            <button class="btn btn-default">
-                                                <span class="fa fa-star checked"></span>
-                                            </button>
-                                            <br>
-                                            <div class="rating-value">1</div>
-                                        </label>
-                                        <label for="star-rating">
-                                            <button class="btn btn-default">
-                                                <span class="fa fa-star checked"></span>
-                                            </button>
-                                            <br>
-                                            <div class="rating-value">2</div>
-                                        </label>
-                                        <label for="star-rating">
-                                            <button class="btn btn-default">
-                                                <span class="fa fa-star checked"></span>
-                                            </button>
-                                            <br>
-                                            <div class="rating-value">3</div>
-                                        </label>
-                                        <label for="star-rating">
-                                            <button class="btn btn-default">
-                                                <span class="fa fa-star checked"></span>
-                                            </button>
-                                            <br>
-                                            <div class="rating-value">4</div>
-                                        </label>
-                                        <label for="star-rating">
-                                            <button class="btn btn-default">
-                                                <span class="fa fa-star checked"></span>
-                                            </button>
-                                            <br>
-                                            <div class="rating-value">5</div>
-                                        </label>
-                                    </div>
-                                    <div class="filter-distance text-center">
-                                            <div class="filter-distance-heading">
-                                                <h5 class="text-center" style="color:#fff;">Filter By Distance</h5>
-                                            </div>
-                                            <div class="form-group">
-                                                <select class="form-control input-sm" id="sel1" style="width:250px;">
-                                                    <option>City Center</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                </select>
-                                            </div>
-                                            <div class="zone-fee-content-max">
-                                                <p class="text-center"> Max. 2km </p>
-                                            </div>
-                                            <div class="price-value">
-                        
-                                            </div>
-                                        </div>
-                                </div>
-                    
-                                
-                        
 
-        <div class="col-md-4 col-sm-6 col-xs-12 col-lg-3 banner-cards" ng-repeat="zone in vm.zones">
+    <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12 col-lg-4 banner-cards" ng-repeat="zone in vm.zones">
             <div class="banner-card-one">
                 <div class="card cardtile" style="width:90%;height:300px;" ng-click="vm.go('zonedetails',zone.zoneId,vm.city)">
                     <img class="card-img-top" ng-show='!zone.zoneCoverImage.url == ""' src="{{zone.zoneCoverImage.url}}" alt="Card image" style="width:100%;max-height:150px;min-height:150px"

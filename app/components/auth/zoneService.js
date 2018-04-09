@@ -282,7 +282,7 @@ function zoneService($http) {
 		createUser: function ( data, cb) {
 			$http({
 				method: 'POST',
-				url: localhost+':9009/v2/components/newuser-service/user',
+				url: host+':9009/v2/components/newuser-service/user',
 				headers: {
 					//'Authorization': 'Bearer ' + idToken,
 					'Content-Type': 'application/json',
@@ -303,7 +303,7 @@ function zoneService($http) {
 		createBranch: function ( ownershipId,data, cb) {
 			$http({
 				method: 'POST',
-				url: localhost+':9008/v2/components/branch-management-service/ownerships/'+ownershipId+'/branchs/',
+				url: host+':9008/v2/components/branch-management-service/ownerships/'+ownershipId+'/branchs/',
 				headers: {
 					'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
 					'Content-Type': 'application/json',
@@ -323,7 +323,7 @@ function zoneService($http) {
 		getBranches: function ( ownershipId, cb) {
 			$http({
 				method: 'GET',
-				url: localhost+':9008/v2/components/branch-management-service/ownerships/'+ownershipId+'/branchs/',
+				url: host+':9008/v2/components/branch-management-service/ownerships/'+ownershipId+'/branchs/',
 				headers: {
 					'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
 					'Content-Type': 'application/json',
@@ -342,7 +342,7 @@ function zoneService($http) {
 		getBranchDetails: function ( ownershipId,branchId, cb) {
 			$http({
 				method: 'GET',
-				url: localhost+':9008/v2/components/branch-management-service/ownerships/'+ownershipId+'/branchs/'+branchId+'/details',
+				url: host+':9008/v2/components/branch-management-service/ownerships/'+ownershipId+'/branchs/'+branchId+'/details',
 				headers: {
 					'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
 					'Content-Type': 'application/json',
@@ -362,7 +362,7 @@ function zoneService($http) {
 		addManagerToBranch: function ( ownershipId,branchId,memberEmail, cb) {
 			$http({
 				method: 'POST',
-				url: localhost+':9008/v2/components/branch-management-service/ownerships/'+ownershipId+'/branchs/'+branchId+'/members/'+memberEmail,
+				url: host+':9008/v2/components/branch-management-service/ownerships/'+ownershipId+'/branchs/'+branchId+'/members/'+memberEmail,
 				headers: {
 					'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
 					'Content-Type': 'application/json',
@@ -382,7 +382,7 @@ function zoneService($http) {
 		deleteManagerFromBranch: function ( ownershipId,branchId,memberEmail, cb) {
 			$http({
 				method: 'DELETE',
-				url: localhost+':9008/v2/components/branch-management-service/ownerships/'+ownershipId+'/branchs/'+branchId+'/members/'+memberEmail,
+				url: host+':9008/v2/components/branch-management-service/ownerships/'+ownershipId+'/branchs/'+branchId+'/members/'+memberEmail,
 				headers: {
 					'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
 					'Content-Type': 'application/json',
@@ -402,7 +402,7 @@ function zoneService($http) {
 		deleteBranch: function ( ownershipId,branchId, cb) {
 			$http({
 				method: 'DELETE',
-				url: localhost+':9008/v2/components/branch-management-service/ownerships/'+ownershipId+'/branchs/'+branchId,
+				url: host+':9008/v2/components/branch-management-service/ownerships/'+ownershipId+'/branchs/'+branchId,
 				headers: {
 					'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
 					'Content-Type': 'application/json',
@@ -422,7 +422,7 @@ function zoneService($http) {
 		AddPermissionsToBranch: function ( ownershipId,branchId,data, cb) {
 			$http({
 				method: 'PUT',
-				url: localhost+':9008/v2/components/branch-management-service/ownerships/'+ownershipId+'/branchs/'+branchId+'/roles',
+				url: host+':9008/v2/components/branch-management-service/ownerships/'+ownershipId+'/branchs/'+branchId+'/roles',
 				headers: {
 					'Authorization': 'Bearer ' + localStorage.getItem('id_token'),
 					'Content-Type': 'application/json',

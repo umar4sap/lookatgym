@@ -35,25 +35,36 @@
         <li class="c-menu__item is-active" data-toggle="tooltip" title="profile">
           <div class="admin-profiler">
             <img class="img img-circle img-responsive" alt="profiler-img" src="{{userProfile.picture}}">
-            <p class="text-center profiler-name img-responsive"> {{userProfile.name}} </p>
-            <p class="text-center profiler-status">Zone Owner</p>
+            <p class="text-center profiler-name img-responsive"> {{userProfile.nickname}} </p>
+            <p class="text-center profiler-status" ng-show="userProfile['https://lookatgym.com/permissions'].permissions.ownerships[0]" ng-repeat="(key, value) in userProfile['https://lookatgym.com/permissions'].permissions.ownerships[0]">Ownership: {{key}}</p>
             <a href="#" style="text-decoration: none;">
-              <p class="text-center profiler-update"> Update Profile </p>
+              <p class="text-center profiler-update"> create new ownership </p>
+            </a>
+            <a href="#" style="text-decoration: none;">
+              <p class="text-center profiler-update" ui-sref="subscription"> Subcriptions </p>
             </a>
           </div>
         </li>
-        <li class="c-menu__item is-active" data-toggle="tooltip" title="Dashboard">
+        <li class="c-menu__item is-active" data-toggle="tooltip" title="Dashboard" ng-show="userProfile['https://lookatgym.com/permissions'].permissions.ownerships[0]">
           <div ui-sref="tileboard" class="c-menu__item__inner">
             <i class="fas fa-tachometer-alt"></i>
-            <a ui-sref="tileboard" class="c-menu-item__title">
+            <a ui-sref="tileboard" style="text-decoration: none;" class="c-menu-item__title">
               <span>Dashboard</span>
+            </a>
+          </div>
+        </li>
+        <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Zone List">
+          <div ui-sref="zonelisting" class="c-menu__item__inner">
+            <i class="fas fa-list-ul"></i>
+            <a ui-sref="zonelisting" style="text-decoration: none;" class="c-menu-item__title">
+              <span> List My Zone</span>
             </a>
           </div>
         </li>
         <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Trainers">
           <div ui-sref="trainers" class="c-menu__item__inner">
             <i class="far fa-user"></i>
-            <a ui-sref="trainers" class="c-menu-item__title">
+            <a ui-sref="trainers" style="text-decoration: none;" class="c-menu-item__title">
               <span>Trainers</span>
             </a>
             <div class="c-menu-item__expand js-expand-submenu">
@@ -66,31 +77,32 @@
             <li>Notifications</li>
           </ul>
         </li>
-        <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Zone List">
-          <div ui-sref="zonelisting" class="c-menu__item__inner">
-            <i class="fas fa-list-ul"></i>
-            <a ui-sref="zonelisting" class="c-menu-item__title">
-              <span>Zone List</span>
-            </a>
-          </div>
-        </li>
-        <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Members">
+        
+        <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Members" ng-show="userProfile['https://lookatgym.com/permissions'].permissions.ownerships[0]">
           <div ui-sref="members" class="c-menu__item__inner">
             <i class="fas fa-users"></i>
-            <a ui-sref="members" class="c-menu-item__title">
+            <a ui-sref="members" style="text-decoration: none;" class="c-menu-item__title">
               <span>Members</span>
             </a>
           </div>
         </li>
-        <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Expances">
-          <div ui-sref="expances" class="c-menu__item__inner"><i class="fas fa-users"></i>
-            <a ui-sref="expances" class="c-menu-item__title"><span>Expances</span></a>
+        <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Branches" ng-show="userProfile['https://lookatgym.com/permissions'].permissions.ownerships[0]">
+          <div ui-sref="managers" class="c-menu__item__inner">
+            <i class="far fa-handshake"></i>
+            <a ui-sref="managers" style="text-decoration: none;" class="c-menu-item__title">
+              <span>Branches</span>
+            </a>
           </div>
         </li>
-        <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Plans">
+        <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Expances" ng-show="userProfile['https://lookatgym.com/permissions'].permissions.ownerships[0]">
+          <div ui-sref="expances" class="c-menu__item__inner"><i class="fas fa-hand-holding-usd"></i>
+            <a ui-sref="expances" style="text-decoration: none;" class="c-menu-item__title"><span>Expenses</span></a>
+          </div>
+        </li>
+        <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Plans" >
           <div ui-sref="zoneplans" class="c-menu__item__inner">
             <i class="fas fa-cubes"></i>
-            <a ui-sref="zoneplans" class="c-menu-item__title">
+            <a ui-sref="zoneplans" style="text-decoration: none;" class="c-menu-item__title">
               <span>Plans</span>
             </a>
           </div>
@@ -98,8 +110,8 @@
         <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Badges">
           <div ui-sref="newzonemobo" class="c-menu__item__inner">
             <i class="fas fa-certificate"></i>
-            <a ui-sref="newzonemobo" class="c-menu-item__title">
-              <span>mobo screen</span>
+            <a ui-sref="newzonemobo" style="text-decoration: none;" class="c-menu-item__title">
+              <span>Buy Badges</span>
             </a>
           </div>
         </li>
@@ -404,7 +416,7 @@
   }
 
   .sidebar-is-expanded .l-header {
-    padding-left: 90%;
+    padding-left: 15%;
   }
 
   .c-search {
@@ -493,7 +505,7 @@
   }
 
   .sidebar-is-expanded .l-sidebar {
-    width: 90%;
+    width: 15%;
   }
 
   .c-menu>ul {

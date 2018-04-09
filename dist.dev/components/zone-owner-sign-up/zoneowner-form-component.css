@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+.cont-sing-up {
+  overflow: hidden;
+  position: relative;
+  width: 900px;
+  height: 550px;
+  margin: 0 auto 100px;
+  background: #fff; }
+
+.zone-signin-form {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: -webkit-transform 1.2s ease-in-out;
+  transition: -webkit-transform 1.2s ease-in-out;
+  transition: transform 1.2s ease-in-out;
+  transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
+  padding: 50px 30px 0;
+  text-align: center; }
+
+.sub-cont-zone-sign {
+  overflow: hidden;
+  position: absolute;
+  left: 640px;
+  top: 0;
+  width: 900px;
+  height: 100%;
+  padding-left: 260px;
+  background: #fff;
+  -webkit-transition: -webkit-transform 1.2s ease-in-out;
+  transition: -webkit-transform 1.2s ease-in-out;
+  transition: transform 1.2s ease-in-out;
+  transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out; }
+
+.cont-sing-up.s--signup .sub-cont-zone-sign {
+  -webkit-transform: translate3d(-640px, 0, 0);
+  transform: translate3d(-640px, 0, 0); }
+
+.zone-sign-btn {
+  display: block;
+  margin: 0 auto;
+  width: 260px;
+  height: 36px;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer; }
+
+.img-sign-zone {
+  overflow: hidden;
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 260px;
+  height: 100%;
+  padding-top: 360px;
+  justify-content: center; }
+
+.img-sign-zone:before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 900px;
+  height: 100%;
+  background-image: url("https://cdn-maf0.heartyhosting.com/sites/muscleandfitness.com/files/styles/full_node_image_1090x614/public/media/muscular-man-black-background.jpg?itok=A6OFAzXP.jpg");
+  background-size: cover;
+  -webkit-transition: -webkit-transform 1.2s ease-in-out;
+  transition: -webkit-transform 1.2s ease-in-out;
+  transition: transform 1.2s ease-in-out;
+  transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out; }
+
+.img-sign-zone:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); }
+
+.cont-sing-up.s--signup .img-sign-zone:before {
+  -webkit-transform: translate3d(640px, 0, 0);
+  transform: translate3d(640px, 0, 0); }
+
+.img__text {
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 50px;
+  width: 100%;
+  padding: 0 20px;
+  text-align: center;
+  color: #fff;
+  -webkit-transition: -webkit-transform 1.2s ease-in-out;
+  transition: -webkit-transform 1.2s ease-in-out;
+  transition: transform 1.2s ease-in-out;
+  transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out; }
+
+.img__text h2 {
+  margin-bottom: 10px;
+  font-weight: normal; }
+
+.img__text p {
+  font-size: 14px;
+  line-height: 1.5; }
+
+.cont-sing-up.s--signup .img__text.m--up {
+  -webkit-transform: translateX(520px);
+  transform: translateX(520px); }
+
+.img__text.m--in {
+  -webkit-transform: translateX(-520px);
+  transform: translateX(-520px); }
+
+.cont-sing-up.s--signup .img__text.m--in {
+  -webkit-transform: translateX(0);
+  transform: translateX(0); }
+
+.img__btn {
+  overflow: hidden;
+  z-index: 2;
+  position: relative;
+  width: 100px;
+  height: 36px;
+  margin: 0 auto;
+  background: transparent;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 15px;
+  cursor: pointer; }
+
+.img__btn:after {
+  content: '';
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #fff;
+  border-radius: 30px; }
+
+.img__btn span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: -webkit-transform 1.2s;
+  transition: -webkit-transform 1.2s;
+  transition: transform 1.2s;
+  transition: transform 1.2s, -webkit-transform 1.2s; }
+
+.img__btn span.m--in {
+  -webkit-transform: translateY(-72px);
+  transform: translateY(-72px); }
+
+.cont-sing-up.s--signup .img__btn span.m--in {
+  -webkit-transform: translateY(0);
+  transform: translateY(0); }
+
+.cont-sing-up.s--signup .img__btn span.m--up {
+  -webkit-transform: translateY(72px);
+  transform: translateY(72px); }
+
+h2 {
+  width: 100%;
+  font-size: 26px;
+  text-align: center; }
+
+label {
+  margin: 25px auto 0;
+  text-align: center; }
+
+label span {
+  font-size: 12px;
+  color: #cfcfcf;
+  text-transform: uppercase; }
+
+.zone-owner-form-inputs {
+  margin-left: 0%;
+  margin-right: auto;
+  margin-top: 2%; }
+
+.zone-owner-form-inputs-signup {
+  margin-left: 5%;
+  margin-right: auto;
+  margin-top: 2%; }
+
+.zone-signin-form input {
+  display: block;
+  width: auto;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  border: 1px solid #000;
+  text-align: center;
+  margin-bottom: 5px; }
+
+.forgot-pass {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 12px;
+  color: #cfcfcf; }
+
+.submit {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  background: red;
+  /* For browsers that do not support gradients */
+  background: linear-gradient(to right, red, orange);
+  text-transform: uppercase; }
+
+.sign-in {
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out; }
+
+.cont-sing-up.s--signup .sign-in {
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  -webkit-transition-duration: 1.2s;
+  transition-duration: 1.2s;
+  -webkit-transform: translate3d(640px, 0, 0);
+  transform: translate3d(640px, 0, 0); }
+
+.sign-up {
+  -webkit-transform: translate3d(-900px, 0, 0);
+  transform: translate3d(-900px, 0, 0); }
+
+.cont-sing-up.s--signup .sign-up {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }

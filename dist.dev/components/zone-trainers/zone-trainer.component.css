@@ -10,6 +10,9 @@
   padding-left: 10px;
   padding-right: 10px; }
 
+.create-trainer-button > button {
+  display: inline-block; }
+
 .create-plan-button > button:hover {
   background-color: #0DC8B4;
   color: #000;
@@ -30,6 +33,10 @@
   border: none; }
 
 /*tiles*/
+*button:hover {
+  transition: 0s !important;
+  transform: scale(0s) !important; }
+
 .badges-content {
   margin-top: 20px; }
 

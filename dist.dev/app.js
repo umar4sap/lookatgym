@@ -58,15 +58,31 @@
 				parent:"dashboard"
 				
 			})
+
+			.state('subscription', {
+				url: '/subscription',
+				views: {
+                    "main": {
+						templateUrl: 'components/subscription/subscription.component.html',
+						controller: 'subscriptionController',
+						controllerAs: 'vm'
+					}
+				},
+				parent:"dashboard"	
+			})
 			
 			
 			.state('newzonemobo', {
 				url: '/newzonemobo',
+				views: {
+                    "main": {
 				templateUrl: 'components/newzone/newzone.component.mobo.html',
 						controller: 'newZoneController',
 						controllerAs: 'vm'
 
-				
+					}
+				},
+				parent:"dashboard"
 				
 				
 			})
@@ -84,14 +100,24 @@
 				parent: 'dashboard'
 				
 			})
+		/*	.state('zonedetails', {
+				url: '/zonedetails/:zoneId/:city',
+				controller: 'zoneDetailsController',
+				params:      {'zoneId':null,'city':null},
+				templateUrl: 'components/zone-details-new-mobo-page/zone-details-mobo-components.html',
+				controllerAs: 'vm',
+				
+			})*/
+
 			.state('zonedetails', {
 				url: '/zonedetails/:zoneId/:city',
 				controller: 'zoneDetailsController',
 				params:      {'zoneId':null,'city':null},
-				templateUrl: 'components/zone-details/zone-details.component.html',
+				templateUrl: 'components/zone-details-new-mobo-page/zone-details-mobo-components.html',
 				controllerAs: 'vm',
 				
 			})
+
 			.state('memberdetails', {
 				url: '/memberdetails/:zoneId/:memberId',
 				controller: 'memberDetailsController',
@@ -134,6 +160,31 @@
 				
 				
 			})
+			.state('managers', {
+				url: '/managers',
+				views: {
+                    "main": {
+				controller: 'zonemanagersController',
+				templateUrl: 'components/zone-managers/zone-managers.component.mobo.html',
+				controllerAs: 'vm',
+
+					}
+				},
+				parent: 'dashboard'
+			})
+			.state('branchmanagers', {
+				url: '/branchmanagers/:ownershipId/:branchId',
+				params:      {'ownershipId':null,'branchId':null},
+				views: {
+                    "main": {
+				controller: 'zonemanagersDetailsController',
+				templateUrl: 'components/zone-branch-managers/zone-branch-managers.component.mobo.html',
+				controllerAs: 'vm',
+
+					}
+				},
+				parent: 'dashboard'
+			})
 			.state('members', {
 				url: '/members',
 				
@@ -145,8 +196,6 @@
 					}
 				},
 				parent: 'dashboard'
-				
-				
 				
 			})
 			.state('zonemembers', {
@@ -161,9 +210,6 @@
 		},
 
 				parent: 'dashboard'
-				
-				
-				
 			})
 
 			.state('expances', {
@@ -177,18 +223,22 @@
 					}
 				},
 				parent: 'dashboard'
-				
-				
-				
 			})
 			.state('callback', {
 				url: '/callback',
 				controller: 'CallbackController',
 				templateUrl: 'components/callback/callback.html',
 				controllerAs: 'vm'
-			  });
+			  })
 
-		
+			  .state('zoneownerform', {
+				url: '/zoneownerform',
+				controller: 'zoneownerFormController',
+				templateUrl: 'components/zone-owner-sign-up/zoneowner-component-form.html',
+				controllerAs: 'vm',
+				
+			})
+
 			angularAuth0Provider.init({
 			clientID: AUTH0_CLIENT_ID,
 			domain: AUTH0_DOMAIN,

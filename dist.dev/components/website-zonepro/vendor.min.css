@@ -1325,3 +1325,6 @@ nav {
     transform: translateY(-5px); }
   100% {
     transform: translateY(0px); } }
+
+.zone-web-tabs {
+  background: #000; }

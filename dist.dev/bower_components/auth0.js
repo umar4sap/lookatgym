@@ -720,7 +720,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 10 */
 /***/ function(module, exports) {
 
-	module.exports = { raw: '9.4.1' };
+	module.exports = { raw: '9.4.2' };
 
 
 /***/ },
@@ -4773,8 +4773,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      options.overrides,
 	      { type: 'object', message: 'overrides option is not valid' },
 	      {
-	        __tenant: { type: 'string', message: '__tenant option is required' },
-	        __token_issuer: { type: 'string', message: '__token_issuer option is required' }
+	        __tenant: { optional: true, type: 'string', message: '__tenant option is required' },
+	        __token_issuer: {
+	          optional: true,
+	          type: 'string',
+	          message: '__token_issuer option is required'
+	        },
+	        __jwks_uri: { optional: true, type: 'string', message: '__jwks_uri is required' }
 	      }
 	    );
 	  }
@@ -4798,6 +4803,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  this.baseOptions.token_issuer =
 	    (this.baseOptions.overrides && this.baseOptions.overrides.__token_issuer) ||
 	    'https://' + this.baseOptions.domain + '/';
+	
+	  this.baseOptions.jwksURI = this.baseOptions.overrides && this.baseOptions.overrides.__jwks_uri;
 	
 	  this.transactionManager = new TransactionManager(this.baseOptions.transaction);
 	
@@ -5017,6 +5024,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	WebAuth.prototype.validateToken = function(token, nonce, cb) {
 	  var verifier = new IdTokenVerifier({
 	    issuer: this.baseOptions.token_issuer,
+	    jwksURI: this.baseOptions.jwksURI,
 	    audience: this.baseOptions.clientID,
 	    leeway: this.baseOptions.leeway || 0,
 	    __disableExpirationCheck: this.baseOptions.__disableExpirationCheck

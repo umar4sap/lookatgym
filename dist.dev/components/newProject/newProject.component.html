@@ -74,9 +74,9 @@
                             </div>
                             <div layout="row" layout-align="end center">
                                 <md-button ng-if="!projectSubmit" ng-click="addProjectCancel()">
-                                    Cancel </md-button>
+                                    <i class="fas fa-times"></i>  Cancel </md-button>
                                 <md-button ng-if="!projectSubmit" class="cc-button" md-ripple-size="auto" md-no-ink="true" aria-label="button-label" ng-click="addproject(addProject.projectName,organizations,repoType,ctrl.selectedrepo,ctrl.selectedBranch,githubSubfolderName)">
-                                    Create Project </md-button>
+                                    <i class="fas fa-plus"></i>  Create Project </md-button>
                                 <ci-spinner ng-if="projectSubmit"></ci-spinner>
                             </div>
                         </div>

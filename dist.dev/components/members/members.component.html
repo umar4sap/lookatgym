@@ -1,5 +1,6 @@
-<div class="loading" style="position:fixed;top:350px;left:550px" ng-show="vm.inprogress">
+<div class="loading" style="position:fixed;top:30%;left:40%" ng-show="vm.inprogress">
         <img src="images/loading.svg" alt="loading">
+        <p>Loading</p>
     </div>
 <div class="container zone-user-details-card-page">
     <div class="row">
@@ -82,7 +83,7 @@
                                 </div>
                                 <div class="user-details-card-footer">
                                         <div class="btn-group ">
-                                                <button  class="btn btn-info btn-sm " ng-click="vm.open('ls')">Add New Member</button>
+                                                <button  class="btn btn-info btn-sm " ng-click="vm.open('ls')"> <i style="margin-right:5px;" class="fas fa-user-plus"> </i> Add New Member</button>
                                                 <button ng-click="vm.viewActiveMembers('zonemembers',avzone.group[1],'inProgress')" class="btn btn-warning btn-sm pull-right" style="
                             -webkit-animation-name: hvr-pulse-grow;
                             animation-name: hvr-pulse-grow;

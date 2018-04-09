@@ -22,8 +22,8 @@
   position: relative;
   top: 5px;
   left: 153px;
-  height: 150px;
-  width: 160px; }
+  height: auto;
+  width: auto; }
 
 .logo2 {
   position: relative;
@@ -61,7 +61,9 @@
 
 @media screen and (max-width: 758px) and (min-width: 375px) {
   .banner-card-one {
-    margin-top: 10px; } }
+    margin-top: 10px;
+    margin-left: 15%;
+    width: 80%; } }
 
 .banner-heading {
   color: white;
@@ -80,12 +82,19 @@
   font-weight: 400; }
 
 .zone-top-filter {
-  background-image: url("../../images/thumb1.jpg");
+  background-image: url("../../images/listing-bg.jpg");
+  height: 50%;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100%;
   background-size: 100% 100%;
-  height: 400px; }
+  background-position: center;
+  background-attachment: fixed;
+  padding-top: 10%;
+  top: 0px;
+  left: 0px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover; }
 
 .zone-search-filters {
   background-color: none;
@@ -110,21 +119,20 @@
   color: #efefef; }
 
 .filters {
-  background: #202122;
-  margin-top: 10px; }
+  background: rgba(33, 191, 252, 0.35);
+  margin-top: 20%; }
+
+.filters-searchs {
+  background: rgba(33, 191, 252, 0.35);
+  height: auto;
+  bottom: 0px;
+  width: 100%; }
 
 .zone-filter-content {
-  margin-top: 111px; }
+  margin-top: 10px; }
 
-.filter-class-status > label > button {
-  background: none;
-  display: inline;
-  padding: 6px;
-  background-color: #2D8DF3; }
-
-.filter-class-status > label > button:hover {
-  padding: 6px;
-  box-shadow: none; }
+.star-rating > .btn-ratings-list {
+  background: none; }
 
 .filter-class-status > label > button > .checked {
   color: orange; }
@@ -134,43 +142,5 @@
   margin-left: auto; }
 
 .filter-distance {
-  margin-top: 86px; }
-
-@media screen and (max-width: 991px) and (min-width: 768px) {
-  .zone-filter-content {
-    margin-top: 0px;
-    text-align: center; }
-  .filter-class-status {
-    margin-top: -77px; }
-  .filter-distance {
-    margin-top: 106px; } }
-
-@media screen and (max-width: 767px) and (min-width: 600px) {
-  .zone-filter-content {
-    margin-top: -18px; }
-  .filter-class-status {
-    margin-top: -115px; }
-  .filter-distance {
-    margin-top: 78px; } }
-
-@media screen and (max-width: 599px) and (min-width: 450px) {
-  .zone-filter-content {
-    margin-top: -67px;
-    text-align: center; }
-  .filter-class-status {
-    margin-top: 17px;
-    text-align: center; }
-  .filter-distance {
-    margin-top: 6px;
-    text-align: center; } }
-
-@media screen and (max-width: 449px) and (min-width: 370px) {
-  .zone-filter-content {
-    margin-top: -44px;
-    text-align: center; }
-  .filter-class-status {
-    margin-top: 17px;
-    text-align: center; }
-  .filter-distance {
-    margin-top: 6px;
-    text-align: center; } }
+  margin-top: 0px;
+  display: inline-block; }

@@ -28,7 +28,8 @@
   background-size: cover;
   background-size: 100% 100%;
   background-position: center;
-  background-attachment: fixed; }
+  background-attachment: fixed;
+  overflow: hidden; }
 
 .cover-top-icons > .pull-right > ul > li > a > span {
   color: #fff;
@@ -38,7 +39,17 @@
   background: none; }
 
 .members-cover > .container > .cover-heading > center > h2 {
-  color: #fff; }
+  color: #fff;
+  font-size: 30px;
+  margin-bottom: 10px; }
+
+.cover-heading {
+  height: 40px;
+  position: relative;
+  margin-bottom: 10px; }
+
+.cover-text {
+  height: 20px; }
 
 .cover-heading > center > .cover-text > li {
   display: inline-block; }
@@ -52,20 +63,22 @@
   border-radius: 5px; }
 
 .about-cover-text {
-  margin-top: 40px; }
+  margin-top: 40px;
+  height: 50px;
+  overflow: hidden; }
 
 .about-cover-text > p {
   color: #fff;
-  border-radius: 10px;
   padding: 5px; }
 
 .join-content {
   min-height: 75px;
   background-color: rgba(36, 38, 39, 0.65);
   width: 50%;
-  margin-top: 10px;
+  height: 70px;
   border-top-left-radius: 75px;
-  border-top-right-radius: 75px; }
+  border-top-right-radius: 75px;
+  margin-top: 33px; }
 
 .join-content > .text-join > p {
   color: #fff;
@@ -78,15 +91,16 @@
 
 .join-content > .cover-buttons > button {
   background-color: red;
-  padding: 3px;
+  padding: 0px;
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 20px;
-  border: none; }
+  border: none;
+  display: inline-block;
+  font-weight: 100; }
 
 /*cover bottam */
 .cover-bottom > .well {
-  min-height: 90px;
   padding: 0px;
   margin-bottom: 0px;
   background-color: rgba(36, 38, 39, 0.65);
@@ -124,6 +138,19 @@
   margin-top: 2%;
   padding-bottom: 20px; }
 
+.zone-video-header > h2 {
+  color: #737473;
+  margin-top: 10px;
+  font-size: 30px;
+  height: 100px;
+  overflow: hidden; }
+
+.zone-video-header > p {
+  color: #737473;
+  font-size: 17px;
+  height: 70px;
+  overflow: hidden; }
+
 /*Facilities and special*/
 .zone-facilities {
   height: auto;
@@ -152,6 +179,19 @@
   transition: 0.2s ease-in-out; }
 
 /*images zone */
+.zone-members-images-heading > h2 {
+  color: #737473;
+  margin-top: 10px;
+  font-size: 30px;
+  height: 70px;
+  overflow: hidden; }
+
+.zone-members-images-heading > p {
+  color: #737473;
+  font-size: 17px;
+  height: 70px;
+  overflow: hidden; }
+
 .zone-members-images {
   background-color: #e4eae4;
   color: #35373a;
@@ -164,13 +204,14 @@
   display: block; }
 
 .zone-details-img-slider > .nav-justified > li > a {
-  color: #25484b;
-  font-size: 17px; }
-
-.zone-details-img-slider > .nav-justified > li > a:hover {
   background: #25484b;
   font-size: 17px;
   color: #fff; }
+
+.zone-details-img-slider > .nav-justified > li > a:hover {
+  background: #fff;
+  font-size: 17px;
+  color: #25484b; }
 
 .zone-details-images-page > .container-fluid > .zone-img-slider-content > .carousel-inner > .item > img {
   width: 100%; }
@@ -185,7 +226,6 @@
 /*zone-membership-prizes*/
 .zone-membership-prizes {
   height: 400px;
-  background-color: #e4eae4;
   width: 100%;
   margin-top: 2%;
   padding-top: 20px; }
@@ -196,17 +236,28 @@
   margin-top: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
 
+.zone-prizing > table {
+  background: #72d0f4;
+  padding: 2px;
+  color: #fff; }
+
+.price-content > th, .price-content > td {
+  color: #fff; }
+
 /*zone-facilities-section*/
 .zone-facilities-section {
   height: 500px;
-  background-color: #e4eae4;
   width: 100%;
   margin-top: 2%;
   padding-top: 20px;
   padding-bottom: 20px; }
 
 .zone-facilities-section-heading > h2 {
-  color: #606762; }
+  color: #606762;
+  margin-top: 10px;
+  font-size: 30px;
+  height: 70px;
+  overflow: hidden; }
 
 .facilities-section-content-icons .gym-floor > img {
   height: 70px;
@@ -223,8 +274,28 @@
   padding-bottom: 10px; }
 
 /* zone-about-info-details */
+.zone-membership-prizes-heading {
+  color: #606762;
+  margin-top: 10px;
+  font-size: 30px;
+  height: 70px;
+  overflow: hidden; }
+
 .zone-about-info-details {
   background-color: #e4eae4; }
+
+.zone-about-text > h2 {
+  color: #737473;
+  padding-bottom: 10px;
+  font-size: 30px;
+  height: 100px;
+  overflow: hidden; }
+
+.zone-about-text > p {
+  color: #737473;
+  font-size: 17px;
+  height: 200px;
+  overflow: hidden; }
 
 /*Zone trainer Info*/
 .zone-trainer-details-page {
@@ -247,6 +318,13 @@
   margin-bottom: 0px;
   color: #7c858c;
   text-shadow: 1px 1px 4px #74dce6; }
+
+.zone-trainer-about-status > h3 {
+  color: #737473;
+  padding-bottom: 0px;
+  font-size: 25px;
+  height: 100px;
+  overflow: hidden; }
 
 .zone-trainer-details-about > .zone-trainer-about-status > h5 {
   color: #74dce6;
@@ -318,104 +396,66 @@
   color: #418990;
   margin-top: 5px; }
 
-@media screen and (max-width: 767px) and (min-width: 300px) {
-  .zone-details-about-followers > .row > .col-sm-1 {
-    display: inline-block;
-    margin-left: 20px; } }
-
-/*large size*/
-@media screen and (max-width: 991px) and (min-width: 768px) {
-  .join-content {
-    margin-top: 10px; }
-  .join-content > .text-join > p {
-    font-size: 10px;
-    padding: 5px; }
-  .cover-heading {
-    margin-top: -98px; } }
-
-/* tab */
-@media screen and (max-width: 770px) and (min-width: 668px) {
-  .join-content {
-    margin-top: 67px;
-    width: 55%;
+@media screen and (max-width: 1024px) and (min-width: 992px) {
+  .about-cover-text {
+    margin-top: 0px;
+    height: 50px;
     overflow: hidden; }
+  .join-content {
+    margin-top: 0px; }
   .cover-heading {
-    margin-bottom: -30px;
-    margin-top: -92px; }
+    height: 40px;
+    position: relative;
+    margin-bottom: 10px;
+    margin-top: 72px; }
+  .join-content > .text-join > p {
+    color: #fff;
+    font-size: 15px;
+    border-radius: 10px;
+    padding: 5px; } }
+
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  .about-cover-text {
+    margin-top: 0px;
+    height: 50px;
+    overflow: hidden; }
+  .join-content {
+    margin-top: 0px; }
+  .cover-heading {
+    height: 40px;
+    position: relative;
+    margin-bottom: 10px;
+    margin-top: 9px; }
+  .join-content > .text-join > p {
+    color: #fff;
+    font-size: 13px;
+    border-radius: 10px;
+    padding: 5px; } }
+
+@media screen and (max-width: 768px) and (min-width: 562px) {
+  .about-cover-text {
+    margin-top: 0px;
+    height: 50px;
+    overflow: hidden; }
+  .join-content {
+    margin-top: 0px; }
+  .cover-heading {
+    height: 40px;
+    margin-bottom: 10px; }
   .join-content > .text-join > p {
     color: #fff;
     font-size: 10px;
-    border-radius: 10px;
-    padding: 5px; }
+    padding-top: 27px; }
   .cover-bottom > .well {
-    height: 90px;
+    height: 60px !important;
     padding: 0px;
     margin-bottom: 0px;
     background-color: rgba(36, 38, 39, 0.65);
     border-radius: 0px;
-    border: 0px;
-    overflow: hidden; } }
+    border: 0px; } }
 
-@media screen and (max-width: 667px) and (min-width: 549px) {
-  .cover-heading {
-    margin-bottom: -30px;
-    margin-top: -92px; }
-  .join-content {
-    width: 55%;
-    margin-top: 65px; }
-  .join-content > .text-join > p {
-    font-size: 10px;
-    padding: 5px;
-    text-align: center; }
-  .cover-bottom .members-sec > label, .cover-bottom .members-sec > .total-members-list > h4 > b {
-    font-size: 10px;
-    text-align: left; }
-  .genders-sec {
-    margin-top: 0px; }
-  .members-sec {
-    margin-top: 0px; }
-  .cover-bottom .rating-sec > span {
-    font-size: 10px; }
-  .cover-bottom .rating-sec > label {
-    font-size: 12px; }
-  .cover-bottom > .well {
-    height: 90px;
-    padding: 0px;
-    margin-bottom: 0px;
-    background-color: rgba(36, 38, 39, 0.65);
-    border-radius: 0px;
-    border: 0px;
-    overflow: hidden; }
-  .cover-bottom .members-sec > label, .cover-bottom .members-sec > .total-members-list > h4 > b {
-    font-size: 12px; }
-  .cover-bottom .genders-sec > label, .cover-bottom .genders-sec > .total-members-list > h4 > b, .cover-bottom .genders-sec > .total-members-list > h4 > b > i {
-    font-size: 12px; }
-  .cover-bottom .genders-sec > .total-members-list > h4 > i {
-    margin-left: 2px; } }
-
-@media screen and (max-width: 548px) and (min-width: 400px) {
-  .about-cover-text > p {
-    display: none; }
-  .join-content {
-    width: 77%;
-    margin-top: 22px; }
-  .join-content > .text-join > p {
-    font-size: 10px;
-    padding: 5px;
-    text-align: center; }
-  .cover-heading {
-    margin-top: -12px; }
-  .cover-bottom .rating-sec > span {
-    font-size: 10px; }
-  .cover-bottom .rating-sec > label {
-    font-size: 12px; }
-  .cover-bottom .members-sec > label, .cover-bottom .members-sec > .total-members-list > h4 > b {
-    font-size: 12px; }
-  .cover-bottom .genders-sec > label, .cover-bottom .genders-sec > .total-members-list > h4 > b, .cover-bottom .genders-sec > .total-members-list > h4 > b > i {
-    font-size: 12px; }
-  .cover-bottom .genders-sec > .total-members-list > h4 > i {
-    margin-left: 2px; } }
-
+/*large size*/
+/* tab */
 /*Mobile*/
 /* rating progress */
 .zone-mobo-for-rating-screen {
@@ -494,30 +534,51 @@
   height: auto;
   margin-top: 30px; }
 
+.user-details-card-header > h4 {
+  color: #6e767d;
+  font-size: 20px;
+  height: 50px;
+  overflow: hidden;
+  padding-top: 5px; }
+
 .user-details-card-body > h5 {
-  color: #6e767d; }
+  color: #6e767d;
+  font-size: 16px;
+  height: 39px;
+  overflow: hidden;
+  padding-top: 5px; }
 
 .user-details-card-header > h3 {
   color: #6e767d; }
 
-.footer-buttons > .view-btn {
+.user-details-card-footer {
+  height: 50px; }
+
+.trainer-card-footer-buttons > .view-btn {
   border-radius: 20px;
-  padding-left: 25px;
-  padding-right: 25px;
   background: #42d3ff;
   color: #fff;
-  border: none; }
+  border: none;
+  padding: 2px;
+  font-weight: 100;
+  padding-left: 5px;
+  padding-right: 5px; }
 
-.footer-buttons > .abt-btn {
+.trainer-card-footer-buttons > .abt-btn {
   border-radius: 20px;
-  padding-left: 25px;
-  padding-right: 25px;
   color: #fff;
   background: #f0c518;
   border: none;
-  margin-left: 20px; }
+  padding: 2px;
+  font-weight: 100;
+  padding-left: 5px;
+  padding-right: 5px; }
 
 .head-trainer-section > h2 {
-  color: #7c858c;
-  font-size: 22px;
-  margin-top: 10px; }
+  color: #737473;
+  margin-top: 10px;
+  font-size: 30px;
+  height: 70px;
+  overflow: hidden; }
+
+/*new header box*/

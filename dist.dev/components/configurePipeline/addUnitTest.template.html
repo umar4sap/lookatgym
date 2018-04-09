@@ -70,7 +70,7 @@
                 <md-progress-circular md-mode="indeterminate" md-diameter="20px" ng-if="validationInProgress"></md-progress-circular>
             </md-button>
             <md-button class="md-raised md-primary" ng-click="testCaseDialog.$valid && newTestCaseDetails(testData)" ng-if="validated"  layout="row">
-                Create <md-progress-circular md-mode="indeterminate" md-diameter="20px" ng-if="ruleCreateLoader"></md-progress-circular>
+                <i class="fas fa-plus"></i> Create <md-progress-circular md-mode="indeterminate" md-diameter="20px" ng-if="ruleCreateLoader"></md-progress-circular>
             </md-button>
         </md-dialog-actions>
     </form>
