@@ -58,6 +58,19 @@
 				parent:"dashboard"
 				
 			})
+			.state('studio', {
+				url: '/studio',
+				views: {
+                    "main": {
+						templateUrl: 'components/studio/studio.component.mobo.html',
+						controller: 'studioController',
+						controllerAs: 'vm'
+
+					}
+				},
+				parent:"dashboard"
+				
+			})
 
 			.state('subscription', {
 				url: '/subscription',

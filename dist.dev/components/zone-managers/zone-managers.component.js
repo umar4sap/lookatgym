@@ -7,6 +7,56 @@
                 var vm = this;
                debugger;
                 vm.branchData = branchData;
+                $scope.permissionsData = [
+                  { id:"1",Role: 'Read', ProductName: 'Trainers' },
+                  { id:"2",Role: 'Read', ProductName: 'Expances' },
+                  { id:"3",Role: 'Read', ProductName: 'Members' },
+                  { id:"4",Role: 'Read', ProductName: 'Branches' },
+                  { id:"5",Role: 'Read', ProductName: 'Revenue' },
+                  { id:"6",Role: 'Read', ProductName: 'Studio' },
+                  { id:"7",Role: 'Read', ProductName: 'Plans' },
+                  { id:"8",Role: 'FullControl', ProductName: 'Trainers' },
+                  { id:"9",Role: 'FullControl', ProductName: 'Expances' },
+                  { id:"10",Role: 'FullControl', ProductName: 'Members' },
+                  { id:"11",Role: 'FullControl', ProductName: 'Branches' },
+                  { id:"12",Role: 'FullControl', ProductName: 'Revenue' },
+                  { id:"13",Role: 'FullControl', ProductName: 'Studio' },
+                  { id:"14",Role: 'FullControl', ProductName: 'Plans' },
+                ];
+                if(branchData.BranchMode=='permission'){
+                  vm.branchId=branchData.branchId;
+                  vm.ownerId=branchData.ownerId;
+                }
+                vm.seletedPermissions=[];
+                vm.addPermit=function(permit,value){
+                  debugger;
+                  $scope.repeatOnList = $filter('filter')(vm.seletedPermissions, "plan");
+                   if(value== "nop")  {
+
+                   }else{
+                      vm.seletedPermissions.push(permit);
+                      console.log("added plan"+vm.seletedPermissions)
+                   }
+              }
+            vm.updatePermissions=function(ownershipId,branchId){
+              debugger;
+              zoneService.AddPermissionsToBranch(ownershipId,branchId,vm.seletedPermissions,function(err,res){
+                console.log(res)
+                if(!err){
+                    $uibModalInstance.dismiss('cancel');
+                    $scope.showAlert(null,"branch permissions updates");
+                   
+                }else{
+                    $uibModalInstance.dismiss('cancel');
+                    $scope.showAlert(null,"error while branch permissions updates");
+                }
+                
+            })
+            }
+
+
+
+               
               debugger;
                 vm.ok = function () {
                   $uibModalInstance.close(vm.selected.item);
@@ -171,7 +221,7 @@
             vm.inprogress=true;
            
             var userProfile = localStorage.getItem('profile');
-    $scope.userProfile = JSON.parse(userProfile);
+          $scope.userProfile = JSON.parse(userProfile);
             vm.authService = authService;
             vm.ownershipsLab=$scope.userProfile['https://lookatgym.com/permissions'].permissions.ownerships[0]
             vm.ownerships=Object.keys($scope.userProfile['https://lookatgym.com/permissions'].permissions.ownerships[0])
@@ -257,7 +307,6 @@
         }
 
 
-
   vm.animationsEnabled = true;
 
   vm.open = function (size,ownerId) {
@@ -278,6 +327,25 @@
     }
     
     });
+}
+vm.permissionDialog = function (size,ownerId,branchId) {
+  debugger;
+
+$uibModal.open({
+  animation: vm.animationsEnabled,
+  ariaLabelledBy: 'modal-title',
+  ariaDescribedBy: 'modal-body',
+  controller: 'ModalInstanceCtrlManagers',
+  templateUrl: 'components/zone-managers/zone-managers-dialog-permission.html',
+  controllerAs: 'vm',
+  size: size,
+  resolve: {
+    branchData: function () {
+      return {BranchMode:"permission",ownershipId:ownerId,branchId:branchId};
+    }
+}
+
+});
 }
 
 vm.edit = function (size,trainerId,zoneId) {

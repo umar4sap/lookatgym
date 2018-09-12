@@ -173,3 +173,298 @@ width: 100%;
     
     }
   
+
+
+
+   /* @import url('https://fonts.googleapis.com/css?family=Cinzel'); */
+
+body{
+    margin:0px;
+    padding: 0px;
+    font-family: 'Cinzel', serif;
+}
+
+.zdp-header {
+    position: fixed;
+    background: #fff;
+  width:100%;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+top:0;
+z-index: 12;
+}
+
+.zdp-header div.row{
+    margin:0 auto;
+}
+
+.zdp-logo{
+    height: 80px;
+}
+
+.zdp-search{
+    display: flex;
+    flex-direction:row; 
+    justify-content: flex-end;
+    max-height: 65px;
+    height: auto;
+}
+
+
+.zdp-logo{
+margin-top:5px;
+height: 50px;
+}
+
+.zdp-search-name{
+    
+       width: 300px;
+       padding:10px 10px;
+       cursor: pointer;
+       display: flex;
+       flex-direction: row;
+}
+
+.zdp-search-name .zdp-search-name-text{
+ font-weight: 700;
+ padding:4px 5px 5px;
+ border-bottom: 2px solid #141E30;
+ color:#141E30;
+ margin-left:10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.zdp-search-name-ad{
+    font-weight: 600;
+    padding:4px 5px 5px;
+    font-size: 15px;
+    color:#141E30;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-left:10px;
+}
+
+.zdp-top-nav{
+   
+       padding:0px 10px;
+       cursor: pointer;
+       display: flex;
+       flex-direction: row;
+  
+}
+
+.zdp-top-nav-content>li>a{
+    font-weight: 600;
+    line-height: 19.2px;
+    font-size: 16px;
+    color: #3d4152;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    
+}
+
+.zdp-top-nav ul.zdp-top-nav-content>li>a:hover{
+   background: transparent;
+}
+
+.zdp-top-nav-content>li>a>i{
+    font-size: 16px;
+    padding: 0 5px;
+}
+
+.zdp-banner{
+    margin-top:65px;
+    width: 100%;
+    height: 330px;
+    background: #141E30;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+     
+     background-size: 100% 100% cover;
+     box-shadow: 0 2px 4px 0 rgba(48,56,97,.2);
+}
+
+
+.zdp-banner-conetnt{
+    padding:1% 1%;
+    
+}
+
+.zdp-banner-conetnt-card-body img.zdp-card-img{
+    height: 260px;
+    width: 260px;
+    cursor: pointer;
+    transition: -webkit-transform .5s cubic-bezier(.215,.61,.355,1);
+    transition: transform .5s cubic-bezier(.215,.61,.355,1);
+    transition: transform .5s cubic-bezier(.215,.61,.355,1),-webkit-transform .5s cubic-bezier(.215,.61,.355,1);
+    -webkit-backface-visibility: visible;
+    backface-visibility: visible;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.zdp-banner-conetnt-card-body img.zdp-card-img:hover{
+    cursor: pointer;
+    transition: width 2s;
+    transform: scale()
+}
+
+.item div.zdp-banner-conetnt-card{
+    background:transparent;
+   border-radius: 5px;
+}
+
+.zdp-banner-conetnt-card div.zdp-banner-conetnt-card-body{
+    padding: 0px; 
+}
+
+.owl-nav{
+    display: none;
+}
+
+/* listing content */
+
+
+.zdp-side-nav{
+    display: flex;
+    height: 531px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px 0 rgba(48,56,97,.2);
+    align-items: center;
+    justify-content: center;
+    width:254px !important;
+    
+}
+
+.zdp-side-menu-content ul.zdp-side-nav-menu{
+ display: flex;
+    justify-content: center;
+    flex-direction:column;
+    align-items: center;
+    
+}
+
+.zdp-side-menu-content ul.zdp-side-nav-menu>li{
+width: 100%;
+height: 85px;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+ul.zdp-side-nav-menu>li>a{
+    font-size: 16px;   
+    height: 85;
+    color:#141E30;
+    font-weight: 600;
+}
+
+ul.zdp-side-nav-menu>li.zdp-active{
+    width:254px;
+    box-shadow: 0 2px 4px 0 rgba(48,56,97,.2);
+    background:#000;
+    color:#fff;
+}
+
+ul.zdp-side-nav-menu>li.zdp-active>a{
+    width:254px;
+    box-shadow: 0 2px 4px 0 rgba(48,56,97,.2);
+   
+    color:#fff;
+}
+
+ul.zdp-side-nav-menu>li>a:hover{
+    background: transparent;
+    color: #fff;
+}
+
+ul.zdp-side-nav-menu>li:hover{ 
+    box-shadow: 0 2px 4px 0 rgba(48,56,97,.2);
+    background:#000;
+    color:#fff;   
+}
+
+/* popular cart */
+
+.zdp-popular{
+    width: 100%;
+    display: flex;
+    padding-left:0px;
+    margin-bottom: 10px;
+    justify-content: space-around;
+    flex-direction: column
+}
+
+.zdp-popular-heading{
+    
+}
+
+.zdp-popular-heading h2.zdp-popular-heading-t{
+    font-size: 28px;
+    line-height: 33.6px;
+    color:#141E30;
+}
+
+/* cards */
+
+div.zdp-popular-card{
+    width: 296px;
+   height: 330px;
+   padding:20px 20px 57px 20px;
+   box-shadow: 0 2px 4px 0 rgba(48,56,97,.2);
+   cursor: pointer;
+  
+   
+}
+
+.zdp-card-img img.zdp-popular-card-img{
+width:254px;
+height: 150px;
+margin-bottom:20px
+}
+.zdp-popular-card div.zdp-card-title{
+    width:254px;
+    line-height: 20px;
+    font-size: 17px;
+    text-decoration: none !important;
+    padding:5px 0px;
+    font-weight: 600 !important;
+    color:#141E30;
+}
+
+.zdb-card-ratings div.zdp-about-g{
+    padding:0px 0px;
+}
+
+.zdp-popular-card div.zdp-card-btn{
+margin:15px 0;
+
+}
+
+.zdp-popular-card div.zdp-card-btn button.zdp-popular-card{
+background: #141E30;
+color:#fff;
+padding:5px 20px;
+}
+   
+ 
+   /**
+ * Owl Carousel v2.3.4
+ * Copyright 2013-2018 David Deutsch
+ * Licensed under: SEE LICENSE IN https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE
+ */
+.owl-carousel,.owl-carousel .owl-item{-webkit-tap-highlight-color:transparent;position:relative}.owl-carousel{display:none;width:100%;z-index:1}.owl-carousel .owl-stage{position:relative;-ms-touch-action:pan-Y;touch-action:manipulation;-moz-backface-visibility:hidden}.owl-carousel .owl-stage:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}.owl-carousel .owl-stage-outer{position:relative;overflow:hidden;-webkit-transform:translate3d(0,0,0)}.owl-carousel .owl-item,.owl-carousel .owl-wrapper{-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;-ms-backface-visibility:hidden;-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0)}.owl-carousel .owl-item{min-height:1px;float:left;-webkit-backface-visibility:hidden;-webkit-touch-callout:none}.owl-carousel .owl-item img{display:block;width:100%}.owl-carousel .owl-dots.disabled,.owl-carousel .owl-nav.disabled{display:none}.no-js .owl-carousel,.owl-carousel.owl-loaded{display:block}.owl-carousel .owl-dot,.owl-carousel .owl-nav .owl-next,.owl-carousel .owl-nav .owl-prev{cursor:pointer;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.owl-carousel .owl-nav button.owl-next,.owl-carousel .owl-nav button.owl-prev,.owl-carousel button.owl-dot{background:0 0;color:inherit;border:none;padding:0!important;font:inherit}.owl-carousel.owl-loading{opacity:0;display:block}.owl-carousel.owl-hidden{opacity:0}.owl-carousel.owl-refresh .owl-item{visibility:hidden}.owl-carousel.owl-drag .owl-item{-ms-touch-action:pan-y;touch-action:pan-y;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.owl-carousel.owl-grab{cursor:move;cursor:grab}.owl-carousel.owl-rtl{direction:rtl}.owl-carousel.owl-rtl .owl-item{float:right}.owl-carousel .animated{animation-duration:1s;animation-fill-mode:both}.owl-carousel .owl-animated-in{z-index:0}.owl-carousel .owl-animated-out{z-index:1}.owl-carousel .fadeOut{animation-name:fadeOut}@keyframes fadeOut{0%{opacity:1}100%{opacity:0}}.owl-height{transition:height .5s ease-in-out}.owl-carousel .owl-item .owl-lazy{opacity:0;transition:opacity .4s ease}.owl-carousel .owl-item .owl-lazy:not([src]),.owl-carousel .owl-item .owl-lazy[src^=""]{max-height:0}.owl-carousel .owl-item img.owl-lazy{transform-style:preserve-3d}.owl-carousel .owl-video-wrapper{position:relative;height:100%;background:#000}.owl-carousel .owl-video-play-icon{position:absolute;height:80px;width:80px;left:50%;top:50%;margin-left:-40px;margin-top:-40px;background:url(owl.video.play.png) no-repeat;cursor:pointer;z-index:1;-webkit-backface-visibility:hidden;transition:transform .1s ease}.owl-carousel .owl-video-play-icon:hover{-ms-transform:scale(1.3,1.3);transform:scale(1.3,1.3)}.owl-carousel .owl-video-playing .owl-video-play-icon,.owl-carousel .owl-video-playing .owl-video-tn{display:none}.owl-carousel .owl-video-tn{opacity:0;height:100%;background-position:center center;background-repeat:no-repeat;background-size:contain;transition:opacity .4s ease}.owl-carousel .owl-video-frame{position:relative;z-index:1;height:100%;width:100%}
+   
+   /**
+ * Owl Carousel v2.3.4
+ * Copyright 2013-2018 David Deutsch
+ * Licensed under: SEE LICENSE IN https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE
+ */
+.owl-theme .owl-dots,.owl-theme .owl-nav{text-align:center;-webkit-tap-highlight-color:transparent}.owl-theme .owl-nav{margin-top:10px}.owl-theme .owl-nav [class*=owl-]{color:#FFF;font-size:14px;margin:5px;padding:4px 7px;background:skyblue;display:inline-block;cursor:pointer;border-radius:3px}.owl-theme .owl-nav [class*=owl-]:hover{background:#869791;color:#FFF;text-decoration:none}.owl-theme .owl-nav .disabled{opacity:.5;cursor:default}.owl-theme .owl-nav.disabled+.owl-dots{margin-top:10px}.owl-theme .owl-dots .owl-dot{display:inline-block;zoom:1}.owl-theme .owl-dots .owl-dot span{width:10px;height:10px;margin:5px 7px;background:#000;display:block;-webkit-backface-visibility:visible;transition:opacity .2s ease;border-radius:30px}.owl-theme .owl-dots .owl-dot.active span,.owl-theme .owl-dots .owl-dot:hover span{background:skyblue}
+   

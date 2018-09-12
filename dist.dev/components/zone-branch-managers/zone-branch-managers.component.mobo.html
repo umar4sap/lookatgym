@@ -49,13 +49,19 @@
                         <div class="activity_main settingsbranchs">
                             <div layout="row" class="settingsHeader" layout-align="space-between center">
                                 <div class="prevIconUser cursor-pointer" ui-sref="trainings.branchs" layout="row" layout-align="start center">
-                                    <span>Branches Managers</span>
+                                    <span>Branches Managers and Permissions</span>
                                     <md-tooltip md-direction="bottom">Managers</md-tooltip>
                                 </div>
                                 <md-button  class="btn btn-info btn-sm " ng-show="vm.isAdmin" ng-click="vm.open('lg',vm.ownerships[0],vm.branchId)">Add New Manager</md-button>
                     
                             </div>
                             <div class="settingsBranchList">
+                                    <label ><b> Current Permissions</b></label>
+                                    <md-checkbox  name="crossfit"  ng-repeat="permit in  vm.branchInfo.roles"  ng-checked="true"
+                                    style="width:100%" >
+                                            <label for="crossfit">{{permit.Role}}</label>
+                                            <label for="crossfit"> {{permit.ProductName}}</label>
+                                        </md-checkbox>
                                 <div class="branchListWrap">
                                         <md-list-item class="md-3-line" ng-click="null" ng-repeat="manager in vm.managers">
                                                 <img ng-src="images/user.png" class="md-avatar" alt="member" />

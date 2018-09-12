@@ -4,7 +4,7 @@ angular
 
 
 zoneService.$inject = ['$http'];
-var host= "http://159.65.15.180";
+var host= "http://18.191.39.211";
 var localhost="http://localhost"
 function zoneService($http) {
 	var obj = {};

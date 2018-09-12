@@ -70,7 +70,7 @@
                                                 <div class="user-details-card-footer">
                                                     <div class="user-details-card-buttons btn-group ">
                                                         <button class="btn btn-sm btn-info" ng-show="vm.isAdmin" ng-click="vm.edit('lg',plan.planId,plan.zoneId)"> <i class="far fa-edit"></i> Edit </button>
-                                                        <button class="btn btn-sm btn-info" ng-show="vm.isAdmin" ng-click="vm.edit('lg',plan.planId,plan.zoneId)"> <i class="far fa-view"></i> Add permissions </button>
+                                                        <button class="btn btn-sm btn-info" ng-show="vm.isAdmin &&  branch.branch != 'owners'" ng-click="vm.permissionDialog('lg',vm.ownerships[0],branch.branch)"> <i class="far fa-view"></i> Update permissions </button>
                                                         <button class="btn btn-sm btn-info" ng-click="vm.edit('lg',plan.planId,plan.zoneId)"> <i class="far fa-user"></i> View Managers </button>
                                                         <button class="btn btn-sm btn-danger" ng-show="vm.isAdmin"> <i class="far fa-trash-alt"></i> Delete </Button>
                                                     </div>

@@ -11,9 +11,26 @@
     function subscriptionController(authService) {
 
         var vm = this;
-        vm.authService = authService;
+        vm.nBranch=1;
+        vm.nMember=50;
+        vm.nMonth=1;
 
+        vm.authService = authService;
+        vm.updateAmount=function(){
+            debugger;
+            vm.branchTotal=vm.nBranch*5;
+            vm.membersTotal=vm.nMember*0.20;
+            vm.perMonth=vm.branchTotal+vm.membersTotal;
+            vm.months=vm.nMonth*(vm.branchTotal+vm.membersTotal);
+            vm.discount=vm.nMonth+5;
+            vm.disc=vm.months/vm.discount;
+            vm.finalAmount=vm.months-vm.disc;
+        }
+        vm.updateAmount();
     }
+
+
+   
 
 }());
 

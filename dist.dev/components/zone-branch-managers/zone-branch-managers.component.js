@@ -234,6 +234,7 @@
                     
                     })
                       if( vm.branches[0].role=='admin'){
+                        debugger;
                           vm.isAdmin=true;
                       }else{
                         vm.isAdmin=false;
@@ -258,6 +259,7 @@
                if(!err){
                    debugger;
                 vm.managers=res.data.users;
+                vm.branchInfo=res.data.branchInfo;
                 vm.inprogress=false;
                
                  if( vm.branches[0].role=='admin'){
