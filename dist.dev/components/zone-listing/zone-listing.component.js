@@ -17,7 +17,7 @@
                 debugger;
                 $state.go(path,{ 'zoneId': zoneId, 'city': city });
             };
-            vm.city=$scope.city || "Hyderabad";
+            vm.city=$scope.city || "HYDERBAD";
             
             vm.getZones=function(city){
                 vm.inprogress=true;

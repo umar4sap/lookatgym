@@ -222,13 +222,13 @@ li.rss a span:hover {
   text-transform: uppercase;
   font-weight: 400;
   margin-right: 10px;
-  border: 1px solid #72D0F4; }
+  /* border: 1px solid #72D0F4;  */ }
 
 .nav li {
   position: relative; }
 
 .nav li.active a, .nav li a:hover {
-  border: 1px solid #fff;
+  /* border: 1px solid #fff; */
   border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -239,7 +239,7 @@ li.rss a span:hover {
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   background: #fff;
-  color: #00BFF0; }
+  color: orangered; }
 
 .nav > li {
   float: left; }
@@ -305,8 +305,8 @@ li.rss a span:hover {
   border: none; }
 
 a:hover, a:focus {
-  color: #D8F3FD;
-  text-decoration: none; }
+  /* color: #D8F3FD;
+	text-decoration: none;  */ }
 
 /***** Media Quries *****/
 @media screen and (max-width: 768px) {
@@ -581,7 +581,7 @@ h3.m_4 {
   white-space: nowrap; }
 
 [data-tooltip]:hover, [data-tooltip]:focus {
-  background-color: transparent; }
+  /* background-color: transparent;  */ }
 
 [data-tooltip]:hover:before, [data-tooltip]:hover:after, [data-tooltip]:focus:before, [data-tooltip]:focus:after {
   visibility: visible;
