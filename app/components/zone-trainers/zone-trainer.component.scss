@@ -1,5 +1,5 @@
 .creation-from{
-   // margin-top:20px;
+   padding:20px;
 }
 
 .creation-from>form>.form-group>label{
@@ -22,7 +22,6 @@ padding-right:10px;
 
 .create-plan-button>button:hover{
     background-color: #0DC8B4;
-   
     color:#000;
     border:none;
     }
@@ -39,17 +38,16 @@ padding-right:10px;
         
         .cancel-plan-button>button:hover{
             background-color: orange;
-           
             color:#000;
             border:none;
             }
 
 /*tiles*/
 
-*button:hover{
-transition: 0s !important;
-transform: scale(0s) !important;
-}
+// *button:hover{
+// transition: 0s !important;
+// transform: scale(0s) !important;
+// }
 
 .badges-content{
     margin-top:20px;
@@ -90,10 +88,22 @@ transform: scale(0s) !important;
     color: rgb(28, 73, 110);
 }
 
+// New Customizing
+
+.ue-form-controller{
+    margin: 10px 0 0 0 !important;
+}
 
 
-
-
+.ue-heading-controller-db{
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+    font-family: sans-serif;
+    background:#102C58;
+    padding: 5px;
+    border-radius: 5px;
+}
 
 
 

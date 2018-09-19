@@ -39,8 +39,12 @@
         </div>
     </div>
 </div> -->
-<div class="container">
+<div class="container"> 
+        <div class="ue-heading-controller-db">
+                Create New Zone
+            </div>
     <div class="checkout-wrap">
+            
         <ul class="checkout-bar">
       
           <li class="" ng-class="{'active':zone_basics==='done' }">
@@ -78,34 +82,34 @@
                 <div class="col-md-6">
                     <!--col-md-6 -->
                     <form action="#">
-                        <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
-                            <label>Zone Name Title</label>
+                        <md-input-container class="md-icon-float ue-zewzone-input-controller md-block" layout-gt-xs="row">
+                            <label class="text-left">Zone Name Title</label>
                             <input ng-model="zonedata.zoneName" type="text" class="form-control" name="text"  id="zone-time" required>
                       </md-input-container>
                       
-                         <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
-                             <label>Zone Owner</label>
+                         <md-input-container class="md-icon-float md-block ue-zewzone-input-controller" layout-gt-xs="row">
+                             <label class="text-left">Zone Owner</label>
                              <input ng-model="zonedata.zoneOwnerName" type="text" class="form-control" name="text"  required id="pwd">
                         </md-input-container>
                      
                       
 
-                            <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
-                                <label>Zone Since e.g 2011</label>
+                            <md-input-container class="md-icon-float md-block ue-zewzone-input-controller" layout-gt-xs="row">
+                                <label class="text-left">Zone Since e.g 2011</label>
                                 <input ng-model="zonedata.zoneSince" type="text" class="form-control" name="cuncurency"  required id="pwd">
                           </md-input-container>
                        
-                          <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
-                            <label>Country</label>
-                            <md-select required ng-model="zonedata.Country">
+                          <md-input-container class="md-icon-float md-block ue-zewzone-select-controller" layout-gt-xs="row">
+                            <label class="text-left">Country</label>
+                            <md-select class="ue-zewzone-select-controller-item" required ng-model="zonedata.Country">
                                 <md-option value="IND">INDIA</md-option>
                                 <md-option value="UAE">UAE</md-option>
                                 <md-option value="US">US</md-option>
                             </md-select>
                         </md-input-container>
-                        <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
-                            <label>City</label>
-                            <md-select required ng-model="zonedata.city">
+                        <md-input-container class="md-icon-float md-block ue-zewzone-select-controller" layout-gt-xs="row">
+                            <label class="text-left">City</label>
+                            <md-select class="ue-zewzone-select-controller-item" required ng-model="zonedata.city">
                                 <md-option value="MUMBAI">MUMBAI</md-option>
                                 <md-option value="HYDERBAD">HYDERBAD</md-option>
                                
@@ -118,9 +122,9 @@
                 <div class="col-md-6">
                     <form>
                        
-                                <md-input-container class="md-icon-float md-block" layout-gt-xs="row" >
-                                    <label>Facilities</label>
-                                    <md-select ng-model="zonedata.selectedFacilities" multiple>
+                                <md-input-container class="md-icon-float md-block ue-zewzone-select-controller" layout-gt-xs="row" >
+                                    <label class="text-left">Facilities</label>
+                                    <md-select class="ue-zewzone-select-controller-item" ng-model="zonedata.selectedFacilities" multiple>
                                         <md-optgroup label="Basic Facilities">
                                             <md-option ng-value='{"name":"{{topping.name}}","category":"{{zone.category}}"}' ng-repeat="topping in toppings | filter: {category: 'Basic' }">{{topping.name}}</md-option>
                                         </md-optgroup>
@@ -134,9 +138,9 @@
                       
                             
 
-                                    <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
-                                        <label>Working Days</label>
-                                        <md-select ng-model="zonedata.openingDays" multiple >
+                                    <md-input-container class="md-icon-float md-block ue-zewzone-select-controller" layout-gt-xs="row">
+                                        <label class="text-left">Working Days</label>
+                                        <md-select class="ue-zewzone-select-controller-item" ng-model="zonedata.openingDays" multiple >
                                             <md-optgroup label="Open Days">
                                                 <md-option ng-value='{"name":"{{day.name}}","status":"{{day.status}}"}' ng-repeat="day in days | filter: {status: 'open' }">{{day.name}}</md-option>
                                             </md-optgroup>
@@ -147,18 +151,18 @@
                                     </md-input-container>
                                
                        
-                            <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
-                            <label>Available For</label>
-                            <md-select  ng-model="zonedata.zoneFor" required>
+                            <md-input-container class="md-icon-float md-block ue-zewzone-select-controller" layout-gt-xs="row">
+                            <label class="text-left">Available For</label>
+                            <md-select class="ue-zewzone-select-controller-item"  ng-model="zonedata.zoneFor" required>
                                 <md-option value='unisex'>For Unisex</md-option>
                                 <md-option value='men'>Men</md-option>
                                 <md-option value='women'>Women</md-option>
                             </md-select>
                         </md-input-container>
                     </form>
-                    <md-input-container class="md-block">
-                        <label>Address.</label>
-                        <textarea ng-model="zonedata.zoneAddress" required md-maxlength="150" rows="5" md-select-on-focus id="failure-comment"></textarea>
+                    <md-input-container class="md-block ue-zewzone-textarea-controller">
+                        <label class="text-left">Address.</label>
+                        <textarea ng-model="zonedata.zoneAddress" class="ue-zewzone-textarea-controller-item" required md-maxlength="150" rows="5" md-select-on-focus id="failure-comment"></textarea>
                       </md-input-container>
                 </div>
             </div>
@@ -167,9 +171,9 @@
                 <div class="message-plain">
                     <div class="col-md-12">
                         <form>
-                            <md-input-container class="md-block">
-                                <label>About Zone.</label>
-                                <textarea ng-model="zonedata.aboutZone" required md-maxlength="150" rows="5" md-select-on-focus id="failure-comment"> About Zone.</textarea>
+                            <md-input-container class="md-block ue-zewzone-textarea-controller">
+                                <label class="text-left">About Zone.</label>
+                                <textarea ng-model="zonedata.aboutZone" class="ue-zewzone-textarea-controller-item" required md-maxlength="150" rows="5" md-select-on-focus id="failure-comment"> About Zone.</textarea>
                               </md-input-container>
                         </form>
                     </div>
@@ -191,51 +195,51 @@
                 <div class="col-md-6">
                     <!--col-md-6 -->
 
-                    <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
-                        <label>Morning Time</label>
+                    <md-input-container class="md-icon-float md-block ue-zewzone-input-controller" layout-gt-xs="row">
+                        <label class="text-left">Morning Time</label>
                         <input ng-model="zonedata.morningTiming" type="time" class="form-control" name="expiration"  required id="pwd">
                   </md-input-container>
 
-                  <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
-                    <label>Zone Contact. e.g 98339-3302</label>
+                  <md-input-container class="md-icon-float md-block ue-zewzone-input-controller" layout-gt-xs="row">
+                    <label class="text-left">Zone Contact. e.g 98339-3302</label>
                     <input ng-model="zonedata.primaryContact" type="number" class="form-control" name="expiration"  required id="pwd">
               </md-input-container>
-              <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
-                <label>Free trails per month</label>
+              <md-input-container class="md-icon-float md-block ue-zewzone-input-controller" layout-gt-xs="row">
+                <label class="text-left">Free trails per month</label>
                 <input ng-model="zonedata.zonefreeTrailPerMonth" type="number" class="form-control" name="cuncurency"  required id="pwd">
           </md-input-container>
-          <md-input-container class="md-block">
-            <label>Plan Expire Message</label>
-            <textarea ng-model="zonedata.zoneMemberPlanExpireMessage" required md-maxlength="150" rows="5" md-select-on-focus id="plain-comment">Dear Member, Your plan has expired please renew it as Thnaks</textarea>
+          <md-input-container class="md-block ue-zewzone-text-controller">
+            <label class="text-left">Plan Expire Message</label>
+            <textarea ng-model="zonedata.zoneMemberPlanExpireMessage" class="ue-zewzone-textarea-controller-item" required md-maxlength="150" rows="5" md-select-on-focus id="plain-comment">Dear Member, Your plan has expired please renew it as Thnaks</textarea>
           </md-input-container>
 
                 </div>
                 <!-- end col-md-6 -->
                 <div class="col-md-6">
 
-                    <md-input-container class="md-icon-float md-block" layout-gt-sm="row">
-                        <label>Evening Time</label>
+                    <md-input-container class="md-icon-float md-block ue-zewzone-input-controller" layout-gt-sm="row">
+                        <label class="text-left">Evening Time</label>
                         <input ng-model="zonedata.eveningTime" type="time" class="form-control" name="expiration"  required id="zone-cost">
                   </md-input-container>
-                  <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
-                    <label>Short Description e.g This a pretty place to get fit</label>
+                  <md-input-container class="md-icon-float md-block ue-zewzone-input-controller" layout-gt-xs="row">
+                    <label class="text-left">Short Description e.g This a pretty place to get fit</label>
                     <input ng-model="zonedata.zoneShortDescription"  type="text" class="form-control" name="expiration"  required id="pwd">
               </md-input-container>
-              <md-input-container class="md-icon-float md-block" layout-gt-xs="row">
-                <label>Free Trial Limit Per Day e.g40  [How many user do you allow for free trail]</label>
+              <md-input-container class="md-icon-float md-block ue-zewzone-input-controller" layout-gt-xs="row">
+                <label class="text-left">Free Trial Limit Per Day e.g40  [How many user do you allow for free trail]</label>
                 <input ng-model="zonedata.zonefreeTrailPerDay"  type="number" class="form-control" name="cuncurency"  required id="pwd">
           </md-input-container>
-          <md-input-container class="md-block">
-            <label>Activate Member Message</label>
-            <textarea ng-model="zonedata.zoneMemberActivateMessage" required md-maxlength="150" rows="5" md-select-on-focus id="limit-comment">Drop Message..</textarea>
+          <md-input-container class="md-block ue-zewzone-textarea-controller">
+            <label class="text-left">Activate Member Message</label>
+            <textarea ng-model="zonedata.zoneMemberActivateMessage" class="ue-zewzone-textarea-controller-item" required md-maxlength="150" rows="5" md-select-on-focus id="limit-comment">Drop Message..</textarea>
           </md-input-container>
           
                 </div>
             </div>
             <!-- end col-md-6 -->
-            <md-input-container class="md-block">
-                <label>Deactivate Member Message</label>
-                <textarea ng-model="zonedata.zoneMemberDeactivateMessage" required md-maxlength="150" rows="5" md-select-on-focus id="failure-comment">Drop Message..</textarea>
+            <md-input-container class="md-block ue-zewzone-textarea-controller">
+                <label class="text-left">Deactivate Member Message</label>
+                <textarea ng-model="zonedata.zoneMemberDeactivateMessage" class="ue-zewzone-textarea-controller-item" required md-maxlength="150" rows="5" md-select-on-focus id="failure-comment">Drop Message..</textarea>
               </md-input-container>
             <div class="newzone-btn">
                 <button class="btn btn-sm btn-primary pull-right" ng-click="vm.sectionmobo('zone_upload',zonedata)">Next Step</button>
@@ -383,8 +387,8 @@
                 <div class="col-md-12 col-xs-11 col-xs-offset-1 col-sm-offset-1 col-sm-11 col-lg-12">
                     <div class="videos-links">
 
-                        <md-input-container>
-                            <label>Add Zone Videos</label>
+                        <md-input-container class="ue-zewzone-input-controller">
+                            <label class="text-left">Add Zone Videos</label>
                             <input ng-model="zonedata.vidurl"  type="url" class="form-control" name="text"  required id="zone-time">
                       </md-input-container>
 
