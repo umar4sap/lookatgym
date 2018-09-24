@@ -45,12 +45,16 @@
 <!-- end row form -->
 
 <div class="settingsMainAddbranch">
-        <div class="createbranchHeader" layout="row" layout-align="space-between center">
-            <h4>Create brach under {{vm.branchData.ownershipId}}</h4>
+        <div class="ue-heading-controller-db">
+                Create New Branch Under {{vm.branchData.ownershipId}}
+            </div>
+        <!-- <div class="createbranchHeader" layout="row" layout-align="space-between center">
+               
+            
             <button class="md-icon-button md-button " type="button" ng-click="vm.cancel()" aria-label="Close dialog">
                     <i class="material-icons ng-scope" >clear</i>
                 </button>
-        </div>
+        </div> -->
         <div class="createbranchBody">
             <form novalidate name="createNewbranch" autocomplete="off" ng-submit="createNewbranch.$valid">
                 <div class="signup_form create_branch">
@@ -58,8 +62,8 @@
                         <div class="signup_main_row position-relative noPadding">
                             <div class="signup_row">
                                    
-                                <md-input-container class="md-block paddingLeft">
-                                    <label>Name</label>
+                                <md-input-container class="md-block paddingLeft ue-zewzone-input-controller">
+                                   
                                     <input type="text" ng-model="branch.branchName" name="branchName" required placeholder="Enter branch Name" ng-disabled="vm.projectMode === 'readOnly'" />
                                     <div ng-messages="newProjectForm.projectName.$error" ng-if="newProjectForm.projectName.$touched">
                                         <div ng-message="required">This field is required</div>
@@ -69,9 +73,9 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="signup_row">
-                                <md-input-container class="md-block paddingLeft">
-                                    <label>Description</label>
-                                    <textarea class="textarea_short_height" name="branchDescription" ng-model="branch.branchDescription" placeholder="Enter the description of the branch..." required></textarea>
+                                <md-input-container class="md-block paddingLeft ue-zewzone-textarea-controller">
+                                  
+                                    <textarea class="textarea_short_height ue-zewzone-textarea-controller-item" name="branchDescription" ng-model="branch.branchDescription" placeholder="Enter the description of the branch..." required></textarea>
                                     <div ng-messages="createNewbranch.projectName.$error">
                                         <div ng-message="required">This field is required</div>
                                     </div>

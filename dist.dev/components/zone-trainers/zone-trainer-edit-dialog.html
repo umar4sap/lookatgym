@@ -1,9 +1,13 @@
 <div class="row">
     <div class="container">
         <div class="col-md-6 col-sm-5 col-xs-10">
-            <div class="creation-from" style="padding-left:20px;">
+            <div class="creation-from">
                 <form >
-                    <div class="form-group">
+                        <div class="ue-heading-controller-db">
+                                Create New Trainer
+                            </div>
+                    <div class="form-group ue-form-controller">
+                            
                             <div class="badge-logo" flow-init flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-files-submitted="$flow.upload()"
                                 flow-file-success="fileAdded( $file, $message, $flow )">
                                 <div>
@@ -26,16 +30,14 @@
                                 </div>
                             </div>
                         </div>
-                <div class="form-group">
-                    
+                <div class="form-group ue-form-controller">
                     <input type="text" class="form-control" id="trainer-name" placeholder="Trainer name" name="trainer-name" ng-model="vm.trainer.name">
                 </div>
-                <div class="form-group">
-
+                <div class="form-group ue-form-controller">
                     <input type="number" class="form-control" id="trainer-deuration" placeholder="Deparment" name="trainer-deuration"
                         ng-model="vm.trainer.deparment">
                 </div>
-                <div class="form-group">
+                <div class="form-group ue-form-controller">
                     <label for="text">Zone</label>
                     <select class="form-control" required id="sel1" ng-model="vm.trainer.zoneInfo">
 
@@ -44,20 +46,20 @@
                     </select>
                 </div>
                 <label for="deuration">Advanced details</label>
-                <div class="form-group">
+                <div class="form-group ue-form-controller">
                    
                     <input type="text" class="form-control" id="about-trainer" placeholder="About trainer" name="about-trainer" ng-model="vm.trainer.description">
                 </div>
-                <div class="form-group">
+                <div class="form-group ue-form-controller">
                     <label for="deuration">Joining date</label>
                     <label for="deuration">Joining date: {{vm.trainer.joiningDate | date}}</label>
                     <input type="date" class="form-control" id="trainer-offer" placeholder="%90$" name="trainer-offer" ng-model="vm.trainer.joiningDate">
                 </div>
-                <div class="form-group">
+                <div class="form-group ue-form-controller">
                     
                     <input type="number" class="form-control" id="trainer-price" placeholder="trainer monthly salary" name="trainer-price" ng-model="vm.trainer.monthlySalary">
                 </div>
-                <div class="form-group">
+                <div class="form-group ue-form-controller">
                     <label for="deuration">payout date</label>
                     <label for="deuration">Current payouts: {{vm.trainer.payoutDate | date}}</label>
                     <input type="date" class="form-control" id="trainer-offer" placeholder="" name="trainer-offer" ng-model="vm.trainer.payoutDate">

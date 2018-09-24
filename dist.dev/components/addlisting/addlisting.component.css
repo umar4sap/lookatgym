@@ -447,7 +447,7 @@ ul.checkout-bar li.active:before {
 ul.checkout-bar li.visited {
   background: #ECECEC;
   color: #57aed1;
-  z-index: 0; }
+  z-index: 99999; }
 
 ul.checkout-bar li.visited:before {
   background: #57aed1;
@@ -494,7 +494,7 @@ ul.checkout-bar a {
     top: -50px;
     z-index: 0; }
   .checkout-wrap {
-    margin: 20px auto !important; }
+    margin: 80px auto; }
   ul.checkout-bar {
     -webkit-box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
     box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
@@ -551,23 +551,3 @@ ul.checkout-bar a {
     top: -50px;
     width: 100%;
     z-index: 99; } }
-
-.ue-zewzone-input-controller > input {
-  border: 1px solid #102C58;
-  border-radius: 5px; }
-
-.ue-zewzone-input-controller > label {
-  margin: 0px 10px;
-  font-weight: 100; }
-
-.ue-zewzone-select-controller > label {
-  padding: 0px 10px !important; }
-
-.ue-zewzone-select-controller > .ue-zewzone-select-controller-item {
-  border: 1px solid #102C58 !important;
-  border-radius: 5px !important; }
-
-textarea.ue-zewzone-textarea-controller-item {
-  border: 1px solid #102C58 !important;
-  border-radius: 5px !important;
-  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2); }

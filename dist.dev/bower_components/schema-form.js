@@ -78,9 +78,19 @@ angular.module('schemaForm').provider('sfBuilder', ['sfPathProvider', function(s
   };
   var formId = 0;
 
+  if (!("firstElementChild" in document.createDocumentFragment())) {
+    Object.defineProperty(DocumentFragment.prototype, "firstElementChild", {
+      get: function () {
+        for (var nodes = this.childNodes, n, i = 0, l = nodes.length; i < l; ++i)
+          if (n = nodes[i], 1 === n.nodeType) return n;
+        return null;
+      }
+    });
+  }
+
   var builders = {
     sfField: function(args) {
-      args.fieldFrag.firstChild.setAttribute('sf-field', formId);
+      args.fieldFrag.firstElementChild.setAttribute('sf-field', formId);
 
       // We use a lookup table for easy access to our form.
       args.lookup['f' + formId] = args.form;
@@ -183,16 +193,19 @@ angular.module('schemaForm').provider('sfBuilder', ['sfPathProvider', function(s
         }
 
         var children = args.fieldFrag.children || args.fieldFrag.childNodes;
+        var child;
+        var ngIf;
         for (var i = 0; i < children.length; i++) {
-          var child = children[i];
-          var ngIf = child.getAttribute('ng-if');
-          child.setAttribute(
-            'ng-if',
-            ngIf ?
-            '(' + ngIf +
-            ') || (' + evalExpr + ')'
-            : evalExpr
-          );
+          child = children[i];
+          ngIf = false;
+
+          if (child.hasAttribute && child.hasAttribute('ng-if')) {
+            ngIf = child.getAttribute('ng-if');
+          };
+
+          if (child.setAttribute) {
+            child.setAttribute('ng-if', ngIf ? '(' + ngIf + ') || (' + evalExpr + ')' : evalExpr);
+          };
         }
       }
     },
@@ -200,7 +213,7 @@ angular.module('schemaForm').provider('sfBuilder', ['sfPathProvider', function(s
       var items = args.fieldFrag.querySelector('[schema-form-array-items]');
       if (items) {
         state = angular.copy(args.state);
-        state.keyRedaction = state.keyRedaction || 0;
+        state.keyRedaction = 0;
         state.keyRedaction += args.form.key.length + 1;
 
         // Special case, an array with just one item in it that is not an object.
@@ -489,8 +502,14 @@ angular.module('schemaForm').provider('schemaFormDecorators',
               if (!scope.ngModel) {
                 return false;
               }
-              return scope.ngModel.$valid &&
-                  (!scope.ngModel.$pristine || !scope.ngModel.$isEmpty(scope.ngModel.$modelValue));
+              if (scope.options && scope.options.pristine &&
+                  scope.options.pristine.success === false) {
+                return scope.ngModel.$valid &&
+                  (!scope.ngModel.$pristine && !scope.ngModel.$isEmpty(scope.ngModel.$modelValue));
+              } else {
+                return scope.ngModel.$valid &&
+                    (!scope.ngModel.$pristine || !scope.ngModel.$isEmpty(scope.ngModel.$modelValue));
+              }
             };
 
             scope.hasError = function() {
@@ -580,10 +599,18 @@ angular.module('schemaForm').provider('schemaFormDecorators',
                   // It looks better with dot notation.
                   scope.$on(
                     'schemaForm.error.' + form.key.join('.'),
-                    function(event, error, validationMessage, validity) {
+                    function(event, error, validationMessage, validity, formName) {
+                      // validationMessage and validity are mutually exclusive
+                      formName = validity;
                       if (validationMessage === true || validationMessage === false) {
                         validity = validationMessage;
                         validationMessage = undefined;
+                      }
+
+                      // If we have specified a form name, and this model is not within
+                      // that form, then leave things be.
+                      if(formName != undefined && scope.ngModel.$$parentForm.$name !== formName) {
+                        return;
                       }
 
                       if (scope.ngModel && error) {
@@ -669,7 +696,7 @@ angular.module('schemaForm').provider('schemaFormDecorators',
 
   var createManualDirective = function(type, templateUrl, transclude) {
     transclude = angular.isDefined(transclude) ? transclude : false;
-    $compileProvider.directive('sf' + angular.uppercase(type[0]) + type.substr(1), function() {
+    $compileProvider.directive('sf' + type[0].toUpperCase() + type.substr(1), function() {
       return {
         restrict: 'EAC',
         scope: true,
@@ -1171,6 +1198,7 @@ angular.module('schemaForm').provider('schemaForm',
     if (stripNullType(schema.type) === 'object') {
       var f   = stdFormObj(name, schema, options);
       f.type  = 'fieldset';
+      f.key   = options.path;
       f.items = [];
       options.lookup[sfPathProvider.stringify(options.path)] = f;
 
@@ -1389,7 +1417,7 @@ angular.module('schemaForm').provider('schemaForm',
         if (obj.type === 'checkbox' && angular.isUndefined(obj.schema['default'])) {
           obj.schema['default'] = false;
         }
-        
+
         // Special case: template type with tempplateUrl that's needs to be loaded before rendering
         // TODO: this is not a clean solution. Maybe something cleaner can be made when $ref support
         // is introduced since we need to go async then anyway
@@ -2085,10 +2113,18 @@ angular.module('schemaForm').directive('sfField',
               // It looks better with dot notation.
               scope.$on(
                 'schemaForm.error.' + form.key.join('.'),
-                function(event, error, validationMessage, validity) {
+                function(event, error, validationMessage, validity, formName) {
+                  // validationMessage and validity are mutually exclusive
+                  formName = validity;
                   if (validationMessage === true || validationMessage === false) {
                     validity = validationMessage;
                     validationMessage = undefined;
+                  }
+
+                  // If we have specified a form name, and this model is not within
+                  // that form, then leave things be.
+                  if(formName != undefined && scope.ngModel.$$parentForm.$name !== formName) {
+                    return;
                   }
 
                   if (scope.ngModel && error) {
@@ -2388,15 +2424,12 @@ function(sel, sfPath, schemaForm) {
             if (vals && vals !== old) {
               var arr = getOrCreateModel();
 
-              // Apparently the fastest way to clear an array, readable too.
-              // http://jsperf.com/array-destroy/32
-              while (arr.length > 0) {
-                arr.pop();
-              }
-              form.titleMap.forEach(function(item, index) {
-                if (vals[index]) {
+              form.titleMap.forEach(function (item, index) {
+                var arrIndex = arr.indexOf(item.value);
+                if (arrIndex === -1 && vals[index])
                   arr.push(item.value);
-                }
+                if (arrIndex !== -1 && !vals[index])
+                  arr.splice(arrIndex, 1);
               });
 
               // Time to validate the rebuilt array.

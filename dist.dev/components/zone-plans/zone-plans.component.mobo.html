@@ -7,9 +7,10 @@
             <button ng-click="vm.viewType('grid')" style="border:none;background:none;">
                 <i class="fas fa-th-large" style="font-size:20px"></i>
             </button>
-            <md-button class="md-primary md-fab md-fab-bottom-right hvr-pulse-grow" ng-click="vm.open('lg')" style="width:80px;height:50px;font-size:12px;font-weight:600;text-align:center">
+            <!-- <md-button class="md-primary md-fab md-fab-bottom-right hvr-pulse-grow" ng-click="vm.open('lg')" style="width:80px;height:50px;font-size:12px;position:fixed;;text-align:center">
                 <span> New Plan</span>
-            </md-button>
+            </md-button> -->
+           
         </div>
     </div>
     <div class="row">
@@ -80,8 +81,10 @@
                     </div>
                 </md-toolbar>
                 <md-content>
+                        <button  class="btn btn-info btn-sm pull-right" ng-click="vm.open('lg')"><i style="margin-right:5px;"  class="fas fa-user-plus"></i> Add New Plan</button>
                     <md-list flex>
-                        <md-subheader class="md-no-sticky">Active Plan</md-subheader>
+                        
+                        <md-subheader class="md-no-sticky">Active Plan </md-subheader>
                         <md-list-item class="md-3-line" ng-click="null" ng-repeat="plan in vm.plans">
                             <img ng-src="images/user.png" class="md-avatar" alt="member" />
                             <div class="md-list-item-text" layout="column">

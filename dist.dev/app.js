@@ -71,6 +71,19 @@
 				parent:"dashboard"
 				
 			})
+			.state('addlisting', {
+				url: '/addlisting',
+				views: {
+                    "main": {
+						templateUrl: 'components/addlisting/addlisting.component.mobo.html',
+						controller: 'addlistingController',
+						controllerAs: 'vm'
+
+					}
+				},
+				parent:"dashboard"
+				
+			})
 
 			.state('subscription', {
 				url: '/subscription',

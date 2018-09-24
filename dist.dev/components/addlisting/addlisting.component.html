@@ -1,0 +1,567 @@
+
+<div class="loading" style="position:fixed;top:350px;left:550px" ng-show="vm.inprogress">
+    <img src="images/loading.svg" alt="loading">
+  </div>
+<div class="screen-second-section">
+
+    <div class="container-fluid">
+        <header class="well screen-header-second">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="header-heading">
+                        <h4 class="header-name text-center">Create Zone</h4>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="header-buttons pull-right">
+                        <button type="button" class="btn btn-link">Save As Draft</button>
+                        <button type="button" class="btn btn-primary" ng-click="vm.live(zonedata)">Live</button>
+                        <a href="dashboard">
+                            <span class="glyphicon glyphicon-remove-circle close-icon" </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <!-- login steps -->
+    <div class="container-fluid">
+        <div class="wizard-prosses">
+            <div class="container">
+                <div class="stepwizard">
+                    <div class="stepwizard-row setup-panel">
+                        <div class="stepwizard-step col-xs-3">
+                            <a  type="button" class="btn btn-default btn-circle" ng-class="{'btn-success':zone_basics==true}" ng-click="vm.section('zone_basics')">1</a>
+                            <p>
+                                <small>Basic Details</small>
+                            </p>
+                        </div>
+                        <div class="stepwizard-step col-xs-3">
+                                <a type="button" class="btn btn-default btn-circle" ng-class="{'btn-success':zone_setting==true}" ng-click="vm.section('zone_setting')">2</a>
+                                <p>
+                                    <small>Setting</small>
+                                </p>
+                            </div>
+                        <div class="stepwizard-step col-xs-3">
+                            <a type="button" class="btn btn-default btn-circle" ng-class="{'btn-success':zone_upload==true}" ng-click="vm.section('zone_upload')">3</a>
+                            <p>
+                                <small>Videos/Images</small>
+                            </p>
+                        </div>
+                       
+                        <div class="stepwizard-step col-xs-3">
+                            <a type="button" class="btn btn-default btn-circle" ng-class="{'btn-success':pricing==true}" ng-click="vm.section('pricing')">4</a>
+                            <p>
+                                <small>Payments</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- login steps -->
+    <div class="space-dive"></div>
+
+    <!-- form area -->
+
+    <div id="zone-setting" class="form-section" ng-show="zone_setting">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <!--col-md-6 -->
+                    <form action="#">
+                        <div class="form-group">
+                            <label for="text">Morning Timinig</label>
+                            <timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+
+                            <pre class="alert alert-info">Time is: {{mytime | date:'shortTime' }}</pre>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Zone Contact</label>
+                            <input type="text" class="form-control"  required id="pwd" placeholder="Expiration....." name="expiration" ng-model="zonedata.primaryContact">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Free Trial Limit Per Month</label>
+                            <input type="text" class="form-control"  required id="pwd" placeholder="Cuncurency Limit....." name="cuncurency" ng-model="zonedata.zonefreeTrailPerMonth">
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Deactivate Member Message</label>
+                            <textarea class="form-control"  required rows="5" id="failure-comment" ng-model="zonedata.zoneMemberDeactivateMessage">Drop Message..</textarea>
+                        </div>
+                    </form>
+                </div>
+                <!-- end col-md-6 -->
+                <div class="col-md-6">
+                    <form action="#">
+                        <div class="form-group">
+                            <label for="text">Evening Time</label>
+                            <input type="text" class="form-control"  required id="zone-cost" placeholder="......." name="text" ng-model="zonedata.eveningTime">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Short Description</label>
+                            <input type="text" class="form-control"  required id="pwd" placeholder="......" name="duration" ng-model="zonedata.zoneShortDescription">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Free Trial Limit Per Day</label>
+                            <input type="text" class="form-control"  required id="pwd" placeholder="Limit....." required name="cuncurency" ng-model="zonedata.zonefreeTrailPerDay">
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Activate Member Message</label>
+                            <textarea class="form-control"  required rows="5" id="limit-comment" ng-model="zonedata.zoneMemberActivateMessage">Drop Message..</textarea>
+                        </div>
+                    </form>
+                </div>
+                <!-- end col-md-6 -->
+                <div class="row">
+                    <div class="message-plain">
+                        <div class="col-md-12">
+                            <form action="#">
+                                <div class="form-group">
+                                    <label for="comment">Plan Expire Message</label>
+                                    <textarea class="form-control"  required rows="5" id="plain-comment" ng-model="zonedata.zoneMemberPlanExpireMessage">Drop Message..</textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end 1st row -->
+
+        </div>
+    </div>
+
+    <!-- End Form -->
+
+
+    <div id="zone-basics" class="form-section" ng-show="zone_basics">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <!--col-md-6 -->
+                    <form action="#">
+                        <div class="form-group">
+                            <label for="text">Zone Name</label>
+                            <input type="text" class="form-control"  required id="zone-time" placeholder="Type Your Timing" name="text" ng-model="zonedata.zoneName">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Zone Owner</label>
+                            <input type="text" class="form-control"  required id="pwd" placeholder="Expiration....." name="expiration" ng-model="zonedata.zoneOwnerName">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Zone Since</label>
+                            <input type="text" class="form-control"  required id="pwd" placeholder="Cuncurency Limit....." name="cuncurency" ng-model="zonedata.zoneSince">
+                        </div>
+                        <div class="form-group">
+                                <label for="comment">Country</label>
+                                <select class="form-control"  required id="sel1" ng-model="zonedata.Country">
+                                        <option>India</option>
+                                        <option>Us</option>
+                                        <option>Uk</option>
+                                        <option>UAE</option>
+                                        <option>Canada</option>
+                                        <option>Africa</option>
+                                </select>
+                            </div>
+                        <div class="form-group">
+                                <label for="comment">City</label>
+                                <select class="form-control"  required id="sel1" ng-model="zonedata.city">
+                                        <option>Mumbai</option>
+                                        <option>Banglor</option>
+                                        <option>Hyderabad</option>
+                                </select>
+                            </div>
+                        <div class="form-group">
+                            <label for="comment">Zone Address</label>
+                            <textarea class="form-control"  required rows="5" id="failure-comment" ng-model="zonedata.zoneAddress">Address..</textarea>
+                        </div>
+                    </form>
+                </div>
+                <!-- end col-md-6 -->
+                <div class="col-md-6">
+                    <form action="#">
+                        <div class="form-group">
+                            <label for="sel1">Trainers</label>
+                            <select class="form-control"  required id="sel1" ng-model="zonedata.zoneTrainers">
+                                <option>Lala</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Zone Facilities</label>
+                            <select class="form-control"  required id="sel1" ng-model="zonedata.zoneCurrentFacilities">
+                                    <option>Wifi</option>
+                                    <option>Steam bath</option>
+                                    <option>spa</option>
+                                    <option>towel</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Discount Offers</label>
+                            <select class="form-control"  required id="sel1" ng-model="zonedata.zoneCurrentDiscounts">
+                                    <option>Cardio-20%</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Available For</label>
+                            <select class="form-control"  required id="sel1" ng-model="zonedata.zoneFor">
+                                    <option>For Unisex</option>
+                                    <option>For Male</option>
+                                    <option>For Woman</option>
+                            </select>
+                        </div>
+                    </form>
+                   <div class="form-group">
+                       <label class="map-label">Pick Your Location</label>
+                       <div id="map" class="zone-map"></div>
+                   </div>
+                </div>
+                <!-- end col-md-6 -->
+                <div class="row">
+                    <div class="message-plain">
+                        <div class="col-md-12">
+                            <form action="#">
+                                <div class="form-group">
+                                    <label for="comment">About Zone</label>
+                                    <textarea class="form-control"  required rows="5" id="plain-comment" ng-model="zonedata.aboutZone">About Zone.</textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- submit btn -->
+                <div class="newzone-sumbit-btn">
+                    <button type="submit" class="btn btn-primary">Next</button>
+                </div>
+            </div>
+            <!-- end 1st row -->
+
+        </div>
+    </div>
+     <!-- Zone cover Images -->
+
+     <div ng-show="zone_upload">
+    
+        <div class="container">
+            <div class="row">
+                    <div flow-init flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-files-submitted="$flow.upload()" flow-file-success="filelogoAdded( $file, $message, $flow )">
+                            <div class="thumbnail" ng-hide="$flow.files.length" style="width:200px;height:200px">
+                              <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" />
+                            </div>
+                            <div class="thumbnail" ng-show="$flow.files.length" style="width:200px;height:200px">
+                              <img flow-img="$flow.files[0]" />
+                              <div class="progress progress-striped" ng-class="{active: file.isUploading()}">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" ng-style="{width: (file.progress() * 100) + '%'}" style="width: 100%;">
+                                      <span class="sr-only ng-binding">1% Complete</span>
+                                    </div>
+                                  </div>
+                            </div>
+                            <div>
+                              <button  class="btn btn-xs btn-primary" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Select image</button>
+                             
+                              <button  class="btn btn-xs btn-danger" ng-show="$flow.files.length"
+                                 ng-click="$flow.cancel()">
+                                Remove
+                              </button>
+                            </div>
+                            <p>
+                              Only PNG,GIF,JPG files allowed.
+                            </p>
+                          </div>
+        </div>
+    </div>
+    <!--  -->
+   
+    <div class="images-upload" >
+        <div class="container">
+            <div class="row">
+                <div class="images-upload-head">
+                    <h4 class="head-text"> Add Zone Cover Images
+                        <small>
+                            <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                                been the industry's standard dummy text ever since the 1500s, when </p>
+                        </small>
+                    </h4>
+                </div>
+            </div>
+            <div class="upload-contain">
+                <div class="row" flow-init >
+                    <div class="col-md-8">
+                        <div class="upload-content-image">
+                            <center class="upload-img-cnt">
+                                
+                                    <div class="upload-img-cover">
+                                            <div  flow-init flow-files-submitted="$flow.upload()" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]"  flow-file-success="filecoverAdded( $file, $message, $flow )">
+                                                    <div class="thumbnail" ng-hide="$flow.files.length" style="width:400px;max-height:150px">
+                                                      <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" />
+                                                    </div>
+                                                    <div class="thumbnail" ng-show="$flow.files.length" style="width:400px;max-height:150px">
+                                                      <img flow-img="$flow.files[0]" />
+                                                      <div class="progress progress-striped" ng-class="{active: file.isUploading()}">
+                                                            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" ng-style="{width: (file.progress() * 100) + '%'}" style="width: 100%;">
+                                                              <span class="sr-only ng-binding">1% Complete</span>
+                                                            </div>
+                                                          </div>
+                                                    </div>
+                                                    <div>
+                                                      <button  class="btn btn-xs btn-primary" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Select image</button>
+        
+                                                      <button  class="btn btn-xs btn-danger" ng-show="$flow.files.length"
+                                                         ng-click="$flow.cancel()">
+                                                        Remove
+                                                      </button>
+                                                    </div>
+                                                    <p>
+                                                      Only PNG,GIF,JPG files allowed.
+                                                    </p>
+                                                  </div>
+                                    </div>
+                                
+                            </center>
+                            
+                        </div>
+                    </div>
+                    <!-- about cover images -->
+                    <div class="col-md-2">
+                        <div class="content-about-cover-images">
+                            <h2 class="text-left text-default">
+                                Important Guidnes
+                            </h2>
+                            <p class="text-default text-left">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                <br> Iipsum has been the industry's standard dummy text ever since the 1500s, when
+                                <br> unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                <br>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+                    <!-- end about cover images -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+   
+
+    <div class="zones-images-upload">
+        <div class="zone-upload">
+            <div class="container">
+                <div class="row">
+                    <div class="upload-heading">
+                        <h4 class="head-text">Zone Images
+                            <small>
+                                <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                    has been the industry's standard dummy text ever since the 1500s, when </p>
+                            </small>
+                        </h4>
+                    </div>
+                    <div class="">
+                        <div class="media-section" flow-init flow-files-submitted="$flow.upload()" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-file-success="fileimagesAdded( $file, $message, $flow )">
+                                <div class="drop" flow-drop="" ng-class="dropClass">
+                                        <span class="btn btn-default" flow-btn="">Upload Image<input type="file" multiple="multiple" style="visibility: hidden; position: absolute;"></span>
+                                        <span class="btn btn-default" flow-btn="" flow-directory="" ng-show="$flow.supportDirectory">Upload Folder of Images<input type="file" multiple="multiple" webkitdirectory="webkitdirectory" style="visibility: hidden; position: absolute;"></span>
+                                        <b>OR</b>
+                                        Drag And Drop your images here
+                                      </div>
+                            <div class="">
+                                   
+                                            
+    <div ng-repeat="file in $flow.files" class="gallery-box">
+            <span class="title">{{file.name}}</span>
+            <div class="thumbnail" ng-show="$flow.files.length">
+              <img flow-img="file" />
+            </div>
+            <div class="progress progress-striped" ng-class="{active: file.isUploading()}">
+              <div class="progress-bar" role="progressbar"
+                   aria-valuenow="{{file.progress() * 100}}"
+                   aria-valuemin="0"
+                   aria-valuemax="100"
+                   ng-style="{width: (file.progress() * 100) + '%'}">
+                <span class="sr-only">{{file.progress()}}% Complete</span>
+              </div>
+            </div>
+            <div class="btn-group">
+              <a class="btn btn-xs btn-danger" ng-click="file.cancel()">
+                Remove
+              </a>
+            </div>
+          </div>
+          
+                                                
+                                           
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="zone-videos">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="videos-links">
+                        <form action="#">
+                            <div class="form-group">
+
+                                <label for="text">Add Zone Videos</label>
+                                <input type="url" class="form-control"  required id="zone-time" ng-model="zonedata.vidurl" placeholder="https://www.youtube.com/watch?v=ETJj330AN48"name="text">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    </div>
+
+    <div class="zone-price-page" ng-show="pricing">
+        <div class="container">
+            <div class="row">
+                <!-- Tiles -->
+                <div class="zone-price-tiles">
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="zone-price-tile-free">
+                            <div class="zone-price-tile-header">
+                                <div class="zone-tile-title">
+                                    <p class="text-center" style="font-weight:bold;">Basic</p>
+                                </div>
+                                <div class="zone-tile-heading">
+                                    <h2 class="text-center">
+                                        <small>
+                                            <b> $ </b>
+                                        </small> 15.35
+                                        <small style="font-size:15px;"> USD </small>
+                                    </h2>
+                                </div>
+                                <div class="zone-tile-title">
+                                    <p class="text-center"> Per Month Bill Anually</p>
+                                </div>
+                            </div>
+                            <div class="zone-price-tile-body">
+                                <div class="row">
+                                    <div class="price-body-content">
+                                        <div class="pull-left">
+                                            <div class="price-body-content">
+                                                <h6 class="price-body-heading"> Zone</h6>
+                                            </div>
+                                        </div>
+                                        <div class="pull-right">
+                                            <h6 class="price-body-detail"> 01 at a time </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="price-body-content">
+                                        <div class="pull-left">
+                                            <div class="price-body-content">
+                                                <h6 class="price-body-heading"> Member </h6>
+                                            </div>
+                                        </div>
+                                        <div class="pull-right">
+                                            <h6 class="price-body-detail"> 50 active </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="price-body-content">
+                                        <div class="pull-left">
+                                            <div class="price-body-content">
+                                                <h6 class="price-body-heading"> Premium Apps </h6>
+                                            </div>
+                                        </div>
+                                        <div class="pull-right">
+                                            <h6 class="price-body-detail">
+                                                <input type="checkbox"> </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="price-body-content">
+                                        <div class="pull-left">
+                                            <div class="price-body-content">
+                                                <h6 class="price-body-heading"> Multi-Step Zaps </h6>
+                                            </div>
+                                        </div>
+                                        <div class="pull-right">
+                                            <h6 class="price-body-detail">
+                                                <input type="checkbox"> </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="price-body-content">
+                                        <div class="pull-left">
+                                            <div class="price-body-content">
+                                                <h6 class="price-body-heading"> AutoreplynTask </h6>
+                                            </div>
+                                        </div>
+                                        <div class="pull-right">
+                                            <h6 class="price-body-detail">
+                                                <input type="checkbox"> </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="zone-price-tile-footer text-center">
+                                <div class="zone-footer-tile-title">
+                                    <p class="text-center">Zone Run in Every 5 min</p>
+                                </div>
+                                <div class="price-tile-footer-button">
+                                    <button class="btn btn-default">Free Trail Plan</button>
+                                    <button style="margin-left:10px;" class="btn btn-danger">Buy Plan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Tiles -->
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- End Container -->
+</div>
+<!-- js links -->
+
+<script>
+        function myMap() {
+          var mapCanvas = document.getElementById("map");
+          var mapOptions = {
+            center: new google.maps.LatLng(51.5, -0.2), zoom: 10
+          };
+          var map = new google.maps.Map(mapCanvas, mapOptions);
+        }
+        </script>
+
+<style>
+input.ng-invalid {
+    background-color:pink;
+}
+input.ng-valid {
+    background-color:lightgreen;
+}
+.thumbnail>img {
+    display: block;
+    max-width: 400px;
+    height: auto;
+    max-height: 150px;
+}
+</style>
