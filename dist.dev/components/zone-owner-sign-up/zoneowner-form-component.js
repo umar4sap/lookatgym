@@ -5,9 +5,9 @@
         .module('zoneapp')
         .controller('zoneownerFormController', zoneownerFormController);
 
-    zoneownerFormController.$inject = ['authService', 'zoneService', '$scope', '$window', '$state'];
+    zoneownerFormController.$inject = ['authService', 'zoneService', '$scope', '$window', '$state','$mdDialog'];
 
-    function zoneownerFormController(authService, zoneService, $scope, $window, $state) {
+    function zoneownerFormController(authService, zoneService, $scope, $window, $state,$mdDialog) {
 
         var vm = this;
         vm.authService = authService;
@@ -15,6 +15,22 @@
         //loader
         //  $scope.loginLoader = $window.sessionStorage.getItem("loginLoader");
 
+
+        $scope.showAlert = function(ev,msg) {
+            // Appending dialog to document.body to cover sidenav in docs app
+            // Modal dialogs should fully cover application
+            // to prevent interaction outside of dialog
+            $mdDialog.show(
+              $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(true)
+                .title('Failed')
+                .textContent(msg)
+                .ariaLabel('Message')
+                .ok('ok')
+                .targetEvent(ev)
+            );
+          };
         vm.mockData = {
             "email": "jack@test.com",
             "name": "jack",
@@ -34,7 +50,7 @@
         }
 
         $scope.$watch('vm.signupData.confirmpassword', function (value) {
-            debugger;
+            
             if (vm.password == value) {
                 vm.passwordError = false;
             } else {
@@ -42,22 +58,25 @@
             }
         });
         vm.userRegistration = function (data) {
-            debugger;
-            vm.inprogress = true,
+            vm.inprogress = true;
+            document.getElementById("overlay").style.display = "block";
             vm.mockData.email = data.email;
             vm.mockData.name = data.name;
             vm.mockData.password = data.confirmpassword;
             vm.mockData.app_metadata = data.app_metadata;
             vm.mockData.app_metadata.permissions = { "ownerships": [] }
             zoneService.createUser(vm.mockData, function (err, res) {
-                if (!err) {    
+                if (!err) {
+                    document.getElementById("overlay").style.display = "none";
+                    vm.inprogress = false;
                     document.querySelector('.cont-sing-up').classList.toggle('s--signup');
                     vm.signupData = "";
-                    vm.inprogress = false;
+                    
                 } else {
                     vm.inprogress = false;
-                    alert(err.message)
-                    signupData = "";
+                    document.getElementById("overlay").style.display = "none";
+                    $scope.showAlert(null,err.message)
+                     signupData = "";
                 }
 
             })
@@ -71,6 +90,7 @@
         });
         vm.getToken = function (data) {
             debugger;
+            document.getElementById("overlay").style.display = "block";
             vm.inprogress = true;
             webAuth.client.login({
                 realm: "Username-Password-Authentication",
@@ -82,7 +102,10 @@
                 if (err) {
                     console.log(err)
                     vm.inprogress = false;
-                    alert("err")
+                    debugger;
+                    document.getElementById("overlay").style.display = "none";
+                    $scope.showAlert(null,err.description)
+                    
                 }
                 else {
                     var userDetails = authResult;
@@ -97,6 +120,7 @@
                         localStorage.setItem('profile', JSON.stringify(tokenData));
 
                         vm.inprogress = false;
+                        document.getElementById("overlay").style.display = "none";
                         $state.go('dashboard');
                     }
                     console.log("details" + userDetails)

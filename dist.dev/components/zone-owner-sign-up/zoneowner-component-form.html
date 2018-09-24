@@ -1,30 +1,34 @@
 
 
-<div class="loading" style="position:fixed;top:30%;left:35%" ng-show="vm.inprogress">
-        <p style="
-        -webkit-animation-name: hvr-pulse-grow;
-        animation-name: hvr-pulse-grow;
-        -webkit-animation-duration: 0.3s;
-        animation-duration: 0.3s;
-        -webkit-animation-timing-function: linear;
-        animation-timing-function: linear;
-        -webkit-animation-iteration-count: infinite;
-        animation-iteration-count: infinite;
-        -webkit-animation-direction: alternate;
-        animation-direction: alternate;
-        font-size: 17px;
-        color: skyblue;
-    ">Loading</p>
-    <img src="images/loading.svg" alt="loading">
-    
-</div>
 <div class="container-fluid">
     
-    <div class="row zone-signup-signin-form" style="background:#000;height:100%; background-size: 100% 100%;">
+    <div class="row zone-signup-signin-form" style="background:white;height:100%; background-size: 100% 100%;">
          
         <div class="cont-sing-up" style="margin-top:3%;overflow:hidden;">
             <div class="zone-signin-form sign-in">
-                <h2>Welcome back,</h2>
+                <h2>Fitness Studio Login</h2>
+                <h5>If already registered </h5>
+                <div id="overlay" onclick="off()">
+<div class="loading" style="position:fixed;top:50%;left:45%" ng-show="vm.inprogress">
+    <p style="
+    -webkit-animation-name: hvr-pulse-grow;
+    animation-name: hvr-pulse-grow;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+    font-size: 17px;
+    color: lightblue;
+    z-index:1000;
+">Loading</p>
+<img src="images/loading.svg" alt="loading">
+
+</div>
+</div>
                 <form ng-submit="vm.getToken(vm.login)">
                         <div class="zone-owner-form-inputs">
                                 
@@ -47,7 +51,7 @@
                 <div class="img-sign-zone">
                     <div class="img__text m--up">
                         <h2>New here?</h2>
-                        <p>Sign up and discover great amount of new opportunities!</p>
+                        <p>Sign up and discover Studio analystics !</p>
                     </div>
                     <div class="img__text m--in">
                         <h2>One of us?</h2>
