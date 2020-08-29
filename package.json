@@ -44,6 +44,6 @@
         "start": "node server.js"
     },
     "dependencies": {
-        "auth0-lock": "^11.2.3"
+        "auth0-lock": "^11.26.3"
     }
 }
